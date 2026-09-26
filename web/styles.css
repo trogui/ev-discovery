@@ -421,6 +421,93 @@ select:focus,
   color: #fff;
 }
 
+.editor.embedded {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+
+.library-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.library-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr 24px;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 4px;
+  border-radius: 6px;
+}
+
+.library-list li:hover,
+.library-list li.editing {
+  background: var(--hover);
+}
+
+.library-list li.inactive .library-entry {
+  opacity: 0.5;
+}
+
+.library-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.library-entry .small {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.library-name {
+  font-weight: 550;
+}
+
+.icon-button {
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+}
+
+.icon-button:hover {
+  color: var(--critical);
+}
+
+.button.add {
+  align-self: flex-start;
+}
+
+.badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--band);
+  vertical-align: 1px;
+}
+
 .hint {
   font-size: 12px;
   color: var(--muted);

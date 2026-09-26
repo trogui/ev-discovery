@@ -9,7 +9,7 @@ type Sticky = { forme: string; in: string[]; out: string[] };
 function collect(response: CalcResponse, band: Band, targets: Targets, base: Sticky): Sticky {
   const add = (mode: Mode) => {
     const species = new Set(base[mode]);
-    for (const r of response.results) if (r.rows.some((row) => row.direction === mode && inBand(row, band, targets))) species.add(r.species);
+    for (const r of response.results) if (r.rows.some((row) => row.direction === mode && inBand(row, band, targets))) species.add(r.key);
     return [...species];
   };
   return { forme: response.forme, in: add('in'), out: add('out') };

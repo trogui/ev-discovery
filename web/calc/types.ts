@@ -1,5 +1,5 @@
 import type { Stats } from '../../src/lib/spread';
-import type { Confidence } from '../../src/lib/types';
+import type { Confidence, MetaSet } from '../../src/lib/types';
 
 export type Weather = '' | 'Sun' | 'Rain' | 'Sand' | 'Snow';
 export type Terrain = '' | 'Grassy' | 'Psychic' | 'Electric' | 'Misty';
@@ -71,12 +71,16 @@ export type CalcRow = {
 };
 
 export type PokemonResult = {
+  key: string;
   species: string;
+  custom: boolean;
   rank: number;
   inTop: boolean;
   rows: CalcRow[];
   totalSets: number;
 };
 
-export type CalcRequest = { id: number; me: MySet; settings: CalcSettings; extraSpecies: string[] };
+export type CustomOpponent = { id: string; set: MetaSet };
+
+export type CalcRequest = { id: number; me: MySet; settings: CalcSettings; extraSpecies: string[]; custom: CustomOpponent[] };
 export type CalcResponse = { id: number; forme: string; results: PokemonResult[]; totalCalcs: number; ms: number };

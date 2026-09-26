@@ -4,8 +4,10 @@ import type { Meta } from '../src/lib/types';
 import type { CalcSettings, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
 import { Controls } from './components/Controls';
+import { Library } from './components/Library';
 import { Results } from './components/Results';
 import { SetEditor } from './components/SetEditor';
+import { activeOpponents, type LibraryEntry } from './library';
 import { EXAMPLE, buildMySet, importPaste, type EditableSet } from './me';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
@@ -36,6 +38,8 @@ export function App() {
   const [mode, setMode] = usePersistentState<Mode>('evd:mode', 'in');
   const [pinned, setPinned] = usePersistentState<string[]>('evd:pinned', []);
   const [open, setOpen] = usePersistentState<string[]>('evd:open', []);
+  const [library, setLibrary] = usePersistentState<LibraryEntry[]>('evd:library', []);
+  const custom = useMemo(() => activeOpponents(library), [library]);
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
   const calcSettings = useMemo<CalcSettings>(() => {
@@ -44,7 +48,7 @@ export function App() {
   }, [settings]);
 
   const me = useMemo(() => (mine ? buildMySet(mine) : null), [mine]);
-  const { response, pending } = useCalcs(me, calcSettings, pinned);
+  const { response, pending } = useCalcs(me, calcSettings, pinned, custom);
   const { sticky, reset } = useStickyList(response, settings.band, settings.targets);
 
   const togglePin = (species: string) => {
@@ -62,6 +66,7 @@ export function App() {
       </header>
       <aside className="side">
         <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
+        <Library entries={library} onChange={setLibrary} ranks={ranks} />
         <Controls settings={settings} onChange={setSettings} mode={mode} onReset={() => setSettings({ ...DEFAULT_SETTINGS, band: settings.band, targets: settings.targets, top: settings.top })} />
       </aside>
       <main className="main">

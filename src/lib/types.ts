@@ -23,7 +23,7 @@ export type MunchPokemon = {
   spreads: { sp: Stats; pct: number }[];
 };
 
-export type Confidence = 'paste' | 'paste-nature' | 'ladder' | 'ladder-only';
+export type Confidence = 'paste' | 'paste-nature' | 'ladder' | 'ladder-only' | 'custom';
 
 export type MetaSet = {
   weight: number;

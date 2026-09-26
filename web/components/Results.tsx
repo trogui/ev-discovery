@@ -149,16 +149,21 @@ function PokemonCard({ result, mode, view, open, pinned, onToggleOpen, onToggleP
     <li className={`card${open ? ' open' : ''}${inRange.length ? '' : ' dormant'}`}>
       <div className="card-head">
         <button type="button" className="card-toggle" onClick={onToggleOpen} aria-expanded={open}>
-          <span className="rank tabular">#{result.rank}</span>
-          <span className="name">{result.species}</span>
+          <span className="rank tabular">{result.custom ? '' : `#${result.rank}`}</span>
+          <span className="name">
+            {result.species}
+            {result.custom && <span className="badge">custom</span>}
+          </span>
           <StatusCounts rows={inRange} view={view} />
           <span className="chevron" aria-hidden>
             ›
           </span>
         </button>
-        <button type="button" className={pinned ? 'pin on' : 'pin'} onClick={onTogglePin} aria-pressed={pinned} title={pinned ? 'Unpin' : 'Pin to top'}>
-          <PinIcon filled={pinned} />
-        </button>
+        {!result.custom && (
+          <button type="button" className={pinned ? 'pin on' : 'pin'} onClick={onTogglePin} aria-pressed={pinned} title={pinned ? 'Unpin' : 'Pin to top'}>
+            <PinIcon filled={pinned} />
+          </button>
+        )}
       </div>
       {open && (
         <div className="card-body">
@@ -216,25 +221,26 @@ export function Results(props: Props) {
   const view: View = { band, targets };
   const hasInRange = (r: PokemonResult, m: Mode) => r.rows.some((row) => row.direction === m && inBand(row, band, targets));
   const stickySet = new Set(sticky[mode]);
-  const pinnedResults = pinned.map((s) => response.results.find((r) => r.species === s)).filter((r): r is PokemonResult => !!r);
+  const customResults = response.results.filter((r) => r.custom);
+  const pinnedResults = pinned.map((s) => response.results.find((r) => !r.custom && r.key === s)).filter((r): r is PokemonResult => !!r);
   const topResults = response.results.filter((r) => r.inTop);
-  const listed = topResults.filter((r) => !pinned.includes(r.species) && (hasInRange(r, mode) || stickySet.has(r.species)));
+  const listed = topResults.filter((r) => !pinned.includes(r.key) && (hasInRange(r, mode) || stickySet.has(r.key)));
   const dormant = listed.filter((r) => !hasInRange(r, mode)).length;
   const counts = { in: topResults.filter((r) => hasInRange(r, 'in')).length, out: topResults.filter((r) => hasInRange(r, 'out')).length };
-  const visible = [...pinnedResults, ...listed];
-  const allOpen = visible.length > 0 && visible.every((r) => open.includes(r.species));
+  const visible = [...customResults, ...pinnedResults, ...listed];
+  const allOpen = visible.length > 0 && visible.every((r) => open.includes(r.key));
   const toggleOpen = (species: string) => onOpenChange(open.includes(species) ? open.filter((s) => s !== species) : [...open, species]);
 
   const card = (r: PokemonResult) => (
     <PokemonCard
-      key={r.species}
+      key={r.key}
       result={r}
       mode={mode}
       view={view}
-      open={open.includes(r.species)}
-      pinned={pinned.includes(r.species)}
-      onToggleOpen={() => toggleOpen(r.species)}
-      onTogglePin={() => onTogglePin(r.species)}
+      open={open.includes(r.key)}
+      pinned={pinned.includes(r.key)}
+      onToggleOpen={() => toggleOpen(r.key)}
+      onTogglePin={() => onTogglePin(r.key)}
     />
   );
 
@@ -263,7 +269,7 @@ export function Results(props: Props) {
             </button>
           )}
           {visible.length > 0 && (
-            <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.species))}>
+            <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.key))}>
               {allOpen ? 'Collapse all' : 'Expand all'}
             </button>
           )}
@@ -278,17 +284,23 @@ export function Results(props: Props) {
         ))}
       </ul>
       {stale && <p className="hint">Your set has an error, showing the last valid results.</p>}
+      {customResults.length > 0 && (
+        <>
+          <h3 className="section-title">Custom</h3>
+          <ul className="cards">{customResults.map(card)}</ul>
+        </>
+      )}
       {pinnedResults.length > 0 && (
         <>
           <h3 className="section-title">Pinned</h3>
           <ul className="cards">{pinnedResults.map(card)}</ul>
-          {listed.length > 0 && <h3 className="section-title">By usage</h3>}
         </>
       )}
+      {(customResults.length > 0 || pinnedResults.length > 0) && listed.length > 0 && <h3 className="section-title">By usage</h3>}
       {listed.length > 0 ? (
         <ul className="cards">{listed.map(card)}</ul>
       ) : (
-        !pinnedResults.length && <div className="empty muted">Nothing in this range. Widen it or include more opponents.</div>
+        !pinnedResults.length && !customResults.length && <div className="empty muted">Nothing in this range. Widen it or include more opponents.</div>
       )}
       <p className="muted small footnote">
         {response.totalCalcs} calcs in {Math.round(response.ms)} ms

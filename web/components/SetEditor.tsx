@@ -23,6 +23,8 @@ type Props = {
   onChange: (value: EditableSet) => void;
   ranks: Map<string, number>;
   footer?: React.ReactNode;
+  embedded?: boolean;
+  headerAction?: React.ReactNode;
 };
 
 export function fromPreset(species: string, preset: Preset, current?: EditableSet | null): EditableSet {
@@ -85,7 +87,7 @@ function SpRow({ stat, label, value, set, onChange }: { stat: keyof Stats; label
   );
 }
 
-export function SetEditor({ title, value, onChange, ranks, footer }: Props) {
+export function SetEditor({ title, value, onChange, ranks, footer, embedded, headerAction }: Props) {
   const presets = usePresets();
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteText, setPasteText] = useState('');
@@ -119,12 +121,15 @@ export function SetEditor({ title, value, onChange, ranks, footer }: Props) {
   };
 
   return (
-    <section className="panel editor">
+    <section className={embedded ? 'editor embedded' : 'panel editor'}>
       <div className="panel-head">
         <h2>{title}</h2>
-        <button type="button" className="link small" onClick={togglePaste}>
-          {pasteOpen ? 'Close paste' : 'Import / export'}
-        </button>
+        <div className="actions">
+          <button type="button" className="link small" onClick={togglePaste}>
+            {pasteOpen ? 'Close paste' : 'Import / export'}
+          </button>
+          {headerAction}
+        </div>
       </div>
 
       {pasteOpen && (

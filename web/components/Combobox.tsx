@@ -55,7 +55,7 @@ export function Combobox({ value, options, onChange, placeholder, allowEmpty, cl
         aria-expanded={open}
         aria-controls={id}
         value={query ?? value ?? ''}
-        placeholder={placeholder}
+        placeholder={open && value ? value : placeholder}
         spellCheck={false}
         onFocus={() => setQuery('')}
         onChange={(e) => setQuery(e.target.value)}
