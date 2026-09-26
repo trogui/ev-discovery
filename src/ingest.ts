@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { mergePokemon } from './merge.js';
+import { buildPresets } from './presets.js';
 import type { Meta, SourceSet } from './lib/types.js';
 import { ingestLimitless } from './sources/limitless.js';
 import { ingestMunchStats } from './sources/munchstats.js';
@@ -53,7 +54,10 @@ const meta: Meta = {
   pokemon: munch.pokemon.map((p) => mergePokemon(p, tournamentBySpecies.get(p.species) ?? [], pasteBySpecies.get(p.species) ?? [])),
 };
 await writeJson('meta.json', meta);
+const presets = buildPresets(REGULATION, limitless.sets, pastes.sets);
+await writeFile(join(DATA_DIR, 'presets.json'), JSON.stringify(presets) + '\n');
 
 const confidence = new Map<string, number>();
 for (const p of meta.pokemon) for (const s of p.sets) confidence.set(s.confidence, (confidence.get(s.confidence) ?? 0) + 1);
+log(`presets.json: ${presets.species.length} species, ${presets.species.reduce((n, p) => n + p.presets.length, 0)} presets`);
 log(`meta.json: ${meta.pokemon.length} pokemon, ${meta.pokemon.reduce((n, p) => n + p.sets.length, 0)} sets ${JSON.stringify(Object.fromEntries(confidence))}`);
