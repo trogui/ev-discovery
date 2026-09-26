@@ -19,7 +19,7 @@ export const EMPTY_SIDE: SideToggles = {
 export const DEFAULT_SETTINGS: Settings = {
   band: [85, 115],
   targets: { ohko: true, twohko: true },
-  top: 40,
+  top: 100,
   autoIntimidate: true,
   gravity: false,
   crit: false,

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useEffect, useRef, type ReactNode } from 'react';
 import type { Boosts, Settings, SideToggles } from '../calc/types';
 import type { LibraryEntry } from '../library';
 import { DEFAULT_SETTINGS, EMPTY_SIDE } from '../settings';
@@ -135,9 +135,50 @@ type Props = {
   customOnly: boolean;
   onCustomOnlyChange: (v: boolean) => void;
   ranks: Map<string, number>;
+  query: string;
+  onQueryChange: (q: string) => void;
 };
 
-export function Toolbar({ settings, onChange, mode, library, onLibraryChange, customOnly, onCustomOnlyChange, ranks }: Props) {
+function SearchBox({ value, onChange }: { value: string; onChange: (q: string) => void }) {
+  const ref = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (e.key === '/' && !['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName)) {
+        e.preventDefault();
+        ref.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
+  return (
+    <label className="search">
+      <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden>
+        <circle cx="7" cy="7" r="5" fill="none" stroke="currentColor" strokeWidth="1.6" />
+        <path d="m11 11 3.5 3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      </svg>
+      <input
+        ref={ref}
+        type="search"
+        value={value}
+        placeholder="Find a Pokémon"
+        aria-label="Find a Pokémon"
+        spellCheck={false}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            onChange('');
+            e.currentTarget.blur();
+          }
+        }}
+      />
+      {!value && <kbd>/</kbd>}
+    </label>
+  );
+}
+
+export function Toolbar({ settings, onChange, mode, library, onLibraryChange, customOnly, onCustomOnlyChange, ranks, query, onQueryChange }: Props) {
   const set = <K extends keyof Settings>(key: K, value: Settings[K]) => onChange({ ...settings, [key]: value });
   const [lo, hi] = settings.band;
   const targets = [settings.targets.ohko && 'OHKO', settings.targets.twohko && '2HKO'].filter(Boolean).join(' + ');
@@ -148,6 +189,7 @@ export function Toolbar({ settings, onChange, mode, library, onLibraryChange, cu
   return (
     <div className="toolbar-wrap">
       <div className="toolbar">
+        <SearchBox value={query} onChange={onQueryChange} />
         <Popover label={`${lo}–${hi}% of ${targets}`}>
           <div className="panel-stack">
             <div className="field">
@@ -177,7 +219,7 @@ export function Toolbar({ settings, onChange, mode, library, onLibraryChange, cu
         <Popover label={`Top ${settings.top}`}>
           <div className="panel-stack">
             <span className="field-title">Opponents by in-game usage</span>
-            <Segmented label="Opponents" value={settings.top} onChange={(v) => set('top', v)} options={[[10, 'Top 10'], [20, 'Top 20'], [40, 'Top 40']]} />
+            <Segmented label="Opponents" value={settings.top} onChange={(v) => set('top', v)} options={[[20, 'Top 20'], [40, 'Top 40'], [100, 'Top 100']]} />
           </div>
         </Popover>
 

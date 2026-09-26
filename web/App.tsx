@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import metaJson from '../data/meta.json';
 import type { Meta } from '../src/lib/types';
 import type { CalcSettings, Settings } from './calc/types';
@@ -29,6 +29,19 @@ function initialSet(): EditableSet | null {
 
 const INITIAL_SET = initialSet();
 
+function migrateTop() {
+  try {
+    if (localStorage.getItem('evd:migrated:top100')) return;
+    const stored = localStorage.getItem('evd:settings');
+    if (stored) localStorage.setItem('evd:settings', JSON.stringify({ ...JSON.parse(stored), top: 100 }));
+    localStorage.setItem('evd:migrated:top100', '1');
+  } catch {
+    return;
+  }
+}
+
+migrateTop();
+
 const dateFormat = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short' });
 
 export function App() {
@@ -40,6 +53,7 @@ export function App() {
   const [library, setLibrary] = usePersistentState<LibraryEntry[]>('evd:library', []);
   const [customOnly, setCustomOnly] = usePersistentState<boolean>('evd:customOnly', false);
   const custom = useMemo(() => activeOpponents(library), [library]);
+  const [query, setQuery] = useState('');
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
   const calcSettings = useMemo<CalcSettings>(() => {
@@ -92,6 +106,7 @@ export function App() {
             onModeChange={setMode}
             customOnly={customOnly}
             hasLibrary={library.some((e) => e.active)}
+            query={query}
             toolbar={
               <Toolbar
                 settings={settings}
@@ -102,6 +117,8 @@ export function App() {
                 customOnly={customOnly}
                 onCustomOnlyChange={setCustomOnly}
                 ranks={ranks}
+                query={query}
+                onQueryChange={setQuery}
               />
             }
             sticky={sticky}

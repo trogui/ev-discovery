@@ -850,6 +850,51 @@ select:hover {
   margin-left: auto;
 }
 
+.search {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 8px 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  width: 200px;
+  cursor: text;
+}
+
+.search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  padding: 6px 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.search input:focus {
+  outline: none;
+}
+
+.search input::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.search kbd {
+  font-family: inherit;
+  font-size: 12px;
+  padding: 0 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
 .chips {
   display: flex;
   gap: 6px;

@@ -253,6 +253,7 @@ type Props = {
   customOnly: boolean;
   hasLibrary: boolean;
   toolbar: ReactNode;
+  query: string;
   sticky: Record<Mode, string[]>;
   onResetSticky: () => void;
   pinned: string[];
@@ -262,7 +263,7 @@ type Props = {
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
   const only = customOnly && hasLibrary;
@@ -293,11 +294,19 @@ export function Results(props: Props) {
     />
   );
 
-  const sections: [string, PokemonResult[]][] = [
-    ['Your sets', customResults],
-    ['Pinned', pinnedResults],
-    ['By usage', listed],
-  ];
+  const q = query.toLowerCase().replace(/[^a-z0-9]/g, '');
+  const matches = q
+    ? eligible
+        .filter((r) => r.species.toLowerCase().replace(/[^a-z0-9]/g, '').includes(q))
+        .sort((a, b) => Number(!a.species.toLowerCase().startsWith(query.toLowerCase().trim())) - Number(!b.species.toLowerCase().startsWith(query.toLowerCase().trim())) || (a.rank || 999) - (b.rank || 999))
+    : [];
+  const sections: [string, PokemonResult[]][] = q
+    ? [['Search', matches]]
+    : [
+        ['Your sets', customResults],
+        ['Pinned', pinnedResults],
+        ['By usage', listed],
+      ];
   const nonEmpty = sections.filter(([, list]) => list.length);
 
   return (
@@ -342,7 +351,8 @@ export function Results(props: Props) {
           <ul className="cards">{list.map(card)}</ul>
         </section>
       ))}
-      {!nonEmpty.length && (
+      {!nonEmpty.length && q && <div className="empty muted">No Pokémon matching “{query}” in the top {top}.</div>}
+      {!nonEmpty.length && !q && (
         <div className="empty muted">{only ? 'No sets in your library yet. Add some from Library.' : 'Nothing in this range. Widen it or include more opponents.'}</div>
       )}
       <p className="muted small footnote">
