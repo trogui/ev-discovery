@@ -4,7 +4,7 @@ import type { Meta } from '../src/lib/types';
 import type { Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
 import { Controls } from './components/Controls';
-import { Results } from './components/Results';
+import { Results, type Mode } from './components/Results';
 import { SetInput } from './components/SetInput';
 import { parseMySet } from './me';
 import { usePersistentState } from './usePersistentState';
@@ -16,7 +16,6 @@ const NO_SIDE = { reflect: false, lightScreen: false, helpingHand: false, friend
 const DEFAULT_SETTINGS: Settings = {
   band: [85, 115],
   top: 40,
-  direction: 'both',
   autoIntimidate: true,
   weather: 'auto',
   terrain: 'auto',
@@ -29,6 +28,7 @@ const dateFormat = new Intl.DateTimeFormat('es', { day: 'numeric', month: 'short
 export function App() {
   const [text, setText] = usePersistentState('evd:set', '');
   const [settings, setSettings] = usePersistentState<Settings>('evd:settings', DEFAULT_SETTINGS);
+  const [mode, setMode] = usePersistentState<Mode>('evd:mode', 'in');
   const parsed = useMemo(() => parseMySet(text), [text]);
   const me = parsed.ok ? parsed.set : null;
   const stableMe = useMemo(() => me, [JSON.stringify(me)]);
@@ -44,13 +44,13 @@ export function App() {
       </header>
       <aside className="side">
         <SetInput text={text} onChange={setText} parsed={parsed} />
-        <Controls settings={settings} onChange={setSettings} />
+        <Controls settings={settings} onChange={setSettings} mode={mode} />
         <button type="button" className="link reset" onClick={() => setSettings(DEFAULT_SETTINGS)}>
           Restablecer ajustes
         </button>
       </aside>
       <main className="main">
-        <Results response={response} pending={pending} band={settings.band} top={settings.top} hasSet={!!me} />
+        <Results response={response} pending={pending} band={settings.band} top={settings.top} hasSet={!!me} mode={mode} onModeChange={setMode} />
       </main>
     </div>
   );

@@ -105,8 +105,7 @@ export function computeAll(meta: Meta, me: MySet, settings: Settings) {
       const opp: Combatant = { forme: set.forme, item: set.item, ability: set.ability, nature: set.nature, sp: set.sp };
       const ref = { forme: set.forme, item: set.item, nature: set.nature, sp: set.sp, weight: set.weight, confidence: set.confidence };
 
-      const directions: ('in' | 'out')[] = settings.direction === 'both' ? ['in', 'out'] : [settings.direction];
-      for (const direction of directions) {
+      for (const direction of ['in', 'out'] as const) {
         const attacker = direction === 'in' ? opp : me;
         const defender = direction === 'in' ? me : opp;
         const moves = direction === 'in' ? set.moves : me.moves;

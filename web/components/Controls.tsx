@@ -1,6 +1,6 @@
 import type { Settings, SideToggles } from '../calc/types';
 
-type Props = { settings: Settings; onChange: (settings: Settings) => void };
+type Props = { settings: Settings; onChange: (settings: Settings) => void; mode: 'in' | 'out' };
 
 function Segmented<T extends string | number>({ value, options, onChange, label }: { value: T; options: [T, string][]; onChange: (v: T) => void; label: string }) {
   return (
@@ -14,17 +14,18 @@ function Segmented<T extends string | number>({ value, options, onChange, label 
   );
 }
 
-const SIDE_TOGGLES: [keyof SideToggles, string][] = [
-  ['helpingHand', 'Helping Hand'],
+const ATTACKER_TOGGLES: [keyof SideToggles, string][] = [['helpingHand', 'Helping Hand']];
+
+const DEFENDER_TOGGLES: [keyof SideToggles, string][] = [
   ['reflect', 'Reflect'],
   ['lightScreen', 'Light Screen'],
   ['friendGuard', 'Friend Guard'],
 ];
 
-function SideChips({ value, onChange }: { value: SideToggles; onChange: (v: SideToggles) => void }) {
+function SideChips({ value, onChange, toggles }: { value: SideToggles; onChange: (v: SideToggles) => void; toggles: [keyof SideToggles, string][] }) {
   return (
     <div className="chips">
-      {SIDE_TOGGLES.map(([key, label]) => (
+      {toggles.map(([key, label]) => (
         <button key={key} type="button" aria-pressed={value[key]} className={value[key] ? 'chip on' : 'chip'} onClick={() => onChange({ ...value, [key]: !value[key] })}>
           {label}
         </button>
@@ -37,7 +38,7 @@ function clampBand(n: number) {
   return Math.max(1, Math.min(300, Math.round(n)));
 }
 
-export function Controls({ settings, onChange }: Props) {
+export function Controls({ settings, onChange, mode }: Props) {
   const set = <K extends keyof Settings>(key: K, value: Settings[K]) => onChange({ ...settings, [key]: value });
   const [lo, hi] = settings.band;
 
@@ -56,20 +57,6 @@ export function Controls({ settings, onChange }: Props) {
       <div className="field">
         <label className="label">Rivales</label>
         <Segmented label="Rivales" value={settings.top} onChange={(v) => set('top', v)} options={[[10, 'Top 10'], [20, 'Top 20'], [40, 'Top 40']]} />
-      </div>
-
-      <div className="field">
-        <label className="label">Cálculos</label>
-        <Segmented
-          label="Dirección"
-          value={settings.direction}
-          onChange={(v) => set('direction', v)}
-          options={[
-            ['both', 'Ambos'],
-            ['in', 'Recibes'],
-            ['out', 'Haces'],
-          ]}
-        />
       </div>
 
       <div className="field two">
@@ -108,11 +95,11 @@ export function Controls({ settings, onChange }: Props) {
 
       <div className="field">
         <label className="label">Tu lado</label>
-        <SideChips value={settings.mine} onChange={(v) => set('mine', v)} />
+        <SideChips value={settings.mine} onChange={(v) => set('mine', v)} toggles={mode === 'in' ? DEFENDER_TOGGLES : ATTACKER_TOGGLES} />
       </div>
       <div className="field">
         <label className="label">Lado rival</label>
-        <SideChips value={settings.theirs} onChange={(v) => set('theirs', v)} />
+        <SideChips value={settings.theirs} onChange={(v) => set('theirs', v)} toggles={mode === 'in' ? ATTACKER_TOGGLES : DEFENDER_TOGGLES} />
       </div>
     </section>
   );

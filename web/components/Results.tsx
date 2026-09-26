@@ -68,80 +68,75 @@ function RowView({ row, species, band }: { row: CalcRow; species: string; band: 
   );
 }
 
-function SummaryGroup({ label, rows }: { label: string; rows: CalcRow[] }) {
-  if (!rows.length) return null;
-  return (
-    <span className="summary-group">
-      <span className="muted small">{label}</span>
-      <span className="dots">
-        {rows.map((r) => (
-          <span key={r.key} className={`dot s-${statusOf(r)}`} />
-        ))}
-      </span>
-    </span>
-  );
-}
+const STATUS_ORDER: Status[] = ['critical', 'serious', 'warning', 'good'];
 
-function Summary({ rows }: { rows: CalcRow[] }) {
+function StatusCounts({ rows }: { rows: CalcRow[] }) {
+  const counts = new Map<Status, number>();
+  for (const r of rows) counts.set(statusOf(r), (counts.get(statusOf(r)) ?? 0) + 1);
   return (
     <div className="summary">
-      <SummaryGroup label="Recibes" rows={rows.filter((r) => r.direction === 'in')} />
-      <SummaryGroup label="Haces" rows={rows.filter((r) => r.direction === 'out')} />
+      {STATUS_ORDER.filter((s) => counts.get(s)).map((s) => (
+        <span key={s} className={`outcome s-${s}`}>
+          <span className="outcome-icon" aria-hidden>
+            {STATUS_ICON[s]}
+          </span>
+          <span className="tabular">{counts.get(s)}</span>
+        </span>
+      ))}
     </div>
   );
 }
 
-function PokemonCard({ result, open, onToggle, band }: { result: PokemonResult; open: boolean; onToggle: () => void; band: [number, number] }) {
-  const incoming = result.rows.filter((r) => r.direction === 'in');
-  const outgoing = result.rows.filter((r) => r.direction === 'out');
+function PokemonCard({ result, rows, open, onToggle, band }: { result: PokemonResult; rows: CalcRow[]; open: boolean; onToggle: () => void; band: [number, number] }) {
   return (
     <li className={open ? 'card open' : 'card'}>
       <button type="button" className="card-head" onClick={onToggle} aria-expanded={open}>
         <span className="rank tabular">#{result.rank}</span>
         <span className="name">{result.species}</span>
-        <Summary rows={result.rows} />
+        <StatusCounts rows={rows} />
         <span className="chevron" aria-hidden>
           ›
         </span>
       </button>
       {open && (
         <div className="card-body">
-          {incoming.length > 0 && (
-            <>
-              <h3>Lo que te hace</h3>
-              <ul className="calcs">
-                {incoming.map((r) => (
-                  <RowView key={r.key} row={r} species={result.species} band={band} />
-                ))}
-              </ul>
-            </>
-          )}
-          {outgoing.length > 0 && (
-            <>
-              <h3>Lo que le haces</h3>
-              <ul className="calcs">
-                {outgoing.map((r) => (
-                  <RowView key={r.key} row={r} species={result.species} band={band} />
-                ))}
-              </ul>
-            </>
-          )}
+          <ul className="calcs">
+            {rows.map((r) => (
+              <RowView key={r.key} row={r} species={result.species} band={band} />
+            ))}
+          </ul>
         </div>
       )}
     </li>
   );
 }
 
-const LEGEND: [Status, string][] = [
-  ['good', 'Seguro a tu favor'],
-  ['warning', 'Probable a tu favor'],
-  ['serious', 'Probable en contra'],
-  ['critical', 'Seguro en contra'],
-];
+export type Mode = 'in' | 'out';
 
-type Props = { response: CalcResponse | null; pending: boolean; band: [number, number]; top: number; hasSet: boolean };
+const MODES: Record<Mode, { label: string; description: string; legend: Record<Status, string> }> = {
+  in: {
+    label: 'Defensivo',
+    description: 'Lo que te hacen sus ataques',
+    legend: { good: 'Aguantas seguro', warning: 'Probablemente aguantas', serious: 'Probablemente te mata', critical: 'Te mata seguro' },
+  },
+  out: {
+    label: 'Ofensivo',
+    description: 'Lo que les hacen tus ataques',
+    legend: { good: 'Lo matas seguro', warning: 'Probablemente lo matas', serious: 'Probablemente no lo matas', critical: 'No lo matas' },
+  },
+};
 
-export function Results({ response, pending, band, top, hasSet }: Props) {
+type Props = {
+  response: CalcResponse | null;
+  pending: boolean;
+  band: [number, number];
+  top: number;
+  hasSet: boolean;
+  mode: Mode;
+  onModeChange: (mode: Mode) => void;
+};
+
+export function Results({ response, pending, band, top, hasSet, mode, onModeChange }: Props) {
   const [open, setOpen] = useState<Set<string>>(new Set());
   if (!hasSet)
     return (
@@ -154,8 +149,11 @@ export function Results({ response, pending, band, top, hasSet }: Props) {
     );
   if (!response) return <div className="empty muted">Calculando…</div>;
 
-  const results = response.results;
-  const allOpen = results.length > 0 && results.every((r) => open.has(r.species));
+  const byMode = (m: Mode) =>
+    response.results.map((result) => ({ result, rows: result.rows.filter((r) => r.direction === m) })).filter((x) => x.rows.length > 0);
+  const visible = byMode(mode);
+  const counts = { in: byMode('in').length, out: byMode('out').length };
+  const allOpen = visible.length > 0 && visible.every((v) => open.has(v.result.species));
   const toggle = (species: string) =>
     setOpen((prev) => {
       const next = new Set(prev);
@@ -166,39 +164,52 @@ export function Results({ response, pending, band, top, hasSet }: Props) {
 
   return (
     <div className={pending ? 'results stale' : 'results'}>
+      <div className="tabs" role="tablist">
+        {(Object.keys(MODES) as Mode[]).map((m) => (
+          <button key={m} type="button" role="tab" aria-selected={mode === m} className={mode === m ? 'tab on' : 'tab'} onClick={() => onModeChange(m)}>
+            <span className="tab-label">{MODES[m].label}</span>
+            <span className="tab-count tabular">{counts[m]}</span>
+          </button>
+        ))}
+      </div>
       <div className="results-head">
         <p>
-          <strong>{results.length}</strong> de {top} rivales con cálculos al filo
+          {MODES[mode].description}
           <span className="muted">
             {' '}
-            · {results.reduce((n, r) => n + r.rows.length, 0)} cálculos · {response.totalCalcs} evaluados en {Math.round(response.ms)} ms
+            · <span className="tabular">{visible.length}</span> de {top} rivales · <span className="tabular">{visible.reduce((n, v) => n + v.rows.length, 0)}</span> cálculos al filo
           </span>
         </p>
-        {results.length > 0 && (
-          <button type="button" className="link" onClick={() => setOpen(allOpen ? new Set() : new Set(results.map((r) => r.species)))}>
+        {visible.length > 0 && (
+          <button type="button" className="link" onClick={() => setOpen(allOpen ? new Set() : new Set(visible.map((v) => v.result.species)))}>
             {allOpen ? 'Contraer todo' : 'Expandir todo'}
           </button>
         )}
       </div>
       <ul className="legend">
-        {LEGEND.map(([status, label]) => (
+        {STATUS_ORDER.map((status) => (
           <li key={status} className={`outcome s-${status}`}>
             <span className="outcome-icon" aria-hidden>
               {STATUS_ICON[status]}
             </span>
-            {label}
+            {MODES[mode].legend[status]}
           </li>
         ))}
       </ul>
-      {results.length === 0 ? (
-        <div className="empty muted">Nada cae en este rango. Prueba a ampliarlo o a subir el número de rivales.</div>
+      {visible.length === 0 ? (
+        <div className="empty muted">
+          {mode === 'out' && !response.results.some((r) => r.rows.some((x) => x.direction === 'out'))
+            ? 'Nada al filo. Si tu set no tiene movimientos de daño, aquí no saldrá nada.'
+            : 'Nada cae en este rango. Prueba a ampliarlo o a subir el número de rivales.'}
+        </div>
       ) : (
         <ul className="cards">
-          {results.map((r) => (
-            <PokemonCard key={r.species} result={r} open={open.has(r.species)} onToggle={() => toggle(r.species)} band={band} />
+          {visible.map(({ result, rows }) => (
+            <PokemonCard key={result.species} result={result} rows={rows} open={open.has(result.species)} onToggle={() => toggle(result.species)} band={band} />
           ))}
         </ul>
       )}
+      <p className="muted small footnote">{response.totalCalcs} cálculos en {Math.round(response.ms)} ms</p>
     </div>
   );
 }

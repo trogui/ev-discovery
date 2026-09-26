@@ -361,6 +361,50 @@ select {
   opacity: 0.6;
 }
 
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px 10px;
+  margin-bottom: -1px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  cursor: pointer;
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.on {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--text);
+}
+
+.tab-count {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--hover);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+}
+
+.footnote {
+  text-align: right;
+}
+
 .results-head {
   display: flex;
   justify-content: space-between;
@@ -423,7 +467,7 @@ select {
 
 .summary {
   display: flex;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 

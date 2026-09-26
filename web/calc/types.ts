@@ -9,7 +9,6 @@ export type SideToggles = { reflect: boolean; lightScreen: boolean; helpingHand:
 export type Settings = {
   band: [number, number];
   top: number;
-  direction: 'both' | 'in' | 'out';
   autoIntimidate: boolean;
   weather: Weather | 'auto';
   terrain: Terrain | 'auto';
