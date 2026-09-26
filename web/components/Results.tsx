@@ -118,11 +118,10 @@ type CardProps = {
 };
 
 function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onTogglePin }: CardProps) {
-  const [showAll, setShowAll] = useState(false);
+  const [showRest, setShowRest] = useState(false);
   const all = result.rows.filter((r) => r.direction === mode);
   const inRange = all.filter((r) => inBand(r, band));
-  const rows = pinned || showAll ? all : inRange;
-  const hidden = all.length - inRange.length;
+  const rest = all.filter((r) => !inBand(r, band));
 
   return (
     <li className={`card${open ? ' open' : ''}${inRange.length ? '' : ' dormant'}`}>
@@ -141,21 +140,30 @@ function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onToggleP
       </div>
       {open && (
         <div className="card-body">
-          {rows.length ? (
+          {inRange.length > 0 ? (
             <ul className="calcs">
-              {rows.map((r) => (
+              {inRange.map((r) => (
                 <RowView key={r.key} row={r} species={result.species} band={band} />
               ))}
             </ul>
           ) : (
             <p className="muted small card-note">{all.length ? 'No calcs in range.' : 'No damaging calcs.'}</p>
           )}
-          {!pinned && hidden > 0 && (
-            <button type="button" className="link small card-note" onClick={() => setShowAll(!showAll)}>
-              {showAll ? 'Only show calcs in range' : `Show ${hidden} more outside the range`}
-            </button>
+          {rest.length > 0 && (
+            <>
+              <button type="button" className="expand-rest" onClick={() => setShowRest(!showRest)} aria-expanded={showRest}>
+                <span aria-hidden>{showRest ? '−' : '+'}</span>
+                {showRest ? `Hide ${rest.length} outside the range` : `Show ${rest.length} more outside the range`}
+              </button>
+              {showRest && (
+                <ul className="calcs rest">
+                  {rest.map((r) => (
+                    <RowView key={r.key} row={r} species={result.species} band={band} />
+                  ))}
+                </ul>
+              )}
+            </>
           )}
-          {pinned && hidden > 0 && <p className="muted small card-note">Pinned shows every calc; faded ones fall outside the range.</p>}
         </div>
       )}
     </li>

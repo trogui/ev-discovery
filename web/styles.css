@@ -555,6 +555,38 @@ select {
   opacity: 0.8;
 }
 
+.expand-rest {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 7px 6px;
+  border: none;
+  border-top: 1px dashed var(--grid);
+  background: none;
+  color: var(--text-2);
+  font-size: 12.5px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.expand-rest:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.expand-rest span {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1;
+}
+
 .card-note {
   display: block;
   padding: 8px 6px 0;
