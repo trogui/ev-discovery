@@ -7,6 +7,7 @@ import { buildMySet, exportPaste, importPaste, type EditableSet } from '../me';
 import { NATURE_OPTIONS, cycleNature, describeNature, rolesOf, type NatureStat } from '../natures';
 import { abilityOptions, itemOptions, moveOptions, presetsFor, speciesOptions, usePresets } from '../presets';
 import { Combobox } from './Combobox';
+import { Popover } from './Popover';
 
 const ROWS: [keyof Stats, string][] = [
   ['hp', 'HP'],
@@ -36,6 +37,15 @@ export function fromPreset(species: string, preset: Preset, current?: EditableSe
     sp: preset.sp ?? current?.sp ?? emptyStats(),
     moves: preset.moves,
   };
+}
+
+function PresetLabel({ preset }: { preset: Preset | undefined }) {
+  if (!preset) return <span>Common sets</span>;
+  return (
+    <span>
+      {preset.item ?? 'No item'} · {preset.nature} <span className="muted tabular">{Math.round(preset.share * 100)}%</span>
+    </span>
+  );
 }
 
 function blank(species: string): EditableSet {
@@ -100,6 +110,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
   const abilities = useMemo(() => (value ? abilityOptions(entry, value.species) : []), [entry, value?.species]);
   const my = useMemo(() => (value ? buildMySet(value) : null), [value]);
   const used = value ? Object.values(value.sp).reduce((a, b) => a + b, 0) : 0;
+  const current = value ? entry?.presets.find((p) => p.item === value.item && p.nature === value.nature && (!p.sp || spreadKey(p.sp) === spreadKey(value.sp))) : undefined;
 
   const pickSpecies = (name: string | null) => {
     if (!name || name === value?.species) return;
@@ -127,7 +138,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
         <h2>{title}</h2>
         <div className="actions">
           <button type="button" className="link small" onClick={togglePaste}>
-            {pasteOpen ? 'Close paste' : 'Import / export'}
+            {pasteOpen ? 'Close paste' : 'Paste'}
           </button>
           {headerAction}
         </div>
@@ -153,20 +164,21 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
       {value && my && (
         <>
           {entry && entry.presets.length > 0 && (
-            <div className="presets" role="list" aria-label="Common sets">
-              {entry.presets.map((p, i) => {
-                const active = p.item === value.item && p.nature === value.nature && (!p.sp || spreadKey(p.sp) === spreadKey(value.sp));
-                return (
-                  <button key={i} type="button" role="listitem" className={active ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
-                    <span className="preset-main">
-                      {p.item ?? 'No item'} · {p.nature}
-                    </span>
-                    <span className="muted small tabular">
-                      {p.sp ? formatSp(p.sp) : 'no spread data'} · {Math.round(p.share * 100)}%
-                    </span>
-                  </button>
-                );
-              })}
+            <div className="preset-picker">
+              <Popover label={<PresetLabel preset={current} />} width={300}>
+                <div className="presets" role="list" aria-label="Common sets">
+                  <span className="field-title">Common sets in tournaments</span>
+                  {entry.presets.map((p, i) => (
+                    <button key={i} type="button" role="listitem" className={p === current ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
+                      <span className="preset-main">
+                        {p.item ?? 'No item'} · {p.nature}
+                        <span className="muted small tabular"> {Math.round(p.share * 100)}%</span>
+                      </span>
+                      <span className="muted small tabular">{p.sp ? formatSp(p.sp) : 'No spread data'}</span>
+                    </button>
+                  ))}
+                </div>
+              </Popover>
             </div>
           )}
 

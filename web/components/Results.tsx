@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
-import { formatSp, formeSuffix, outcomeText, pct, statusOf, type Status } from '../format';
+import { favorability, formatSp, formeSuffix, outcomeText, pct, statusOf, type Status } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
 import type { Mode } from '../useStickyList';
 
@@ -113,22 +113,23 @@ function RowView({ row, view }: { row: CalcRow; view: View }) {
   );
 }
 
-function StatusCounts({ rows, view }: { rows: CalcRow[]; view: View }) {
+function Headline({ rows, view }: { rows: CalcRow[]; view: View }) {
   if (!rows.length) return <span className="muted small">Nothing in range</span>;
-  const counts = new Map<Status, number>();
-  for (const r of rows) {
-    const status = statusOf(r, displayLevel(r, view.band, view.targets));
-    counts.set(status, (counts.get(status) ?? 0) + 1);
-  }
+  const scored = rows.map((r) => {
+    const level = displayLevel(r, view.band, view.targets);
+    return { r, level, f: favorability(r, level) };
+  });
+  const worst = scored.reduce((a, b) => (Math.abs(b.f - 0.5) < Math.abs(a.f - 0.5) ? b : a));
+  const status = statusOf(worst.r, worst.level);
   return (
-    <div className="summary">
-      {STATUS_ORDER.filter((s) => counts.get(s)).map((s) => (
-        <span key={s} className={`outcome s-${s}`}>
-          <StatusIcon status={s} />
-          <span className="tabular">{counts.get(s)}</span>
-        </span>
-      ))}
-    </div>
+    <span className="headline">
+      <span className={`outcome s-${status}`}>
+        <StatusIcon status={status} />
+        <span className="headline-move">{worst.r.move}</span>
+        <span className="headline-result">{outcomeText(worst.r, worst.level)}</span>
+      </span>
+      <span className="muted small tabular">{rows.length === 1 ? '1 calc' : `${rows.length} calcs`}</span>
+    </span>
   );
 }
 
@@ -207,7 +208,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
             {result.species}
             {result.hasCustom && <span className="badge">custom</span>}
           </span>
-          <StatusCounts rows={inRangeRows} view={view} />
+          <Headline rows={inRangeRows} view={view} />
           <span className="chevron" aria-hidden>
             ›
           </span>
@@ -247,8 +248,8 @@ type Props = {
   mode: Mode;
   onModeChange: (mode: Mode) => void;
   customOnly: boolean;
-  onCustomOnlyChange: (value: boolean) => void;
   hasLibrary: boolean;
+  toolbar: ReactNode;
   sticky: Record<Mode, string[]>;
   onResetSticky: () => void;
   pinned: string[];
@@ -258,7 +259,7 @@ type Props = {
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, onCustomOnlyChange, hasLibrary, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
   const only = customOnly && hasLibrary;
@@ -290,7 +291,7 @@ export function Results(props: Props) {
   );
 
   const sections: [string, PokemonResult[]][] = [
-    ['Custom', customResults],
+    ['Your sets', customResults],
     ['Pinned', pinnedResults],
     ['By usage', listed],
   ];
@@ -305,20 +306,11 @@ export function Results(props: Props) {
             <span className="tab-count tabular">{counts[m]}</span>
           </button>
         ))}
-        {hasLibrary && (
-          <button type="button" className={`toggle tabs-toggle${only ? ' on' : ''}`} aria-pressed={only} onClick={() => onCustomOnlyChange(!customOnly)}>
-            Custom only
-          </button>
-        )}
       </div>
+      {toolbar}
       <div className="results-head">
-        <p>
-          {MODES[mode].description}
-          <span className="muted">
-            {' '}
-            · <span className="tabular">{counts[mode]}</span> {only ? 'with custom sets' : `of the top ${top}`} with calcs within {band[0]}–{band[1]}% of a{' '}
-            {[targets.ohko && 'OHKO', targets.twohko && '2HKO'].filter(Boolean).join(' or ')}
-          </span>
+        <p className="muted">
+          {MODES[mode].description}: <span className="tabular">{counts[mode]}</span> {only ? 'Pokémon with your sets' : `of the top ${top}`} have calcs in range
         </p>
         <div className="actions">
           {dormant > 0 && (
@@ -333,7 +325,7 @@ export function Results(props: Props) {
           )}
         </div>
       </div>
-      <ul className="legend">
+      <ul className="legend" aria-label="Legend">
         {STATUS_ORDER.map((status) => (
           <li key={status} className={`outcome s-${status}`}>
             <StatusIcon status={status} />
@@ -348,7 +340,7 @@ export function Results(props: Props) {
         </section>
       ))}
       {!nonEmpty.length && (
-        <div className="empty muted">{only ? 'No custom sets yet. Add some in Custom opponents.' : 'Nothing in this range. Widen it or include more opponents.'}</div>
+        <div className="empty muted">{only ? 'No sets in your library yet. Add some from Library.' : 'Nothing in this range. Widen it or include more opponents.'}</div>
       )}
       <p className="muted small footnote">
         {response.totalCalcs} calcs in {Math.round(response.ms)} ms

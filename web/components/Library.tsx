@@ -8,9 +8,11 @@ type Props = {
   entries: LibraryEntry[];
   onChange: (entries: LibraryEntry[]) => void;
   ranks: Map<string, number>;
+  customOnly: boolean;
+  onCustomOnlyChange: (v: boolean) => void;
 };
 
-export function Library({ entries, onChange, ranks }: Props) {
+export function Library({ entries, onChange, ranks, customOnly, onCustomOnlyChange }: Props) {
   const [editing, setEditing] = useState<string | 'new' | null>(null);
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteText, setPasteText] = useState('');
@@ -42,9 +44,9 @@ export function Library({ entries, onChange, ranks }: Props) {
   };
 
   return (
-    <section className="panel library">
+    <section className="library">
       <div className="panel-head">
-        <h2>Custom opponents</h2>
+        <h2>Your sets</h2>
         <div className="actions">
           {entries.length > 0 && (
             <button type="button" className="link small" onClick={copyAll}>
@@ -69,7 +71,15 @@ export function Library({ entries, onChange, ranks }: Props) {
       )}
       {message && <p className={message.error ? 'error' : 'hint'}>{message.text}</p>}
 
-      {entries.length === 0 && !editing && !pasteOpen && <p className="hint">Sets you want to calc against even if nobody uses them. They show up in both tabs.</p>}
+      {entries.length === 0 && !editing && !pasteOpen && (
+        <p className="hint">Add sets you want to calc against, even if nobody runs them. They join their Pokémon in the results.</p>
+      )}
+      {entries.some((e) => e.active) && (
+        <label className="check">
+          <input type="checkbox" checked={customOnly} onChange={(e) => onCustomOnlyChange(e.target.checked)} />
+          Only show these sets
+        </label>
+      )}
 
       {entries.length > 0 && (
         <ul className="library-list">

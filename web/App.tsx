@@ -3,10 +3,9 @@ import metaJson from '../data/meta.json';
 import type { Meta } from '../src/lib/types';
 import type { CalcSettings, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
-import { Controls } from './components/Controls';
-import { Library } from './components/Library';
 import { Results } from './components/Results';
 import { SetEditor } from './components/SetEditor';
+import { Toolbar } from './components/Toolbar';
 import { activeOpponents, type LibraryEntry } from './library';
 import { EXAMPLE, buildMySet, importPaste, type EditableSet } from './me';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
@@ -61,14 +60,12 @@ export function App() {
     <div className="app">
       <header className="top">
         <h1>EV Discovery</h1>
-        <p className="muted small">
-          Reg {meta.regulation} · data from {dateFormat.format(new Date(meta.generatedAt))} · {meta.sources.limitlessTournaments} tournaments · {meta.sources.pasteTeams} team pastes · in-game ladder
+        <p className="muted small" title={`${meta.sources.limitlessTournaments} Limitless tournaments, ${meta.sources.pasteTeams} team pastes and the in-game ladder`}>
+          Regulation {meta.regulation}, data from {dateFormat.format(new Date(meta.generatedAt))}
         </p>
       </header>
       <aside className="side">
         <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
-        <Library entries={library} onChange={setLibrary} ranks={ranks} />
-        <Controls settings={settings} onChange={setSettings} mode={mode} onReset={() => setSettings({ ...DEFAULT_SETTINGS, band: settings.band, targets: settings.targets, top: settings.top })} />
       </aside>
       <main className="main">
         {!mine ? (
@@ -94,8 +91,19 @@ export function App() {
             mode={mode}
             onModeChange={setMode}
             customOnly={customOnly}
-            onCustomOnlyChange={setCustomOnly}
             hasLibrary={library.some((e) => e.active)}
+            toolbar={
+              <Toolbar
+                settings={settings}
+                onChange={setSettings}
+                mode={mode}
+                library={library}
+                onLibraryChange={setLibrary}
+                customOnly={customOnly}
+                onCustomOnlyChange={setCustomOnly}
+                ranks={ranks}
+              />
+            }
             sticky={sticky}
             onResetSticky={reset}
             pinned={pinned}
