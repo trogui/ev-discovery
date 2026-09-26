@@ -1,0 +1,7223 @@
+{
+ "generatedAt": "2026-09-26T08:32:46.018Z",
+ "regulation": "M-C",
+ "sources": {
+  "limitlessTournaments": 58,
+  "limitlessSets": 16574,
+  "pasteTeams": 380,
+  "pasteSets": 2274,
+  "munchstatsSnapshot": "2026-09-26"
+ },
+ "pokemon": [
+  {
+   "species": "Rillaboom",
+   "rank": 1,
+   "tournamentSets": 1593,
+   "pasteSets": 214,
+   "sets": [
+    {
+     "weight": 0.6004,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 956,
+      "spread": 132
+     },
+     "spreadMix": {
+      "tournament": 0.118,
+      "ladder": 0.882
+     },
+     "forme": "Rillaboom",
+     "item": "Miracle Seed",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Grassy Glide",
+      "Fake Out",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    },
+    {
+     "weight": 0.1871,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 956,
+      "spread": 132
+     },
+     "spreadMix": {
+      "tournament": 0.631,
+      "ladder": 0.369
+     },
+     "forme": "Rillaboom",
+     "item": "Miracle Seed",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 15,
+      "def": 0,
+      "spa": 0,
+      "spd": 18,
+      "spe": 1
+     },
+     "moves": [
+      "Grassy Glide",
+      "Fake Out",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    },
+    {
+     "weight": 0.0997,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 162,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0.123,
+      "ladder": 0.877
+     },
+     "forme": "Rillaboom",
+     "item": "Sitrus Berry",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Grassy Glide",
+      "Fake Out",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    },
+    {
+     "weight": 0.061,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 96,
+      "spread": 16
+     },
+     "spreadMix": {
+      "tournament": 0.109,
+      "ladder": 0.891
+     },
+     "forme": "Rillaboom",
+     "item": "Life Orb",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Fake Out",
+      "Grassy Glide",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    },
+    {
+     "weight": 0.0337,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 162,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0.727,
+      "ladder": 0.273
+     },
+     "forme": "Rillaboom",
+     "item": "Sitrus Berry",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 29,
+      "atk": 31,
+      "def": 2,
+      "spa": 0,
+      "spd": 1,
+      "spe": 3
+     },
+     "moves": [
+      "Grassy Glide",
+      "Fake Out",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    },
+    {
+     "weight": 0.0181,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 96,
+      "spread": 16
+     },
+     "spreadMix": {
+      "tournament": 0.735,
+      "ladder": 0.265
+     },
+     "forme": "Rillaboom",
+     "item": "Life Orb",
+     "ability": "Grassy Surge",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 24,
+      "atk": 15,
+      "def": 0,
+      "spa": 0,
+      "spd": 14,
+      "spe": 13
+     },
+     "moves": [
+      "Fake Out",
+      "Grassy Glide",
+      "Wood Hammer",
+      "High Horsepower"
+     ],
+     "autoField": {
+      "terrain": "Grassy"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Sneasler",
+   "rank": 2,
+   "tournamentSets": 1127,
+   "pasteSets": 188,
+   "sets": [
+    {
+     "weight": 0.3665,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 337,
+      "spread": 51
+     },
+     "spreadMix": {
+      "tournament": 0.222,
+      "ladder": 0.778
+     },
+     "forme": "Sneasler",
+     "item": "Grassy Seed",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out",
+      "Rock Slide"
+     ]
+    },
+    {
+     "weight": 0.2812,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 244,
+      "spread": 32
+     },
+     "spreadMix": {
+      "tournament": 0.312,
+      "ladder": 0.688
+     },
+     "forme": "Sneasler",
+     "item": "White Herb",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out"
+     ]
+    },
+    {
+     "weight": 0.256,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 213,
+      "spread": 41
+     },
+     "spreadMix": {
+      "tournament": 0.434,
+      "ladder": 0.566
+     },
+     "forme": "Sneasler",
+     "item": "Psychic Seed",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Rock Slide",
+      "Throat Chop"
+     ]
+    },
+    {
+     "weight": 0.0579,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 337,
+      "spread": 51
+     },
+     "spreadMix": {
+      "tournament": 0.585,
+      "ladder": 0.415
+     },
+     "forme": "Sneasler",
+     "item": "Grassy Seed",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 16,
+      "atk": 20,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 30
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out",
+      "Rock Slide"
+     ]
+    },
+    {
+     "weight": 0.0261,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 244,
+      "spread": 32
+     },
+     "spreadMix": {
+      "tournament": 0.841,
+      "ladder": 0.159
+     },
+     "forme": "Sneasler",
+     "item": "White Herb",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 18,
+      "atk": 25,
+      "def": 4,
+      "spa": 0,
+      "spd": 1,
+      "spe": 18
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Fake Out"
+     ]
+    },
+    {
+     "weight": 0.0122,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 213,
+      "spread": 41
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sneasler",
+     "item": "Psychic Seed",
+     "ability": "Unburden",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 16,
+      "atk": 20,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 30
+     },
+     "moves": [
+      "Close Combat",
+      "Dire Claw",
+      "Rock Slide",
+      "Throat Chop"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Salamence",
+   "rank": 3,
+   "tournamentSets": 840,
+   "pasteSets": 155,
+   "sets": [
+    {
+     "weight": 0.7067,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 536,
+      "spread": 80
+     },
+     "spreadMix": {
+      "tournament": 0.449,
+      "ladder": 0.551
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Draco Meteor",
+      "Flamethrower"
+     ]
+    },
+    {
+     "weight": 0.1591,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 124,
+      "spread": 24
+     },
+     "spreadMix": {
+      "tournament": 0.418,
+      "ladder": 0.582
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Draco Meteor",
+      "Flamethrower"
+     ]
+    },
+    {
+     "weight": 0.0901,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 78,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0.33,
+      "ladder": 0.67
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Naive",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Double-Edge",
+      "Hyper Voice",
+      "Draco Meteor"
+     ]
+    },
+    {
+     "weight": 0.0196,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 536,
+      "spread": 80
+     },
+     "spreadMix": {
+      "tournament": 0.809,
+      "ladder": 0.191
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Timid",
+     "sp": {
+      "hp": 7,
+      "atk": 0,
+      "def": 1,
+      "spa": 25,
+      "spd": 1,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Draco Meteor",
+      "Flamethrower"
+     ]
+    },
+    {
+     "weight": 0.0155,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 78,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0.765,
+      "ladder": 0.235
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Naive",
+     "sp": {
+      "hp": 1,
+      "atk": 21,
+      "def": 0,
+      "spa": 15,
+      "spd": 0,
+      "spe": 29
+     },
+     "moves": [
+      "Double-Edge",
+      "Hyper Voice",
+      "Draco Meteor"
+     ]
+    },
+    {
+     "weight": 0.0089,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 124,
+      "spread": 24
+     },
+     "spreadMix": {
+      "tournament": 0.934,
+      "ladder": 0.066
+     },
+     "forme": "Salamence-Mega",
+     "item": "Salamencite",
+     "ability": "Aerilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 14,
+      "atk": 0,
+      "def": 0,
+      "spa": 20,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Draco Meteor",
+      "Flamethrower"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Incineroar",
+   "rank": 4,
+   "tournamentSets": 897,
+   "pasteSets": 134,
+   "sets": [
+    {
+     "weight": 0.3969,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 268,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.452,
+      "ladder": 0.548
+     },
+     "forme": "Incineroar",
+     "item": "Sitrus Berry",
+     "ability": "Intimidate",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Throat Chop",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.1811,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 167,
+      "spread": 34
+     },
+     "spreadMix": {
+      "tournament": 0.163,
+      "ladder": 0.837
+     },
+     "forme": "Incineroar",
+     "item": "Sitrus Berry",
+     "ability": "Intimidate",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Throat Chop",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.1583,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 167,
+      "spread": 34
+     },
+     "spreadMix": {
+      "tournament": 0.558,
+      "ladder": 0.442
+     },
+     "forme": "Incineroar",
+     "item": "Sitrus Berry",
+     "ability": "Intimidate",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 20,
+      "spa": 0,
+      "spd": 14,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Throat Chop",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.1478,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 268,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.728,
+      "ladder": 0.272
+     },
+     "forme": "Incineroar",
+     "item": "Sitrus Berry",
+     "ability": "Intimidate",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 1,
+      "def": 8,
+      "spa": 0,
+      "spd": 20,
+      "spe": 5
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Throat Chop",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.1022,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 57,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.749,
+      "ladder": 0.251
+     },
+     "forme": "Incineroar",
+     "item": "Passho Berry",
+     "ability": "Intimidate",
+     "nature": "Sassy",
+     "sp": {
+      "hp": 31,
+      "atk": 0,
+      "def": 15,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.0136,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 57,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Incineroar",
+     "item": "Passho Berry",
+     "ability": "Intimidate",
+     "nature": "Sassy",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Flare Blitz",
+      "Darkest Lariat"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    }
+   ]
+  },
+  {
+   "species": "Indeedee-F",
+   "rank": 5,
+   "tournamentSets": 499,
+   "pasteSets": 96,
+   "sets": [
+    {
+     "weight": 0.2556,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 78,
+      "spread": 21
+     },
+     "spreadMix": {
+      "tournament": 0.536,
+      "ladder": 0.464
+     },
+     "forme": "Indeedee-F",
+     "item": "Rocky Helmet",
+     "ability": "Psychic Surge",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.2554,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 78,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.531,
+      "ladder": 0.469
+     },
+     "forme": "Indeedee-F",
+     "item": "Colbur Berry",
+     "ability": "Psychic Surge",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.2346,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 74,
+      "spread": 20
+     },
+     "spreadMix": {
+      "tournament": 0.506,
+      "ladder": 0.494
+     },
+     "forme": "Indeedee-F",
+     "item": "Rocky Helmet",
+     "ability": "Psychic Surge",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.1654,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 56,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.445,
+      "ladder": 0.555
+     },
+     "forme": "Indeedee-F",
+     "item": "Colbur Berry",
+     "ability": "Psychic Surge",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0304,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 56,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.968,
+      "ladder": 0.032
+     },
+     "forme": "Indeedee-F",
+     "item": "Colbur Berry",
+     "ability": "Psychic Surge",
+     "nature": "Bold",
+     "sp": {
+      "hp": 30,
+      "atk": 0,
+      "def": 19,
+      "spa": 0,
+      "spd": 17,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0241,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 74,
+      "spread": 20
+     },
+     "spreadMix": {
+      "tournament": 0.307,
+      "ladder": 0.693
+     },
+     "forme": "Indeedee-F",
+     "item": "Rocky Helmet",
+     "ability": "Psychic Surge",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 25,
+      "spa": 0,
+      "spd": 9,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0173,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 78,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Indeedee-F",
+     "item": "Colbur Berry",
+     "ability": "Psychic Surge",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 25,
+      "spa": 0,
+      "spd": 9,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0171,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 78,
+      "spread": 21
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Indeedee-F",
+     "item": "Rocky Helmet",
+     "ability": "Psychic Surge",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 25,
+      "spa": 0,
+      "spd": 9,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Kingambit",
+   "rank": 6,
+   "tournamentSets": 620,
+   "pasteSets": 111,
+   "sets": [
+    {
+     "weight": 0.2629,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 198,
+      "spread": 43
+     },
+     "spreadMix": {
+      "tournament": 0.108,
+      "ladder": 0.892
+     },
+     "forme": "Kingambit",
+     "item": "Chople Berry",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head",
+      "Low Kick"
+     ]
+    },
+    {
+     "weight": 0.2415,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 154,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.476,
+      "ladder": 0.524
+     },
+     "forme": "Kingambit",
+     "item": "Life Orb",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head"
+     ]
+    },
+    {
+     "weight": 0.1278,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 107,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0.848,
+      "ladder": 0.152
+     },
+     "forme": "Kingambit",
+     "item": "Focus Sash",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head",
+      "Low Kick"
+     ]
+    },
+    {
+     "weight": 0.1085,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 198,
+      "spread": 43
+     },
+     "spreadMix": {
+      "tournament": 0.869,
+      "ladder": 0.131
+     },
+     "forme": "Kingambit",
+     "item": "Chople Berry",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 15,
+      "def": 0,
+      "spa": 0,
+      "spd": 19,
+      "spe": 0
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head",
+      "Low Kick"
+     ]
+    },
+    {
+     "weight": 0.1009,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 74,
+      "spread": 13
+     },
+     "spreadMix": {
+      "tournament": 0.117,
+      "ladder": 0.883
+     },
+     "forme": "Kingambit",
+     "item": "Black Glasses",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Sucker Punch",
+      "Kowtow Cleave",
+      "Iron Head"
+     ]
+    },
+    {
+     "weight": 0.0729,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 107,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0.065,
+      "ladder": 0.935
+     },
+     "forme": "Kingambit",
+     "item": "Focus Sash",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head",
+      "Low Kick"
+     ]
+    },
+    {
+     "weight": 0.0474,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 154,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.243,
+      "ladder": 0.757
+     },
+     "forme": "Kingambit",
+     "item": "Life Orb",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Kowtow Cleave",
+      "Sucker Punch",
+      "Iron Head"
+     ]
+    },
+    {
+     "weight": 0.0379,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 74,
+      "spread": 13
+     },
+     "spreadMix": {
+      "tournament": 0.624,
+      "ladder": 0.376
+     },
+     "forme": "Kingambit",
+     "item": "Black Glasses",
+     "ability": "Defiant",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 25,
+      "def": 2,
+      "spa": 0,
+      "spd": 6,
+      "spe": 1
+     },
+     "moves": [
+      "Sucker Punch",
+      "Kowtow Cleave",
+      "Iron Head"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Basculegion",
+   "rank": 7,
+   "tournamentSets": 406,
+   "pasteSets": 89,
+   "sets": [
+    {
+     "weight": 0.439,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 139,
+      "spread": 28
+     },
+     "spreadMix": {
+      "tournament": 0.415,
+      "ladder": 0.585
+     },
+     "forme": "Basculegion",
+     "item": "Choice Scarf",
+     "ability": "Adaptability",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Last Respects",
+      "Flip Turn",
+      "Wave Crash",
+      "Aqua Jet"
+     ]
+    },
+    {
+     "weight": 0.3264,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 109,
+      "spread": 38
+     },
+     "spreadMix": {
+      "tournament": 0.15,
+      "ladder": 0.85
+     },
+     "forme": "Basculegion",
+     "item": "Life Orb",
+     "ability": "Adaptability",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Last Respects",
+      "Wave Crash",
+      "Aqua Jet"
+     ]
+    },
+    {
+     "weight": 0.0901,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 43,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Basculegion",
+     "item": "Mystic Water",
+     "ability": "Adaptability",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Wave Crash",
+      "Aqua Jet",
+      "Last Respects"
+     ]
+    },
+    {
+     "weight": 0.0576,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 43,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0.839,
+      "ladder": 0.161
+     },
+     "forme": "Basculegion",
+     "item": "Mystic Water",
+     "ability": "Adaptability",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 4,
+      "atk": 23,
+      "def": 13,
+      "spa": 0,
+      "spd": 0,
+      "spe": 26
+     },
+     "moves": [
+      "Wave Crash",
+      "Aqua Jet",
+      "Last Respects"
+     ]
+    },
+    {
+     "weight": 0.0482,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 109,
+      "spread": 38
+     },
+     "spreadMix": {
+      "tournament": 0.406,
+      "ladder": 0.594
+     },
+     "forme": "Basculegion",
+     "item": "Life Orb",
+     "ability": "Adaptability",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 4,
+      "atk": 23,
+      "def": 13,
+      "spa": 0,
+      "spd": 0,
+      "spe": 26
+     },
+     "moves": [
+      "Last Respects",
+      "Wave Crash",
+      "Aqua Jet"
+     ]
+    },
+    {
+     "weight": 0.0386,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 139,
+      "spread": 28
+     },
+     "spreadMix": {
+      "tournament": 0.314,
+      "ladder": 0.686
+     },
+     "forme": "Basculegion",
+     "item": "Choice Scarf",
+     "ability": "Adaptability",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 4,
+      "atk": 23,
+      "def": 13,
+      "spa": 0,
+      "spd": 0,
+      "spe": 26
+     },
+     "moves": [
+      "Last Respects",
+      "Flip Turn",
+      "Wave Crash",
+      "Aqua Jet"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Golisopod",
+   "rank": 8,
+   "tournamentSets": 382,
+   "pasteSets": 64,
+   "sets": [
+    {
+     "weight": 0.6329,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 273,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.437,
+      "ladder": 0.563
+     },
+     "forme": "Golisopod-Mega",
+     "item": "Golisopite",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Leech Life",
+      "Iron Head",
+      "Sucker Punch",
+      "Drill Run"
+     ]
+    },
+    {
+     "weight": 0.2431,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 95,
+      "spread": 22
+     },
+     "spreadMix": {
+      "tournament": 0.497,
+      "ladder": 0.503
+     },
+     "forme": "Golisopod-Mega",
+     "item": "Golisopite",
+     "ability": "Tough Claws",
+     "nature": "Brave",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Leech Life",
+      "Iron Head",
+      "Liquidation"
+     ]
+    },
+    {
+     "weight": 0.109,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 273,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.846,
+      "ladder": 0.154
+     },
+     "forme": "Golisopod-Mega",
+     "item": "Golisopite",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 25,
+      "def": 0,
+      "spa": 0,
+      "spd": 9,
+      "spe": 0
+     },
+     "moves": [
+      "Leech Life",
+      "Iron Head",
+      "Sucker Punch",
+      "Drill Run"
+     ]
+    },
+    {
+     "weight": 0.015,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 95,
+      "spread": 22
+     },
+     "spreadMix": {
+      "tournament": 0.947,
+      "ladder": 0.053
+     },
+     "forme": "Golisopod-Mega",
+     "item": "Golisopite",
+     "ability": "Tough Claws",
+     "nature": "Brave",
+     "sp": {
+      "hp": 26,
+      "atk": 32,
+      "def": 4,
+      "spa": 0,
+      "spd": 4,
+      "spe": 0
+     },
+     "moves": [
+      "Leech Life",
+      "Iron Head",
+      "Liquidation"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Garchomp",
+   "rank": 9,
+   "tournamentSets": 384,
+   "pasteSets": 52,
+   "sets": [
+    {
+     "weight": 0.4564,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 162,
+      "spread": 26
+     },
+     "spreadMix": {
+      "tournament": 0.359,
+      "ladder": 0.641
+     },
+     "forme": "Garchomp-Mega-Z",
+     "item": "Garchompite Z",
+     "ability": "Levitate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Flamethrower",
+      "Draco Meteor",
+      "Dragon Pulse"
+     ]
+    },
+    {
+     "weight": 0.233,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 73,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.334,
+      "ladder": 0.666
+     },
+     "forme": "Garchomp",
+     "item": "Life Orb",
+     "ability": "Rough Skin",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Claw",
+      "Rock Slide",
+      "Earthquake",
+      "Stomping Tantrum"
+     ]
+    },
+    {
+     "weight": 0.1406,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 51,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0.248,
+      "ladder": 0.752
+     },
+     "forme": "Garchomp",
+     "item": "Choice Scarf",
+     "ability": "Rough Skin",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Dragon Claw",
+      "Stomping Tantrum",
+      "Earthquake"
+     ]
+    },
+    {
+     "weight": 0.11,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 162,
+      "spread": 26
+     },
+     "spreadMix": {
+      "tournament": 0.496,
+      "ladder": 0.504
+     },
+     "forme": "Garchomp-Mega-Z",
+     "item": "Garchompite Z",
+     "ability": "Levitate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 8,
+      "atk": 0,
+      "def": 6,
+      "spa": 21,
+      "spd": 1,
+      "spe": 30
+     },
+     "moves": [
+      "Power Gem",
+      "Flamethrower",
+      "Draco Meteor",
+      "Dragon Pulse"
+     ]
+    },
+    {
+     "weight": 0.0378,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 51,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0.924,
+      "ladder": 0.076
+     },
+     "forme": "Garchomp",
+     "item": "Choice Scarf",
+     "ability": "Rough Skin",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 10,
+      "atk": 20,
+      "def": 8,
+      "spa": 0,
+      "spd": 0,
+      "spe": 28
+     },
+     "moves": [
+      "Rock Slide",
+      "Dragon Claw",
+      "Stomping Tantrum",
+      "Earthquake"
+     ]
+    },
+    {
+     "weight": 0.0223,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 73,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.873,
+      "ladder": 0.127
+     },
+     "forme": "Garchomp",
+     "item": "Life Orb",
+     "ability": "Rough Skin",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 6,
+      "atk": 28,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Claw",
+      "Rock Slide",
+      "Earthquake",
+      "Stomping Tantrum"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Gholdengo",
+   "rank": 10,
+   "tournamentSets": 768,
+   "pasteSets": 84,
+   "sets": [
+    {
+     "weight": 0.2433,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 382,
+      "spread": 32
+     },
+     "spreadMix": {
+      "tournament": 0.314,
+      "ladder": 0.686
+     },
+     "forme": "Gholdengo",
+     "item": "Life Orb",
+     "ability": "Good as Gold",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Make It Rain",
+      "Shadow Ball"
+     ]
+    },
+    {
+     "weight": 0.2297,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 292,
+      "spread": 37
+     },
+     "spreadMix": {
+      "tournament": 0.143,
+      "ladder": 0.857
+     },
+     "forme": "Gholdengo",
+     "item": "Life Orb",
+     "ability": "Good as Gold",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Make It Rain",
+      "Shadow Ball"
+     ]
+    },
+    {
+     "weight": 0.1816,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 292,
+      "spread": 37
+     },
+     "spreadMix": {
+      "tournament": 0.541,
+      "ladder": 0.459
+     },
+     "forme": "Gholdengo",
+     "item": "Life Orb",
+     "ability": "Good as Gold",
+     "nature": "Modest",
+     "sp": {
+      "hp": 17,
+      "atk": 0,
+      "def": 0,
+      "spa": 17,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Make It Rain",
+      "Shadow Ball"
+     ]
+    },
+    {
+     "weight": 0.1689,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 382,
+      "spread": 32
+     },
+     "spreadMix": {
+      "tournament": 0.581,
+      "ladder": 0.419
+     },
+     "forme": "Gholdengo",
+     "item": "Life Orb",
+     "ability": "Good as Gold",
+     "nature": "Timid",
+     "sp": {
+      "hp": 17,
+      "atk": 0,
+      "def": 0,
+      "spa": 17,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Make It Rain",
+      "Shadow Ball"
+     ]
+    },
+    {
+     "weight": 0.1258,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 382,
+      "spread": 32
+     },
+     "spreadMix": {
+      "tournament": 0.694,
+      "ladder": 0.306
+     },
+     "forme": "Gholdengo",
+     "item": "Life Orb",
+     "ability": "Good as Gold",
+     "nature": "Timid",
+     "sp": {
+      "hp": 7,
+      "atk": 0,
+      "def": 0,
+      "spa": 27,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Make It Rain",
+      "Shadow Ball"
+     ]
+    },
+    {
+     "weight": 0.017,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 36,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Gholdengo",
+     "item": "Grassy Seed",
+     "ability": "Good as Gold",
+     "nature": "Modest",
+     "sp": {
+      "hp": 5,
+      "atk": 0,
+      "def": 5,
+      "spa": 24,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Make It Rain"
+     ]
+    },
+    {
+     "weight": 0.017,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 36,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Gholdengo",
+     "item": "Grassy Seed",
+     "ability": "Good as Gold",
+     "nature": "Modest",
+     "sp": {
+      "hp": 14,
+      "atk": 0,
+      "def": 11,
+      "spa": 27,
+      "spd": 4,
+      "spe": 10
+     },
+     "moves": [
+      "Shadow Ball",
+      "Make It Rain"
+     ]
+    },
+    {
+     "weight": 0.0166,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 36,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gholdengo",
+     "item": "Grassy Seed",
+     "ability": "Good as Gold",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Make It Rain"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Archaludon",
+   "rank": 11,
+   "tournamentSets": 386,
+   "pasteSets": 33,
+   "sets": [
+    {
+     "weight": 0.2332,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 145,
+      "spread": 16
+     },
+     "spreadMix": {
+      "tournament": 0.496,
+      "ladder": 0.504
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 1,
+      "spd": 29,
+      "spe": 4
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon"
+     ]
+    },
+    {
+     "weight": 0.21,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 113,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.58,
+      "ladder": 0.42
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 1,
+      "spa": 1,
+      "spd": 31,
+      "spe": 1
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon",
+      "Snarl"
+     ]
+    },
+    {
+     "weight": 0.1842,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 99,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.675,
+      "ladder": 0.325
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 1,
+      "spa": 0,
+      "spd": 32,
+      "spe": 1
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon"
+     ]
+    },
+    {
+     "weight": 0.173,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 145,
+      "spread": 16
+     },
+     "spreadMix": {
+      "tournament": 0.669,
+      "ladder": 0.331
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 5,
+      "spd": 26,
+      "spe": 3
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon"
+     ]
+    },
+    {
+     "weight": 0.1065,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 113,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.572,
+      "ladder": 0.428
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 1,
+      "spa": 0,
+      "spd": 24,
+      "spe": 9
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon",
+      "Snarl"
+     ]
+    },
+    {
+     "weight": 0.0931,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 99,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.668,
+      "ladder": 0.332
+     },
+     "forme": "Archaludon",
+     "item": "Leftovers",
+     "ability": "Stamina",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 25,
+      "spe": 9
+     },
+     "moves": [
+      "Electro Shot",
+      "Dragon Pulse",
+      "Flash Cannon"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Pelipper",
+   "rank": 12,
+   "tournamentSets": 297,
+   "pasteSets": 39,
+   "sets": [
+    {
+     "weight": 0.3568,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 94,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.496,
+      "ladder": 0.504
+     },
+     "forme": "Pelipper",
+     "item": "Focus Sash",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.2367,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 54,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.583,
+      "ladder": 0.417
+     },
+     "forme": "Pelipper",
+     "item": "Focus Sash",
+     "ability": "Drizzle",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.2047,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 69,
+      "spread": 11
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Pelipper",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.1132,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 69,
+      "spread": 11
+     },
+     "spreadMix": {
+      "tournament": 0.777,
+      "ladder": 0.223
+     },
+     "forme": "Pelipper",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 1,
+      "spa": 5,
+      "spd": 17,
+      "spe": 11
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0764,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 94,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.463,
+      "ladder": 0.537
+     },
+     "forme": "Pelipper",
+     "item": "Focus Sash",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0121,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 54,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Pelipper",
+     "item": "Focus Sash",
+     "ability": "Drizzle",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 1,
+      "spa": 5,
+      "spd": 17,
+      "spe": 11
+     },
+     "moves": [
+      "Hurricane",
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Milotic",
+   "rank": 13,
+   "tournamentSets": 404,
+   "pasteSets": 59,
+   "sets": [
+    {
+     "weight": 0.2124,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 86,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.267,
+      "ladder": 0.733
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Muddy Water",
+      "Ice Beam",
+      "Scald",
+      "Icy Wind"
+     ]
+    },
+    {
+     "weight": 0.1682,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 73,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.304,
+      "ladder": 0.696
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Scald",
+      "Muddy Water",
+      "Icy Wind",
+      "Ice Beam"
+     ]
+    },
+    {
+     "weight": 0.1226,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 59,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0.972,
+      "ladder": 0.028
+     },
+     "forme": "Milotic",
+     "item": "Sitrus Berry",
+     "ability": "Competitive",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 1,
+      "spe": 19
+     },
+     "moves": [
+      "Ice Beam",
+      "Scald",
+      "Icy Wind",
+      "Muddy Water"
+     ]
+    },
+    {
+     "weight": 0.1062,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 86,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.8,
+      "ladder": 0.2
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 29,
+      "spa": 0,
+      "spd": 5,
+      "spe": 0
+     },
+     "moves": [
+      "Muddy Water",
+      "Ice Beam",
+      "Scald",
+      "Icy Wind"
+     ]
+    },
+    {
+     "weight": 0.1022,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 73,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Bold",
+     "sp": {
+      "hp": 23,
+      "atk": 0,
+      "def": 31,
+      "spa": 0,
+      "spd": 12,
+      "spe": 0
+     },
+     "moves": [
+      "Scald",
+      "Muddy Water",
+      "Icy Wind",
+      "Ice Beam"
+     ]
+    },
+    {
+     "weight": 0.0995,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 52,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0.657,
+      "ladder": 0.343
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 22,
+      "spa": 10,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Scald",
+      "Ice Beam",
+      "Icy Wind",
+      "Muddy Water"
+     ]
+    },
+    {
+     "weight": 0.0959,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 59,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Milotic",
+     "item": "Sitrus Berry",
+     "ability": "Competitive",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Ice Beam",
+      "Scald",
+      "Icy Wind",
+      "Muddy Water"
+     ]
+    },
+    {
+     "weight": 0.0931,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 52,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0.702,
+      "ladder": 0.298
+     },
+     "forme": "Milotic",
+     "item": "Leftovers",
+     "ability": "Competitive",
+     "nature": "Modest",
+     "sp": {
+      "hp": 0,
+      "atk": 0,
+      "def": 32,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Scald",
+      "Ice Beam",
+      "Icy Wind",
+      "Muddy Water"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Farigiraf",
+   "rank": 14,
+   "tournamentSets": 408,
+   "pasteSets": 38,
+   "sets": [
+    {
+     "weight": 0.411,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 145,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.722,
+      "ladder": 0.278
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Bold",
+     "sp": {
+      "hp": 27,
+      "atk": 0,
+      "def": 20,
+      "spa": 0,
+      "spd": 19,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic",
+      "Thunderbolt"
+     ]
+    },
+    {
+     "weight": 0.2167,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 145,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.684,
+      "ladder": 0.316
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic",
+      "Thunderbolt"
+     ]
+    },
+    {
+     "weight": 0.1437,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 50,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.605,
+      "ladder": 0.395
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 31,
+      "atk": 0,
+      "def": 21,
+      "spa": 0,
+      "spd": 14,
+      "spe": 0
+     },
+     "moves": [
+      "Thunderbolt",
+      "Psychic",
+      "Twin Beam"
+     ]
+    },
+    {
+     "weight": 0.0779,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 36,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Modest",
+     "sp": {
+      "hp": 19,
+      "atk": 0,
+      "def": 20,
+      "spa": 10,
+      "spd": 17,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic",
+      "Thunderbolt"
+     ]
+    },
+    {
+     "weight": 0.0779,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 36,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Modest",
+     "sp": {
+      "hp": 29,
+      "atk": 0,
+      "def": 3,
+      "spa": 2,
+      "spd": 32,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic",
+      "Thunderbolt"
+     ]
+    },
+    {
+     "weight": 0.0727,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 50,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.399,
+      "ladder": 0.601
+     },
+     "forme": "Farigiraf",
+     "item": "Sitrus Berry",
+     "ability": "Armor Tail",
+     "nature": "Relaxed",
+     "sp": {
+      "hp": 27,
+      "atk": 0,
+      "def": 20,
+      "spa": 0,
+      "spd": 19,
+      "spe": 0
+     },
+     "moves": [
+      "Thunderbolt",
+      "Psychic",
+      "Twin Beam"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Charizard",
+   "rank": 15,
+   "tournamentSets": 286,
+   "pasteSets": 31,
+   "sets": [
+    {
+     "weight": 0.4277,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 157,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Charizard-Mega-Y",
+     "item": "Charizardite Y",
+     "ability": "Drought",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Heat Wave",
+      "Weather Ball",
+      "Solar Beam",
+      "Ancient Power"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.2828,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 113,
+      "spread": 13
+     },
+     "spreadMix": {
+      "tournament": 0.102,
+      "ladder": 0.898
+     },
+     "forme": "Charizard-Mega-Y",
+     "item": "Charizardite Y",
+     "ability": "Drought",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Heat Wave",
+      "Weather Ball",
+      "Ancient Power",
+      "Hurricane"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.1291,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 157,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0.716,
+      "ladder": 0.284
+     },
+     "forme": "Charizard-Mega-Y",
+     "item": "Charizardite Y",
+     "ability": "Drought",
+     "nature": "Modest",
+     "sp": {
+      "hp": 24,
+      "atk": 0,
+      "def": 16,
+      "spa": 9,
+      "spd": 0,
+      "spe": 17
+     },
+     "moves": [
+      "Heat Wave",
+      "Weather Ball",
+      "Solar Beam",
+      "Ancient Power"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.1179,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 113,
+      "spread": 13
+     },
+     "spreadMix": {
+      "tournament": 0.734,
+      "ladder": 0.266
+     },
+     "forme": "Charizard-Mega-Y",
+     "item": "Charizardite Y",
+     "ability": "Drought",
+     "nature": "Timid",
+     "sp": {
+      "hp": 12,
+      "atk": 0,
+      "def": 14,
+      "spa": 8,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Heat Wave",
+      "Weather Ball",
+      "Ancient Power",
+      "Hurricane"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.0362,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 12,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.531,
+      "ladder": 0.469
+     },
+     "forme": "Charizard-Mega-X",
+     "item": "Charizardite X",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Claw",
+      "Flare Blitz"
+     ]
+    },
+    {
+     "weight": 0.0064,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 12,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Charizard-Mega-X",
+     "item": "Charizardite X",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 17,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 17
+     },
+     "moves": [
+      "Dragon Claw",
+      "Flare Blitz"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Raichu",
+   "rank": 16,
+   "tournamentSets": 579,
+   "pasteSets": 37,
+   "sets": [
+    {
+     "weight": 0.5842,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 539,
+      "spread": 37
+     },
+     "spreadMix": {
+      "tournament": 0.065,
+      "ladder": 0.935
+     },
+     "forme": "Raichu-Mega-Y",
+     "item": "Raichunite Y",
+     "ability": "No Guard",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Zap Cannon",
+      "Focus Blast",
+      "Fake Out"
+     ]
+    },
+    {
+     "weight": 0.4158,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 539,
+      "spread": 37
+     },
+     "spreadMix": {
+      "tournament": 0.546,
+      "ladder": 0.454
+     },
+     "forme": "Raichu-Mega-Y",
+     "item": "Raichunite Y",
+     "ability": "No Guard",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 11,
+      "spa": 0,
+      "spd": 0,
+      "spe": 23
+     },
+     "moves": [
+      "Zap Cannon",
+      "Focus Blast",
+      "Fake Out"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Gardevoir",
+   "rank": 17,
+   "tournamentSets": 226,
+   "pasteSets": 32,
+   "sets": [
+    {
+     "weight": 0.5029,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 178,
+      "spread": 29
+     },
+     "spreadMix": {
+      "tournament": 0.147,
+      "ladder": 0.853
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force"
+     ]
+    },
+    {
+     "weight": 0.3173,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 178,
+      "spread": 29
+     },
+     "spreadMix": {
+      "tournament": 0.233,
+      "ladder": 0.767
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force"
+     ]
+    },
+    {
+     "weight": 0.0641,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 18,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force",
+      "Thunderbolt"
+     ]
+    },
+    {
+     "weight": 0.0395,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 21,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force"
+     ]
+    },
+    {
+     "weight": 0.0299,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 21,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.917,
+      "ladder": 0.083
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 30,
+      "atk": 0,
+      "def": 20,
+      "spa": 15,
+      "spd": 1,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force"
+     ]
+    },
+    {
+     "weight": 0.0274,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 21,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 24,
+      "spa": 10,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force"
+     ]
+    },
+    {
+     "weight": 0.0189,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 18,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gardevoir-Mega",
+     "item": "Gardevoirite",
+     "ability": "Pixilate",
+     "nature": "Timid",
+     "sp": {
+      "hp": 29,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 5
+     },
+     "moves": [
+      "Hyper Voice",
+      "Expanding Force",
+      "Thunderbolt"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Arcanine-Hisui",
+   "rank": 18,
+   "tournamentSets": 528,
+   "pasteSets": 48,
+   "sets": [
+    {
+     "weight": 0.8977,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 467,
+      "spread": 43
+     },
+     "spreadMix": {
+      "tournament": 0.505,
+      "ladder": 0.495
+     },
+     "forme": "Arcanine-Hisui",
+     "item": "Focus Sash",
+     "ability": "Rock Head",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Flare Blitz",
+      "Head Smash",
+      "Extreme Speed"
+     ]
+    },
+    {
+     "weight": 0.0977,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 51,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.507,
+      "ladder": 0.493
+     },
+     "forme": "Arcanine-Hisui",
+     "item": "Focus Sash",
+     "ability": "Rock Head",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Flare Blitz",
+      "Head Smash",
+      "Extreme Speed"
+     ]
+    },
+    {
+     "weight": 0.0039,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 467,
+      "spread": 43
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Arcanine-Hisui",
+     "item": "Focus Sash",
+     "ability": "Rock Head",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Flare Blitz",
+      "Head Smash",
+      "Extreme Speed"
+     ]
+    },
+    {
+     "weight": 0.0008,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 51,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Arcanine-Hisui",
+     "item": "Focus Sash",
+     "ability": "Rock Head",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Flare Blitz",
+      "Head Smash",
+      "Extreme Speed"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Sylveon",
+   "rank": 19,
+   "tournamentSets": 364,
+   "pasteSets": 41,
+   "sets": [
+    {
+     "weight": 0.591,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 321,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.202,
+      "ladder": 0.798
+     },
+     "forme": "Sylveon",
+     "item": "Fairy Feather",
+     "ability": "Pixilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Hyper Beam",
+      "Quick Attack"
+     ]
+    },
+    {
+     "weight": 0.3588,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 321,
+      "spread": 40
+     },
+     "spreadMix": {
+      "tournament": 0.499,
+      "ladder": 0.501
+     },
+     "forme": "Sylveon",
+     "item": "Fairy Feather",
+     "ability": "Pixilate",
+     "nature": "Modest",
+     "sp": {
+      "hp": 9,
+      "atk": 0,
+      "def": 22,
+      "spa": 20,
+      "spd": 0,
+      "spe": 15
+     },
+     "moves": [
+      "Hyper Voice",
+      "Hyper Beam",
+      "Quick Attack"
+     ]
+    },
+    {
+     "weight": 0.0434,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 17,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sylveon",
+     "item": "Fairy Feather",
+     "ability": "Pixilate",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Hyper Beam",
+      "Quick Attack"
+     ]
+    },
+    {
+     "weight": 0.0069,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 17,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sylveon",
+     "item": "Fairy Feather",
+     "ability": "Pixilate",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 32,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Hyper Voice",
+      "Hyper Beam",
+      "Quick Attack"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Tyranitar",
+   "rank": 20,
+   "tournamentSets": 257,
+   "pasteSets": 38,
+   "sets": [
+    {
+     "weight": 0.3212,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 111,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.63,
+      "ladder": 0.37
+     },
+     "forme": "Tyranitar-Mega",
+     "item": "Tyranitarite",
+     "ability": "Sand Stream",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 17,
+      "atk": 17,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Low Kick"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.2159,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 90,
+      "spread": 24
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Tyranitar-Mega",
+     "item": "Tyranitarite",
+     "ability": "Sand Stream",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Low Kick"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.2147,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 90,
+      "spread": 24
+     },
+     "spreadMix": {
+      "tournament": 0.431,
+      "ladder": 0.569
+     },
+     "forme": "Tyranitar-Mega",
+     "item": "Tyranitarite",
+     "ability": "Sand Stream",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 17,
+      "atk": 17,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Low Kick"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.2099,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 111,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Tyranitar-Mega",
+     "item": "Tyranitarite",
+     "ability": "Sand Stream",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Low Kick"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.0197,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 8,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0.461,
+      "ladder": 0.539
+     },
+     "forme": "Tyranitar",
+     "item": "Choice Scarf",
+     "ability": "Sand Stream",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Ice Punch",
+      "Heavy Slam"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.0094,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 8,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0.965,
+      "ladder": 0.035
+     },
+     "forme": "Tyranitar",
+     "item": "Choice Scarf",
+     "ability": "Sand Stream",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 26,
+      "atk": 17,
+      "def": 1,
+      "spa": 0,
+      "spd": 0,
+      "spe": 22
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Ice Punch",
+      "Heavy Slam"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    },
+    {
+     "weight": 0.0091,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 8,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Tyranitar",
+     "item": "Choice Scarf",
+     "ability": "Sand Stream",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 12,
+      "atk": 22,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Rock Slide",
+      "Knock Off",
+      "Ice Punch",
+      "Heavy Slam"
+     ],
+     "autoField": {
+      "weather": "Sand"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Whimsicott",
+   "rank": 21,
+   "tournamentSets": 136,
+   "pasteSets": 15,
+   "sets": [
+    {
+     "weight": 0.7733,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 83,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.531,
+      "ladder": 0.469
+     },
+     "forme": "Whimsicott",
+     "item": "Focus Sash",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.1098,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 12,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.485,
+      "ladder": 0.515
+     },
+     "forme": "Whimsicott",
+     "item": "Fairy Feather",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.0824,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 9,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.485,
+      "ladder": 0.515
+     },
+     "forme": "Whimsicott",
+     "item": "Occa Berry",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.0248,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 83,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Whimsicott",
+     "item": "Focus Sash",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.0056,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 12,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.955,
+      "ladder": 0.045
+     },
+     "forme": "Whimsicott",
+     "item": "Fairy Feather",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 30,
+      "atk": 0,
+      "def": 17,
+      "spa": 0,
+      "spd": 0,
+      "spe": 19
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.0042,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 9,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.955,
+      "ladder": 0.045
+     },
+     "forme": "Whimsicott",
+     "item": "Occa Berry",
+     "ability": "Prankster",
+     "nature": "Timid",
+     "sp": {
+      "hp": 30,
+      "atk": 0,
+      "def": 17,
+      "spa": 0,
+      "spd": 0,
+      "spe": 19
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Armarouge",
+   "rank": 22,
+   "tournamentSets": 162,
+   "pasteSets": 36,
+   "sets": [
+    {
+     "weight": 0.2627,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 46,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.338,
+      "ladder": 0.662
+     },
+     "forme": "Armarouge",
+     "item": "Life Orb",
+     "ability": "Flash Fire",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon"
+     ]
+    },
+    {
+     "weight": 0.2031,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 37,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.296,
+      "ladder": 0.704
+     },
+     "forme": "Armarouge",
+     "item": "Life Orb",
+     "ability": "Flash Fire",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon",
+      "Heat Wave"
+     ]
+    },
+    {
+     "weight": 0.1637,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 27,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.779,
+      "ladder": 0.221
+     },
+     "forme": "Armarouge",
+     "item": "Focus Sash",
+     "ability": "Flash Fire",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon"
+     ]
+    },
+    {
+     "weight": 0.1554,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 46,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.761,
+      "ladder": 0.239
+     },
+     "forme": "Armarouge",
+     "item": "Life Orb",
+     "ability": "Flash Fire",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 29,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 5,
+      "spe": 0
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon"
+     ]
+    },
+    {
+     "weight": 0.1332,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 37,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.902,
+      "ladder": 0.098
+     },
+     "forme": "Armarouge",
+     "item": "Life Orb",
+     "ability": "Flash Fire",
+     "nature": "Modest",
+     "sp": {
+      "hp": 9,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 25
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon",
+      "Heat Wave"
+     ]
+    },
+    {
+     "weight": 0.0817,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 27,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.174,
+      "ladder": 0.826
+     },
+     "forme": "Armarouge",
+     "item": "Focus Sash",
+     "ability": "Flash Fire",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Expanding Force",
+      "Armor Cannon"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Staraptor",
+   "rank": 23,
+   "tournamentSets": 326,
+   "pasteSets": 15,
+   "sets": [
+    {
+     "weight": 0.4939,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 281,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0.331,
+      "ladder": 0.669
+     },
+     "forme": "Staraptor-Mega",
+     "item": "Staraptite",
+     "ability": "Contrary",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 32,
+      "atk": 2,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Close Combat",
+      "Brave Bird"
+     ]
+    },
+    {
+     "weight": 0.3982,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 281,
+      "spread": 14
+     },
+     "spreadMix": {
+      "tournament": 0.205,
+      "ladder": 0.795
+     },
+     "forme": "Staraptor-Mega",
+     "item": "Staraptite",
+     "ability": "Contrary",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Close Combat",
+      "Brave Bird"
+     ]
+    },
+    {
+     "weight": 0.0607,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 34,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Staraptor-Mega",
+     "item": "Staraptite",
+     "ability": "Contrary",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Brave Bird",
+      "Close Combat"
+     ]
+    },
+    {
+     "weight": 0.0473,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 34,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Staraptor-Mega",
+     "item": "Staraptite",
+     "ability": "Contrary",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 2,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Brave Bird",
+      "Close Combat"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Metagross",
+   "rank": 24,
+   "tournamentSets": 148,
+   "pasteSets": 18,
+   "sets": [
+    {
+     "weight": 0.2909,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 82,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.194,
+      "ladder": 0.806
+     },
+     "forme": "Metagross-Mega",
+     "item": "Metagrossite",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Psychic Fangs",
+      "Iron Head",
+      "Stomping Tantrum",
+      "Steel Roller"
+     ]
+    },
+    {
+     "weight": 0.2907,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 82,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.778,
+      "ladder": 0.222
+     },
+     "forme": "Metagross-Mega",
+     "item": "Metagrossite",
+     "ability": "Tough Claws",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 24,
+      "atk": 15,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 27
+     },
+     "moves": [
+      "Psychic Fangs",
+      "Iron Head",
+      "Stomping Tantrum",
+      "Steel Roller"
+     ]
+    },
+    {
+     "weight": 0.2854,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 59,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.195,
+      "ladder": 0.805
+     },
+     "forme": "Metagross-Mega",
+     "item": "Metagrossite",
+     "ability": "Tough Claws",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Psychic Fangs",
+      "Steel Roller",
+      "Body Press",
+      "Iron Head"
+     ]
+    },
+    {
+     "weight": 0.133,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 59,
+      "spread": 8
+     },
+     "spreadMix": {
+      "tournament": 0.838,
+      "ladder": 0.162
+     },
+     "forme": "Metagross-Mega",
+     "item": "Metagrossite",
+     "ability": "Tough Claws",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 12,
+      "atk": 15,
+      "def": 11,
+      "spa": 0,
+      "spd": 0,
+      "spe": 28
+     },
+     "moves": [
+      "Psychic Fangs",
+      "Steel Roller",
+      "Body Press",
+      "Iron Head"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Indeedee",
+   "rank": 25,
+   "tournamentSets": 177,
+   "pasteSets": 21,
+   "sets": [
+    {
+     "weight": 0.6303,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 95,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0.499,
+      "ladder": 0.501
+     },
+     "forme": "Indeedee",
+     "item": "Choice Scarf",
+     "ability": "Psychic Surge",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire",
+      "Dazzling Gleam"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.2216,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 31,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.522,
+      "ladder": 0.478
+     },
+     "forme": "Indeedee",
+     "item": "Choice Scarf",
+     "ability": "Psychic Surge",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0858,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 12,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0.522,
+      "ladder": 0.478
+     },
+     "forme": "Indeedee",
+     "item": "Focus Sash",
+     "ability": "Psychic Surge",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0581,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 95,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0.902,
+      "ladder": 0.098
+     },
+     "forme": "Indeedee",
+     "item": "Choice Scarf",
+     "ability": "Psychic Surge",
+     "nature": "Modest",
+     "sp": {
+      "hp": 12,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 22
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire",
+      "Dazzling Gleam"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.003,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 31,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Indeedee",
+     "item": "Choice Scarf",
+     "ability": "Psychic Surge",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    },
+    {
+     "weight": 0.0012,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 12,
+      "spread": 5
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Indeedee",
+     "item": "Focus Sash",
+     "ability": "Psychic Surge",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Expanding Force",
+      "Mystical Fire"
+     ],
+     "autoField": {
+      "terrain": "Psychic"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Sinistcha",
+   "rank": 26,
+   "tournamentSets": 136,
+   "pasteSets": 18,
+   "sets": [
+    {
+     "weight": 0.2089,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 25,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.438,
+      "ladder": 0.562
+     },
+     "forme": "Sinistcha",
+     "item": "Colbur Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 4,
+      "spa": 0,
+      "spd": 30,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    },
+    {
+     "weight": 0.2078,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 25,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.44,
+      "ladder": 0.56
+     },
+     "forme": "Sinistcha",
+     "item": "Colbur Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    },
+    {
+     "weight": 0.167,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 20,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.609,
+      "ladder": 0.391
+     },
+     "forme": "Sinistcha",
+     "item": "Sitrus Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 4,
+      "spa": 0,
+      "spd": 30,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    },
+    {
+     "weight": 0.1664,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 20,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.611,
+      "ladder": 0.389
+     },
+     "forme": "Sinistcha",
+     "item": "Sitrus Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    },
+    {
+     "weight": 0.1363,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 15,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.512,
+      "ladder": 0.488
+     },
+     "forme": "Sinistcha",
+     "item": "Coba Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    },
+    {
+     "weight": 0.1137,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 15,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.409,
+      "ladder": 0.591
+     },
+     "forme": "Sinistcha",
+     "item": "Coba Berry",
+     "ability": "Hospitality",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 4,
+      "spa": 0,
+      "spd": 30,
+      "spe": 0
+     },
+     "moves": [
+      "Matcha Gotcha"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Torkoal",
+   "rank": 27,
+   "tournamentSets": 133,
+   "pasteSets": 26,
+   "sets": [
+    {
+     "weight": 0.8608,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 107,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0.526,
+      "ladder": 0.474
+     },
+     "forme": "Torkoal",
+     "item": "Charcoal",
+     "ability": "Drought",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Eruption",
+      "Weather Ball",
+      "Heat Wave",
+      "Earth Power"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.1094,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 14,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Torkoal",
+     "item": "Charcoal",
+     "ability": "Drought",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Eruption",
+      "Earth Power",
+      "Heat Wave",
+      "Solar Beam"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.0235,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 107,
+      "spread": 25
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Torkoal",
+     "item": "Charcoal",
+     "ability": "Drought",
+     "nature": "Quiet",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 32,
+      "spe": 0
+     },
+     "moves": [
+      "Eruption",
+      "Weather Ball",
+      "Heat Wave",
+      "Earth Power"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    },
+    {
+     "weight": 0.0063,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 14,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Torkoal",
+     "item": "Charcoal",
+     "ability": "Drought",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 32,
+      "spe": 0
+     },
+     "moves": [
+      "Eruption",
+      "Earth Power",
+      "Heat Wave",
+      "Solar Beam"
+     ],
+     "autoField": {
+      "weather": "Sun"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Excadrill",
+   "rank": 28,
+   "tournamentSets": 200,
+   "pasteSets": 31,
+   "sets": [
+    {
+     "weight": 0.6505,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 127,
+      "spread": 21
+     },
+     "spreadMix": {
+      "tournament": 0.507,
+      "ladder": 0.493
+     },
+     "forme": "Excadrill",
+     "item": "Focus Sash",
+     "ability": "Sand Rush",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Iron Head",
+      "Rock Slide",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.303,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 59,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.505,
+      "ladder": 0.495
+     },
+     "forme": "Excadrill",
+     "item": "Focus Sash",
+     "ability": "Sand Rush",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Iron Head",
+      "High Horsepower",
+      "Rock Slide"
+     ]
+    },
+    {
+     "weight": 0.036,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 8,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.436,
+      "ladder": 0.564
+     },
+     "forme": "Excadrill",
+     "item": "Life Orb",
+     "ability": "Sand Rush",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "High Horsepower",
+      "Iron Head",
+      "Rock Slide"
+     ]
+    },
+    {
+     "weight": 0.0052,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 8,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Excadrill",
+     "item": "Life Orb",
+     "ability": "Sand Rush",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 4,
+      "atk": 25,
+      "def": 0,
+      "spa": 0,
+      "spd": 5,
+      "spe": 32
+     },
+     "moves": [
+      "High Horsepower",
+      "Iron Head",
+      "Rock Slide"
+     ]
+    },
+    {
+     "weight": 0.0042,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 127,
+      "spread": 21
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Excadrill",
+     "item": "Focus Sash",
+     "ability": "Sand Rush",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Iron Head",
+      "Rock Slide",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.0011,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 59,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Excadrill",
+     "item": "Focus Sash",
+     "ability": "Sand Rush",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Iron Head",
+      "High Horsepower",
+      "Rock Slide"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Floette-Eternal",
+   "rank": 29,
+   "tournamentSets": 277,
+   "pasteSets": 67,
+   "sets": [
+    {
+     "weight": 0.6317,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 210,
+      "spread": 47
+     },
+     "spreadMix": {
+      "tournament": 0.081,
+      "ladder": 0.919
+     },
+     "forme": "Floette-Mega",
+     "item": "Floettite",
+     "ability": "Fairy Aura",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dazzling Gleam",
+      "Moonblast",
+      "Draining Kiss",
+      "Light of Ruin"
+     ]
+    },
+    {
+     "weight": 0.1548,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 210,
+      "spread": 47
+     },
+     "spreadMix": {
+      "tournament": 0.824,
+      "ladder": 0.176
+     },
+     "forme": "Floette-Mega",
+     "item": "Floettite",
+     "ability": "Fairy Aura",
+     "nature": "Modest",
+     "sp": {
+      "hp": 28,
+      "atk": 0,
+      "def": 1,
+      "spa": 5,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dazzling Gleam",
+      "Moonblast",
+      "Draining Kiss",
+      "Light of Ruin"
+     ]
+    },
+    {
+     "weight": 0.1299,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 57,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.099,
+      "ladder": 0.901
+     },
+     "forme": "Floette-Mega",
+     "item": "Floettite",
+     "ability": "Fairy Aura",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dazzling Gleam",
+      "Moonblast",
+      "Draining Kiss",
+      "Light of Ruin"
+     ]
+    },
+    {
+     "weight": 0.0836,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 57,
+      "spread": 19
+     },
+     "spreadMix": {
+      "tournament": 0.767,
+      "ladder": 0.233
+     },
+     "forme": "Floette-Mega",
+     "item": "Floettite",
+     "ability": "Fairy Aura",
+     "nature": "Timid",
+     "sp": {
+      "hp": 4,
+      "atk": 0,
+      "def": 8,
+      "spa": 32,
+      "spd": 0,
+      "spe": 22
+     },
+     "moves": [
+      "Dazzling Gleam",
+      "Moonblast",
+      "Draining Kiss",
+      "Light of Ruin"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Volcarona",
+   "rank": 30,
+   "tournamentSets": 184,
+   "pasteSets": 17,
+   "sets": [
+    {
+     "weight": 0.3371,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 92,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.688,
+      "ladder": 0.312
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Modest",
+     "sp": {
+      "hp": 21,
+      "atk": 0,
+      "def": 15,
+      "spa": 5,
+      "spd": 1,
+      "spe": 24
+     },
+     "moves": [
+      "Giga Drain",
+      "Heat Wave",
+      "Flamethrower",
+      "Bug Buzz"
+     ]
+    },
+    {
+     "weight": 0.2245,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 92,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.517,
+      "ladder": 0.483
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Modest",
+     "sp": {
+      "hp": 17,
+      "atk": 0,
+      "def": 13,
+      "spa": 5,
+      "spd": 1,
+      "spe": 30
+     },
+     "moves": [
+      "Giga Drain",
+      "Heat Wave",
+      "Flamethrower",
+      "Bug Buzz"
+     ]
+    },
+    {
+     "weight": 0.1571,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 92,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.738,
+      "ladder": 0.262
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 11,
+      "spa": 5,
+      "spd": 1,
+      "spe": 17
+     },
+     "moves": [
+      "Giga Drain",
+      "Heat Wave",
+      "Flamethrower",
+      "Bug Buzz"
+     ]
+    },
+    {
+     "weight": 0.1532,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 22,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0.759,
+      "ladder": 0.241
+     },
+     "forme": "Volcarona",
+     "item": "Rocky Helmet",
+     "ability": "Flame Body",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Overheat",
+      "Struggle Bug"
+     ]
+    },
+    {
+     "weight": 0.0395,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 14,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Timid",
+     "sp": {
+      "hp": 16,
+      "atk": 0,
+      "def": 15,
+      "spa": 5,
+      "spd": 0,
+      "spe": 30
+     },
+     "moves": [
+      "Fiery Dance",
+      "Giga Drain",
+      "Overheat",
+      "Heat Wave"
+     ]
+    },
+    {
+     "weight": 0.0383,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 14,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Timid",
+     "sp": {
+      "hp": 21,
+      "atk": 0,
+      "def": 15,
+      "spa": 5,
+      "spd": 1,
+      "spe": 24
+     },
+     "moves": [
+      "Fiery Dance",
+      "Giga Drain",
+      "Overheat",
+      "Heat Wave"
+     ]
+    },
+    {
+     "weight": 0.0316,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 14,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Volcarona",
+     "item": "Grassy Seed",
+     "ability": "Flame Body",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Fiery Dance",
+      "Giga Drain",
+      "Overheat",
+      "Heat Wave"
+     ]
+    },
+    {
+     "weight": 0.0186,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 22,
+      "spread": 7
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Volcarona",
+     "item": "Rocky Helmet",
+     "ability": "Flame Body",
+     "nature": "Bold",
+     "sp": {
+      "hp": 16,
+      "atk": 0,
+      "def": 15,
+      "spa": 5,
+      "spd": 0,
+      "spe": 30
+     },
+     "moves": [
+      "Overheat",
+      "Struggle Bug"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Politoed",
+   "rank": 31,
+   "tournamentSets": 191,
+   "pasteSets": 11,
+   "sets": [
+    {
+     "weight": 0.3882,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 101,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.733,
+      "ladder": 0.267
+     },
+     "forme": "Politoed",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Calm",
+     "sp": {
+      "hp": 31,
+      "atk": 0,
+      "def": 23,
+      "spa": 0,
+      "spd": 12,
+      "spe": 0
+     },
+     "moves": [
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.1614,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 101,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.881,
+      "ladder": 0.119
+     },
+     "forme": "Politoed",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 24,
+      "spa": 0,
+      "spd": 7,
+      "spe": 3
+     },
+     "moves": [
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.1422,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 101,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Politoed",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Weather Ball"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0892,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 38,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.898,
+      "ladder": 0.102
+     },
+     "forme": "Politoed",
+     "item": "Mystic Water",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 30,
+      "spd": 0,
+      "spe": 4
+     },
+     "moves": [
+      "Ice Beam",
+      "Weather Ball",
+      "Muddy Water"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0859,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 38,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Politoed",
+     "item": "Mystic Water",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Ice Beam",
+      "Weather Ball",
+      "Muddy Water"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0853,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 38,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.939,
+      "ladder": 0.061
+     },
+     "forme": "Politoed",
+     "item": "Mystic Water",
+     "ability": "Drizzle",
+     "nature": "Modest",
+     "sp": {
+      "hp": 30,
+      "atk": 0,
+      "def": 18,
+      "spa": 10,
+      "spd": 0,
+      "spe": 8
+     },
+     "moves": [
+      "Ice Beam",
+      "Weather Ball",
+      "Muddy Water"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0277,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 7,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Politoed",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Weather Ball",
+      "Ice Beam"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    },
+    {
+     "weight": 0.0202,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 7,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Politoed",
+     "item": "Sitrus Berry",
+     "ability": "Drizzle",
+     "nature": "Bold",
+     "sp": {
+      "hp": 31,
+      "atk": 0,
+      "def": 23,
+      "spa": 0,
+      "spd": 12,
+      "spe": 0
+     },
+     "moves": [
+      "Weather Ball",
+      "Ice Beam"
+     ],
+     "autoField": {
+      "weather": "Rain"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Lucario",
+   "rank": 32,
+   "tournamentSets": 133,
+   "pasteSets": 27,
+   "sets": [
+    {
+     "weight": 0.4355,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 72,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.231,
+      "ladder": 0.769
+     },
+     "forme": "Lucario-Mega-Z",
+     "item": "Lucarionite Z",
+     "ability": "Aura Guard",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Aura Sphere",
+      "Flash Cannon",
+      "Dark Pulse"
+     ]
+    },
+    {
+     "weight": 0.3778,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 56,
+      "spread": 17
+     },
+     "spreadMix": {
+      "tournament": 0.333,
+      "ladder": 0.667
+     },
+     "forme": "Lucario-Mega-Z",
+     "item": "Lucarionite Z",
+     "ability": "Aura Guard",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Aura Sphere",
+      "Flash Cannon",
+      "Steel Beam"
+     ]
+    },
+    {
+     "weight": 0.127,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 72,
+      "spread": 10
+     },
+     "spreadMix": {
+      "tournament": 0.793,
+      "ladder": 0.207
+     },
+     "forme": "Lucario-Mega-Z",
+     "item": "Lucarionite Z",
+     "ability": "Aura Guard",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 2,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Aura Sphere",
+      "Flash Cannon",
+      "Dark Pulse"
+     ]
+    },
+    {
+     "weight": 0.0597,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 56,
+      "spread": 17
+     },
+     "spreadMix": {
+      "tournament": 0.703,
+      "ladder": 0.297
+     },
+     "forme": "Lucario-Mega-Z",
+     "item": "Lucarionite Z",
+     "ability": "Aura Guard",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Aura Sphere",
+      "Flash Cannon",
+      "Steel Beam"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Grimmsnarl",
+   "rank": 33,
+   "tournamentSets": 142,
+   "pasteSets": 12,
+   "sets": [
+    {
+     "weight": 0.3683,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 57,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.469,
+      "ladder": 0.531
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 19,
+      "spa": 0,
+      "spd": 15,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.3454,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 52,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.57,
+      "ladder": 0.43
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Sassy",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 19,
+      "spa": 0,
+      "spd": 15,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.1107,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 57,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.781,
+      "ladder": 0.219
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 24,
+      "spa": 0,
+      "spd": 10,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.0916,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 52,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.717,
+      "ladder": 0.283
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Sassy",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 14,
+      "spa": 0,
+      "spd": 20,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.0289,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 10,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.928,
+      "ladder": 0.072
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 2,
+      "def": 16,
+      "spa": 0,
+      "spd": 16,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.0283,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 10,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 19,
+      "spa": 0,
+      "spd": 15,
+      "spe": 0
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    },
+    {
+     "weight": 0.0268,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 10,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Grimmsnarl",
+     "item": "Light Clay",
+     "ability": "Prankster",
+     "nature": "Impish",
+     "sp": {
+      "hp": 29,
+      "atk": 3,
+      "def": 16,
+      "spa": 0,
+      "spd": 17,
+      "spe": 1
+     },
+     "moves": [
+      "Spirit Break"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Swampert",
+   "rank": 34,
+   "tournamentSets": 107,
+   "pasteSets": 12,
+   "sets": [
+    {
+     "weight": 0.7006,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 97,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.385,
+      "ladder": 0.615
+     },
+     "forme": "Swampert-Mega",
+     "item": "Swampertite",
+     "ability": "Swift Swim",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Wave Crash",
+      "Ice Punch",
+      "High Horsepower",
+      "Earthquake"
+     ]
+    },
+    {
+     "weight": 0.2994,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 97,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.901,
+      "ladder": 0.099
+     },
+     "forme": "Swampert-Mega",
+     "item": "Swampertite",
+     "ability": "Swift Swim",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 11,
+      "atk": 30,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 25
+     },
+     "moves": [
+      "Wave Crash",
+      "Ice Punch",
+      "High Horsepower",
+      "Earthquake"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Froslass",
+   "rank": 35,
+   "tournamentSets": 170,
+   "pasteSets": 13,
+   "sets": [
+    {
+     "weight": 0.525,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 134,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.129,
+      "ladder": 0.871
+     },
+     "forme": "Froslass-Mega",
+     "item": "Froslassite",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Shadow Ball"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.2774,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 134,
+      "spread": 12
+     },
+     "spreadMix": {
+      "tournament": 0.98,
+      "ladder": 0.02
+     },
+     "forme": "Froslass-Mega",
+     "item": "Froslassite",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 15,
+      "atk": 0,
+      "def": 8,
+      "spa": 9,
+      "spd": 2,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Shadow Ball"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.1598,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 33,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Froslass-Mega",
+     "item": "Froslassite",
+     "ability": "Snow Warning",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Blizzard"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.0378,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 33,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Froslass-Mega",
+     "item": "Froslassite",
+     "ability": "Snow Warning",
+     "nature": "Modest",
+     "sp": {
+      "hp": 12,
+      "atk": 0,
+      "def": 1,
+      "spa": 20,
+      "spd": 1,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Blizzard"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Baxcalibur",
+   "rank": 36,
+   "tournamentSets": 84,
+   "pasteSets": 27,
+   "sets": [
+    {
+     "weight": 0.4033,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 58,
+      "spread": 18
+     },
+     "spreadMix": {
+      "tournament": 0.365,
+      "ladder": 0.635
+     },
+     "forme": "Baxcalibur-Mega",
+     "item": "Baxcalibrite",
+     "ability": "Thermal Exchange",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Glaive Rush",
+      "Ice Shard",
+      "Icicle Crash",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.3599,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 58,
+      "spread": 18
+     },
+     "spreadMix": {
+      "tournament": 0.273,
+      "ladder": 0.727
+     },
+     "forme": "Baxcalibur-Mega",
+     "item": "Baxcalibrite",
+     "ability": "Thermal Exchange",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Glaive Rush",
+      "Ice Shard",
+      "Icicle Crash",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.0915,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 11,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.984,
+      "ladder": 0.016
+     },
+     "forme": "Baxcalibur",
+     "item": "Life Orb",
+     "ability": "Thermal Exchange",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 19,
+      "atk": 32,
+      "def": 4,
+      "spa": 0,
+      "spd": 4,
+      "spe": 7
+     },
+     "moves": [
+      "Glaive Rush",
+      "Ice Shard",
+      "Icicle Crash"
+     ]
+    },
+    {
+     "weight": 0.0533,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 11,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Baxcalibur",
+     "item": "Life Orb",
+     "ability": "Thermal Exchange",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Glaive Rush",
+      "Ice Shard",
+      "Icicle Crash"
+     ]
+    },
+    {
+     "weight": 0.0325,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 7,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Baxcalibur-Mega",
+     "item": "Baxcalibrite",
+     "ability": "Thermal Exchange",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Glaive Rush",
+      "Icicle Crash",
+      "Ice Shard",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.0309,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 7,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0.93,
+      "ladder": 0.07
+     },
+     "forme": "Baxcalibur-Mega",
+     "item": "Baxcalibrite",
+     "ability": "Thermal Exchange",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 32,
+      "atk": 24,
+      "def": 0,
+      "spa": 0,
+      "spd": 4,
+      "spe": 6
+     },
+     "moves": [
+      "Glaive Rush",
+      "Icicle Crash",
+      "Ice Shard",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.0287,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 7,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 1,
+      "ladder": 0
+     },
+     "forme": "Baxcalibur-Mega",
+     "item": "Baxcalibrite",
+     "ability": "Thermal Exchange",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 17,
+      "atk": 5,
+      "def": 3,
+      "spa": 0,
+      "spd": 9,
+      "spe": 32
+     },
+     "moves": [
+      "Glaive Rush",
+      "Icicle Crash",
+      "Ice Shard",
+      "High Horsepower"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Gengar",
+   "rank": 37,
+   "tournamentSets": 190,
+   "pasteSets": 15,
+   "sets": [
+    {
+     "weight": 0.3791,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 122,
+      "spread": 11
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gengar-Mega",
+     "item": "Gengarite",
+     "ability": "Shadow Tag",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Sludge Bomb"
+     ]
+    },
+    {
+     "weight": 0.284,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 122,
+      "spread": 11
+     },
+     "spreadMix": {
+      "tournament": 0.704,
+      "ladder": 0.296
+     },
+     "forme": "Gengar-Mega",
+     "item": "Gengarite",
+     "ability": "Shadow Tag",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 5,
+      "spa": 1,
+      "spd": 8,
+      "spe": 20
+     },
+     "moves": [
+      "Shadow Ball",
+      "Sludge Bomb"
+     ]
+    },
+    {
+     "weight": 0.1807,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 62,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Gengar-Mega",
+     "item": "Gengarite",
+     "ability": "Shadow Tag",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Sludge Bomb"
+     ]
+    },
+    {
+     "weight": 0.1563,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 62,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.746,
+      "ladder": 0.254
+     },
+     "forme": "Gengar-Mega",
+     "item": "Gengarite",
+     "ability": "Shadow Tag",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 2,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Shadow Ball",
+      "Sludge Bomb"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Ninetales-Alola",
+   "rank": 38,
+   "tournamentSets": 73,
+   "pasteSets": 11,
+   "sets": [
+    {
+     "weight": 0.2955,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 40,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Light Clay",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Moonblast",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.2229,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 40,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.953,
+      "ladder": 0.047
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Light Clay",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 5,
+      "atk": 0,
+      "def": 7,
+      "spa": 22,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Moonblast",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.1777,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 13,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.324,
+      "ladder": 0.676
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Focus Sash",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Moonblast",
+      "Icy Wind",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.1595,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 40,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.666,
+      "ladder": 0.334
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Light Clay",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 0,
+      "atk": 0,
+      "def": 7,
+      "spa": 27,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Moonblast",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.0715,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 6,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.418,
+      "ladder": 0.582
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Never-Melt Ice",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.0426,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 13,
+      "spread": 9
+     },
+     "spreadMix": {
+      "tournament": 0.901,
+      "ladder": 0.099
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Focus Sash",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 5,
+      "atk": 0,
+      "def": 7,
+      "spa": 22,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Blizzard",
+      "Moonblast",
+      "Icy Wind",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    },
+    {
+     "weight": 0.0302,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 6,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.989,
+      "ladder": 0.011
+     },
+     "forme": "Ninetales-Alola",
+     "item": "Never-Melt Ice",
+     "ability": "Snow Warning",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 3,
+      "spa": 32,
+      "spd": 3,
+      "spe": 26
+     },
+     "moves": [
+      "Blizzard",
+      "Freeze-Dry"
+     ],
+     "autoField": {
+      "weather": "Snow"
+     }
+    }
+   ]
+  },
+  {
+   "species": "Dragonite",
+   "rank": 39,
+   "tournamentSets": 103,
+   "pasteSets": 9,
+   "sets": [
+    {
+     "weight": 0.6308,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 75,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.379,
+      "ladder": 0.621
+     },
+     "forme": "Dragonite-Mega",
+     "item": "Dragoninite",
+     "ability": "Multiscale",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Pulse",
+      "Heat Wave",
+      "Extreme Speed"
+     ]
+    },
+    {
+     "weight": 0.1757,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 75,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.68,
+      "ladder": 0.32
+     },
+     "forme": "Dragonite-Mega",
+     "item": "Dragoninite",
+     "ability": "Multiscale",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Dragon Pulse",
+      "Heat Wave",
+      "Extreme Speed"
+     ]
+    },
+    {
+     "weight": 0.0704,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 7,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Dragonite-Mega",
+     "item": "Dragoninite",
+     "ability": "Multiscale",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Pulse",
+      "Heat Wave",
+      "Flamethrower"
+     ]
+    },
+    {
+     "weight": 0.0642,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 11,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.561,
+      "ladder": 0.439
+     },
+     "forme": "Dragonite",
+     "item": "Life Orb",
+     "ability": "Inner Focus",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 31,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 3
+     },
+     "moves": [
+      "Dragon Claw",
+      "Extreme Speed",
+      "Scale Shot",
+      "Stomping Tantrum"
+     ]
+    },
+    {
+     "weight": 0.0313,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 11,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Dragonite",
+     "item": "Life Orb",
+     "ability": "Inner Focus",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dragon Claw",
+      "Extreme Speed",
+      "Scale Shot",
+      "Stomping Tantrum"
+     ]
+    },
+    {
+     "weight": 0.0227,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 11,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.793,
+      "ladder": 0.207
+     },
+     "forme": "Dragonite",
+     "item": "Life Orb",
+     "ability": "Inner Focus",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 7,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 27
+     },
+     "moves": [
+      "Dragon Claw",
+      "Extreme Speed",
+      "Scale Shot",
+      "Stomping Tantrum"
+     ]
+    },
+    {
+     "weight": 0.0049,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 7,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Dragonite-Mega",
+     "item": "Dragoninite",
+     "ability": "Multiscale",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Dragon Pulse",
+      "Heat Wave",
+      "Flamethrower"
+     ]
+    }
+   ]
+  },
+  {
+   "species": "Glimmora",
+   "rank": 40,
+   "tournamentSets": 123,
+   "pasteSets": 18,
+   "sets": [
+    {
+     "weight": 0.2789,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 34,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.528,
+      "ladder": 0.472
+     },
+     "forme": "Glimmora-Mega",
+     "item": "Glimmoranite",
+     "ability": "Adaptability",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.2733,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 36,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.475,
+      "ladder": 0.525
+     },
+     "forme": "Glimmora-Mega",
+     "item": "Glimmoranite",
+     "ability": "Adaptability",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Earth Power",
+      "Sludge Bomb"
+     ]
+    },
+    {
+     "weight": 0.2245,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 27,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0.521,
+      "ladder": 0.479
+     },
+     "forme": "Glimmora",
+     "item": "Focus Sash",
+     "ability": "Toxic Debris",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.1805,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 22,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0.528,
+      "ladder": 0.472
+     },
+     "forme": "Glimmora",
+     "item": "Focus Sash",
+     "ability": "Toxic Debris",
+     "nature": "Modest",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.0292,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 36,
+      "spread": 6
+     },
+     "spreadMix": {
+      "tournament": 0.889,
+      "ladder": 0.111
+     },
+     "forme": "Glimmora-Mega",
+     "item": "Glimmoranite",
+     "ability": "Adaptability",
+     "nature": "Timid",
+     "sp": {
+      "hp": 9,
+      "atk": 0,
+      "def": 0,
+      "spa": 25,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Earth Power",
+      "Sludge Bomb"
+     ]
+    },
+    {
+     "weight": 0.0068,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 34,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Glimmora-Mega",
+     "item": "Glimmoranite",
+     "ability": "Adaptability",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.0044,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 22,
+      "spread": 3
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Glimmora",
+     "item": "Focus Sash",
+     "ability": "Toxic Debris",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.0024,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 27,
+      "spread": 4
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Glimmora",
+     "item": "Focus Sash",
+     "ability": "Toxic Debris",
+     "nature": "Timid",
+     "sp": {
+      "hp": 9,
+      "atk": 0,
+      "def": 0,
+      "spa": 25,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Power Gem",
+      "Sludge Bomb",
+      "Earth Power"
+     ]
+    }
+   ]
+  }
+ ]
+}
