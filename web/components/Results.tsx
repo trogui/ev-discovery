@@ -2,7 +2,7 @@ import { useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
-import { favorability, formatSp, formeSuffix, outcomeText, pct, statusOf, type Status } from '../format';
+import { favorability, formatSp, formeSuffix, outcomeText, pct, toneOf, type Status, type Tone } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
 import type { Mode } from '../useStickyList';
 import { ItemIcon, PokemonSprite } from './Sprites';
@@ -11,7 +11,7 @@ type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean };
 
 const DOMAIN: [number, number] = [0, 150];
 
-const STATUS_ICON: Record<Status, string> = { good: '✓', warning: '◐', serious: '▲', critical: '✕' };
+const STATUS_ICON: Record<Tone, string> = { good: '✓', warning: '◐', serious: '▲', critical: '✕', neutral: '2' };
 const STATUS_ORDER: Status[] = ['critical', 'serious', 'warning', 'good'];
 
 const x = (v: number) => ((Math.min(Math.max(v, DOMAIN[0]), DOMAIN[1]) - DOMAIN[0]) / (DOMAIN[1] - DOMAIN[0])) * 100;
@@ -79,12 +79,12 @@ function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level
       {levels.map((l) => (
         <div key={`line${l}`} className={l === 1 ? 'range-line' : 'range-line two'} style={{ left: `${x(lineOf(row, l))}%` }} />
       ))}
-      <div className={`range-fill s-${statusOf(row, level)}`} style={{ left: `${left}%`, width: `${width}%` }} />
+      <div className={`range-fill s-${toneOf(row, level)}`} style={{ left: `${left}%`, width: `${width}%` }} />
     </div>
   );
 }
 
-function StatusIcon({ status }: { status: Status }) {
+function StatusIcon({ status }: { status: Tone }) {
   return (
     <span className="outcome-icon" aria-hidden>
       {STATUS_ICON[status]}
@@ -94,7 +94,7 @@ function StatusIcon({ status }: { status: Status }) {
 
 function RowView({ row, view }: { row: CalcRow; view: View }) {
   const level = displayLevel(row, view.band, view.targets);
-  const status = statusOf(row, level);
+  const status = toneOf(row, level);
   const lineNote = level === 2 ? `2HKO at ${pct(row.line2Pct)}${row.recoveryNotes.length ? ` · ${row.recoveryNotes.join(', ')}` : ''}` : '';
   return (
     <li className={inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
@@ -122,16 +122,16 @@ function Decided({ all, mode }: { all: CalcRow[]; mode: Mode }) {
   const pick = (test: (r: CalcRow) => boolean) => all.find(test);
   const ohko = pick((r) => r.koChance >= 1);
   const twohko = pick((r) => r.ko2Chance >= 1);
-  let status: Status;
+  let status: Tone;
   let move: string | null = null;
   let text: string;
   if (mode === 'out') {
     if (ohko) [status, move, text] = ['good', ohko.move, 'clear OHKO'];
-    else if (twohko) [status, move, text] = ['good', twohko.move, 'clear 2HKO'];
-    else [status, text] = ['critical', 'No KO close'];
+    else if (twohko) [status, move, text] = ['neutral', twohko.move, 'clear 2HKO'];
+    else [status, text] = ['neutral', 'No KO close'];
   } else if (ohko) [status, move, text] = ['critical', ohko.move, 'OHKOs you clearly'];
-  else if (twohko) [status, move, text] = ['critical', twohko.move, '2HKOs you clearly'];
-  else [status, text] = ['good', 'Survives everything clearly'];
+  else if (twohko) [status, move, text] = ['neutral', twohko.move, '2HKOs you clearly'];
+  else [status, text] = ['neutral', 'Survives everything clearly'];
   return (
     <span className="headline decided">
       <span className={`outcome s-${status}`}>
@@ -151,7 +151,7 @@ function Headline({ rows, all, view }: { rows: CalcRow[]; all: CalcRow[]; view: 
     return { r, level, f: favorability(r, level) };
   });
   const worst = scored.reduce((a, b) => (Math.abs(b.f - 0.5) < Math.abs(a.f - 0.5) ? b : a));
-  const status = statusOf(worst.r, worst.level);
+  const status = toneOf(worst.r, worst.level);
   return (
     <span className="headline">
       <span className={`outcome s-${status}`}>
@@ -374,6 +374,12 @@ export function Results(props: Props) {
             {MODES[mode].legend[status]}
           </li>
         ))}
+        {targets.twohko && (
+          <li className="outcome s-neutral">
+            <StatusIcon status="neutral" />
+            2HKO calcs
+          </li>
+        )}
       </ul>
       {nonEmpty.map(([title, list]) => (
         <section key={title} className="result-section">

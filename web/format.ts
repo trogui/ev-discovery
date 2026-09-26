@@ -23,6 +23,7 @@ export function formeSuffix(forme: string, species: string) {
 export const pct = (x: number, digits = 1) => `${x.toFixed(digits)}%`;
 
 export type Status = 'good' | 'warning' | 'serious' | 'critical';
+export type Tone = Status | 'neutral';
 
 export function favorability(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chance'>, level: Level) {
   const chance = chanceOf(row, level);
@@ -35,6 +36,10 @@ export function statusOf(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chanc
   if (f >= 0.5) return 'warning';
   if (f > 0) return 'serious';
   return 'critical';
+}
+
+export function toneOf(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chance'>, level: Level): Tone {
+  return level === 2 ? 'neutral' : statusOf(row, level);
 }
 
 export function outcomeText(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chance' | 'note'>, level: Level) {

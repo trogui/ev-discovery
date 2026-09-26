@@ -1272,6 +1272,16 @@ select:hover {
   color: var(--muted);
 }
 
+.s-neutral .outcome-icon,
+.range-fill.s-neutral {
+  background: var(--ink-2);
+}
+
+.s-neutral .outcome-icon {
+  color: var(--surface);
+  font-weight: 700;
+}
+
 .calc.out-of-range .range-fill {
   background: var(--line);
 }
