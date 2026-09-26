@@ -5,18 +5,33 @@ import type { CalcSettings, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
 import { Controls } from './components/Controls';
 import { Results } from './components/Results';
-import { SetInput } from './components/SetInput';
-import { parseMySet } from './me';
+import { SetEditor } from './components/SetEditor';
+import { EXAMPLE, buildMySet, importPaste, type EditableSet } from './me';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
 import { useStickyList, type Mode } from './useStickyList';
 
 const meta = metaJson as unknown as Meta;
 
+const ranks = new Map(meta.pokemon.map((p) => [p.species, p.rank]));
+
+function initialSet(): EditableSet | null {
+  try {
+    const legacy = localStorage.getItem('evd:set');
+    if (!legacy) return null;
+    const result = importPaste(JSON.parse(legacy));
+    return result.ok ? result.sets[0] : null;
+  } catch {
+    return null;
+  }
+}
+
+const INITIAL_SET = initialSet();
+
 const dateFormat = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short' });
 
 export function App() {
-  const [text, setText] = usePersistentState('evd:set', '');
+  const [mine, setMine] = usePersistentState<EditableSet | null>('evd:me', INITIAL_SET);
   const [storedSettings, setSettings] = usePersistentState<Settings>('evd:settings', DEFAULT_SETTINGS);
   const [mode, setMode] = usePersistentState<Mode>('evd:mode', 'in');
   const [pinned, setPinned] = usePersistentState<string[]>('evd:pinned', []);
@@ -28,9 +43,7 @@ export function App() {
     return rest;
   }, [settings]);
 
-  const parsed = useMemo(() => parseMySet(text), [text]);
-  const meKey = parsed.ok ? JSON.stringify(parsed.set) : '';
-  const me = useMemo(() => (parsed.ok ? parsed.set : null), [meKey]);
+  const me = useMemo(() => (mine ? buildMySet(mine) : null), [mine]);
   const { response, pending } = useCalcs(me, calcSettings, pinned);
   const { sticky, reset } = useStickyList(response, settings.band, settings.targets);
 
@@ -48,22 +61,27 @@ export function App() {
         </p>
       </header>
       <aside className="side">
-        <SetInput text={text} onChange={setText} parsed={parsed} />
+        <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
         <Controls settings={settings} onChange={setSettings} mode={mode} onReset={() => setSettings({ ...DEFAULT_SETTINGS, band: settings.band, targets: settings.targets, top: settings.top })} />
       </aside>
       <main className="main">
-        {!text.trim() ? (
+        {!mine ? (
           <div className="empty">
-            <p>Paste your set on the left.</p>
+            <p>Pick your Pokémon on the left.</p>
             <p className="muted">
               Every matchup against the most common sets of the top {settings.top} in Reg {meta.regulation}, filtered to the calcs that land close to an OHKO or 2HKO.
+            </p>
+            <p>
+              <button type="button" className="link" onClick={() => setMine(EXAMPLE)}>
+                Try an example
+              </button>
             </p>
           </div>
         ) : (
           <Results
             response={response}
             pending={pending}
-            stale={!parsed.ok}
+            stale={false}
             band={settings.band}
             targets={settings.targets}
             top={settings.top}

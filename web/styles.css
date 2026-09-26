@@ -178,51 +178,247 @@ select:focus,
   outline-offset: -1px;
 }
 
-.parsed {
+.editor {
+  gap: 12px;
+}
+
+.combobox {
+  position: relative;
+}
+
+.combobox input {
+  width: 100%;
+  padding: 6px 26px 6px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+.combobox input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.combobox.species input {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px 10px;
+}
+
+.combobox-list {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.combobox-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.combobox-list li.active {
+  background: var(--band);
+}
+
+.combobox-list li.divider {
+  border-top: 1px solid var(--grid);
+  margin-top: 3px;
+  padding-top: 7px;
+}
+
+.combobox-clear {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 2px 5px;
+}
+
+.presets {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preset {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 6px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+}
+
+.preset:hover {
+  background: var(--hover);
+}
+
+.preset.on {
+  border-color: var(--accent);
+  background: var(--band);
+}
+
+.preset-main {
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.editor-grid {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 6px 10px;
+  align-items: center;
+}
+
+.mini-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.static-field {
+  padding: 5px 2px;
+}
+
+.sp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.sp-left {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.sp-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sp-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 46px 36px;
+  gap: 8px;
+  align-items: center;
+}
+
+.stat-name {
+  font-size: 12.5px;
+  font-weight: 550;
+  color: var(--text-2);
+  text-align: left;
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: none;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-name.clickable {
+  cursor: pointer;
+}
+
+.stat-name.clickable:hover {
+  border-color: var(--border);
+}
+
+.stat-name.plus,
+.stat-final.plus {
+  color: var(--accent);
+}
+
+.stat-name.minus,
+.stat-final.minus {
+  color: var(--critical);
+}
+
+.nature-mark {
+  font-size: 9px;
+}
+
+.sp-row input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.sp-row input[type='number'] {
+  width: 100%;
+  padding: 3px 4px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-final {
+  text-align: right;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.moves-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.paste-box {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.parsed-title {
+.paste-actions {
   display: flex;
   gap: 8px;
-  align-items: baseline;
-  flex-wrap: wrap;
 }
 
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  margin: 0;
+.button {
   border: 1px solid var(--border);
-  border-radius: 8px;
-  overflow: hidden;
+  background: var(--surface-raised);
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 13px;
 }
 
-.stat-grid div {
-  text-align: center;
-  padding: 5px 0;
+.button:hover {
+  border-color: var(--baseline);
 }
 
-.stat-grid div + div {
-  border-left: 1px solid var(--border);
-}
-
-.stat-grid dt {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.stat-grid dd {
-  margin: 0;
-  font-variant-numeric: tabular-nums;
-  font-weight: 500;
-}
-
-.stat-grid .invested dd {
-  color: var(--accent);
-  font-weight: 650;
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 .hint {
