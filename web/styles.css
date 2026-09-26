@@ -1272,10 +1272,22 @@ select:hover {
   color: var(--muted);
 }
 
-.calc.out-of-range .range-fill,
-.calc.out-of-range .outcome-icon {
+.calc.out-of-range .range-fill {
   background: var(--line);
+}
+
+.calc.out-of-range .outcome-icon,
+.headline.decided .outcome-icon {
+  opacity: 0.55;
+}
+
+.headline.decided .headline-move,
+.headline.decided .headline-result {
   color: var(--muted);
+}
+
+.headline.decided .headline-result {
+  font-weight: 500;
 }
 
 .calc.out-of-range .pct {

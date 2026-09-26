@@ -55,7 +55,10 @@ function groupLabel(group: SetGroup, species: string, mode: Mode) {
   return {
     forme: formeSuffix(first.forme, species),
     main: `${listOf(group.sets.map((s) => s.item ?? 'No item'))} · ${listOf(group.sets.map((s) => s.nature))}`,
-    sp: listOf(group.sets.map((s) => spPart(s, stats))),
+    sp: (() => {
+      const unique = [...new Set(group.sets.map((s) => spPart(s, stats)))];
+      return unique.length > 1 ? `${unique[0]} +${unique.length - 1}` : unique[0];
+    })(),
     title: group.sets
       .map((s) => `${s.custom ? 'custom' : `${Math.round(s.weight * 100)}%`} · ${s.forme} · ${s.item ?? 'No item'} · ${s.ability ?? ''} · ${s.nature} · ${formatSp(s.sp)}`)
       .join('\n'),
@@ -114,8 +117,35 @@ function RowView({ row, view }: { row: CalcRow; view: View }) {
   );
 }
 
-function Headline({ rows, view }: { rows: CalcRow[]; view: View }) {
-  if (!rows.length) return <span className="muted small">Nothing in range</span>;
+function Decided({ all, mode }: { all: CalcRow[]; mode: Mode }) {
+  if (!all.length) return <span className="muted small">No damaging moves</span>;
+  const pick = (test: (r: CalcRow) => boolean) => all.find(test);
+  const ohko = pick((r) => r.koChance >= 1);
+  const twohko = pick((r) => r.ko2Chance >= 1);
+  let status: Status;
+  let move: string | null = null;
+  let text: string;
+  if (mode === 'out') {
+    if (ohko) [status, move, text] = ['good', ohko.move, 'clear OHKO'];
+    else if (twohko) [status, move, text] = ['good', twohko.move, 'clear 2HKO'];
+    else [status, text] = ['critical', 'No KO close'];
+  } else if (ohko) [status, move, text] = ['critical', ohko.move, 'OHKOs you clearly'];
+  else if (twohko) [status, move, text] = ['critical', twohko.move, '2HKOs you clearly'];
+  else [status, text] = ['good', 'Survives everything clearly'];
+  return (
+    <span className="headline decided">
+      <span className={`outcome s-${status}`}>
+        <StatusIcon status={status} />
+        {move && <span className="headline-move">{move}</span>}
+        <span className="headline-result">{text}</span>
+      </span>
+      <span className="muted small">nothing close</span>
+    </span>
+  );
+}
+
+function Headline({ rows, all, view }: { rows: CalcRow[]; all: CalcRow[]; view: View }) {
+  if (!rows.length) return <Decided all={all} mode={view.mode} />;
   const scored = rows.map((r) => {
     const level = displayLevel(r, view.band, view.targets);
     return { r, level, f: favorability(r, level) };
@@ -211,7 +241,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
             <span>{result.species}</span>
             {result.hasCustom && <span className="badge">custom</span>}
           </span>
-          <Headline rows={inRangeRows} view={view} />
+          <Headline rows={inRangeRows} all={allRows} view={view} />
           <span className="chevron" aria-hidden>
             ›
           </span>
@@ -225,7 +255,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
           {active.map((g) => (
             <GroupView key={g.key} group={g} species={result.species} view={view} showAll={showAll} />
           ))}
-          {!active.length && <p className="muted small card-note">{groups.length ? 'No calcs in range.' : 'No damaging calcs.'}</p>}
+          {!active.length && <p className="muted small card-note">{groups.length ? 'Nothing close to a KO line.' : 'No damaging calcs.'}</p>}
           {showAll && idle.map((g) => <GroupView key={g.key} group={g} species={result.species} view={view} showAll />)}
           {hidden > 0 && (
             <button type="button" className="expand-rest" onClick={() => setShowAll(!showAll)} aria-expanded={showAll}>
