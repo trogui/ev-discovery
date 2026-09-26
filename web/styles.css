@@ -288,8 +288,15 @@ select {
   border: 1px solid var(--border);
 }
 
+.controls .segmented button {
+  padding: 5px 2px;
+}
+
 .segmented button {
   flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  font-size: 12.5px;
   border: none;
   background: none;
   padding: 5px 8px;
@@ -305,39 +312,90 @@ select {
   font-weight: 550;
 }
 
-.chips {
+.toggle-row {
   display: flex;
-  flex-wrap: wrap;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
-.chip {
+.toggle {
   border: 1px solid var(--border);
-  background: none;
-  border-radius: 999px;
-  padding: 3px 10px;
+  background: var(--surface-raised);
+  border-radius: 6px;
+  padding: 4px 8px;
   font-size: 12.5px;
   cursor: pointer;
   color: var(--text-2);
+  text-align: center;
 }
 
-.chip:hover {
-  background: var(--hover);
+.toggle:hover {
+  border-color: var(--baseline);
+  color: var(--text);
 }
 
-.chip.on {
+.toggle.on {
   border-color: var(--accent);
-  color: var(--accent);
   background: var(--band);
+  color: var(--accent);
+  font-weight: 550;
 }
 
-.check {
+.toggle.dim,
+.stepper.dim {
+  opacity: 0.4;
+}
+
+.sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.side-column {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.side-gap {
+  height: 6px;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: 1fr 22px 28px 22px;
   align-items: center;
-  font-size: 13px;
+  font-size: 12.5px;
+}
+
+.stepper-label {
   color: var(--text-2);
+}
+
+.stepper button {
+  height: 22px;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  border-radius: 5px;
   cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.stepper button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.stepper-value {
+  text-align: center;
+  color: var(--muted);
+}
+
+.stepper-value.changed {
+  color: var(--accent);
+  font-weight: 650;
 }
 
 .empty {
@@ -439,21 +497,81 @@ select {
 }
 
 .card-head {
-  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.card-toggle {
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: 40px minmax(120px, 180px) 1fr 16px;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 10px 6px 10px 14px;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
-  border-radius: var(--radius);
+  border-radius: var(--radius) 0 0 var(--radius);
 }
 
-.card-head:hover {
+.card-toggle:hover,
+.pin:hover {
   background: var(--hover);
+}
+
+.pin {
+  width: 40px;
+  display: grid;
+  place-items: center;
+  border: none;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  opacity: 0.55;
+}
+
+.card:hover .pin,
+.pin.on {
+  opacity: 1;
+}
+
+.pin.on {
+  color: var(--accent);
+}
+
+.card.dormant .name,
+.card.dormant .rank {
+  color: var(--muted);
+}
+
+.calc.out-of-range {
+  opacity: 0.45;
+}
+
+.calc.out-of-range:hover {
+  opacity: 0.8;
+}
+
+.card-note {
+  display: block;
+  padding: 8px 6px 0;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
 }
 
 .rank {
@@ -469,24 +587,6 @@ select {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
-}
-
-.summary-group {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.dots {
-  display: inline-flex;
-  gap: 3px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--surface);
 }
 
 .chevron {
@@ -640,13 +740,11 @@ select {
 }
 
 .s-good .outcome-icon,
-.dot.s-good,
 .range-fill.s-good {
   background: var(--good);
 }
 
 .s-warning .outcome-icon,
-.dot.s-warning,
 .range-fill.s-warning {
   background: var(--warning);
 }
@@ -656,13 +754,11 @@ select {
 }
 
 .s-serious .outcome-icon,
-.dot.s-serious,
 .range-fill.s-serious {
   background: var(--serious);
 }
 
 .s-critical .outcome-icon,
-.dot.s-critical,
 .range-fill.s-critical {
   background: var(--critical);
 }
@@ -693,7 +789,7 @@ select {
   .calc .outcome {
     grid-column: auto;
   }
-  .card-head {
+  .card-toggle {
     grid-template-columns: 32px 1fr 16px;
   }
   .summary {

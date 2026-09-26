@@ -16,10 +16,10 @@ export function SetInput({ text, onChange, parsed }: Props) {
   return (
     <section className="panel">
       <div className="panel-head">
-        <h2>Tu Pokémon</h2>
+        <h2>Your Pokémon</h2>
         {!text.trim() && (
           <button type="button" className="link" onClick={() => onChange(EXAMPLE)}>
-            Cargar ejemplo
+            Load example
           </button>
         )}
       </div>
@@ -27,7 +27,7 @@ export function SetInput({ text, onChange, parsed }: Props) {
         className="paste"
         value={text}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={'Pega tu set de Showdown\n\nGengar @ Gengarite\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Shadow Ball'}
+        placeholder={'Paste a Showdown set\n\nGengar @ Gengarite\nEVs: 2 HP / 32 SpA / 32 Spe\nTimid Nature\n- Shadow Ball'}
         spellCheck={false}
         rows={9}
       />

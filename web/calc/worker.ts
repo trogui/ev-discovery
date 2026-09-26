@@ -6,9 +6,9 @@ import type { CalcRequest, CalcResponse } from './types';
 const meta = metaJson as unknown as Meta;
 
 self.onmessage = (event: MessageEvent<CalcRequest>) => {
-  const { id, me, settings } = event.data;
+  const { id, me, settings, extraSpecies } = event.data;
   const start = performance.now();
-  const { results, totalCalcs } = computeAll(meta, me, settings);
-  const response: CalcResponse = { id, results, totalCalcs, ms: performance.now() - start };
+  const { results, totalCalcs } = computeAll(meta, me, settings, extraSpecies);
+  const response: CalcResponse = { id, forme: me.forme, results, totalCalcs, ms: performance.now() - start };
   self.postMessage(response);
 };

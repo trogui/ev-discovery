@@ -12,7 +12,7 @@ const STAT_LABELS: [keyof Stats, string][] = [
 
 export function formatSp(sp: Stats) {
   const parts = STAT_LABELS.filter(([k]) => sp[k] > 0).map(([k, label]) => `${sp[k]} ${label}`);
-  return parts.length ? parts.join(' / ') : 'Sin SPs';
+  return parts.length ? parts.join(' / ') : 'No SPs';
 }
 
 export function formeSuffix(forme: string, species: string) {
@@ -37,14 +37,9 @@ export function statusOf(row: Pick<CalcRow, 'direction' | 'koChance'>): Status {
 
 export function outcomeText(row: Pick<CalcRow, 'direction' | 'koChance' | 'note'>) {
   const ko = Math.round(row.koChance * 1000) / 10;
-  if (row.direction === 'in') {
-    if (row.note && row.koChance === 0) return `Aguantas (${row.note})`;
-    if (ko === 0) return 'Aguantas';
-    if (ko === 100) return 'Te mata';
-    return `${ko}% te mata`;
-  }
-  if (row.note && row.koChance === 0) return `No mata (${row.note})`;
-  if (ko === 0) return 'No lo matas';
-  if (ko === 100) return 'Lo matas';
-  return `${ko}% lo matas`;
+  const safe = row.direction === 'in' ? 'Survives' : 'No OHKO';
+  if (row.note && row.koChance === 0) return `${safe} (${row.note})`;
+  if (ko === 0) return safe;
+  if (ko === 100) return 'OHKO';
+  return `${ko}% OHKO`;
 }

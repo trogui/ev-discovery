@@ -4,17 +4,35 @@ import type { Confidence } from '../../src/lib/types';
 export type Weather = '' | 'Sun' | 'Rain' | 'Sand' | 'Snow';
 export type Terrain = '' | 'Grassy' | 'Psychic' | 'Electric' | 'Misty';
 
-export type SideToggles = { reflect: boolean; lightScreen: boolean; helpingHand: boolean; friendGuard: boolean };
+export type Boosts = { atk: number; def: number; spa: number; spd: number };
+
+export type SideToggles = {
+  helpingHand: boolean;
+  battery: boolean;
+  powerSpot: boolean;
+  steelySpirit: boolean;
+  charge: boolean;
+  flowerGift: boolean;
+  reflect: boolean;
+  lightScreen: boolean;
+  auroraVeil: boolean;
+  friendGuard: boolean;
+  boosts: Boosts;
+};
 
 export type Settings = {
   band: [number, number];
   top: number;
   autoIntimidate: boolean;
+  gravity: boolean;
+  crit: boolean;
   weather: Weather | 'auto';
   terrain: Terrain | 'auto';
   mine: SideToggles;
   theirs: SideToggles;
 };
+
+export type CalcSettings = Omit<Settings, 'band'>;
 
 export type MySet = {
   species: string;
@@ -31,6 +49,7 @@ export type SetRef = { forme: string; item: string | null; nature: string; sp: S
 
 export type CalcRow = {
   key: string;
+  order: number;
   direction: 'in' | 'out';
   move: string;
   moveType: string;
@@ -50,9 +69,10 @@ export type CalcRow = {
 export type PokemonResult = {
   species: string;
   rank: number;
+  inTop: boolean;
   rows: CalcRow[];
   totalSets: number;
 };
 
-export type CalcRequest = { id: number; me: MySet; settings: Settings };
-export type CalcResponse = { id: number; results: PokemonResult[]; totalCalcs: number; ms: number };
+export type CalcRequest = { id: number; me: MySet; settings: CalcSettings; extraSpecies: string[] };
+export type CalcResponse = { id: number; forme: string; results: PokemonResult[]; totalCalcs: number; ms: number };
