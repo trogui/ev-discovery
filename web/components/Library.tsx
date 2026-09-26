@@ -3,6 +3,7 @@ import { formatSp } from '../format';
 import { newId, type LibraryEntry } from '../library';
 import { buildMySet, exportPaste, importPaste, type EditableSet } from '../me';
 import { SetEditor } from './SetEditor';
+import { PokemonSprite } from './Sprites';
 
 type Props = {
   entries: LibraryEntry[];
@@ -88,6 +89,7 @@ export function Library({ entries, onChange, ranks, customOnly, onCustomOnlyChan
             return (
               <li key={e.id} className={`${e.active ? '' : 'inactive'}${editing === e.id ? ' editing' : ''}`}>
                 <input type="checkbox" checked={e.active} aria-label={`Use ${e.set.species}`} onChange={() => update(e.id, { active: !e.active })} />
+                <PokemonSprite species={my.forme} size={32} />
                 <button type="button" className="library-entry" onClick={() => setEditing(editing === e.id ? null : e.id)}>
                   <span className="library-name">{my.forme}</span>
                   <span className="muted small">

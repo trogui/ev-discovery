@@ -10,7 +10,8 @@
     "validate": "tsx src/validate.ts",
     "check:calc": "tsx src/check-calc.ts",
     "typecheck": "tsc",
-    "check:2hko": "tsx src/check-2hko.ts"
+    "check:2hko": "tsx src/check-2hko.ts",
+    "sprites": "tsx src/sprites.ts"
   },
   "devEngines": {
     "packageManager": {

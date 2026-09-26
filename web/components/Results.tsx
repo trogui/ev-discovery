@@ -5,6 +5,7 @@ import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../
 import { favorability, formatSp, formeSuffix, outcomeText, pct, statusOf, type Status } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
 import type { Mode } from '../useStickyList';
+import { ItemIcon, PokemonSprite } from './Sprites';
 
 type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean };
 
@@ -161,6 +162,7 @@ function GroupView({ group, species, view, showAll }: { group: SetGroup; species
     <div className={inRange.length ? 'group' : 'group dormant'}>
       <div className="group-head" title={label.title}>
         <div className="group-label">
+          <ItemIcon item={group.sets[0].item} />
           <span className="set-main">
             {label.forme && <span className="forme">{label.forme}</span>}
             {label.main}
@@ -205,7 +207,8 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
         <button type="button" className="card-toggle" onClick={onToggleOpen} aria-expanded={open}>
           <span className="rank tabular">{result.rank ? `#${result.rank}` : ''}</span>
           <span className="name">
-            {result.species}
+            <PokemonSprite species={result.species} />
+            <span>{result.species}</span>
             {result.hasCustom && <span className="badge">custom</span>}
           </span>
           <Headline rows={inRangeRows} view={view} />

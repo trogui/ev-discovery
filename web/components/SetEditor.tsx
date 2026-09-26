@@ -8,6 +8,7 @@ import { NATURE_OPTIONS, cycleNature, describeNature, rolesOf, type NatureStat }
 import { abilityOptions, itemOptions, moveOptions, presetsFor, speciesOptions, usePresets } from '../presets';
 import { Combobox } from './Combobox';
 import { Popover } from './Popover';
+import { ItemIcon, PokemonSprite } from './Sprites';
 
 const ROWS: [keyof Stats, string][] = [
   ['hp', 'HP'],
@@ -159,7 +160,10 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
         </div>
       )}
 
-      <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Search Pokémon…" />
+      <div className="species-row">
+        {my && <PokemonSprite species={my.forme} size={56} />}
+        <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Search Pokémon…" />
+      </div>
 
       {value && my && (
         <>
@@ -171,6 +175,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
                   {entry.presets.map((p, i) => (
                     <button key={i} type="button" role="listitem" className={p === current ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
                       <span className="preset-main">
+                        <ItemIcon item={p.item} />
                         {p.item ?? 'No item'} · {p.nature}
                         <span className="muted small tabular"> {Math.round(p.share * 100)}%</span>
                       </span>
