@@ -26,5 +26,5 @@ export function toMetaSet(set: EditableSet): MetaSet {
 }
 
 export function activeOpponents(library: LibraryEntry[]): CustomOpponent[] {
-  return library.filter((e) => e.active).map((e) => ({ id: e.id, set: toMetaSet(e.set) }));
+  return library.filter((e) => e.active).map((e) => ({ id: e.id, species: e.set.species, set: toMetaSet(e.set) }));
 }

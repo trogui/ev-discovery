@@ -39,6 +39,7 @@ export function App() {
   const [pinned, setPinned] = usePersistentState<string[]>('evd:pinned', []);
   const [open, setOpen] = usePersistentState<string[]>('evd:open', []);
   const [library, setLibrary] = usePersistentState<LibraryEntry[]>('evd:library', []);
+  const [customOnly, setCustomOnly] = usePersistentState<boolean>('evd:customOnly', false);
   const custom = useMemo(() => activeOpponents(library), [library]);
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
@@ -92,6 +93,9 @@ export function App() {
             top={settings.top}
             mode={mode}
             onModeChange={setMode}
+            customOnly={customOnly}
+            onCustomOnlyChange={setCustomOnly}
+            hasLibrary={library.some((e) => e.active)}
             sticky={sticky}
             onResetSticky={reset}
             pinned={pinned}

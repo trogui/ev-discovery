@@ -46,7 +46,7 @@ export type MySet = {
   stats: Stats;
 };
 
-export type SetRef = { forme: string; item: string | null; nature: string; sp: Stats; weight: number; confidence: Confidence };
+export type SetRef = { id: string; forme: string; item: string | null; ability: string | null; nature: string; sp: Stats; weight: number; confidence: Confidence; custom: boolean };
 
 export type CalcRow = {
   key: string;
@@ -63,24 +63,31 @@ export type CalcRow = {
   ko2Chance: number;
   line2Pct: number;
   recoveryNotes: string[];
-  weight: number;
-  sets: SetRef[];
   field: string[];
   desc: string;
   note?: string;
 };
 
+export type SetGroup = {
+  key: string;
+  order: number;
+  custom: boolean;
+  weight: number;
+  sets: SetRef[];
+  rows: CalcRow[];
+};
+
 export type PokemonResult = {
   key: string;
   species: string;
-  custom: boolean;
   rank: number;
   inTop: boolean;
-  rows: CalcRow[];
-  totalSets: number;
+  hasCustom: boolean;
+  onlyCustom: boolean;
+  groups: Record<'in' | 'out', SetGroup[]>;
 };
 
-export type CustomOpponent = { id: string; set: MetaSet };
+export type CustomOpponent = { id: string; species: string; set: MetaSet };
 
 export type CalcRequest = { id: number; me: MySet; settings: CalcSettings; extraSpecies: string[]; custom: CustomOpponent[] };
 export type CalcResponse = { id: number; forme: string; results: PokemonResult[]; totalCalcs: number; ms: number };

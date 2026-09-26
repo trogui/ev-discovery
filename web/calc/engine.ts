@@ -2,7 +2,7 @@ import { Field, Move, Pokemon, Side, calculate } from '@smogon/calc';
 import { autoField, gen } from '../../src/lib/dex';
 import { recoveryFor, twoHitKoChance, twoHitLine } from './twohko';
 import type { Meta, MetaSet } from '../../src/lib/types';
-import type { Boosts, CalcRow, CalcSettings, CustomOpponent, MySet, PokemonResult, SideToggles, Terrain, Weather } from './types';
+import type { Boosts, CalcRow, CalcSettings, CustomOpponent, MySet, SetGroup, SetRef, PokemonResult, SideToggles, Terrain, Weather } from './types';
 
 const INTIMIDATE_IMMUNE = new Set(['Clear Body', 'White Smoke', 'Full Metal Body', 'Hyper Cutter', 'Inner Focus', 'Oblivious', 'Own Tempo', 'Scrappy', 'Guard Dog', 'Mirror Armor']);
 
@@ -130,23 +130,30 @@ function fieldTags(f: ReturnType<typeof resolveField>, s: CalcSettings, attacker
   return tags;
 }
 
+type SetInput = { set: MetaSet; custom: boolean; id: string };
+
 export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraSpecies: string[] = [], custom: CustomOpponent[] = []) {
   let totalCalcs = 0;
   const results: PokemonResult[] = [];
   const extra = new Set(extraSpecies);
-  const opponents = [
-    ...custom.map((c) => ({ key: `custom:${c.id}`, custom: true, inTop: false, mon: { species: c.set.forme, rank: 0, sets: [c.set] } })),
-    ...meta.pokemon
-      .map((mon, i) => ({ key: mon.species, custom: false, inTop: i < settings.top, mon }))
-      .filter(({ mon, inTop }) => inTop || extra.has(mon.species)),
-  ];
+  const customBySpecies = new Map<string, CustomOpponent[]>();
+  for (const c of custom) customBySpecies.set(c.species, [...(customBySpecies.get(c.species) ?? []), c]);
 
-  for (const { key: opponentKey, custom: isCustom, mon, inTop } of opponents) {
-    const rows = new Map<string, CalcRow>();
-    mon.sets.forEach((set, setIndex) => {
+  const opponents: { species: string; rank: number; inTop: boolean; sets: SetInput[] }[] = meta.pokemon
+    .map((mon, i) => ({ mon, inTop: i < settings.top }))
+    .filter(({ mon, inTop }) => inTop || extra.has(mon.species) || customBySpecies.has(mon.species))
+    .map(({ mon, inTop }) => ({ species: mon.species, rank: mon.rank, inTop, sets: mon.sets.map((set, i) => ({ set, custom: false, id: String(i) })) }));
+  for (const [species, entries] of customBySpecies) {
+    if (!opponents.some((o) => o.species === species)) opponents.push({ species, rank: 0, inTop: false, sets: [] });
+    opponents.find((o) => o.species === species)!.sets.unshift(...entries.map((c) => ({ set: c.set, custom: true, id: `custom:${c.id}` })));
+  }
+
+  for (const opponent of opponents) {
+    const groups: Record<'in' | 'out', Map<string, SetGroup>> = { in: new Map(), out: new Map() };
+    opponent.sets.forEach(({ set, custom: isCustom, id }, setIndex) => {
       const f = resolveField(settings, me, set);
       const opp: Combatant = { forme: set.forme, item: set.item, ability: set.ability, nature: set.nature, sp: set.sp };
-      const ref = { forme: set.forme, item: set.item, nature: set.nature, sp: set.sp, weight: set.weight, confidence: set.confidence };
+      const ref: SetRef = { id, forme: set.forme, item: set.item, ability: set.ability, nature: set.nature, sp: set.sp, weight: isCustom ? 0 : set.weight, confidence: set.confidence, custom: isCustom };
 
       for (const direction of ['in', 'out'] as const) {
         const attacker = direction === 'in' ? opp : me;
@@ -164,31 +171,19 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
           attackerSide: toSide(attackerSide),
           defenderSide: toSide(defenderSide),
         });
+        const rows: CalcRow[] = [];
+        const signature: string[] = [];
         moves.forEach((moveName, moveIndex) => {
           totalCalcs++;
           const r = runCalc(attacker, defender, moveName, field, attackerBoosts, defenderSide.boosts, settings.crit, { weather: f.weather, terrain: f.terrain, gravity: settings.gravity });
           if (!r) return;
           const category = gen.moves.get(moveName.toLowerCase().replace(/[^a-z0-9]/g, '') as never)?.category;
           const special = category === 'Special';
-          const tags = fieldTags(
-            f,
-            settings,
-            attackerSide,
-            defenderSide,
-            special ? attackerBoosts.spa : attackerBoosts.atk,
-            special ? defenderSide.boosts.spd : defenderSide.boosts.def,
-            category,
-          );
-          const resultKey = `${direction}|${moveName}|${r.rolls}|${r.hp}|${tags.join(',')}|${r.recoveryNotes.join(',')}`;
-          const existing = rows.get(resultKey);
-          if (existing) {
-            existing.weight += set.weight;
-            existing.sets.push(ref);
-            return;
-          }
-          rows.set(resultKey, {
-            key: `${opponentKey}|${direction}|${moveName}|${setIndex}`,
-            order: setIndex * 100 + moveIndex,
+          const tags = fieldTags(f, settings, attackerSide, defenderSide, special ? attackerBoosts.spa : attackerBoosts.atk, special ? defenderSide.boosts.spd : defenderSide.boosts.def, category);
+          signature.push(`${moveName}|${r.rolls}|${r.hp}|${tags.join(',')}|${r.recoveryNotes.join(',')}`);
+          rows.push({
+            key: `${opponent.species}|${direction}|${id}|${moveName}`,
+            order: moveIndex,
             direction,
             move: moveName,
             moveType: r.moveType,
@@ -201,16 +196,31 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
             ko2Chance: r.ko2Chance,
             line2Pct: r.line2Pct,
             recoveryNotes: r.recoveryNotes,
-            weight: set.weight,
-            sets: [ref],
             field: tags,
             desc: r.desc,
             note: r.note,
           });
         });
+        if (!rows.length) continue;
+        const groupKey = isCustom ? id : `${set.forme}|${signature.join('#')}`;
+        const existing = groups[direction].get(groupKey);
+        if (existing) {
+          existing.sets.push(ref);
+          existing.weight += ref.weight;
+        } else {
+          groups[direction].set(groupKey, { key: `${opponent.species}|${direction}|${id}`, order: setIndex, custom: isCustom, weight: ref.weight, sets: [ref], rows });
+        }
       }
     });
-    results.push({ key: opponentKey, species: mon.species, custom: isCustom, rank: mon.rank, inTop, rows: [...rows.values()].sort((a, b) => a.order - b.order), totalSets: mon.sets.length });
+    results.push({
+      key: opponent.species,
+      species: opponent.species,
+      rank: opponent.rank,
+      inTop: opponent.inTop,
+      hasCustom: opponent.sets.some((s) => s.custom),
+      onlyCustom: opponent.sets.every((s) => s.custom),
+      groups: { in: [...groups.in.values()], out: [...groups.out.values()] },
+    });
   }
   return { results, totalCalcs };
 }

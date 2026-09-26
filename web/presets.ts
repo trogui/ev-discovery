@@ -22,6 +22,7 @@ export function presetsFor(file: PresetsFile | null, species: string): PresetSpe
 
 const allSpecies = [...gen.species].filter((s) => !/-Mega/.test(s.name)).map((s) => s.name);
 const allItems = [...gen.items].map((i) => ({ name: i.name, megaStone: i.megaStone as Record<string, string> | undefined }));
+const allAbilities = [...gen.abilities].map((a) => a.name).sort();
 const allMoves = [...gen.moves].map((m) => m.name).filter((m) => !m.startsWith('Max ') && !m.startsWith('G-Max') && m !== '(No Move)');
 
 export function speciesOptions(file: PresetsFile | null, ranks: Map<string, number>): Option[] {
@@ -61,4 +62,13 @@ function moveHint(name: string) {
   if (!move) return undefined;
   if (move.category !== 'Physical' && move.category !== 'Special') return move.type;
   return `${move.type} · ${move.basePower || '—'}`;
+}
+
+export function abilityOptions(entry: PresetSpecies | undefined, species: string): Option[] {
+  const counts = new Map<string, number>();
+  for (const p of entry?.presets ?? []) if (p.ability) counts.set(p.ability, (counts.get(p.ability) ?? 0) + p.share);
+  const own = Object.values(gen.species.get(toID(species) as never)?.abilities ?? {}) as string[];
+  for (const a of own) if (!counts.has(a)) counts.set(a, 0);
+  const common = [...counts].sort((a, b) => b[1] - a[1]).map(([value, share]) => ({ value, hint: share ? `${Math.round(share * 100)}%` : undefined, group: 0 }));
+  return [...common, ...allAbilities.filter((a) => !counts.has(a)).map((value) => ({ value, group: 1 }))];
 }

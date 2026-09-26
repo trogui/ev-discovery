@@ -3,9 +3,9 @@ import { defaultAbility } from '../../src/lib/dex';
 import type { Preset } from '../../src/presets';
 import { SP_MAX, SP_TOTAL, emptyStats, spreadKey, type Stats } from '../../src/lib/spread';
 import { formatSp } from '../format';
-import { buildMySet, exportPaste, importPaste, speciesAbilities, type EditableSet } from '../me';
+import { buildMySet, exportPaste, importPaste, type EditableSet } from '../me';
 import { NATURE_OPTIONS, cycleNature, describeNature, rolesOf, type NatureStat } from '../natures';
-import { itemOptions, moveOptions, presetsFor, speciesOptions, usePresets } from '../presets';
+import { abilityOptions, itemOptions, moveOptions, presetsFor, speciesOptions, usePresets } from '../presets';
 import { Combobox } from './Combobox';
 
 const ROWS: [keyof Stats, string][] = [
@@ -97,6 +97,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
   const species = useMemo(() => speciesOptions(presets, ranks), [presets, ranks]);
   const items = useMemo(() => (value ? itemOptions(entry, value.species) : []), [entry, value?.species]);
   const moves = useMemo(() => moveOptions(entry), [entry]);
+  const abilities = useMemo(() => (value ? abilityOptions(entry, value.species) : []), [entry, value?.species]);
   const my = useMemo(() => (value ? buildMySet(value) : null), [value]);
   const used = value ? Object.values(value.sp).reduce((a, b) => a + b, 0) : 0;
 
@@ -178,11 +179,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
                 {my.ability} <span className="muted small">({my.forme.replace(`${value.species}-`, '')})</span>
               </div>
             ) : (
-              <select aria-label="Ability" value={my.ability ?? ''} onChange={(e) => onChange({ ...value, ability: e.target.value })}>
-                {speciesAbilities(value.species).map((a) => (
-                  <option key={a}>{a}</option>
-                ))}
-              </select>
+              <Combobox ariaLabel="Ability" value={my.ability} options={abilities} onChange={(ability) => ability && onChange({ ...value, ability })} placeholder="Ability" />
             )}
             <label className="mini-label">Nature</label>
             <select aria-label="Nature" value={value.nature} onChange={(e) => onChange({ ...value, nature: e.target.value })}>

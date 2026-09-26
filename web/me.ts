@@ -80,14 +80,9 @@ export function exportPaste(set: EditableSet) {
     .join('\n');
 }
 
-export function speciesAbilities(species: string) {
-  const data = gen.species.get(toID(species) as never);
-  return data?.abilities ? [...new Set(Object.values(data.abilities) as string[])] : [];
-}
-
 export function buildMySet(set: EditableSet): MySet {
   const forme = battleForme(set.species, set.item);
-  const own = set.ability && speciesAbilities(set.species).includes(set.ability) ? set.ability : defaultAbility(set.species);
+  const own = set.ability ?? defaultAbility(set.species);
   const ability = forme !== set.species ? defaultAbility(forme) : own;
   const stats = new Pokemon(gen, forme, { nature: set.nature, evs: set.sp, item: set.item ?? undefined, ability: ability ?? undefined }).stats;
   return {
