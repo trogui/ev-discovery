@@ -22,6 +22,7 @@ export type SideToggles = {
 
 export type Settings = {
   band: [number, number];
+  targets: { ohko: boolean; twohko: boolean };
   top: number;
   autoIntimidate: boolean;
   gravity: boolean;
@@ -32,7 +33,7 @@ export type Settings = {
   theirs: SideToggles;
 };
 
-export type CalcSettings = Omit<Settings, 'band'>;
+export type CalcSettings = Omit<Settings, 'band' | 'targets'>;
 
 export type MySet = {
   species: string;
@@ -59,6 +60,9 @@ export type CalcRow = {
   maxDamage: number;
   hp: number;
   koChance: number;
+  ko2Chance: number;
+  line2Pct: number;
+  recoveryNotes: string[];
   weight: number;
   sets: SetRef[];
   field: string[];

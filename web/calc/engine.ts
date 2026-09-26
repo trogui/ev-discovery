@@ -1,5 +1,6 @@
 import { Field, Move, Pokemon, Side, calculate } from '@smogon/calc';
 import { autoField, gen } from '../../src/lib/dex';
+import { recoveryFor, twoHitKoChance, twoHitLine } from './twohko';
 import type { Meta, MetaSet } from '../../src/lib/types';
 import type { Boosts, CalcRow, CalcSettings, MySet, PokemonResult, SideToggles, Terrain, Weather } from './types';
 
@@ -63,7 +64,7 @@ function makePokemon(c: Combatant, boosts: Partial<Boosts>) {
   });
 }
 
-function runCalc(attacker: Combatant, defender: Combatant, moveName: string, field: Field, attackerBoosts: Boosts, defenderBoosts: Boosts, crit: boolean) {
+function runCalc(attacker: Combatant, defender: Combatant, moveName: string, field: Field, attackerBoosts: Boosts, defenderBoosts: Boosts, crit: boolean, env: { weather: string; terrain: string; gravity: boolean }) {
   const atk = makePokemon(attacker, { atk: attackerBoosts.atk, spa: attackerBoosts.spa });
   const def = makePokemon(defender, { def: defenderBoosts.def, spd: defenderBoosts.spd });
   const move = new Move(gen, moveName, { isCrit: crit });
@@ -83,13 +84,17 @@ function runCalc(attacker: Combatant, defender: Combatant, moveName: string, fie
     else if (defender.ability === 'Sturdy') note = 'Sturdy';
     if (note) koChance = 0;
   }
+  const recovery = recoveryFor(def, env);
+  const multiHit = hits.length > 1;
+  const ko2Chance = twoHitKoChance(dist, hp, recovery, multiHit);
+  const line2 = twoHitLine(hp, recovery);
   let desc = '';
   try {
     desc = result.desc();
   } catch {
     desc = `${attacker.forme} ${moveName} vs. ${defender.forme}`;
   }
-  return { minDamage, maxDamage, hp, koChance, desc, note, moveType: move.type, rolls: hits.map((h) => h.join(',')).join('|') };
+  return { minDamage, maxDamage, hp, koChance, ko2Chance, line2Pct: (line2 / hp) * 100, recoveryNotes: recovery.notes, desc, note, moveType: move.type, rolls: hits.map((h) => h.join(',')).join('|') };
 }
 
 const ATTACKER_TAGS: [keyof SideToggles, string][] = [
@@ -156,7 +161,7 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
         });
         moves.forEach((moveName, moveIndex) => {
           totalCalcs++;
-          const r = runCalc(attacker, defender, moveName, field, attackerBoosts, defenderSide.boosts, settings.crit);
+          const r = runCalc(attacker, defender, moveName, field, attackerBoosts, defenderSide.boosts, settings.crit, { weather: f.weather, terrain: f.terrain, gravity: settings.gravity });
           if (!r) return;
           const category = gen.moves.get(moveName.toLowerCase().replace(/[^a-z0-9]/g, '') as never)?.category;
           const special = category === 'Special';
@@ -169,7 +174,7 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
             special ? defenderSide.boosts.spd : defenderSide.boosts.def,
             category,
           );
-          const resultKey = `${direction}|${moveName}|${r.rolls}|${r.hp}|${tags.join(',')}`;
+          const resultKey = `${direction}|${moveName}|${r.rolls}|${r.hp}|${tags.join(',')}|${r.recoveryNotes.join(',')}`;
           const existing = rows.get(resultKey);
           if (existing) {
             existing.weight += set.weight;
@@ -188,6 +193,9 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
             maxDamage: r.maxDamage,
             hp: r.hp,
             koChance: r.koChance,
+            ko2Chance: r.ko2Chance,
+            line2Pct: r.line2Pct,
+            recoveryNotes: r.recoveryNotes,
             weight: set.weight,
             sets: [ref],
             field: tags,

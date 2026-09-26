@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import type { CalcResponse, CalcRow, PokemonResult } from '../calc/types';
 import { formatSp, formeSuffix, outcomeText, pct, statusOf, type Status } from '../format';
-import { inBand, type Mode } from '../useStickyList';
+import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
+import type { Mode } from '../useStickyList';
 
-const DOMAIN: [number, number] = [40, 160];
+type View = { band: Band; targets: Targets };
+
+const DOMAIN: [number, number] = [0, 150];
 
 const STATUS_ICON: Record<Status, string> = { good: '✓', warning: '◐', serious: '▲', critical: '✕' };
 const STATUS_ORDER: Status[] = ['critical', 'serious', 'warning', 'good'];
@@ -14,23 +17,30 @@ const MODES: Record<Mode, { label: string; description: string; legend: Record<S
   in: {
     label: 'Defense',
     description: 'Their attacks on you',
-    legend: { good: 'Always survives', warning: 'Usually survives', serious: 'Usually OHKO’d', critical: 'Always OHKO’d' },
+    legend: { good: 'Always survives', warning: 'Usually survives', serious: 'Usually KO’d', critical: 'Always KO’d' },
   },
   out: {
     label: 'Offense',
     description: 'Your attacks on them',
-    legend: { good: 'Always OHKOs', warning: 'Usually OHKOs', serious: 'Rarely OHKOs', critical: 'Never OHKOs' },
+    legend: { good: 'Always KOs', warning: 'Usually KOs', serious: 'Rarely KOs', critical: 'Never KOs' },
   },
 };
 
-function RangeBar({ row, band }: { row: CalcRow; band: [number, number] }) {
+function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level }) {
   const left = x(row.minPct);
   const width = Math.max(x(row.maxPct) - left, 1.2);
+  const [lo, hi] = view.band;
+  const levels = ([1, 2] as Level[]).filter((l) => (l === 1 ? view.targets.ohko : view.targets.twohko));
   return (
     <div className="range" aria-hidden>
-      <div className="range-band" style={{ left: `${x(band[0])}%`, width: `${x(band[1]) - x(band[0])}%` }} />
-      <div className="range-100" style={{ left: `${x(100)}%` }} />
-      <div className={`range-fill s-${statusOf(row)}`} style={{ left: `${left}%`, width: `${width}%` }} />
+      {levels.map((l) => {
+        const line = lineOf(row, l);
+        return <div key={`band${l}`} className="range-band" style={{ left: `${x((lo * line) / 100)}%`, width: `${x((hi * line) / 100) - x((lo * line) / 100)}%` }} />;
+      })}
+      {levels.map((l) => (
+        <div key={`line${l}`} className={l === 1 ? 'range-line' : 'range-line two'} style={{ left: `${x(lineOf(row, l))}%` }} />
+      ))}
+      <div className={`range-fill s-${statusOf(row, level)}`} style={{ left: `${left}%`, width: `${width}%` }} />
     </div>
   );
 }
@@ -61,31 +71,39 @@ function SetsCell({ row, species }: { row: CalcRow; species: string }) {
   );
 }
 
-function RowView({ row, species, band }: { row: CalcRow; species: string; band: [number, number] }) {
-  const status = statusOf(row);
+function RowView({ row, species, view }: { row: CalcRow; species: string; view: View }) {
+  const level = displayLevel(row, view.band, view.targets);
+  const status = statusOf(row, level);
+  const lineNote = level === 2 ? `2HKO at ${pct(row.line2Pct)}${row.recoveryNotes.length ? ` · ${row.recoveryNotes.join(', ')}` : ''}` : '';
   return (
-    <li className={inBand(row, band) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
+    <li className={inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
       <div className="move">
         <span>{row.move}</span>
         {row.field.length > 0 && <span className="muted small">{row.field.join(' · ')}</span>}
       </div>
       <SetsCell row={row} species={species} />
-      <RangeBar row={row} band={band} />
+      <RangeBar row={row} view={view} level={level} />
       <span className="pct tabular">
         {pct(row.minPct)} – {pct(row.maxPct)}
       </span>
-      <span className={`outcome s-${status}`}>
-        <StatusIcon status={status} />
-        {outcomeText(row)}
-      </span>
+      <div className="outcome-cell">
+        <span className={`outcome s-${status}`}>
+          <StatusIcon status={status} />
+          {outcomeText(row, level)}
+        </span>
+        {lineNote && <span className="muted small">{lineNote}</span>}
+      </div>
     </li>
   );
 }
 
-function StatusCounts({ rows }: { rows: CalcRow[] }) {
+function StatusCounts({ rows, view }: { rows: CalcRow[]; view: View }) {
   if (!rows.length) return <span className="muted small">Nothing in range</span>;
   const counts = new Map<Status, number>();
-  for (const r of rows) counts.set(statusOf(r), (counts.get(statusOf(r)) ?? 0) + 1);
+  for (const r of rows) {
+    const status = statusOf(r, displayLevel(r, view.band, view.targets));
+    counts.set(status, (counts.get(status) ?? 0) + 1);
+  }
   return (
     <div className="summary">
       {STATUS_ORDER.filter((s) => counts.get(s)).map((s) => (
@@ -110,18 +128,22 @@ function PinIcon({ filled }: { filled: boolean }) {
 type CardProps = {
   result: PokemonResult;
   mode: Mode;
-  band: [number, number];
+  view: View;
   open: boolean;
   pinned: boolean;
   onToggleOpen: () => void;
   onTogglePin: () => void;
 };
 
-function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onTogglePin }: CardProps) {
+function PokemonCard({ result, mode, view, open, pinned, onToggleOpen, onTogglePin }: CardProps) {
   const [showRest, setShowRest] = useState(false);
   const all = result.rows.filter((r) => r.direction === mode);
-  const inRange = all.filter((r) => inBand(r, band));
-  const rest = all.filter((r) => !inBand(r, band));
+  const inRange = all.filter((r) => inBand(r, view.band, view.targets));
+  const rest = all
+    .filter((r) => !inBand(r, view.band, view.targets))
+    .map((r) => ({ r, d: bandDistance(r, view.band, view.targets) }))
+    .sort((a, b) => a.d - b.d || a.r.order - b.r.order)
+    .map(({ r }) => r);
 
   return (
     <li className={`card${open ? ' open' : ''}${inRange.length ? '' : ' dormant'}`}>
@@ -129,7 +151,7 @@ function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onToggleP
         <button type="button" className="card-toggle" onClick={onToggleOpen} aria-expanded={open}>
           <span className="rank tabular">#{result.rank}</span>
           <span className="name">{result.species}</span>
-          <StatusCounts rows={inRange} />
+          <StatusCounts rows={inRange} view={view} />
           <span className="chevron" aria-hidden>
             ›
           </span>
@@ -143,7 +165,7 @@ function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onToggleP
           {inRange.length > 0 ? (
             <ul className="calcs">
               {inRange.map((r) => (
-                <RowView key={r.key} row={r} species={result.species} band={band} />
+                <RowView key={r.key} row={r} species={result.species} view={view} />
               ))}
             </ul>
           ) : (
@@ -158,7 +180,7 @@ function PokemonCard({ result, mode, band, open, pinned, onToggleOpen, onToggleP
               {showRest && (
                 <ul className="calcs rest">
                   {rest.map((r) => (
-                    <RowView key={r.key} row={r} species={result.species} band={band} />
+                    <RowView key={r.key} row={r} species={result.species} view={view} />
                   ))}
                 </ul>
               )}
@@ -174,7 +196,8 @@ type Props = {
   response: CalcResponse | null;
   pending: boolean;
   stale: boolean;
-  band: [number, number];
+  band: Band;
+  targets: Targets;
   top: number;
   mode: Mode;
   onModeChange: (mode: Mode) => void;
@@ -187,10 +210,11 @@ type Props = {
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, top, mode, onModeChange, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
-  const hasInRange = (r: PokemonResult, m: Mode) => r.rows.some((row) => row.direction === m && inBand(row, band));
+  const view: View = { band, targets };
+  const hasInRange = (r: PokemonResult, m: Mode) => r.rows.some((row) => row.direction === m && inBand(row, band, targets));
   const stickySet = new Set(sticky[mode]);
   const pinnedResults = pinned.map((s) => response.results.find((r) => r.species === s)).filter((r): r is PokemonResult => !!r);
   const topResults = response.results.filter((r) => r.inTop);
@@ -206,7 +230,7 @@ export function Results(props: Props) {
       key={r.species}
       result={r}
       mode={mode}
-      band={band}
+      view={view}
       open={open.includes(r.species)}
       pinned={pinned.includes(r.species)}
       onToggleOpen={() => toggleOpen(r.species)}
@@ -229,7 +253,7 @@ export function Results(props: Props) {
           {MODES[mode].description}
           <span className="muted">
             {' '}
-            · <span className="tabular">{counts[mode]}</span> of the top {top} with calcs between {band[0]}% and {band[1]}%
+            · <span className="tabular">{counts[mode]}</span> of the top {top} with calcs within {band[0]}–{band[1]}% of a {[targets.ohko && 'OHKO', targets.twohko && '2HKO'].filter(Boolean).join(' or ')}
           </span>
         </p>
         <div className="actions">

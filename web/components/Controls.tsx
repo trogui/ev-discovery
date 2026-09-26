@@ -110,8 +110,20 @@ export function Controls({ settings, onChange, mode, onReset }: Props) {
             <input type="number" value={lo} step={5} aria-label="Minimum" onChange={(e) => set('band', [clampBand(+e.target.value), Math.max(hi, clampBand(+e.target.value))])} />
             <span className="muted">–</span>
             <input type="number" value={hi} step={5} aria-label="Maximum" onChange={(e) => set('band', [Math.min(lo, clampBand(+e.target.value)), clampBand(+e.target.value)])} />
-            <span className="muted">% HP</span>
+            <span className="muted">% of the KO line</span>
           </div>
+        </div>
+        <div className="field">
+          <span className="label">KO target</span>
+          <div className="toggle-row">
+            <Toggle on={settings.targets.ohko} onClick={() => set('targets', { ...settings.targets, ohko: !settings.targets.ohko || !settings.targets.twohko })}>
+              OHKO
+            </Toggle>
+            <Toggle on={settings.targets.twohko} onClick={() => set('targets', { ...settings.targets, twohko: !settings.targets.twohko || !settings.targets.ohko })}>
+              2HKO
+            </Toggle>
+          </div>
+          <p className="hint">The 2HKO line accounts for Sitrus Berry, Leftovers, Grassy Terrain healing and sand chip between hits.</p>
         </div>
         <div className="field">
           <span className="label">Opponents</span>

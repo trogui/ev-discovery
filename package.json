@@ -1,7 +1,7 @@
 {
   "name": "ev-discovery",
   "version": "1.0.0",
-  "description": "Borderline damage calcs for Pokémon Champions VGC against the most used sets",
+  "description": "Borderline damage calcs for Pok\u00e9mon Champions VGC against the most used sets",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -9,7 +9,8 @@
     "ingest": "tsx src/ingest.ts",
     "validate": "tsx src/validate.ts",
     "check:calc": "tsx src/check-calc.ts",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "check:2hko": "tsx src/check-2hko.ts"
   },
   "devEngines": {
     "packageManager": {

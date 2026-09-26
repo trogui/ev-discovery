@@ -24,7 +24,7 @@ export function App() {
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
   const calcSettings = useMemo<CalcSettings>(() => {
-    const { band: _band, ...rest } = settings;
+    const { band: _band, targets: _targets, ...rest } = settings;
     return rest;
   }, [settings]);
 
@@ -32,7 +32,7 @@ export function App() {
   const meKey = parsed.ok ? JSON.stringify(parsed.set) : '';
   const me = useMemo(() => (parsed.ok ? parsed.set : null), [meKey]);
   const { response, pending } = useCalcs(me, calcSettings, pinned);
-  const { sticky, reset } = useStickyList(response, settings.band);
+  const { sticky, reset } = useStickyList(response, settings.band, settings.targets);
 
   const togglePin = (species: string) => {
     setPinned(pinned.includes(species) ? pinned.filter((s) => s !== species) : [...pinned, species]);
@@ -49,14 +49,14 @@ export function App() {
       </header>
       <aside className="side">
         <SetInput text={text} onChange={setText} parsed={parsed} />
-        <Controls settings={settings} onChange={setSettings} mode={mode} onReset={() => setSettings({ ...DEFAULT_SETTINGS, band: settings.band, top: settings.top })} />
+        <Controls settings={settings} onChange={setSettings} mode={mode} onReset={() => setSettings({ ...DEFAULT_SETTINGS, band: settings.band, targets: settings.targets, top: settings.top })} />
       </aside>
       <main className="main">
         {!text.trim() ? (
           <div className="empty">
             <p>Paste your set on the left.</p>
             <p className="muted">
-              Every matchup against the most common sets of the top {settings.top} in Reg {meta.regulation}, filtered to the calcs that land between {settings.band[0]}% and {settings.band[1]}% HP.
+              Every matchup against the most common sets of the top {settings.top} in Reg {meta.regulation}, filtered to the calcs that land close to an OHKO or 2HKO.
             </p>
           </div>
         ) : (
@@ -65,6 +65,7 @@ export function App() {
             pending={pending}
             stale={!parsed.ok}
             band={settings.band}
+            targets={settings.targets}
             top={settings.top}
             mode={mode}
             onModeChange={setMode}

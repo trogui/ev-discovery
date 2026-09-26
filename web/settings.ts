@@ -18,6 +18,7 @@ export const EMPTY_SIDE: SideToggles = {
 
 export const DEFAULT_SETTINGS: Settings = {
   band: [85, 115],
+  targets: { ohko: true, twohko: true },
   top: 40,
   autoIntimidate: true,
   gravity: false,
@@ -31,5 +32,5 @@ export const DEFAULT_SETTINGS: Settings = {
 const side = (value: Partial<SideToggles> | undefined): SideToggles => ({ ...EMPTY_SIDE, ...value, boosts: { ...NO_BOOSTS, ...value?.boosts } });
 
 export function normalizeSettings(value: Partial<Settings>): Settings {
-  return { ...DEFAULT_SETTINGS, ...value, mine: side(value.mine), theirs: side(value.theirs) };
+  return { ...DEFAULT_SETTINGS, ...value, targets: { ...DEFAULT_SETTINGS.targets, ...value.targets }, mine: side(value.mine), theirs: side(value.theirs) };
 }

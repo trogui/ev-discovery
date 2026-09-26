@@ -734,7 +734,7 @@ select {
   border-radius: 3px;
 }
 
-.range-100 {
+.range-line {
   position: absolute;
   top: -1px;
   bottom: -1px;
@@ -742,6 +742,20 @@ select {
   margin-left: -1px;
   background: var(--text-2);
   border-radius: 1px;
+}
+
+.range-line.two {
+  width: 0;
+  margin-left: 0;
+  background: none;
+  border-left: 2px dotted var(--text-2);
+  border-radius: 0;
+}
+
+.outcome-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .range-fill {
