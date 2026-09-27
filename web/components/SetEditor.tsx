@@ -44,7 +44,7 @@ function PresetLabel({ preset }: { preset: Preset | undefined }) {
   if (!preset) return <span>Common sets</span>;
   return (
     <span>
-      {preset.item ?? 'No item'} · {preset.nature} <span className="muted tabular">{Math.round(preset.share * 100)}%</span>
+      {preset.item ?? 'No item'}, {preset.nature} <span className="muted tabular">{Math.round(preset.share * 100)}% run this</span>
     </span>
   );
 }
@@ -161,7 +161,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
       )}
 
       <div className="species-row">
-        {my && <PokemonSprite species={my.forme} size={56} />}
+        {my && <PokemonSprite species={my.forme} size={64} />}
         <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Search Pokémon…" />
       </div>
 
@@ -176,7 +176,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
                     <button key={i} type="button" role="listitem" className={p === current ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
                       <span className="preset-main">
                         <ItemIcon item={p.item} />
-                        {p.item ?? 'No item'} · {p.nature}
+                        {p.item ?? 'No item'}, {p.nature}
                         <span className="muted small tabular"> {Math.round(p.share * 100)}%</span>
                       </span>
                       <span className="muted small tabular">{p.sp ? formatSp(p.sp) : 'No spread data'}</span>

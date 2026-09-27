@@ -2,31 +2,16 @@ import { useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
-import { favorability, formatSp, formeSuffix, outcomeText, pct, toneOf, type Status, type Tone } from '../format';
+import { favorability, formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
 import type { Mode } from '../useStickyList';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
 type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean };
 
-const DOMAIN: [number, number] = [0, 150];
-
-const STATUS_ICON: Record<Tone, string> = { good: '✓', warning: '◐', serious: '▲', critical: '✕', neutral: '2' };
-const STATUS_ORDER: Status[] = ['critical', 'serious', 'warning', 'good'];
-
-const x = (v: number) => ((Math.min(Math.max(v, DOMAIN[0]), DOMAIN[1]) - DOMAIN[0]) / (DOMAIN[1] - DOMAIN[0])) * 100;
-
-const MODES: Record<Mode, { label: string; description: string; legend: Record<Status, string> }> = {
-  in: {
-    label: 'Defense',
-    description: 'Their attacks on you',
-    legend: { good: 'Always survives', warning: 'Usually survives', serious: 'Usually KO’d', critical: 'Always KO’d' },
-  },
-  out: {
-    label: 'Offense',
-    description: 'Your attacks on them',
-    legend: { good: 'Always KOs', warning: 'Usually KOs', serious: 'Rarely KOs', critical: 'Never KOs' },
-  },
+const MODES: Record<Mode, { label: string }> = {
+  in: { label: 'Defense' },
+  out: { label: 'Offense' },
 };
 
 const STAT_LABEL: Record<StatID, string> = { hp: 'HP', atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe' };
@@ -54,7 +39,8 @@ function groupLabel(group: SetGroup, species: string, mode: Mode) {
   const stats = relevantStats(group, mode);
   return {
     forme: formeSuffix(first.forme, species),
-    main: `${listOf(group.sets.map((s) => s.item ?? 'No item'))} · ${listOf(group.sets.map((s) => s.nature))}`,
+    item: listOf(group.sets.map((s) => s.item ?? 'No item')),
+    nature: listOf(group.sets.map((s) => s.nature)),
     sp: (() => {
       const unique = [...new Set(group.sets.map((s) => spPart(s, stats)))];
       return unique.length > 1 ? `${unique[0]} +${unique.length - 1}` : unique[0];
@@ -66,28 +52,34 @@ function groupLabel(group: SetGroup, species: string, mode: Mode) {
 }
 
 function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level }) {
-  const left = x(row.minPct);
-  const width = Math.max(x(row.maxPct) - left, 1.2);
+  const line = lineOf(row, level);
   const [lo, hi] = view.band;
-  const levels = ([1, 2] as Level[]).filter((l) => (l === 1 ? view.targets.ohko : view.targets.twohko));
+  const half = Math.max(100 - lo, hi - 100) + 10;
+  const at = (v: number) => (((v / line) * 100 - (100 - half)) / (2 * half)) * 100;
+  const clampAt = (v: number) => Math.min(Math.max(at(v), 0), 100);
+  const left = clampAt(row.minPct);
+  const right = clampAt(row.maxPct);
   return (
-    <div className="range" aria-hidden>
-      {levels.map((l) => {
-        const line = lineOf(row, l);
-        return <div key={`band${l}`} className="range-band" style={{ left: `${x((lo * line) / 100)}%`, width: `${x((hi * line) / 100) - x((lo * line) / 100)}%` }} />;
-      })}
-      {levels.map((l) => (
-        <div key={`line${l}`} className={l === 1 ? 'range-line' : 'range-line two'} style={{ left: `${x(lineOf(row, l))}%` }} />
-      ))}
-      <div className={`range-fill s-${toneOf(row, level)}`} style={{ left: `${left}%`, width: `${width}%` }} />
+    <div className={`bar t-${toneOf(row, level)}${level === 2 ? ' two' : ''}`} aria-hidden>
+      <div className="bar-band" style={{ left: `${clampAt((lo * line) / 100)}%`, right: `${100 - clampAt((hi * line) / 100)}%` }} />
+      <div className={`bar-fill${at(row.minPct) < 0 ? ' cut-left' : ''}${at(row.maxPct) > 100 ? ' cut-right' : ''}`} style={{ left: `${left}%`, width: `${Math.max(right - left, 1)}%` }} />
+      <div className="bar-line" />
     </div>
   );
 }
 
-function StatusIcon({ status }: { status: Tone }) {
+function Result({ row, level, status }: { row: CalcRow; level: Level; status: Tone }) {
+  const text = outcomeText(row, level);
+  const m = text.match(/^([\d.]+%) (.*)$/);
   return (
-    <span className="outcome-icon" aria-hidden>
-      {STATUS_ICON[status]}
+    <span className={`result t-${status}`}>
+      {m ? (
+        <>
+          <b className="tabular">{m[1]}</b> {m[2]}
+        </>
+      ) : (
+        <b>{text}</b>
+      )}
     </span>
   );
 }
@@ -95,52 +87,52 @@ function StatusIcon({ status }: { status: Tone }) {
 function RowView({ row, view }: { row: CalcRow; view: View }) {
   const level = displayLevel(row, view.band, view.targets);
   const status = toneOf(row, level);
-  const lineNote = level === 2 ? `2HKO at ${pct(row.line2Pct)}${row.recoveryNotes.length ? ` · ${row.recoveryNotes.join(', ')}` : ''}` : '';
   return (
     <li className={inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
-      <div className="move">
+      <div className="calc-move">
         <span>{row.move}</span>
-        {row.field.length > 0 && <span className="muted small">{row.field.join(' · ')}</span>}
+        {row.field.length > 0 && <span className="note">{row.field.join(', ')}</span>}
       </div>
       <RangeBar row={row} view={view} level={level} />
-      <span className="pct tabular">
-        {pct(row.minPct)} – {pct(row.maxPct)}
-      </span>
-      <div className="outcome-cell">
-        <span className={`outcome s-${status}`}>
-          <StatusIcon status={status} />
-          {outcomeText(row, level)}
+      <div className="calc-result">
+        <Result row={row} level={level} status={status} />
+        <span className="note tabular">
+          {pct(row.minPct)}–{pct(row.maxPct)}
+          {level === 2 && ` of ${pct(row.line2Pct)}`}
+          {level === 2 && row.recoveryNotes.length > 0 && `, ${row.recoveryNotes.join(', ')}`}
         </span>
-        {lineNote && <span className="muted small">{lineNote}</span>}
       </div>
     </li>
   );
 }
 
 function Decided({ all, mode }: { all: CalcRow[]; mode: Mode }) {
-  if (!all.length) return <span className="muted small">No damaging moves</span>;
+  if (!all.length)
+    return (
+      <>
+        <span className="head-move quiet">No damaging moves</span>
+        <span />
+        <span />
+      </>
+    );
   const pick = (test: (r: CalcRow) => boolean) => all.find(test);
   const ohko = pick((r) => r.koChance >= 1);
   const twohko = pick((r) => r.ko2Chance >= 1);
-  let status: Tone;
   let move: string | null = null;
   let text: string;
   if (mode === 'out') {
-    if (ohko) [status, move, text] = ['good', ohko.move, 'clear OHKO'];
-    else if (twohko) [status, move, text] = ['neutral', twohko.move, 'clear 2HKO'];
-    else [status, text] = ['neutral', 'No KO close'];
-  } else if (ohko) [status, move, text] = ['critical', ohko.move, 'OHKOs you clearly'];
-  else if (twohko) [status, move, text] = ['neutral', twohko.move, '2HKOs you clearly'];
-  else [status, text] = ['neutral', 'Survives everything clearly'];
+    if (ohko) [move, text] = [ohko.move, 'Clean OHKO'];
+    else if (twohko) [move, text] = [twohko.move, 'Clean 2HKO'];
+    else text = 'No KO in sight';
+  } else if (ohko) [move, text] = [ohko.move, 'OHKOs you'];
+  else if (twohko) [move, text] = [twohko.move, '2HKOs you'];
+  else text = 'Walls you';
   return (
-    <span className="headline decided">
-      <span className={`outcome s-${status}`}>
-        <StatusIcon status={status} />
-        {move && <span className="headline-move">{move}</span>}
-        <span className="headline-result">{text}</span>
-      </span>
-      <span className="muted small">nothing close</span>
-    </span>
+    <>
+      <span className="head-move quiet">{move ?? '—'}</span>
+      <span className="bar-empty">nothing close</span>
+      <span className="result quiet">{text}</span>
+    </>
   );
 }
 
@@ -151,16 +143,15 @@ function Headline({ rows, all, view }: { rows: CalcRow[]; all: CalcRow[]; view: 
     return { r, level, f: favorability(r, level) };
   });
   const worst = scored.reduce((a, b) => (Math.abs(b.f - 0.5) < Math.abs(a.f - 0.5) ? b : a));
-  const status = toneOf(worst.r, worst.level);
   return (
-    <span className="headline">
-      <span className={`outcome s-${status}`}>
-        <StatusIcon status={status} />
-        <span className="headline-move">{worst.r.move}</span>
-        <span className="headline-result">{outcomeText(worst.r, worst.level)}</span>
+    <>
+      <span className="head-move">
+        {worst.r.move}
+        {rows.length > 1 && <span className="note tabular" title={`${rows.length - 1} more calcs in range`}> +{rows.length - 1}</span>}
       </span>
-      <span className="muted small tabular">{rows.length === 1 ? '1 calc' : `${rows.length} calcs`}</span>
-    </span>
+      <RangeBar row={worst.r} view={view} level={worst.level} />
+      <Result row={worst.r} level={worst.level} status={toneOf(worst.r, worst.level)} />
+    </>
   );
 }
 
@@ -188,21 +179,23 @@ function GroupView({ group, species, view, showAll }: { group: SetGroup; species
   const rest = showAll || group.custom
     ? group.rows.filter((r) => !inRange.includes(r)).sort((a, b) => bandDistance(a, view.band, view.targets) - bandDistance(b, view.band, view.targets) || a.order - b.order)
     : [];
+  const share = Math.max(1, Math.round(group.weight * 100));
   return (
     <div className={inRange.length ? 'group' : 'group dormant'}>
       <div className="group-head" title={label.title}>
-        <div className="group-label">
-          <ItemIcon item={group.sets[0].item} />
-          <span className="set-main">
-            {label.forme && <span className="forme">{label.forme}</span>}
-            {label.main}
-          </span>
-          {label.sp && <span className="set-spread tabular">{label.sp}</span>}
-        </div>
-        <span className="group-weight muted small tabular">
-          {group.custom ? <span className="badge">custom</span> : `${Math.max(1, Math.round(group.weight * 100))}%`}
-          {group.sets.length > 1 && ` · ${group.sets.length} sets`}
+        <ItemIcon item={group.sets[0].item} />
+        <span className="set-main">
+          {label.forme && <span className="forme">{label.forme}</span>}
+          {label.item}, {label.nature}
         </span>
+        {label.sp && <span className="set-spread tabular">{label.sp}</span>}
+        {group.custom && <span className="badge">custom</span>}
+        {!group.custom && (
+          <span className="set-share tabular">
+            <span className="share-bar" style={{ width: `${Math.min(share, 100) * 0.4}px` }} />
+            {share}%{group.sets.length > 1 && ` of ${group.sets.length} sets`}
+          </span>
+        )}
       </div>
       <ul className="calcs">
         {[...inRange, ...rest].map((r) => (
@@ -235,16 +228,12 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
     <li className={`card${open ? ' open' : ''}${inRangeRows.length ? '' : ' dormant'}`}>
       <div className="card-head">
         <button type="button" className="card-toggle" onClick={onToggleOpen} aria-expanded={open}>
-          <span className="rank tabular">{result.rank ? `#${result.rank}` : ''}</span>
+          <span className="rank tabular">{result.rank || ''}</span>
           <span className="name">
-            <PokemonSprite species={result.species} />
+            <PokemonSprite species={result.species} size={36} />
             <span>{result.species}</span>
-            {result.hasCustom && <span className="badge">custom</span>}
           </span>
           <Headline rows={inRangeRows} all={allRows} view={view} />
-          <span className="chevron" aria-hidden>
-            ›
-          </span>
         </button>
         <button type="button" className={pinned ? 'pin on' : 'pin'} onClick={onTogglePin} aria-pressed={pinned} title={pinned ? 'Unpin' : 'Pin to top'}>
           <PinIcon filled={pinned} />
@@ -255,14 +244,13 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
           {active.map((g) => (
             <GroupView key={g.key} group={g} species={result.species} view={view} showAll={showAll} />
           ))}
-          {!active.length && <p className="muted small card-note">{groups.length ? 'Nothing close to a KO line.' : 'No damaging calcs.'}</p>}
+          {!active.length && <p className="card-note">{groups.length ? 'Nothing close to a KO line.' : 'No damaging calcs.'}</p>}
           {showAll && idle.map((g) => <GroupView key={g.key} group={g} species={result.species} view={view} showAll />)}
           {hidden > 0 && (
             <button type="button" className="expand-rest" onClick={() => setShowAll(!showAll)} aria-expanded={showAll}>
-              <span aria-hidden>{showAll ? '−' : '+'}</span>
               {showAll
-                ? `Hide ${hidden} outside the range`
-                : `Show ${hidden} more outside the range${idle.length ? ` · ${idle.length} more set${idle.length > 1 ? 's' : ''}` : ''}`}
+                ? `Hide the ${hidden} calcs outside the range`
+                : `Show ${hidden} more calcs outside the range${idle.length ? `, from ${idle.length} more set${idle.length > 1 ? 's' : ''}` : ''}`}
             </button>
           )}
         </div>
@@ -341,57 +329,50 @@ export function Results(props: Props) {
 
   return (
     <div className={pending || stale ? 'results stale' : 'results'}>
-      <div className="tabs" role="tablist">
+      <div className="modes" role="tablist">
         {(Object.keys(MODES) as Mode[]).map((m) => (
-          <button key={m} type="button" role="tab" aria-selected={mode === m} className={mode === m ? 'tab on' : 'tab'} onClick={() => onModeChange(m)}>
-            <span>{MODES[m].label}</span>
-            <span className="tab-count tabular">{counts[m]}</span>
+          <button key={m} type="button" role="tab" aria-selected={mode === m} className={mode === m ? 'mode on' : 'mode'} onClick={() => onModeChange(m)}>
+            {MODES[m].label}
+            <span className="mode-count tabular">{counts[m]}</span>
           </button>
         ))}
       </div>
       {toolbar}
-      <div className="results-head">
-        <p className="muted">
-          {MODES[mode].description}: <span className="tabular">{counts[mode]}</span> {only ? 'Pokémon with your sets' : `of the top ${top}`} have calcs in range
-        </p>
-        <div className="actions">
-          {dormant > 0 && (
-            <button type="button" className="link" onClick={onResetSticky} title="Drop Pokémon that no longer have calcs in range">
-              Clear {dormant} out of range
-            </button>
-          )}
-          {visible.length > 0 && (
-            <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.key))}>
-              {allOpen ? 'Collapse all' : 'Expand all'}
-            </button>
-          )}
+      <div className="table">
+        <div className="table-head">
+          <span>#</span>
+          <span>{only ? 'Your sets' : `${counts[mode]} of the top ${top} in range`}</span>
+          <span>Closest call</span>
+          <span className="bar-legend">
+            <span>Damage range</span>
+            <span className="bar-key">OHKO line</span>
+            {targets.twohko && <span className="bar-key two">2HKO line</span>}
+          </span>
+          <span className="table-actions">
+            {dormant > 0 && (
+              <button type="button" className="link" onClick={onResetSticky} title="Drop Pokémon that no longer have calcs in range">
+                Clear {dormant}
+              </button>
+            )}
+            {visible.length > 0 && (
+              <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.key))}>
+                {allOpen ? 'Collapse all' : 'Expand all'}
+              </button>
+            )}
+          </span>
         </div>
-      </div>
-      <ul className="legend" aria-label="Legend">
-        {STATUS_ORDER.map((status) => (
-          <li key={status} className={`outcome s-${status}`}>
-            <StatusIcon status={status} />
-            {MODES[mode].legend[status]}
-          </li>
+        {nonEmpty.map(([title, list]) => (
+          <section key={title} className="result-section">
+            {nonEmpty.length > 1 && <h3 className="section-title">{title}</h3>}
+            <ul className="cards">{list.map(card)}</ul>
+          </section>
         ))}
-        {targets.twohko && (
-          <li className="outcome s-neutral">
-            <StatusIcon status="neutral" />
-            2HKO calcs
-          </li>
-        )}
-      </ul>
-      {nonEmpty.map(([title, list]) => (
-        <section key={title} className="result-section">
-          {nonEmpty.length > 1 && <h3 className="section-title">{title}</h3>}
-          <ul className="cards">{list.map(card)}</ul>
-        </section>
-      ))}
-      {!nonEmpty.length && q && <div className="empty muted">No Pokémon matching “{query}” in the top {top}.</div>}
+      </div>
+      {!nonEmpty.length && q && <div className="empty">No Pokémon called “{query}” in the top {top}.</div>}
       {!nonEmpty.length && !q && (
-        <div className="empty muted">{only ? 'No sets in your library yet. Add some from Library.' : 'Nothing in this range. Widen it or include more opponents.'}</div>
+        <div className="empty">{only ? 'Your library is empty. Add opponents from Library.' : 'Nothing lands in this range. Widen it or bring in more opponents.'}</div>
       )}
-      <p className="muted small footnote">
+      <p className="footnote tabular">
         {response.totalCalcs} calcs in {Math.round(response.ms)} ms
       </p>
     </div>

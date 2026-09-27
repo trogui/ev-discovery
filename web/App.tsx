@@ -3,6 +3,7 @@ import metaJson from '../data/meta.json';
 import type { Meta } from '../src/lib/types';
 import type { CalcSettings, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
+import { FieldPanel } from './components/FieldPanel';
 import { Results } from './components/Results';
 import { SetEditor } from './components/SetEditor';
 import { Toolbar } from './components/Toolbar';
@@ -75,18 +76,23 @@ export function App() {
       <header className="top">
         <h1>EV Discovery</h1>
         <p className="muted small" title={`${meta.sources.limitlessTournaments} Limitless tournaments, ${meta.sources.pasteTeams} team pastes and the in-game ladder`}>
-          Regulation {meta.regulation}, data from {dateFormat.format(new Date(meta.generatedAt))}
+          Regulation {meta.regulation} usage, updated {dateFormat.format(new Date(meta.generatedAt))}
         </p>
       </header>
       <aside className="side">
         <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
       </aside>
+      {mine && (
+        <aside className="field-side">
+          <FieldPanel settings={settings} onChange={setSettings} mode={mode} />
+        </aside>
+      )}
       <main className="main">
         {!mine ? (
           <div className="empty">
-            <p>Pick your Pokémon on the left.</p>
-            <p className="muted">
-              Every matchup against the most common sets of the top {settings.top} in Reg {meta.regulation}, filtered to the calcs that land close to an OHKO or 2HKO.
+            <p className="empty-title">Which spreads are one point away from a KO?</p>
+            <p>
+              Pick your Pokémon on the left. You get every matchup against the common sets of the top {settings.top} in Reg {meta.regulation}, filtered down to the calcs that land near an OHKO or 2HKO.
             </p>
             <p>
               <button type="button" className="link" onClick={() => setMine(EXAMPLE)}>
