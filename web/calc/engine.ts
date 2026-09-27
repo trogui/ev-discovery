@@ -97,36 +97,11 @@ function runCalc(attacker: Combatant, defender: Combatant, moveName: string, fie
   return { minDamage, maxDamage, hp, koChance, ko2Chance, line2Pct: (line2 / hp) * 100, recoveryNotes: recovery.notes, desc, note, moveType: move.type, rolls: hits.map((h) => h.join(',')).join('|') };
 }
 
-const ATTACKER_TAGS: [keyof SideToggles, string][] = [
-  ['helpingHand', 'Helping Hand'],
-  ['battery', 'Battery'],
-  ['powerSpot', 'Power Spot'],
-  ['steelySpirit', 'Steely Spirit'],
-  ['charge', 'Charge'],
-];
-
-const DEFENDER_TAGS: [keyof SideToggles, string][] = [
-  ['reflect', 'Reflect'],
-  ['lightScreen', 'Light Screen'],
-  ['auroraVeil', 'Aurora Veil'],
-  ['friendGuard', 'Friend Guard'],
-  ['flowerGift', 'Flower Gift'],
-];
-
-const signed = (n: number) => (n > 0 ? `+${n}` : `${n}`);
-
-function fieldTags(f: ReturnType<typeof resolveField>, s: CalcSettings, attacker: SideToggles, defender: SideToggles, attackBoost: number, defenseBoost: number, category: string | undefined) {
+function fieldTags(f: ReturnType<typeof resolveField>, s: CalcSettings, intimidateApplied: boolean) {
   const tags: string[] = [];
-  if (f.weather) tags.push(f.weather);
-  if (f.terrain) tags.push(`${f.terrain} Terrain`);
-  if (s.gravity) tags.push('Gravity');
-  if (s.crit) tags.push('Crit');
-  const attackStat = category === 'Special' ? 'SpA' : 'Atk';
-  const defenseStat = category === 'Special' ? 'SpD' : 'Def';
-  if (attackBoost) tags.push(`${signed(attackBoost)} ${attackStat}`);
-  if (defenseBoost) tags.push(`${signed(defenseBoost)} ${defenseStat}`);
-  for (const [key, label] of ATTACKER_TAGS) if (attacker[key]) tags.push(label);
-  for (const [key, label] of DEFENDER_TAGS) if (defender[key]) tags.push(label);
+  if (s.weather === 'auto' && f.weather) tags.push(f.weather);
+  if (s.terrain === 'auto' && f.terrain) tags.push(`${f.terrain} Terrain`);
+  if (intimidateApplied) tags.push('Intimidate');
   return tags;
 }
 
@@ -178,8 +153,7 @@ export function computeAll(meta: Meta, me: MySet, settings: CalcSettings, extraS
           const r = runCalc(attacker, defender, moveName, field, attackerBoosts, defenderSide.boosts, settings.crit, { weather: f.weather, terrain: f.terrain, gravity: settings.gravity });
           if (!r) return;
           const category = gen.moves.get(moveName.toLowerCase().replace(/[^a-z0-9]/g, '') as never)?.category;
-          const special = category === 'Special';
-          const tags = fieldTags(f, settings, attackerSide, defenderSide, special ? attackerBoosts.spa : attackerBoosts.atk, special ? defenderSide.boosts.spd : defenderSide.boosts.def, category);
+          const tags = fieldTags(f, settings, intimidate && intimidated(attacker) && category === 'Physical');
           signature.push(`${moveName}|${r.rolls}|${r.hp}|${tags.join(',')}|${r.recoveryNotes.join(',')}`);
           rows.push({
             key: `${opponent.species}|${direction}|${id}|${moveName}`,
