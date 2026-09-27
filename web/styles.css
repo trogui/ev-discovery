@@ -1356,6 +1356,16 @@ select:focus {
   border-bottom-right-radius: 0;
 }
 
+.bar-fill.off-right {
+  border-radius: 0;
+  background: linear-gradient(to right, transparent, var(--tone));
+}
+
+.bar-fill.off-left {
+  border-radius: 0;
+  background: linear-gradient(to left, transparent, var(--tone));
+}
+
 .bar-line {
   position: absolute;
   left: 50%;

@@ -2,9 +2,9 @@ import { useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
-import { closestCall, formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
+import { formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
-import { isWatched, keyOf, watchedLevel, type Mode, type Watch } from '../useStickyList';
+import { headOf, isDecisive, keyOf, watchedEntry, type Mode, type Watch } from '../useStickyList';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
 type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null };
@@ -57,12 +57,14 @@ function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level
   const half = Math.max(100 - lo, hi - 100) + 10;
   const at = (v: number) => (((v / line) * 100 - (100 - half)) / (2 * half)) * 100;
   const clampAt = (v: number) => Math.min(Math.max(at(v), 0), 100);
-  const left = clampAt(row.minPct);
-  const right = clampAt(row.maxPct);
+  const offRight = at(row.minPct) > 100;
+  const offLeft = at(row.maxPct) < 0;
+  const left = offRight ? 88 : clampAt(row.minPct);
+  const right = offLeft ? 12 : clampAt(row.maxPct);
   return (
     <div className={`bar t-${toneOf(row, level)}${level === 2 ? ' two' : ''}`} aria-hidden>
       <div className="bar-band" style={{ left: `${clampAt((lo * line) / 100)}%`, right: `${100 - clampAt((hi * line) / 100)}%` }} />
-      <div className={`bar-fill${at(row.minPct) < 0 ? ' cut-left' : ''}${at(row.maxPct) > 100 ? ' cut-right' : ''}`} style={{ left: `${left}%`, width: `${Math.max(right - left, 1)}%` }} />
+      <div className={`bar-fill${offRight ? ' off-right' : offLeft ? ' off-left' : `${at(row.minPct) < 0 ? ' cut-left' : ''}${at(row.maxPct) > 100 ? ' cut-right' : ''}`}`} style={{ left: `${left}%`, width: `${Math.max(right - left, 1)}%` }} />
       <div className="bar-line" />
     </div>
   );
@@ -88,7 +90,7 @@ function RowView({ row, view, fixed }: { row: CalcRow; view: View; fixed?: Level
   const level = fixed ?? displayLevel(row, view.band, view.targets);
   const status = toneOf(row, level);
   return (
-    <li className={fixed || inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
+    <li className={fixed || isDecisive(row) || inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
       <div className="calc-move">
         <span>{row.move}</span>
         {row.field.length > 0 && <span className="note">{row.field.join(', ')}</span>}
@@ -137,13 +139,13 @@ function Decided({ all, mode }: { all: CalcRow[]; mode: Mode }) {
 }
 
 function Headline({ rows, all, view, pick }: { rows: CalcRow[]; all: CalcRow[]; view: View; pick?: { r: CalcRow; level: Level } }) {
-  const worst = pick ?? closestCall(rows, view.band, view.targets);
+  const worst = pick ?? headOf(rows, view.band, view.targets);
   if (!worst) return <Decided all={all} mode={view.mode} />;
   return (
     <>
       <span className="head-move">
         {worst.r.move}
-        {rows.length > 1 && <span className="note tabular" title={`${rows.length - 1} more calcs in range`}> +{rows.length - 1}</span>}
+        {rows.length > 1 && <span className="note tabular" title={`${rows.length - 1} more calcs`}> +{rows.length - 1}</span>}
       </span>
       <RangeBar row={worst.r} view={view} level={worst.level} />
       <Result row={worst.r} level={worst.level} status={toneOf(worst.r, worst.level)} />
@@ -169,13 +171,21 @@ const inRangeOf = (rows: CalcRow[], view: View) => rows.filter((r) => inBand(r, 
 
 const closest = (rows: CalcRow[], view: View) => Math.min(...rows.map((r) => bandDistance(r, view.band, view.targets)));
 
-const watchedIn = (result: PokemonResult, group: SetGroup, view: View) => (view.watch ? group.rows.filter((r) => isWatched(view.watch!, result.key, view.mode, group, r)) : []);
+const entryOf = (result: PokemonResult, group: SetGroup, row: CalcRow, view: View) => (view.watch ? watchedEntry(view.watch, result.key, view.mode, group, row) : null);
 
-const hasWatched = (result: PokemonResult, view: View) => groupsFor(result, view).some((g) => watchedIn(result, g, view).length > 0);
+const hasAnchor = (result: PokemonResult, view: View) => groupsFor(result, view).some((g) => g.rows.some((r) => entryOf(result, g, r, view)?.anchor));
+
+const hasEntry = (result: PokemonResult, view: View) => groupsFor(result, view).some((g) => g.rows.some((r) => entryOf(result, g, r, view) !== null));
 
 function shownOf(result: PokemonResult, view: View) {
-  const live = !hasWatched(result, view);
-  return (group: SetGroup) => (live ? inRangeOf(group.rows, view) : watchedIn(result, group, view));
+  const live = !hasEntry(result, view);
+  return (group: SetGroup) => group.rows.filter((r) => (live ? inBand(r, view.band, view.targets) || isDecisive(r) : entryOf(result, group, r, view) !== null));
+}
+
+function fixedLevel(result: PokemonResult, group: SetGroup, row: CalcRow, view: View): Level | undefined {
+  const entry = entryOf(result, group, row, view);
+  if (entry) return entry.level;
+  return isDecisive(row) && !inBand(row, view.band, view.targets) ? 1 : undefined;
 }
 
 function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; shown: CalcRow[]; result: PokemonResult; view: View; showAll: boolean }) {
@@ -204,7 +214,7 @@ function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; s
       </div>
       <ul className="calcs">
         {[...shown, ...rest].map((r) => (
-          <RowView key={r.key} row={r} view={view} fixed={view.watch && watchedLevel(view.watch, result.key, view.mode, group, r)} />
+          <RowView key={r.key} row={r} view={view} fixed={fixedLevel(result, group, r, view)} />
         ))}
       </ul>
     </div>
@@ -232,7 +242,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
   const headKey = view.watch?.heads[view.mode].get(result.key);
   const pickGroup = headKey ? groups.find((g) => g.rows.some((r) => shownRows.includes(r) && g.sets.some((s) => keyOf(result.key, view.mode, s.id, r.move) === headKey))) : undefined;
   const pickRow = pickGroup?.rows.find((r) => pickGroup.sets.some((s) => keyOf(result.key, view.mode, s.id, r.move) === headKey));
-  const pick = pickGroup && pickRow && view.watch ? { r: pickRow, level: watchedLevel(view.watch, result.key, view.mode, pickGroup, pickRow) ?? displayLevel(pickRow, view.band, view.targets) } : undefined;
+  const pick = pickGroup && pickRow && view.watch ? { r: pickRow, level: fixedLevel(result, pickGroup, pickRow, view) ?? displayLevel(pickRow, view.band, view.targets) } : undefined;
   const fixed = groups.filter((g) => !g.custom);
   const hidden = fixed.flatMap((g) => g.rows).length - fixed.flatMap((g) => shown.get(g)!).length;
 
@@ -299,24 +309,26 @@ export function Results(props: Props) {
   const only = customOnly && hasLibrary;
   const view: View = { band, targets, mode, customOnly: only, watch };
   const hasInRange = (r: PokemonResult, m: Mode) => groupsFor(r, { ...view, mode: m }).some((g) => inRangeOf(g.rows, view).length > 0);
+  const threatens = (r: PokemonResult, m: Mode) => m === 'in' && groupsFor(r, { ...view, mode: m }).some((g) => g.rows.some(isDecisive));
+  const relevant = (r: PokemonResult, m: Mode) => hasInRange(r, m) || threatens(r, m);
   const eligible = response.results.filter((r) => (only ? r.hasCustom : r.inTop || r.hasCustom || pinned.includes(r.key)));
 
   const pinnedResults = pinned.map((s) => eligible.find((r) => r.key === s)).filter((r): r is PokemonResult => !!r);
   const customResults = eligible.filter((r) => r.onlyCustom && !pinned.includes(r.key));
-  const listed = eligible.filter((r) => !r.onlyCustom && !pinned.includes(r.key) && (r.hasCustom || (watch ? hasWatched(r, view) : hasInRange(r, mode))));
+  const listed = eligible.filter((r) => !r.onlyCustom && !pinned.includes(r.key) && (r.hasCustom || (watch ? (mode === 'in' ? hasEntry(r, view) : hasAnchor(r, view)) : relevant(r, mode))));
   let entered = 0;
   let left = 0;
   if (watch)
     for (const r of eligible)
       for (const g of groupsFor(r, view))
         for (const row of g.rows) {
-          const watched = isWatched(watch, r.key, mode, g, row);
+          const entry = watchedEntry(watch, r.key, mode, g, row);
           const now = inBand(row, band, targets);
-          if (watched && !now) left++;
-          else if (!watched && now && !g.custom) entered++;
+          if (entry?.anchor && !now) left++;
+          else if (!entry && now && !g.custom) entered++;
         }
   const counted = eligible.filter((r) => r.inTop || r.hasCustom);
-  const counts = { in: counted.filter((r) => hasInRange(r, 'in')).length, out: counted.filter((r) => hasInRange(r, 'out')).length };
+  const counts = { in: counted.filter((r) => relevant(r, 'in')).length, out: counted.filter((r) => relevant(r, 'out')).length };
   const visible = [...customResults, ...pinnedResults, ...listed];
   const allOpen = visible.length > 0 && visible.every((r) => open.includes(r.key));
   const toggleOpen = (key: string) => onOpenChange(open.includes(key) ? open.filter((s) => s !== key) : [...open, key]);
@@ -373,8 +385,8 @@ export function Results(props: Props) {
       <div className="table">
         <div className="table-head">
           <span>#</span>
-          <span>{only ? 'Your sets' : `${counts[mode]} of the top ${top} in range`}</span>
-          <span>Closest call</span>
+          <span>{only ? 'Your sets' : mode === 'in' ? `${counts.in} of the top ${top} close or OHKO you` : `${counts.out} of the top ${top} in range`}</span>
+          <span>Move</span>
           <span className="bar-legend">
             <span>Damage range</span>
             <span className="bar-key">OHKO line</span>

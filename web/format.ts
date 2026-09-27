@@ -39,7 +39,9 @@ export function statusOf(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chanc
 }
 
 export function toneOf(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chance'>, level: Level): Tone {
-  return level === 2 ? 'neutral' : statusOf(row, level);
+  if (level === 2) return 'neutral';
+  const status = statusOf(row, level);
+  return row.direction === 'out' && status === 'critical' ? 'neutral' : status;
 }
 
 export function outcomeText(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Chance' | 'note'>, level: Level) {
