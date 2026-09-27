@@ -1113,6 +1113,18 @@ select:focus {
   color: var(--critical);
 }
 
+.drift {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: -12px 0 14px;
+  padding: 8px 12px;
+  border-left: 2px solid var(--warning);
+  background: var(--hover);
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
 .table {
   --cols: 32px minmax(150px, 200px) minmax(120px, 1fr) minmax(200px, 300px) 150px;
   --pin: 32px;

@@ -2,12 +2,12 @@ import { useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
-import { favorability, formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
+import { closestCall, formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
-import type { Mode } from '../useStickyList';
+import { isWatched, keyOf, watchedLevel, type Mode, type Watch } from '../useStickyList';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
-type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean };
+type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null };
 
 const MODES: Record<Mode, { label: string }> = {
   in: { label: 'Defense' },
@@ -84,11 +84,11 @@ function Result({ row, level, status }: { row: CalcRow; level: Level; status: To
   );
 }
 
-function RowView({ row, view }: { row: CalcRow; view: View }) {
-  const level = displayLevel(row, view.band, view.targets);
+function RowView({ row, view, fixed }: { row: CalcRow; view: View; fixed?: Level | null }) {
+  const level = fixed ?? displayLevel(row, view.band, view.targets);
   const status = toneOf(row, level);
   return (
-    <li className={inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
+    <li className={fixed || inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
       <div className="calc-move">
         <span>{row.move}</span>
         {row.field.length > 0 && <span className="note">{row.field.join(', ')}</span>}
@@ -136,13 +136,9 @@ function Decided({ all, mode }: { all: CalcRow[]; mode: Mode }) {
   );
 }
 
-function Headline({ rows, all, view }: { rows: CalcRow[]; all: CalcRow[]; view: View }) {
-  if (!rows.length) return <Decided all={all} mode={view.mode} />;
-  const scored = rows.map((r) => {
-    const level = displayLevel(r, view.band, view.targets);
-    return { r, level, f: favorability(r, level) };
-  });
-  const worst = scored.reduce((a, b) => (Math.abs(b.f - 0.5) < Math.abs(a.f - 0.5) ? b : a));
+function Headline({ rows, all, view, pick }: { rows: CalcRow[]; all: CalcRow[]; view: View; pick?: { r: CalcRow; level: Level } }) {
+  const worst = pick ?? closestCall(rows, view.band, view.targets);
+  if (!worst) return <Decided all={all} mode={view.mode} />;
   return (
     <>
       <span className="head-move">
@@ -173,15 +169,24 @@ const inRangeOf = (rows: CalcRow[], view: View) => rows.filter((r) => inBand(r, 
 
 const closest = (rows: CalcRow[], view: View) => Math.min(...rows.map((r) => bandDistance(r, view.band, view.targets)));
 
-function GroupView({ group, species, view, showAll }: { group: SetGroup; species: string; view: View; showAll: boolean }) {
+const watchedIn = (result: PokemonResult, group: SetGroup, view: View) => (view.watch ? group.rows.filter((r) => isWatched(view.watch!, result.key, view.mode, group, r)) : []);
+
+const hasWatched = (result: PokemonResult, view: View) => groupsFor(result, view).some((g) => watchedIn(result, g, view).length > 0);
+
+function shownOf(result: PokemonResult, view: View) {
+  const live = !hasWatched(result, view);
+  return (group: SetGroup) => (live ? inRangeOf(group.rows, view) : watchedIn(result, group, view));
+}
+
+function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; shown: CalcRow[]; result: PokemonResult; view: View; showAll: boolean }) {
+  const species = result.species;
   const label = groupLabel(group, species, view.mode);
-  const inRange = inRangeOf(group.rows, view);
   const rest = showAll || group.custom
-    ? group.rows.filter((r) => !inRange.includes(r)).sort((a, b) => bandDistance(a, view.band, view.targets) - bandDistance(b, view.band, view.targets) || a.order - b.order)
+    ? group.rows.filter((r) => !shown.includes(r)).sort((a, b) => bandDistance(a, view.band, view.targets) - bandDistance(b, view.band, view.targets) || a.order - b.order)
     : [];
   const share = Math.max(1, Math.round(group.weight * 100));
   return (
-    <div className={inRange.length ? 'group' : 'group dormant'}>
+    <div className={shown.length ? 'group' : 'group dormant'}>
       <div className="group-head" title={label.title}>
         <ItemIcon item={group.sets[0].item} />
         <span className="set-main">
@@ -198,8 +203,8 @@ function GroupView({ group, species, view, showAll }: { group: SetGroup; species
         )}
       </div>
       <ul className="calcs">
-        {[...inRange, ...rest].map((r) => (
-          <RowView key={r.key} row={r} view={view} />
+        {[...shown, ...rest].map((r) => (
+          <RowView key={r.key} row={r} view={view} fixed={view.watch && watchedLevel(view.watch, result.key, view.mode, group, r)} />
         ))}
       </ul>
     </div>
@@ -219,13 +224,20 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
   const [showAll, setShowAll] = useState(false);
   const groups = groupsFor(result, view);
   const allRows = groups.flatMap((g) => g.rows);
-  const inRangeRows = inRangeOf(allRows, view);
-  const active = groups.filter((g) => g.custom || inRangeOf(g.rows, view).length > 0);
+  const shownIn = shownOf(result, view);
+  const shown = new Map(groups.map((g) => [g, shownIn(g)]));
+  const shownRows = groups.flatMap((g) => shown.get(g)!);
+  const active = groups.filter((g) => g.custom || shown.get(g)!.length > 0);
   const idle = groups.filter((g) => !active.includes(g)).sort((a, b) => closest(a.rows, view) - closest(b.rows, view));
-  const hidden = groups.filter((g) => !g.custom).flatMap((g) => g.rows).length - inRangeOf(groups.filter((g) => !g.custom).flatMap((g) => g.rows), view).length;
+  const headKey = view.watch?.heads[view.mode].get(result.key);
+  const pickGroup = headKey ? groups.find((g) => g.rows.some((r) => shownRows.includes(r) && g.sets.some((s) => keyOf(result.key, view.mode, s.id, r.move) === headKey))) : undefined;
+  const pickRow = pickGroup?.rows.find((r) => pickGroup.sets.some((s) => keyOf(result.key, view.mode, s.id, r.move) === headKey));
+  const pick = pickGroup && pickRow && view.watch ? { r: pickRow, level: watchedLevel(view.watch, result.key, view.mode, pickGroup, pickRow) ?? displayLevel(pickRow, view.band, view.targets) } : undefined;
+  const fixed = groups.filter((g) => !g.custom);
+  const hidden = fixed.flatMap((g) => g.rows).length - fixed.flatMap((g) => shown.get(g)!).length;
 
   return (
-    <li className={`card${open ? ' open' : ''}${inRangeRows.length ? '' : ' dormant'}`}>
+    <li className={`card${open ? ' open' : ''}${shownRows.length ? '' : ' dormant'}`}>
       <div className="card-head">
         <button type="button" className="card-toggle" onClick={onToggleOpen} aria-expanded={open}>
           <span className="rank tabular">{result.rank || ''}</span>
@@ -233,7 +245,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
             <PokemonSprite species={result.species} size={36} />
             <span>{result.species}</span>
           </span>
-          <Headline rows={inRangeRows} all={allRows} view={view} />
+          <Headline rows={shownRows} all={allRows} view={view} pick={pick} />
         </button>
         <button type="button" className={pinned ? 'pin on' : 'pin'} onClick={onTogglePin} aria-pressed={pinned} title={pinned ? 'Unpin' : 'Pin to top'}>
           <PinIcon filled={pinned} />
@@ -242,10 +254,10 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
       {open && (
         <div className="card-body">
           {active.map((g) => (
-            <GroupView key={g.key} group={g} species={result.species} view={view} showAll={showAll} />
+            <GroupView key={g.key} group={g} shown={shown.get(g)!} result={result} view={view} showAll={showAll} />
           ))}
           {!active.length && <p className="card-note">{groups.length ? 'Nothing close to a KO line.' : 'No damaging calcs.'}</p>}
-          {showAll && idle.map((g) => <GroupView key={g.key} group={g} species={result.species} view={view} showAll />)}
+          {showAll && idle.map((g) => <GroupView key={g.key} group={g} shown={[]} result={result} view={view} showAll />)}
           {hidden > 0 && (
             <button type="button" className="expand-rest" onClick={() => setShowAll(!showAll)} aria-expanded={showAll}>
               {showAll
@@ -272,8 +284,8 @@ type Props = {
   hasLibrary: boolean;
   toolbar: ReactNode;
   query: string;
-  sticky: Record<Mode, string[]>;
-  onResetSticky: () => void;
+  watch: Watch | null;
+  onRebuild: () => void;
   pinned: string[];
   onTogglePin: (species: string) => void;
   open: string[];
@@ -281,19 +293,28 @@ type Props = {
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, sticky, onResetSticky, pinned, onTogglePin, open, onOpenChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, watch, onRebuild, pinned, onTogglePin, open, onOpenChange } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
   const only = customOnly && hasLibrary;
-  const view: View = { band, targets, mode, customOnly: only };
+  const view: View = { band, targets, mode, customOnly: only, watch };
   const hasInRange = (r: PokemonResult, m: Mode) => groupsFor(r, { ...view, mode: m }).some((g) => inRangeOf(g.rows, view).length > 0);
   const eligible = response.results.filter((r) => (only ? r.hasCustom : r.inTop || r.hasCustom || pinned.includes(r.key)));
-  const stickySet = new Set(sticky[mode]);
 
   const pinnedResults = pinned.map((s) => eligible.find((r) => r.key === s)).filter((r): r is PokemonResult => !!r);
   const customResults = eligible.filter((r) => r.onlyCustom && !pinned.includes(r.key));
-  const listed = eligible.filter((r) => !r.onlyCustom && !pinned.includes(r.key) && (r.hasCustom || hasInRange(r, mode) || stickySet.has(r.key)));
-  const dormant = listed.filter((r) => !r.hasCustom && !hasInRange(r, mode)).length;
+  const listed = eligible.filter((r) => !r.onlyCustom && !pinned.includes(r.key) && (r.hasCustom || (watch ? hasWatched(r, view) : hasInRange(r, mode))));
+  let entered = 0;
+  let left = 0;
+  if (watch)
+    for (const r of eligible)
+      for (const g of groupsFor(r, view))
+        for (const row of g.rows) {
+          const watched = isWatched(watch, r.key, mode, g, row);
+          const now = inBand(row, band, targets);
+          if (watched && !now) left++;
+          else if (!watched && now && !g.custom) entered++;
+        }
   const counted = eligible.filter((r) => r.inTop || r.hasCustom);
   const counts = { in: counted.filter((r) => hasInRange(r, 'in')).length, out: counted.filter((r) => hasInRange(r, 'out')).length };
   const visible = [...customResults, ...pinnedResults, ...listed];
@@ -338,6 +359,17 @@ export function Results(props: Props) {
         ))}
       </div>
       {toolbar}
+      {(entered > 0 || left > 0) && (
+        <div className="drift" role="status">
+          <span>
+            Same calcs as before your change.{' '}
+            {[left > 0 && `${left} now outside the range`, entered > 0 && `${entered} new in range`].filter(Boolean).join(', ')}.
+          </span>
+          <button type="button" className="link" onClick={onRebuild}>
+            Rebuild list
+          </button>
+        </div>
+      )}
       <div className="table">
         <div className="table-head">
           <span>#</span>
@@ -349,11 +381,6 @@ export function Results(props: Props) {
             {targets.twohko && <span className="bar-key two">2HKO line</span>}
           </span>
           <span className="table-actions">
-            {dormant > 0 && (
-              <button type="button" className="link" onClick={onResetSticky} title="Drop Pokémon that no longer have calcs in range">
-                Clear {dormant}
-              </button>
-            )}
             {visible.length > 0 && (
               <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.key))}>
                 {allOpen ? 'Collapse all' : 'Expand all'}

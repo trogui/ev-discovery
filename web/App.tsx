@@ -11,7 +11,7 @@ import { activeOpponents, type LibraryEntry } from './library';
 import { EXAMPLE, buildMySet, importPaste, type EditableSet } from './me';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
-import { useStickyList, type Mode } from './useStickyList';
+import { useWatchList, type Mode } from './useStickyList';
 
 const meta = metaJson as unknown as Meta;
 
@@ -64,7 +64,7 @@ export function App() {
 
   const me = useMemo(() => (mine ? buildMySet(mine) : null), [mine]);
   const { response, pending } = useCalcs(me, calcSettings, pinned, custom);
-  const { sticky, reset } = useStickyList(response, settings.band, settings.targets);
+  const { watch, rebuild } = useWatchList(response, pending, settings.band, settings.targets, JSON.stringify([settings.band, settings.targets, settings.top, custom.length]));
 
   const togglePin = (species: string) => {
     setPinned(pinned.includes(species) ? pinned.filter((s) => s !== species) : [...pinned, species]);
@@ -127,8 +127,8 @@ export function App() {
                 onQueryChange={setQuery}
               />
             }
-            sticky={sticky}
-            onResetSticky={reset}
+            watch={watch}
+            onRebuild={rebuild}
             pinned={pinned}
             onTogglePin={togglePin}
             open={open}

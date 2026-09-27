@@ -1,6 +1,6 @@
 import type { Stats } from '../src/lib/spread';
 import type { CalcRow } from './calc/types';
-import { chanceOf, type Level } from './ko';
+import { chanceOf, displayLevel, type Band, type Level, type Targets } from './ko';
 
 const STAT_LABELS: [keyof Stats, string][] = [
   ['hp', 'HP'],
@@ -51,4 +51,13 @@ export function outcomeText(row: Pick<CalcRow, 'direction' | 'koChance' | 'ko2Ch
   if (ko === 0) return safe;
   if (ko === 100) return label;
   return `${ko}% ${label}`;
+}
+
+export function closestCall<T extends CalcRow>(rows: T[], band: Band, targets: Targets) {
+  if (!rows.length) return null;
+  const scored = rows.map((r) => {
+    const level = displayLevel(r, band, targets);
+    return { r, level, f: favorability(r, level) };
+  });
+  return scored.reduce((a, b) => (Math.abs(b.f - 0.5) < Math.abs(a.f - 0.5) ? b : a));
 }
