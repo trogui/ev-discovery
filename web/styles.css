@@ -487,7 +487,24 @@ select:focus {
   display: flex;
   align-items: center;
   gap: 4px;
-  margin: 2px 0 -6px -10px;
+  margin: 2px 0 -6px;
+}
+
+.species-row:has(.sprite) {
+  margin-left: -10px;
+}
+
+.species-row:not(:has(.sprite)) .combobox.species input {
+  border-bottom-color: var(--line);
+}
+
+.combobox.species input::placeholder {
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.editor.embedded .combobox.species input {
+  font-size: 22px;
 }
 
 .species-row .combobox {

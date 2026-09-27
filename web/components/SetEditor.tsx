@@ -162,7 +162,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
 
       <div className="species-row">
         {my && <PokemonSprite species={my.forme} size={64} />}
-        <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Search Pokémon…" />
+        <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Pick a Pokémon" />
       </div>
 
       {value && my && (
