@@ -1,4 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { useAnchor } from '../useAnchor';
 
 export type Option = { value: string; hint?: string; group?: number };
 
@@ -19,8 +21,10 @@ export function Combobox({ value, options, onChange, placeholder, allowEmpty, cl
   const [query, setQuery] = useState<string | null>(null);
   const [active, setActive] = useState(0);
   const listRef = useRef<HTMLUListElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const id = useId();
   const open = query !== null;
+  const position = useAnchor(rootRef, open, { maxHeight: 320 });
 
   const filtered = useMemo(() => {
     if (query === null) return [];
@@ -48,7 +52,7 @@ export function Combobox({ value, options, onChange, placeholder, allowEmpty, cl
   };
 
   return (
-    <div className={`combobox ${className ?? ''}`}>
+    <div className={`combobox ${className ?? ''}`} ref={rootRef}>
       <input
         role="combobox"
         aria-label={ariaLabel}
@@ -83,8 +87,8 @@ export function Combobox({ value, options, onChange, placeholder, allowEmpty, cl
           }
         }}
       />
-      {open && filtered.length > 0 && (
-        <ul className="combobox-list" id={id} role="listbox" ref={listRef}>
+      {open && filtered.length > 0 && position && createPortal(
+        <ul className="combobox-list" id={id} role="listbox" ref={listRef} style={position} data-floating>
           {filtered.map((o, i) => (
             <li
               key={o.value}
@@ -99,10 +103,11 @@ export function Combobox({ value, options, onChange, placeholder, allowEmpty, cl
               onMouseEnter={() => setActive(i)}
             >
               <span>{o.value}</span>
-              {o.hint && <span className="muted small">{o.hint}</span>}
+              {o.hint && <span className="option-hint">{o.hint}</span>}
             </li>
           ))}
-        </ul>
+        </ul>,
+        document.body,
       )}
       {allowEmpty && value && !open && (
         <button type="button" className="combobox-clear" aria-label={`Clear ${ariaLabel}`} onMouseDown={(e) => e.preventDefault()} onClick={() => onChange(null)}>
