@@ -955,10 +955,48 @@ select:focus {
 .empty {
   padding: 56px 0;
   color: var(--ink-2);
-  max-width: 460px;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.start {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.start-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  border-top: 1px solid var(--line);
+}
+
+.start-grid li {
+  border-bottom: 1px solid var(--line);
+}
+
+.start-grid button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 2px 6px 2px 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.start-grid button:hover {
+  background: var(--hover);
 }
 
 .empty-title {

@@ -96,12 +96,3 @@ export function buildMySet(set: EditableSet): MySet {
     stats: { ...stats },
   };
 }
-
-export const EXAMPLE: EditableSet = {
-  species: 'Gengar',
-  item: 'Gengarite',
-  ability: 'Cursed Body',
-  nature: 'Timid',
-  sp: { hp: 2, atk: 0, def: 0, spa: 32, spd: 0, spe: 32 },
-  moves: ['Shadow Ball', 'Sludge Bomb', 'Protect', 'Icy Wind'],
-};

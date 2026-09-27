@@ -6,9 +6,10 @@ import { useCalcs } from './calc/useCalcs';
 import { FieldPanel } from './components/FieldPanel';
 import { Results } from './components/Results';
 import { SetEditor } from './components/SetEditor';
+import { StartPicker } from './components/StartPicker';
 import { Toolbar } from './components/Toolbar';
 import { activeOpponents, type LibraryEntry } from './library';
-import { EXAMPLE, buildMySet, importPaste, type EditableSet } from './me';
+import { buildMySet, importPaste, type EditableSet } from './me';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
 import { useWatchList, type Mode } from './useStickyList';
@@ -94,11 +95,7 @@ export function App() {
             <p>
               Pick your Pokémon on the left. You get every matchup against the common sets of the top {settings.top} in Reg {meta.regulation}, filtered down to the calcs that land near an OHKO or 2HKO.
             </p>
-            <p>
-              <button type="button" className="link" onClick={() => setMine(EXAMPLE)}>
-                Try an example
-              </button>
-            </p>
+            <StartPicker species={meta.pokemon.slice(0, 12).map((p) => p.species)} onPick={setMine} />
           </div>
         ) : (
           <Results
