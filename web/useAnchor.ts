@@ -23,14 +23,15 @@ export function useAnchor(anchor: RefObject<HTMLElement | null>, open: boolean, 
       const above = r.top - gap - MARGIN;
       const up = below < Math.min(maxHeight, 220) && above > below;
       const left = Math.max(MARGIN, Math.min(align === 'right' ? r.right - w : r.left, vw - w - MARGIN));
-      setStyle({
+      const next: CSSProperties = {
         position: 'fixed',
         left,
         width: width ? w : undefined,
         minWidth: width ? undefined : w,
         maxHeight: Math.min(maxHeight, up ? above : below),
         ...(up ? { bottom: vh - r.top + gap } : { top: r.bottom + gap }),
-      });
+      };
+      setStyle((prev) => (prev && JSON.stringify(prev) === JSON.stringify(next) ? prev : next));
     };
     place();
     window.addEventListener('scroll', place, true);

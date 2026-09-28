@@ -16,6 +16,7 @@ export function Select({ value, options, onChange, ariaLabel }: Props) {
   const [active, setActive] = useState(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
+  const reveal = useRef<'center' | 'nearest' | null>(null);
   const id = useId();
   const position = useAnchor(buttonRef, open, { maxHeight: 320 });
   const current = options.findIndex((o) => o.value === value);
@@ -32,12 +33,24 @@ export function Select({ value, options, onChange, ariaLabel }: Props) {
   }, [open]);
 
   useEffect(() => {
-    if (open) listRef.current?.querySelector(`[data-index="${active}"]`)?.scrollIntoView({ block: 'nearest' });
-  }, [open, active, position]);
+    const list = listRef.current;
+    const item = list?.querySelector<HTMLElement>(`[data-index="${active}"]`);
+    if (!list || !item || !reveal.current) return;
+    if (reveal.current === 'center') list.scrollTop = item.offsetTop - (list.clientHeight - item.offsetHeight) / 2;
+    else if (item.offsetTop < list.scrollTop) list.scrollTop = item.offsetTop;
+    else if (item.offsetTop + item.offsetHeight > list.scrollTop + list.clientHeight) list.scrollTop = item.offsetTop + item.offsetHeight - list.clientHeight;
+    reveal.current = null;
+  }, [active, position]);
 
   const show = () => {
+    reveal.current = 'center';
     setActive(Math.max(current, 0));
     setOpen(true);
+  };
+
+  const move = (next: number) => {
+    reveal.current = 'nearest';
+    setActive(next);
   };
 
   const commit = (i: number) => {
@@ -62,7 +75,7 @@ export function Select({ value, options, onChange, ariaLabel }: Props) {
           if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
             e.preventDefault();
             if (!open) return show();
-            setActive((a) => Math.min(Math.max(a + (e.key === 'ArrowDown' ? 1 : -1), 0), options.length - 1));
+            move(Math.min(Math.max(active + (e.key === 'ArrowDown' ? 1 : -1), 0), options.length - 1));
           } else if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             if (open) commit(active);
@@ -73,7 +86,7 @@ export function Select({ value, options, onChange, ariaLabel }: Props) {
           } else if (open && e.key.length === 1 && /\w/.test(e.key)) {
             const key = e.key.toLowerCase();
             const next = [...options.keys()].map((k) => (active + 1 + k) % options.length).find((i) => options[i].value.toLowerCase().startsWith(key));
-            if (next !== undefined) setActive(next);
+            if (next !== undefined) move(next);
           }
         }}
       >
@@ -88,7 +101,7 @@ export function Select({ value, options, onChange, ariaLabel }: Props) {
       {open &&
         position &&
         createPortal(
-          <ul className="combobox-list" id={id} role="listbox" aria-label={ariaLabel} ref={listRef} style={position} data-floating>
+          <ul className="combobox-list" id={id} role="listbox" aria-label={ariaLabel} ref={listRef} style={position} data-floating onMouseDown={(e) => e.preventDefault()}>
             {options.map((o, i) => (
               <li
                 key={o.value}
