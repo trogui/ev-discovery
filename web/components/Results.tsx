@@ -184,7 +184,7 @@ function shownOf(result: PokemonResult, view: View) {
 
 function fixedLevel(result: PokemonResult, group: SetGroup, row: CalcRow, view: View): Level | undefined {
   const entry = entryOf(result, group, row, view);
-  if (entry) return entry.level;
+  if (entry) return entry.level === 2 && row.koChance > 0 ? 1 : entry.level;
   return isDecisive(row) && !inBand(row, view.band, view.targets) ? 1 : undefined;
 }
 
