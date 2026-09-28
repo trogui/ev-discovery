@@ -45,10 +45,9 @@ function Build({ me }: { me: MySet }) {
           <span>{me.item ?? 'No item'}</span>
           {me.ability && <span className="muted">· {me.ability}</span>}
         </p>
-        <p className="report-me-moves">
+        <p className="report-me-nature">
           {me.nature} ({describeNature(me.nature)})
         </p>
-        {me.moves.length > 0 && <p className="report-me-moves">{me.moves.join(' · ')}</p>}
       </div>
       <div className="report-stats">
         <span />
@@ -180,7 +179,6 @@ function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdat
                       <div className="report-opp-head">
                         <PokemonSprite species={head.set.forme} size={36} />
                         <span className="report-opp-name">{head.species}</span>
-                        {head.rank > 0 && <span className="muted small tabular">#{head.rank} in usage</span>}
                       </div>
                       {groupBy(opponent, setOf).map((set) => {
                         const s = set[0].set;
@@ -195,7 +193,6 @@ function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdat
                               </span>
                               {s.ability && <span className="muted small">{s.ability}</span>}
                               {s.sp && <span className="set-spread tabular">{s.sp}</span>}
-                              {s.custom && <span className="badge">custom</span>}
                             </div>
                             <ul className="report-calcs">
                               {set.map((i) => (

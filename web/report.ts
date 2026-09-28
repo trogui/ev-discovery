@@ -10,7 +10,6 @@ export type ReportSet = {
   ability: string | null;
   nature: string;
   sp: string;
-  custom: boolean;
 };
 
 export type ReportItem = {
@@ -18,7 +17,6 @@ export type ReportItem = {
   me: MySet;
   mode: Mode;
   species: string;
-  rank: number;
   set: ReportSet;
   row: CalcRow;
   level: Level;
