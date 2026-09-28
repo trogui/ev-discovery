@@ -1977,7 +1977,20 @@ textarea {
   letter-spacing: -0.01em;
 }
 
-.report-mode-title span {
+.report-mode-title .report-copy {
+  margin-left: auto;
+  font-family: 'Barlow', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.report-copy.done {
+  color: var(--good);
+  text-decoration-color: currentColor;
+}
+
+.report-mode-title > span {
   font-family: 'Barlow', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -2056,7 +2069,8 @@ textarea {
 }
 
 .report-calc:hover .report-actions,
-.report-actions:focus-within {
+.report-actions:focus-within,
+.report-actions:has(.done) {
   opacity: 1;
 }
 

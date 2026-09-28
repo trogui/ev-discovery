@@ -46,3 +46,23 @@ export async function exportPdf(node: HTMLElement, filename: string) {
   });
   pdf.save(filename);
 }
+
+export async function renderPng(node: HTMLElement) {
+  const { toBlob } = await import('html-to-image');
+  const blob = await toBlob(node, { pixelRatio: SCALE, backgroundColor: getComputedStyle(node).backgroundColor });
+  if (!blob) throw new Error('Could not render the image');
+  return blob;
+}
+
+export function download(blob: Blob, filename: string) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+export function canCopyImages() {
+  return window.isSecureContext && typeof ClipboardItem !== 'undefined' && !!navigator.clipboard?.write;
+}

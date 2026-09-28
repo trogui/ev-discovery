@@ -3,7 +3,7 @@ import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import type { MySet } from '../calc/types';
 import { formeSuffix, pct, toneOf } from '../format';
 import { describeNature, rolesOf } from '../natures';
-import { exportPdf } from '../pdf';
+import { canCopyImages, download, exportPdf, renderPng } from '../export';
 import type { ReportItem } from '../report';
 import type { Mode } from '../useStickyList';
 import { RangeBar, Result } from './Results';
@@ -73,7 +73,18 @@ function Build({ me }: { me: MySet }) {
   );
 }
 
-function Calc({ item, exporting, onRemove, onNote }: { item: ReportItem; exporting: boolean; onRemove: () => void; onNote: (note: string) => void }) {
+type CopyProps = { flash: Flash | null; onCopy: (key: string, items: ReportItem[]) => void };
+
+function CopyButton({ id, items, flash, onCopy }: CopyProps & { id: string; items: ReportItem[] }) {
+  const label = flash?.key === id ? flash.label : canCopyImages() ? 'Copy image' : 'Save image';
+  return (
+    <button type="button" className={flash?.key === id ? 'link report-copy done' : 'link report-copy'} onClick={() => onCopy(id, items)}>
+      {label}
+    </button>
+  );
+}
+
+function Calc({ item, exporting, onRemove, onNote, ...copy }: CopyProps & { item: ReportItem; exporting: boolean; onRemove: () => void; onNote: (note: string) => void }) {
   const { row, level } = item;
   const [editing, setEditing] = useState(false);
   const extra = [...item.conditions, ...(level === 2 ? row.recoveryNotes : [])];
@@ -93,6 +104,7 @@ function Calc({ item, exporting, onRemove, onNote }: { item: ReportItem; exporti
       </div>
       {!exporting && (
         <span className="report-actions">
+          <CopyButton id={item.id} items={[item]} {...copy} />
           {!item.note && !editing && (
             <button type="button" className="link" onClick={() => setEditing(true)}>
               Note
@@ -113,28 +125,34 @@ function Calc({ item, exporting, onRemove, onNote }: { item: ReportItem; exporti
   );
 }
 
-type SheetProps = {
+type Flash = { key: string; label: string };
+
+type SheetProps = CopyProps & {
   items: ReportItem[];
   title: string;
   fallback: string;
   exporting: boolean;
+  bare?: boolean;
   onTitleChange: (title: string) => void;
   onUpdate: (id: string, patch: Partial<ReportItem>) => void;
   onRemove: (id: string) => void;
   ref?: Ref<HTMLElement>;
 };
 
-function Sheet({ items, title, fallback, exporting, onTitleChange, onUpdate, onRemove, ref }: SheetProps) {
+function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdate, onRemove, flash, onCopy, ref }: SheetProps) {
+  const copy = { flash, onCopy };
   return (
     <article ref={ref} className={exporting ? 'report exporting' : 'report'}>
-      <header className="report-head">
-        <p className="report-kicker">EV Discovery · Damage calcs</p>
-        {exporting ? (
-          <h1 className="report-title">{title.trim() || fallback}</h1>
-        ) : (
-          <input className="report-title" value={title} placeholder={fallback} onChange={(e) => onTitleChange(e.target.value)} aria-label="Report title" spellCheck={false} />
-        )}
-      </header>
+      {!bare && (
+        <header className="report-head">
+          <p className="report-kicker">EV Discovery · Damage calcs</p>
+          {exporting ? (
+            <h1 className="report-title">{title.trim() || fallback}</h1>
+          ) : (
+            <input className="report-title" value={title} placeholder={fallback} onChange={(e) => onTitleChange(e.target.value)} aria-label="Report title" spellCheck={false} />
+          )}
+        </header>
+      )}
 
       {!items.length && (
         <div className="empty">
@@ -153,6 +171,7 @@ function Sheet({ items, title, fallback, exporting, onTitleChange, onUpdate, onR
                 <h3 className="report-mode-title">
                   {MODES[mode].title}
                   <span>{MODES[mode].sub}</span>
+                  {!exporting && <CopyButton id={`${build[0].build}|${mode}`} items={list} {...copy} />}
                 </h3>
                 {groupBy(list, (i) => i.species).map((opponent) => {
                   const head = opponent[0];
@@ -180,7 +199,7 @@ function Sheet({ items, title, fallback, exporting, onTitleChange, onUpdate, onR
                             </div>
                             <ul className="report-calcs">
                               {set.map((i) => (
-                                <Calc key={i.id} item={i} exporting={exporting} onRemove={() => onRemove(i.id)} onNote={(note) => onUpdate(i.id, { note })} />
+                                <Calc key={i.id} item={i} exporting={exporting} {...copy} onRemove={() => onRemove(i.id)} onNote={(note) => onUpdate(i.id, { note })} />
                               ))}
                             </ul>
                           </div>
@@ -206,12 +225,15 @@ type Props = {
   onBack: () => void;
 };
 
+type Job = { width: number } & ({ kind: 'pdf' } | { kind: 'image'; items: ReportItem[]; resolve: (blob: Blob) => void; reject: (error: unknown) => void });
+
 export function Report({ items, onChange, title, onTitleChange, onBack }: Props) {
   const fallback = items.length ? `${items[0].me.species} calcs` : 'Calc report';
   const name = title.trim() || fallback;
   const sheet = useRef<HTMLElement>(null);
   const copy = useRef<HTMLElement>(null);
-  const [width, setWidth] = useState<number | null>(null);
+  const [job, setJob] = useState<Job | null>(null);
+  const [flash, setFlash] = useState<Flash | null>(null);
 
   useEffect(() => {
     const previous = document.title;
@@ -222,13 +244,42 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
   }, [name]);
 
   useEffect(() => {
-    if (!width) return;
-    exportPdf(copy.current!, `${name}.pdf`).finally(() => setWidth(null));
-  }, [width]);
+    if (!job) return;
+    const done = () => setJob(null);
+    if (job.kind === 'pdf') exportPdf(copy.current!, `${name}.pdf`).finally(done);
+    else renderPng(copy.current!).then(job.resolve, job.reject).finally(done);
+  }, [job]);
+
+  useEffect(() => {
+    if (!flash) return;
+    const timer = setTimeout(() => setFlash(null), 1600);
+    return () => clearTimeout(timer);
+  }, [flash]);
+
+  const copyImage = (key: string, picked: ReportItem[]) => {
+    if (job) return;
+    let resolve!: (blob: Blob) => void;
+    let reject!: (error: unknown) => void;
+    const blob = new Promise<Blob>((res, rej) => {
+      resolve = res;
+      reject = rej;
+    });
+    setJob({ kind: 'image', width: sheet.current!.clientWidth, items: picked, resolve, reject });
+    const saved = canCopyImages()
+      ? navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => 'Copied')
+      : blob.then((b) => {
+          download(b, `${name}.png`);
+          return 'Saved';
+        });
+    saved.then(
+      (label) => setFlash({ key, label }),
+      () => setFlash({ key, label: 'Failed' }),
+    );
+  };
 
   const update = (id: string, patch: Partial<ReportItem>) => onChange(items.map((i) => (i.id === id ? { ...i, ...patch } : i)));
   const remove = (id: string) => onChange(items.filter((i) => i.id !== id));
-  const sheetProps = { items, title, fallback, onTitleChange, onUpdate: update, onRemove: remove };
+  const sheetProps = { title, fallback, onTitleChange, onUpdate: update, onRemove: remove, flash, onCopy: copyImage };
 
   return (
     <div className="report-page">
@@ -242,15 +293,15 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
               Clear all
             </button>
           )}
-          <button type="button" className="button primary" onClick={() => setWidth(sheet.current!.clientWidth)} disabled={!items.length || width !== null}>
+          <button type="button" className="button primary" onClick={() => setJob({ kind: 'pdf', width: sheet.current!.clientWidth })} disabled={!items.length || job !== null}>
             Save as PDF
           </button>
         </span>
       </div>
-      <Sheet ref={sheet} exporting={false} {...sheetProps} />
-      {width !== null && (
-        <div className="report-export" style={{ width }} aria-hidden>
-          <Sheet ref={copy} exporting {...sheetProps} />
+      <Sheet ref={sheet} items={items} exporting={false} {...sheetProps} />
+      {job && (
+        <div className="report-export" style={{ width: job.width }} aria-hidden>
+          <Sheet ref={copy} items={job.kind === 'pdf' ? items : job.items} exporting bare={job.kind === 'image'} {...sheetProps} />
         </div>
       )}
     </div>
