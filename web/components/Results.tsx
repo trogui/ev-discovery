@@ -7,7 +7,9 @@ import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type
 import { headOf, isDecisive, keyOf, watchedEntry, type Mode, type Watch } from '../useStickyList';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
-type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null };
+export type Picker = { active: boolean; has: (group: SetGroup, row: CalcRow) => boolean; toggle: (result: PokemonResult, group: SetGroup, row: CalcRow, level: Level) => void };
+
+type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null; picker: Picker };
 
 const MODES: Record<Mode, { label: string }> = {
   in: { label: 'Defense' },
@@ -34,7 +36,7 @@ function spPart(set: SetRef, stats: StatID[]) {
   return stats.map((s) => `${set.sp[s]} ${STAT_LABEL[s]}`).join(' / ');
 }
 
-function groupLabel(group: SetGroup, species: string, mode: Mode) {
+export function groupLabel(group: SetGroup, species: string, mode: Mode) {
   const first = group.sets[0];
   const stats = relevantStats(group, mode);
   return {
@@ -51,9 +53,9 @@ function groupLabel(group: SetGroup, species: string, mode: Mode) {
   };
 }
 
-function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level }) {
+export function RangeBar({ row, band, level }: { row: CalcRow; band: Band; level: Level }) {
   const line = lineOf(row, level);
-  const [lo, hi] = view.band;
+  const [lo, hi] = band;
   const half = Math.max(100 - lo, hi - 100) + 10;
   const at = (v: number) => (((v / line) * 100 - (100 - half)) / (2 * half)) * 100;
   const clampAt = (v: number) => Math.min(Math.max(at(v), 0), 100);
@@ -70,7 +72,7 @@ function RangeBar({ row, view, level }: { row: CalcRow; view: View; level: Level
   );
 }
 
-function Result({ row, level, status }: { row: CalcRow; level: Level; status: Tone }) {
+export function Result({ row, level, status }: { row: CalcRow; level: Level; status: Tone }) {
   const text = outcomeText(row, level);
   const m = text.match(/^([\d.]+%) (.*)$/);
   return (
@@ -86,16 +88,26 @@ function Result({ row, level, status }: { row: CalcRow; level: Level; status: To
   );
 }
 
-function RowView({ row, view, fixed }: { row: CalcRow; view: View; fixed?: Level | null }) {
+function RowView({ row, view, fixed, picked, onPick }: { row: CalcRow; view: View; fixed?: Level | null; picked: boolean; onPick: (level: Level) => void }) {
   const level = fixed ?? displayLevel(row, view.band, view.targets);
   const status = toneOf(row, level);
+  const picking = view.picker.active;
   return (
-    <li className={fixed || isDecisive(row) || inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'} title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}>
+    <li
+      className={`${fixed || isDecisive(row) || inBand(row, view.band, view.targets) ? 'calc' : 'calc out-of-range'}${picking ? ' picking' : ''}${picked ? ' picked' : ''}`}
+      title={`${row.desc}${row.field.length ? `\nField: ${row.field.join(', ')}` : ''}`}
+      onClick={picking ? () => onPick(level) : undefined}
+    >
+      {picking && (
+        <span className="calc-pick">
+          <input type="checkbox" checked={picked} onChange={() => onPick(level)} onClick={(e) => e.stopPropagation()} aria-label={`Add ${row.move} to the report`} />
+        </span>
+      )}
       <div className="calc-move">
         <span>{row.move}</span>
         {row.field.length > 0 && <span className="note">{row.field.join(', ')}</span>}
       </div>
-      <RangeBar row={row} view={view} level={level} />
+      <RangeBar row={row} band={view.band} level={level} />
       <div className="calc-result">
         <Result row={row} level={level} status={status} />
         <span className="note tabular">
@@ -147,7 +159,7 @@ function Headline({ rows, all, view, pick }: { rows: CalcRow[]; all: CalcRow[]; 
         {worst.r.move}
         {rows.length > 1 && <span className="note tabular" title={`${rows.length - 1} more calcs`}> +{rows.length - 1}</span>}
       </span>
-      <RangeBar row={worst.r} view={view} level={worst.level} />
+      <RangeBar row={worst.r} band={view.band} level={worst.level} />
       <Result row={worst.r} level={worst.level} status={toneOf(worst.r, worst.level)} />
     </>
   );
@@ -214,7 +226,7 @@ function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; s
       </div>
       <ul className="calcs">
         {[...shown, ...rest].map((r) => (
-          <RowView key={r.key} row={r} view={view} fixed={fixedLevel(result, group, r, view)} />
+          <RowView key={r.key} row={r} view={view} fixed={fixedLevel(result, group, r, view)} picked={view.picker.has(group, r)} onPick={(level) => view.picker.toggle(result, group, r, level)} />
         ))}
       </ul>
     </div>
@@ -300,14 +312,16 @@ type Props = {
   onTogglePin: (species: string) => void;
   open: string[];
   onOpenChange: (open: string[]) => void;
+  picker: Picker;
+  onPickingChange: (active: boolean) => void;
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, watch, onRebuild, pinned, onTogglePin, open, onOpenChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, watch, onRebuild, pinned, onTogglePin, open, onOpenChange, picker, onPickingChange } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
   const only = customOnly && hasLibrary;
-  const view: View = { band, targets, mode, customOnly: only, watch };
+  const view: View = { band, targets, mode, customOnly: only, watch, picker };
   const hasInRange = (r: PokemonResult, m: Mode) => groupsFor(r, { ...view, mode: m }).some((g) => inRangeOf(g.rows, view).length > 0);
   const threatens = (r: PokemonResult, m: Mode) => m === 'in' && groupsFor(r, { ...view, mode: m }).some((g) => g.rows.some(isDecisive));
   const relevant = (r: PokemonResult, m: Mode) => hasInRange(r, m) || threatens(r, m);
@@ -393,6 +407,9 @@ export function Results(props: Props) {
             {targets.twohko && <span className="bar-key two">2HKO line</span>}
           </span>
           <span className="table-actions">
+            <button type="button" className={picker.active ? 'link on' : 'link'} onClick={() => onPickingChange(!picker.active)} aria-pressed={picker.active}>
+              {picker.active ? 'Done selecting' : 'Select for report'}
+            </button>
             {visible.length > 0 && (
               <button type="button" className="link" onClick={() => onOpenChange(allOpen ? [] : visible.map((r) => r.key))}>
                 {allOpen ? 'Collapse all' : 'Expand all'}

@@ -1,15 +1,18 @@
 import { useMemo, useState } from 'react';
 import metaJson from '../data/meta.json';
 import type { Meta } from '../src/lib/types';
-import type { CalcSettings, Settings } from './calc/types';
+import type { CalcRow, CalcSettings, PokemonResult, SetGroup, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
 import { FieldPanel } from './components/FieldPanel';
-import { Results } from './components/Results';
+import { Report } from './components/Report';
+import { groupLabel, Results, type Picker } from './components/Results';
 import { SetEditor } from './components/SetEditor';
 import { StartPicker } from './components/StartPicker';
 import { Toolbar } from './components/Toolbar';
 import { activeOpponents, type LibraryEntry } from './library';
+import type { Level } from './ko';
 import { buildMySet, importPaste, type EditableSet } from './me';
+import { conditionsOf, hash, type ReportItem } from './report';
 import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
 import { useWatchList, type Mode } from './useStickyList';
@@ -56,6 +59,10 @@ export function App() {
   const [customOnly, setCustomOnly] = usePersistentState<boolean>('evd:customOnly', false);
   const custom = useMemo(() => activeOpponents(library), [library]);
   const [query, setQuery] = useState('');
+  const [report, setReport] = usePersistentState<ReportItem[]>('evd:report', []);
+  const [reportTitle, setReportTitle] = usePersistentState<string>('evd:reportTitle', '');
+  const [picking, setPicking] = useState(false);
+  const [viewing, setViewing] = useState(false);
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
   const calcSettings = useMemo<CalcSettings>(() => {
@@ -65,12 +72,55 @@ export function App() {
 
   const me = useMemo(() => (mine ? buildMySet(mine) : null), [mine]);
   const { response, pending } = useCalcs(me, calcSettings, pinned, custom);
+  const build = useMemo(() => {
+    const { top: _top, ...rest } = calcSettings;
+    return hash(JSON.stringify([me, rest]));
+  }, [me, calcSettings]);
+  const picker = useMemo<Picker>(() => {
+    const ids = new Set(report.map((i) => i.id));
+    const idOf = (group: SetGroup, row: CalcRow) => `${build}.${hash(JSON.stringify(group.sets[0]))}|${row.key}`;
+    const toggle = (result: PokemonResult, group: SetGroup, row: CalcRow, level: Level) => {
+      if (!me) return;
+      const id = idOf(group, row);
+      if (ids.has(id)) return setReport((items) => items.filter((i) => i.id !== id));
+      const label = groupLabel(group, result.species, row.direction);
+      const first = group.sets[0];
+      const item: ReportItem = {
+        id,
+        build,
+        me,
+        mode: row.direction,
+        species: result.species,
+        rank: result.rank,
+        group: `${build}|${group.key}`,
+        set: { forme: first.forme, item: label.item, icon: first.item, ability: first.ability, nature: label.nature, sp: label.sp, custom: group.custom },
+        row,
+        level,
+        band: settings.band,
+        conditions: conditionsOf(calcSettings, row),
+        note: '',
+      };
+      setReport((items) => [...items, item]);
+    };
+    return { active: picking, has: (group, row) => ids.has(idOf(group, row)), toggle };
+  }, [report, build, me, picking, settings.band, calcSettings, setReport]);
   const { watch, rebuild } = useWatchList(response, pending, settings.band, settings.targets, JSON.stringify([settings.band, settings.targets, settings.top, custom.length]));
 
   const togglePin = (species: string) => {
     setPinned(pinned.includes(species) ? pinned.filter((s) => s !== species) : [...pinned, species]);
     if (!pinned.includes(species) && !open.includes(species)) setOpen([...open, species]);
   };
+
+  if (viewing)
+    return (
+      <Report
+        items={report}
+        onChange={setReport}
+        title={reportTitle}
+        onTitleChange={setReportTitle}
+        onBack={() => setViewing(false)}
+      />
+    );
 
   return (
     <div className="app">
@@ -130,7 +180,27 @@ export function App() {
             onTogglePin={togglePin}
             open={open}
             onOpenChange={setOpen}
+            picker={picker}
+            onPickingChange={setPicking}
           />
+        )}
+        {mine && (picking || report.length > 0) && (
+          <div className="pick-bar">
+            <span>
+              <b className="tabular">{report.length}</b> {report.length === 1 ? 'calc' : 'calcs'} in the report
+            </span>
+            {picking && <span className="muted small">Open a Pokémon and tick the calcs you want to keep</span>}
+            <span className="pick-actions">
+              {report.length > 0 && (
+                <button type="button" className="link" onClick={() => confirm('Remove every calc from the report?') && setReport([])}>
+                  Clear
+                </button>
+              )}
+              <button type="button" className="button primary" onClick={() => setViewing(true)} disabled={!report.length}>
+                View report
+              </button>
+            </span>
+          </div>
         )}
       </main>
     </div>
