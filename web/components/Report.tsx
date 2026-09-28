@@ -225,7 +225,7 @@ type Props = {
   onBack: () => void;
 };
 
-type Job = { width: number } & ({ kind: 'pdf' } | { kind: 'image'; items: ReportItem[]; resolve: (blob: Blob) => void; reject: (error: unknown) => void });
+type Job = { width: number } & ({ kind: 'pdf' } | { kind: 'image'; items: ReportItem[]; bare: boolean; resolve: (blob: Blob) => void; reject: (error: unknown) => void });
 
 export function Report({ items, onChange, title, onTitleChange, onBack }: Props) {
   const fallback = items.length ? `${items[0].me.species} calcs` : 'Calc report';
@@ -256,7 +256,7 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
     return () => clearTimeout(timer);
   }, [flash]);
 
-  const copyImage = (key: string, picked: ReportItem[]) => {
+  const copyImage = (key: string, picked: ReportItem[], bare = true) => {
     if (job) return;
     let resolve!: (blob: Blob) => void;
     let reject!: (error: unknown) => void;
@@ -264,7 +264,7 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
       resolve = res;
       reject = rej;
     });
-    setJob({ kind: 'image', width: sheet.current!.clientWidth, items: picked, resolve, reject });
+    setJob({ kind: 'image', width: sheet.current!.clientWidth, items: picked, bare, resolve, reject });
     const saved = canCopyImages()
       ? navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]).then(() => 'Copied')
       : blob.then((b) => {
@@ -293,6 +293,12 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
               Clear all
             </button>
           )}
+          <button type="button" className={flash?.key === 'all' ? 'button copy copied' : 'button copy'} onClick={() => copyImage('all', items, false)} disabled={!items.length || job !== null}>
+            <span className="copy-idle">{canCopyImages() ? 'Copy image' : 'Save image'}</span>
+            <span className="copy-done" aria-hidden={flash?.key !== 'all'}>
+              {flash?.key === 'all' ? flash.label : ''}
+            </span>
+          </button>
           <button type="button" className="button primary" onClick={() => setJob({ kind: 'pdf', width: sheet.current!.clientWidth })} disabled={!items.length || job !== null}>
             Save as PDF
           </button>
@@ -301,7 +307,7 @@ export function Report({ items, onChange, title, onTitleChange, onBack }: Props)
       <Sheet ref={sheet} items={items} exporting={false} {...sheetProps} />
       {job && (
         <div className="report-export" style={{ width: job.width }} aria-hidden>
-          <Sheet ref={copy} items={job.kind === 'pdf' ? items : job.items} exporting bare={job.kind === 'image'} {...sheetProps} />
+          <Sheet ref={copy} items={job.kind === 'pdf' ? items : job.items} exporting bare={job.kind === 'image' && job.bare} {...sheetProps} />
         </div>
       )}
     </div>
