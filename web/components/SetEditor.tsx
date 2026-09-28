@@ -9,6 +9,7 @@ import { NATURE_OPTIONS, cycleNature, describeNature, rolesOf, type NatureStat }
 import { abilityOptions, itemOptions, moveOptions, presetsFor, speciesOptions, usePresets } from '../presets';
 import { Combobox } from './Combobox';
 import { Popover } from './Popover';
+import { Select } from './Select';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
 const ROWS: [keyof Stats, string][] = [
@@ -98,6 +99,8 @@ function SpRow({ stat, label, value, set, onChange }: { stat: keyof Stats; label
     </div>
   );
 }
+
+const NATURES = NATURE_OPTIONS.map((n) => ({ value: n, hint: describeNature(n) }));
 
 export function SetEditor({ title, value, onChange, ranks, footer, embedded, headerAction }: Props) {
   const presets = usePresets();
@@ -217,13 +220,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
               <Combobox ariaLabel="Ability" value={my.ability} options={abilities} onChange={(ability) => ability && onChange({ ...value, ability })} placeholder="Ability" />
             )}
             <label className="mini-label">Nature</label>
-            <select aria-label="Nature" value={value.nature} onChange={(e) => onChange({ ...value, nature: e.target.value })}>
-              {NATURE_OPTIONS.map((n) => (
-                <option key={n} value={n}>
-                  {n} ({describeNature(n)})
-                </option>
-              ))}
-            </select>
+            <Select ariaLabel="Nature" value={value.nature} options={NATURES} onChange={(nature) => onChange({ ...value, nature })} />
           </div>
 
           <div className="sp-head">

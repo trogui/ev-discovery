@@ -385,7 +385,7 @@ textarea {
 }
 
 .combobox input,
-select,
+.select,
 .band input {
   width: 100%;
   padding: 4px 2px;
@@ -400,14 +400,34 @@ select,
 }
 
 .combobox input:hover,
-select:hover {
+.select:hover {
   border-bottom-color: var(--muted);
 }
 
 .combobox input:focus,
-select:focus {
+.select:focus,
+.select.open {
   outline: none;
   border-bottom-color: var(--ink);
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.select > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.combobox-list li.selected {
+  font-weight: 600;
 }
 
 .combobox input::placeholder {
