@@ -51,21 +51,21 @@ function knockedOutInTwo(hp: number, first: number, second: number, r: Recovery,
   return current - second <= 0;
 }
 
-export function twoHitKoChance(dist: Map<number, number>, hp: number, r: Recovery, multiHit: boolean) {
+export function twoHitKoChance(first: Map<number, number>, second: Map<number, number>, hp: number, r: Recovery, multiHit: boolean) {
   let chance = 0;
-  for (const [a, pa] of dist) for (const [b, pb] of dist) if (knockedOutInTwo(hp, a, b, r, multiHit)) chance += pa * pb;
+  for (const [a, pa] of first) for (const [b, pb] of second) if (knockedOutInTwo(hp, a, b, r, multiHit)) chance += pa * pb;
   return chance;
 }
 
 const lineCache = new Map<string, number>();
 
-export function twoHitLine(hp: number, r: Recovery) {
-  const key = `${hp}|${r.sitrus}|${r.pinch}|${r.endOfTurn}|${r.sash}`;
+export function twoHitLine(hp: number, r: Recovery, ratio = 1) {
+  const key = `${hp}|${r.sitrus}|${r.pinch}|${r.endOfTurn}|${r.sash}|${ratio}`;
   const cached = lineCache.get(key);
   if (cached !== undefined) return cached;
   let line = hp;
   for (let x = 1; x <= hp; x++) {
-    if (knockedOutInTwo(hp, x, x, r, false)) {
+    if (knockedOutInTwo(hp, x, Math.floor(x * ratio), r, false)) {
       line = x;
       break;
     }

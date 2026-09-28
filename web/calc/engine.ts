@@ -1,5 +1,5 @@
 import { Field, Move, Pokemon, Side, calculate } from '@smogon/calc';
-import { autoField, gen } from '../../src/lib/dex';
+import { autoField, gen, toID } from '../../src/lib/dex';
 import { recoveryFor, twoHitKoChance, twoHitLine } from './twohko';
 import type { Meta, MetaSet } from '../../src/lib/types';
 import type { Boosts, CalcRow, CalcSettings, CustomOpponent, MySet, SetGroup, SetRef, PokemonResult, SideToggles, Terrain, Weather } from './types';
@@ -54,6 +54,17 @@ function intimidated(target: Combatant) {
   return !INTIMIDATE_IMMUNE.has(target.ability ?? '') && target.item !== 'Clear Amulet';
 }
 
+const mean = (dist: Map<number, number>) => [...dist].reduce((sum, [v, p]) => sum + v * p, 0);
+
+function selfDrop(attacker: Combatant, move: Move) {
+  const stat: 'atk' | 'spa' | null = move.category === 'Physical' ? 'atk' : move.category === 'Special' ? 'spa' : null;
+  const base = stat ? gen.moves.get(toID(move.name) as never)?.self?.boosts?.[stat] : undefined;
+  if (!stat || !base) return null;
+  if (base < 0 && attacker.item === 'White Herb') return null;
+  const delta = attacker.ability === 'Contrary' ? -base : attacker.ability === 'Simple' ? base * 2 : base;
+  return { stat, delta, note: `2nd hit at ${delta > 0 ? '+' : '−'}${Math.abs(delta)} ${stat === 'atk' ? 'Atk' : 'SpA'}` };
+}
+
 function makePokemon(c: Combatant, boosts: Partial<Boosts>) {
   return new Pokemon(gen, c.forme, {
     nature: c.nature,
@@ -86,15 +97,22 @@ function runCalc(attacker: Combatant, defender: Combatant, moveName: string, fie
   }
   const recovery = recoveryFor(def, env);
   const multiHit = hits.length > 1;
-  const ko2Chance = twoHitKoChance(dist, hp, recovery, multiHit);
-  const line2 = twoHitLine(hp, recovery);
+  const drop = selfDrop(attacker, move);
+  let second = dist;
+  if (drop) {
+    const boosts = { atk: attackerBoosts.atk, spa: attackerBoosts.spa, [drop.stat]: clampBoost(attackerBoosts[drop.stat] + drop.delta) };
+    second = totalDistribution(hitsOf(calculate(gen, makePokemon(attacker, boosts), def, move, field).damage));
+  }
+  const ratio = drop ? Math.round((mean(second) / mean(dist)) * 1000) / 1000 : 1;
+  const ko2Chance = twoHitKoChance(dist, second, hp, recovery, multiHit);
+  const line2 = twoHitLine(hp, recovery, ratio);
   let desc = '';
   try {
     desc = result.desc();
   } catch {
     desc = `${attacker.forme} ${moveName} vs. ${defender.forme}`;
   }
-  return { minDamage, maxDamage, hp, koChance, ko2Chance, line2Pct: (line2 / hp) * 100, recoveryNotes: recovery.notes, desc, note, moveType: move.type, rolls: hits.map((h) => h.join(',')).join('|') };
+  return { minDamage, maxDamage, hp, koChance, ko2Chance, line2Pct: (line2 / hp) * 100, recoveryNotes: drop ? [drop.note, ...recovery.notes] : recovery.notes, desc, note, moveType: move.type, rolls: hits.map((h) => h.join(',')).join('|') };
 }
 
 function fieldTags(f: ReturnType<typeof resolveField>, s: CalcSettings, intimidateApplied: boolean) {

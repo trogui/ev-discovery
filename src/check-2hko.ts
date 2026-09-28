@@ -40,7 +40,7 @@ for (const d of defenders) {
           if (ko.n !== 2 || ko.chance === undefined) continue;
           const dist = new Map<number, number>();
           for (const x of damage) dist.set(x, (dist.get(x) ?? 0) + 1 / damage.length);
-          const ours = twoHitKoChance(dist, defender.maxHP(), recoveryFor(defender, { weather: (f as { weather?: string }).weather ?? '', terrain: (f as { terrain?: string }).terrain ?? '', gravity: false }), false);
+          const ours = twoHitKoChance(dist, dist, defender.maxHP(), recoveryFor(defender, { weather: (f as { weather?: string }).weather ?? '', terrain: (f as { terrain?: string }).terrain ?? '', gravity: false }), false);
           compared++;
           const sitrus = d.item === 'Sitrus Berry';
           if (sitrus) sitrusCompared++;
