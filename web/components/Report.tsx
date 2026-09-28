@@ -50,15 +50,25 @@ function Build({ me }: { me: MySet }) {
         </p>
         {me.moves.length > 0 && <p className="report-me-moves">{me.moves.join(' · ')}</p>}
       </div>
-      <dl className="report-stats">
-        {STATS.map(([k, label]) => (
-          <div key={k} className={plus === k ? 'plus' : minus === k ? 'minus' : undefined}>
-            <dt>{label}</dt>
-            <dd className="tabular">{me.stats[k]}</dd>
-            <span className="tabular">{me.sp[k] ? `${me.sp[k]} SP` : '—'}</span>
-          </div>
-        ))}
-      </dl>
+      <div className="report-stats">
+        <span />
+        <span className="report-stats-key">EV</span>
+        <span className="report-stats-key">Stat</span>
+        {STATS.flatMap(([k, label]) => {
+          const role = plus === k ? ' plus' : minus === k ? ' minus' : '';
+          return [
+            <span key={`${k}-label`} className={`report-stat-label${role}`}>
+              {label}
+            </span>,
+            <span key={`${k}-ev`} className={`report-ev tabular${me.sp[k] ? '' : ' zero'}`}>
+              {me.sp[k]}
+            </span>,
+            <span key={`${k}-stat`} className={`report-stat tabular${role}`}>
+              {me.stats[k]}
+            </span>,
+          ];
+        })}
+      </div>
     </div>
   );
 }
