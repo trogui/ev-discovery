@@ -1,4 +1,4 @@
-import { autoField } from '../src/lib/dex';
+import { autoField, battleForme, defaultAbility } from '../src/lib/dex';
 import type { MetaSet } from '../src/lib/types';
 import type { CustomOpponent } from './calc/types';
 import { buildMySet, type EditableSet } from './me';
@@ -27,4 +27,9 @@ export function toMetaSet(set: EditableSet): MetaSet {
 
 export function activeOpponents(library: LibraryEntry[]): CustomOpponent[] {
   return library.filter((e) => e.active).map((e) => ({ id: e.id, species: e.set.species, set: toMetaSet(e.set) }));
+}
+
+export function fromMeta(species: string, set: MetaSet): EditableSet {
+  const mega = battleForme(species, set.item) !== species;
+  return { species, item: set.item, ability: mega ? defaultAbility(species) : set.ability, nature: set.nature, sp: { ...set.sp }, moves: [...set.moves] };
 }

@@ -303,6 +303,99 @@ textarea {
   padding-top: 12px;
 }
 
+.editor-flow,
+.editor-flow > .editor-col {
+  display: contents;
+}
+
+.editor-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: 'fields sp' 'moves sp';
+  gap: 14px 32px;
+  align-items: start;
+}
+
+.editor-columns > .editor-col:first-child {
+  grid-area: fields;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.editor-columns > .editor-col:nth-child(2) {
+  grid-area: sp;
+}
+
+.editor-columns > .editor-moves {
+  grid-area: moves;
+}
+
+.card-editor {
+  margin: 0 var(--pin) 4px 44px;
+  padding: 10px 0 14px;
+  border-bottom: 1px solid var(--line);
+  scroll-margin: 12px;
+}
+
+.editor.in-card {
+  gap: 10px;
+  border-top: none;
+  padding-top: 0;
+}
+
+.editor.in-card .panel-head h2 {
+  color: var(--ink-2);
+}
+
+.editor.in-card .button {
+  padding: 1px 10px;
+  font-size: 13px;
+}
+
+.editor.in-card .editor-columns {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px 36px;
+}
+
+.editor.in-card .editor-col:first-child {
+  gap: 8px;
+}
+
+.editor.in-card .combobox input,
+.editor.in-card .select,
+.editor.in-card .static-field {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.editor.in-card .editor-grid {
+  gap: 2px 10px;
+}
+
+.editor.in-card .sp-head {
+  margin-top: 0;
+  padding-bottom: 2px;
+}
+
+.editor.in-card .sp-rows {
+  margin-top: 0;
+}
+
+.editor.in-card .sp-row {
+  grid-template-columns: 40px 1fr 26px 34px;
+  gap: 8px;
+  height: 26px;
+}
+
+.editor.in-card .stat-name {
+  font-size: 13px;
+}
+
+.editor.in-card .stat-final {
+  font-size: 15px;
+}
+
 .paste-box {
   display: flex;
   flex-direction: column;
@@ -1353,8 +1446,8 @@ textarea {
   text-align: left;
 }
 
-.card-toggle:hover,
-.card.open .card-toggle {
+.card-head:hover,
+.card.open .card-head {
   background: var(--hover);
 }
 
@@ -1565,6 +1658,27 @@ textarea {
 
 .set-main {
   font-weight: 600;
+}
+
+.group-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+}
+
+.group-actions.custom {
+  margin-left: auto;
+}
+
+.group-head:hover .group-actions,
+.group-actions:focus-within,
+.group-actions.custom {
+  opacity: 1;
+}
+
+.group-actions .icon-button {
+  padding: 0;
 }
 
 .set-spread {
@@ -2191,6 +2305,13 @@ textarea {
   }
   .mode {
     font-size: 32px;
+  }
+  .editor-columns {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'fields' 'sp' 'moves';
+  }
+  .card-editor {
+    margin: 8px 0;
   }
   .calc-pick {
     position: absolute;

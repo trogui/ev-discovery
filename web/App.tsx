@@ -5,11 +5,11 @@ import type { CalcRow, CalcSettings, PokemonResult, SetGroup, Settings } from '.
 import { useCalcs } from './calc/useCalcs';
 import { FieldPanel } from './components/FieldPanel';
 import { Report } from './components/Report';
-import { groupLabel, Results, type Picker } from './components/Results';
-import { SetEditor } from './components/SetEditor';
+import { groupLabel, Results, type Customs, type Picker } from './components/Results';
+import { blank, SetEditor } from './components/SetEditor';
 import { StartPicker } from './components/StartPicker';
 import { Toolbar } from './components/Toolbar';
-import { activeOpponents, type LibraryEntry } from './library';
+import { activeOpponents, fromMeta, newId, type LibraryEntry } from './library';
 import type { Level } from './ko';
 import { buildMySet, importPaste, type EditableSet } from './me';
 import { conditionsOf, hash, type ReportItem } from './report';
@@ -63,6 +63,7 @@ export function App() {
   const [reportTitle, setReportTitle] = usePersistentState<string>('evd:reportTitle', '');
   const [picking, setPicking] = useState(false);
   const [viewing, setViewing] = useState(false);
+  const [editingCustom, setEditingCustom] = useState<string | null>(null);
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
   const calcSettings = useMemo<CalcSettings>(() => {
@@ -103,6 +104,29 @@ export function App() {
     return { active: picking, has: (group, row) => ids.has(idOf(group, row)), toggle };
   }, [report, scenario, me, picking, settings.band, calcSettings, setReport]);
   const { watch, rebuild } = useWatchList(response, pending, settings.band, settings.targets, JSON.stringify([settings.band, settings.targets, settings.top, custom.length]));
+
+  const customs = useMemo<Customs>(
+    () => ({
+      editing: editingCustom,
+      entry: (id) => library.find((e) => e.id === id),
+      create: (result, group) => {
+        const mon = meta.pokemon.find((p) => p.species === result.species);
+        const source = mon?.sets[group ? Number(group.sets[0].id) : 0];
+        const id = newId();
+        setLibrary((entries) => [...entries, { id, set: source ? fromMeta(result.species, source) : blank(result.species), active: true }]);
+        setEditingCustom(id);
+        if (!open.includes(result.key)) setOpen([...open, result.key]);
+      },
+      edit: setEditingCustom,
+      update: (id, set) => setLibrary((entries) => entries.map((e) => (e.id === id ? { ...e, set } : e))),
+      remove: (id) => {
+        setLibrary((entries) => entries.filter((e) => e.id !== id));
+        setEditingCustom((current) => (current === id ? null : current));
+      },
+      ranks,
+    }),
+    [editingCustom, library, open, setLibrary, setOpen],
+  );
 
   const togglePin = (species: string) => {
     setPinned(pinned.includes(species) ? pinned.filter((s) => s !== species) : [...pinned, species]);
@@ -180,6 +204,7 @@ export function App() {
             onOpenChange={setOpen}
             picker={picker}
             onPickingChange={setPicking}
+            customs={customs}
           />
         )}
         {mine && (picking || report.length > 0) && (

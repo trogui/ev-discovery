@@ -28,6 +28,7 @@ type Props = {
   ranks: Map<string, number>;
   footer?: React.ReactNode;
   embedded?: boolean;
+  inline?: boolean;
   headerAction?: React.ReactNode;
 };
 
@@ -51,7 +52,7 @@ function PresetLabel({ preset }: { preset: Preset | undefined }) {
   );
 }
 
-function blank(species: string): EditableSet {
+export function blank(species: string): EditableSet {
   return { species, item: null, ability: defaultAbility(species), nature: 'Serious', sp: emptyStats(), moves: [] };
 }
 
@@ -102,7 +103,7 @@ function SpRow({ stat, label, value, set, onChange }: { stat: keyof Stats; label
 
 const NATURES = NATURE_OPTIONS.map((n) => ({ value: n, hint: describeNature(n) }));
 
-export function SetEditor({ title, value, onChange, ranks, footer, embedded, headerAction }: Props) {
+export function SetEditor({ title, value, onChange, ranks, footer, embedded, inline, headerAction }: Props) {
   const presets = usePresets();
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteText, setPasteText] = useState('');
@@ -151,7 +152,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
   };
 
   return (
-    <section className={embedded ? 'editor embedded' : 'panel editor'}>
+    <section className={`${embedded ? 'editor embedded' : 'panel editor'}${inline ? ' in-card' : ''}`}>
       <div className="panel-head">
         <h2>{title}</h2>
         <div className="actions">
@@ -181,59 +182,63 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
         </div>
       )}
 
-      <div className="species-row">
-        {my && <PokemonSprite species={my.forme} size={64} />}
-        <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Pick a Pokémon" />
-      </div>
+      {!inline && (
+        <div className="species-row">
+          {my && <PokemonSprite species={my.forme} size={64} />}
+          <Combobox className="species" ariaLabel="Pokémon" value={value?.species ?? null} options={species} onChange={pickSpecies} placeholder="Pick a Pokémon" />
+        </div>
+      )}
 
       {value && my && (
-        <>
-          {entry && entry.presets.length > 0 && (
-            <div className="preset-picker">
-              <Popover label={<PresetLabel preset={current} />} width={300}>
-                <div className="presets" role="list" aria-label="Common sets">
-                  <span className="field-title">Common sets in tournaments</span>
-                  {entry.presets.map((p, i) => (
-                    <button key={i} type="button" role="listitem" className={p === current ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
-                      <span className="preset-main">
-                        <ItemIcon item={p.item} />
-                        {p.item ?? 'No item'}, {p.nature}
-                        <span className="muted small tabular"> {Math.round(p.share * 100)}%</span>
-                      </span>
-                      <span className="muted small tabular">{p.sp ? formatSp(p.sp) : 'No spread data'}</span>
-                    </button>
-                  ))}
-                </div>
-              </Popover>
-            </div>
-          )}
-
-          <div className="editor-grid">
-            <label className="mini-label">Item</label>
-            <Combobox ariaLabel="Item" value={value.item} options={items} onChange={(item) => onChange({ ...value, item })} allowEmpty placeholder="No item" />
-            <label className="mini-label">Ability</label>
-            {my.forme !== value.species ? (
-              <div className="static-field" title={`${my.forme} always has ${my.ability}`}>
-                {my.ability} <span className="muted small">({my.forme.replace(`${value.species}-`, '')})</span>
+        <div className={inline ? 'editor-columns' : 'editor-flow'}>
+          <div className="editor-col">
+            {entry && entry.presets.length > 0 && (
+              <div className="preset-picker">
+                <Popover label={<PresetLabel preset={current} />} width={300}>
+                  <div className="presets" role="list" aria-label="Common sets">
+                    <span className="field-title">Common sets in tournaments</span>
+                    {entry.presets.map((p, i) => (
+                      <button key={i} type="button" role="listitem" className={p === current ? 'preset on' : 'preset'} onClick={() => onChange(fromPreset(value.species, p, value))} title={p.moves.join(' · ')}>
+                        <span className="preset-main">
+                          <ItemIcon item={p.item} />
+                          {p.item ?? 'No item'}, {p.nature}
+                          <span className="muted small tabular"> {Math.round(p.share * 100)}%</span>
+                        </span>
+                        <span className="muted small tabular">{p.sp ? formatSp(p.sp) : 'No spread data'}</span>
+                      </button>
+                    ))}
+                  </div>
+                </Popover>
               </div>
-            ) : (
-              <Combobox ariaLabel="Ability" value={my.ability} options={abilities} onChange={(ability) => ability && onChange({ ...value, ability })} placeholder="Ability" />
             )}
-            <label className="mini-label">Nature</label>
-            <Select ariaLabel="Nature" value={value.nature} options={NATURES} onChange={(nature) => onChange({ ...value, nature })} />
-          </div>
 
-          <div className="sp-head">
-            <span className="mini-label">Stat Points</span>
-            <span className={`small tabular ${used === SP_TOTAL ? 'muted' : 'sp-left'}`}>{SP_TOTAL - used} left</span>
+            <div className="editor-grid">
+              <label className="mini-label">Item</label>
+              <Combobox ariaLabel="Item" value={value.item} options={items} onChange={(item) => onChange({ ...value, item })} allowEmpty placeholder="No item" />
+              <label className="mini-label">Ability</label>
+              {my.forme !== value.species ? (
+                <div className="static-field" title={`${my.forme} always has ${my.ability}`}>
+                  {my.ability} <span className="muted small">({my.forme.replace(`${value.species}-`, '')})</span>
+                </div>
+              ) : (
+                <Combobox ariaLabel="Ability" value={my.ability} options={abilities} onChange={(ability) => ability && onChange({ ...value, ability })} placeholder="Ability" />
+              )}
+              <label className="mini-label">Nature</label>
+              <Select ariaLabel="Nature" value={value.nature} options={NATURES} onChange={(nature) => onChange({ ...value, nature })} />
+            </div>
           </div>
-          <div className="sp-rows">
-            {ROWS.map(([stat, label]) => (
-              <SpRow key={stat} stat={stat} label={label} value={value.sp[stat]} set={value} onChange={onChange} />
-            ))}
+          <div className="editor-col">
+            <div className="sp-head">
+              <span className="mini-label">Stat Points</span>
+              <span className={`small tabular ${used === SP_TOTAL ? 'muted' : 'sp-left'}`}>{SP_TOTAL - used} left</span>
+            </div>
+            <div className="sp-rows">
+              {ROWS.map(([stat, label]) => (
+                <SpRow key={stat} stat={stat} label={label} value={value.sp[stat]} set={value} onChange={onChange} />
+              ))}
+            </div>
           </div>
-
-          <div className="moves-grid">
+          <div className="moves-grid editor-moves">
             {[0, 1, 2, 3].map((i) => (
               <Combobox
                 key={i}
@@ -251,7 +256,7 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
             ))}
           </div>
           {footer}
-        </>
+        </div>
       )}
     </section>
   );

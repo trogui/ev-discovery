@@ -1,15 +1,30 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import type { StatID } from '@smogon/calc/dist/data/interface.js';
 import { gen, toID } from '../../src/lib/dex';
 import type { CalcResponse, CalcRow, PokemonResult, SetGroup, SetRef } from '../calc/types';
 import { formatSp, formeSuffix, outcomeText, pct, toneOf, type Tone } from '../format';
 import { bandDistance, displayLevel, inBand, lineOf, type Band, type Level, type Targets } from '../ko';
 import { headOf, isDecisive, keyOf, watchedEntry, type Mode, type Watch } from '../useStickyList';
+import type { LibraryEntry } from '../library';
+import type { EditableSet } from '../me';
+import { SetEditor } from './SetEditor';
 import { ItemIcon, PokemonSprite } from './Sprites';
 
 export type Picker = { active: boolean; has: (group: SetGroup, row: CalcRow) => boolean; toggle: (result: PokemonResult, group: SetGroup, row: CalcRow, level: Level) => void };
 
-type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null; picker: Picker };
+export type Customs = {
+  editing: string | null;
+  entry: (id: string) => LibraryEntry | undefined;
+  create: (result: PokemonResult, group: SetGroup | null) => void;
+  edit: (id: string | null) => void;
+  update: (id: string, set: EditableSet) => void;
+  remove: (id: string) => void;
+  ranks: Map<string, number>;
+};
+
+type View = { band: Band; targets: Targets; mode: Mode; customOnly: boolean; watch: Watch | null; picker: Picker; customs: Customs };
+
+const customId = (group: SetGroup) => (group.custom ? group.sets[0].id.slice('custom:'.length) : null);
 
 const MODES: Record<Mode, { label: string }> = {
   in: { label: 'Defense' },
@@ -176,7 +191,8 @@ function PinIcon({ filled }: { filled: boolean }) {
 
 function groupsFor(result: PokemonResult, view: View) {
   const groups = result.groups[view.mode].filter((g) => !view.customOnly || g.custom);
-  return [...groups].sort((a, b) => Number(b.custom) - Number(a.custom) || b.weight - a.weight || a.order - b.order);
+  const editing = (g: SetGroup) => Number(view.customs.editing !== null && customId(g) === view.customs.editing);
+  return [...groups].sort((a, b) => editing(b) - editing(a) || Number(b.custom) - Number(a.custom) || b.weight - a.weight || a.order - b.order);
 }
 
 const inRangeOf = (rows: CalcRow[], view: View) => rows.filter((r) => inBand(r, view.band, view.targets));
@@ -207,6 +223,7 @@ function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; s
     ? group.rows.filter((r) => !shown.includes(r)).sort((a, b) => bandDistance(a, view.band, view.targets) - bandDistance(b, view.band, view.targets) || a.order - b.order)
     : [];
   const share = Math.max(1, Math.round(group.weight * 100));
+  const id = customId(group);
   return (
     <div className={shown.length ? 'group' : 'group dormant'}>
       <div className="group-head" title={label.title}>
@@ -223,12 +240,54 @@ function GroupView({ group, shown, result, view, showAll }: { group: SetGroup; s
             {share}%{group.sets.length > 1 && ` of ${group.sets.length} sets`}
           </span>
         )}
+        <span className={group.custom ? 'group-actions custom' : 'group-actions'}>
+          {id ? (
+            <>
+              {view.customs.editing !== id && (
+                <button type="button" className="link small" onClick={() => view.customs.edit(id)}>
+                  Edit
+                </button>
+              )}
+              <button type="button" className="icon-button" onClick={() => view.customs.remove(id)} aria-label="Remove this custom set">
+                ×
+              </button>
+            </>
+          ) : (
+            <button type="button" className="link small" onClick={() => view.customs.create(result, group)} title="Copy this set into a custom set you can edit">
+              Tweak
+            </button>
+          )}
+        </span>
       </div>
       <ul className="calcs">
         {[...shown, ...rest].map((r) => (
           <RowView key={r.key} row={r} view={view} fixed={fixedLevel(result, group, r, view)} picked={view.picker.has(group, r)} onPick={(level) => view.picker.toggle(result, group, r, level)} />
         ))}
       </ul>
+    </div>
+  );
+}
+
+function CustomEditor({ entry, customs }: { entry: LibraryEntry; customs: Customs }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    ref.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }, [entry.id]);
+  return (
+    <div className="card-editor" ref={ref}>
+      <SetEditor
+        inline
+        embedded
+        title={`Custom ${entry.set.species}`}
+        value={entry.set}
+        onChange={(set) => customs.update(entry.id, set)}
+        ranks={customs.ranks}
+        headerAction={
+          <button type="button" className="button primary" onClick={() => customs.edit(null)}>
+            Done
+          </button>
+        }
+      />
     </div>
   );
 }
@@ -257,6 +316,8 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
   const pick = pickGroup && pickRow && view.watch ? { r: pickRow, level: fixedLevel(result, pickGroup, pickRow, view) ?? displayLevel(pickRow, view.band, view.targets) } : undefined;
   const fixed = groups.filter((g) => !g.custom);
   const hidden = fixed.flatMap((g) => g.rows).length - fixed.flatMap((g) => shown.get(g)!).length;
+  const entry = view.customs.editing ? view.customs.entry(view.customs.editing) : undefined;
+  const editing = entry && entry.set.species === result.species ? entry : undefined;
 
   return (
     <li className={`card${open ? ' open' : ''}${shownRows.length ? '' : ' dormant'}`}>
@@ -275,6 +336,7 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
       </div>
       {open && (
         <div className="card-body">
+          {editing && <CustomEditor entry={editing} customs={view.customs} />}
           {active.map((g) => (
             <GroupView key={g.key} group={g} shown={shown.get(g)!} result={result} view={view} showAll={showAll} />
           ))}
@@ -285,6 +347,11 @@ function PokemonCard({ result, view, open, pinned, onToggleOpen, onTogglePin }: 
               {showAll
                 ? `Hide the ${hidden} calcs outside the range`
                 : `Show ${hidden} more calcs outside the range${idle.length ? `, from ${idle.length} more set${idle.length > 1 ? 's' : ''}` : ''}`}
+            </button>
+          )}
+          {!editing && (
+            <button type="button" className="expand-rest" onClick={() => view.customs.create(result, null)}>
+              + Custom {result.species} set
             </button>
           )}
         </div>
@@ -314,14 +381,15 @@ type Props = {
   onOpenChange: (open: string[]) => void;
   picker: Picker;
   onPickingChange: (active: boolean) => void;
+  customs: Customs;
 };
 
 export function Results(props: Props) {
-  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, watch, onRebuild, pinned, onTogglePin, open, onOpenChange, picker, onPickingChange } = props;
+  const { response, pending, stale, band, targets, top, mode, onModeChange, customOnly, hasLibrary, toolbar, query, watch, onRebuild, pinned, onTogglePin, open, onOpenChange, picker, onPickingChange, customs } = props;
   if (!response) return <div className="empty muted">Calculating…</div>;
 
   const only = customOnly && hasLibrary;
-  const view: View = { band, targets, mode, customOnly: only, watch, picker };
+  const view: View = { band, targets, mode, customOnly: only, watch, picker, customs };
   const hasInRange = (r: PokemonResult, m: Mode) => groupsFor(r, { ...view, mode: m }).some((g) => inRangeOf(g.rows, view).length > 0);
   const threatens = (r: PokemonResult, m: Mode) => m === 'in' && groupsFor(r, { ...view, mode: m }).some((g) => g.rows.some(isDecisive));
   const relevant = (r: PokemonResult, m: Mode) => hasInRange(r, m) || threatens(r, m);
