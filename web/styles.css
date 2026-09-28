@@ -136,11 +136,13 @@ textarea {
 .app {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr) 236px;
+  grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas: 'top top top' 'side main field';
   gap: 0 36px;
   max-width: 1640px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 0 32px 64px;
+  padding: 0 32px 24px;
 }
 
 .top {
@@ -169,9 +171,7 @@ textarea {
 .side {
   grid-area: side;
   align-self: start;
-  position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 32px);
+  max-height: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
@@ -180,15 +180,17 @@ textarea {
 
 .main {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
   min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .field-side {
   grid-area: field;
   align-self: start;
-  position: sticky;
-  top: 16px;
-  max-height: calc(100vh - 32px);
+  max-height: 100%;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
@@ -1010,6 +1012,8 @@ select:focus {
 .results {
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-height: 0;
   transition: opacity 120ms;
 }
 
@@ -1166,9 +1170,24 @@ select:focus {
 .table {
   --cols: 32px minmax(150px, 200px) minmax(120px, 1fr) minmax(200px, 300px) 150px;
   --pin: 32px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.table-body {
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
 .table-head {
+  flex: none;
+  overflow: hidden;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
   display: grid;
   grid-template-columns: var(--cols) var(--pin);
   gap: 16px;
@@ -1613,11 +1632,15 @@ select:focus {
 @media (max-width: 1240px) {
   .app {
     grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-rows: none;
     grid-template-areas: 'top top' 'side main' 'field main';
+    height: auto;
+    padding-bottom: 64px;
   }
   .side,
-  .field-side {
-    position: static;
+  .field-side,
+  .main,
+  .table-body {
     max-height: none;
     overflow: visible;
   }
@@ -1642,8 +1665,6 @@ select:focus {
     padding: 0 16px 48px;
   }
   .side {
-    position: static;
-    max-height: none;
     margin-bottom: 32px;
   }
   .table {

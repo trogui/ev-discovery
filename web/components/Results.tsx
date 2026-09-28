@@ -400,12 +400,14 @@ export function Results(props: Props) {
             )}
           </span>
         </div>
-        {nonEmpty.map(([title, list]) => (
-          <section key={title} className="result-section">
-            {nonEmpty.length > 1 && <h3 className="section-title">{title}</h3>}
-            <ul className="cards">{list.map(card)}</ul>
-          </section>
-        ))}
+        <div className="table-body">
+          {nonEmpty.map(([title, list]) => (
+            <section key={title} className="result-section">
+              {nonEmpty.length > 1 && <h3 className="section-title">{title}</h3>}
+              <ul className="cards">{list.map(card)}</ul>
+            </section>
+          ))}
+        </div>
       </div>
       {!nonEmpty.length && q && <div className="empty">No Pokémon called “{query}” in the top {top}.</div>}
       {!nonEmpty.length && !q && (
