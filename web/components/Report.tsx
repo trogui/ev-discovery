@@ -4,7 +4,7 @@ import type { MySet } from '../calc/types';
 import { formeSuffix, pct, toneOf } from '../format';
 import { describeNature, rolesOf } from '../natures';
 import { canCopyImages, download, exportPdf, renderPng } from '../export';
-import type { ReportItem } from '../report';
+import { buildOf, setOf, type ReportItem } from '../report';
 import type { Mode } from '../useStickyList';
 import { RangeBar, Result } from './Results';
 import { ItemIcon, PokemonSprite } from './Sprites';
@@ -160,8 +160,8 @@ function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdat
         </div>
       )}
 
-      {groupBy(items, (i) => i.build).map((build) => (
-        <section key={build[0].build} className="report-build">
+      {groupBy(items, buildOf).map((build) => (
+        <section key={buildOf(build[0])} className="report-build">
           <Build me={build[0].me} />
           {(['in', 'out'] as const).map((mode) => {
             const list = build.filter((i) => i.mode === mode);
@@ -171,7 +171,7 @@ function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdat
                 <h3 className="report-mode-title">
                   {MODES[mode].title}
                   <span>{MODES[mode].sub}</span>
-                  {!exporting && <CopyButton id={`${build[0].build}|${mode}`} items={list} {...copy} />}
+                  {!exporting && <CopyButton id={`${buildOf(build[0])}|${mode}`} items={list} {...copy} />}
                 </h3>
                 {groupBy(list, (i) => i.species).map((opponent) => {
                   const head = opponent[0];
@@ -182,11 +182,11 @@ function Sheet({ items, title, fallback, exporting, bare, onTitleChange, onUpdat
                         <span className="report-opp-name">{head.species}</span>
                         {head.rank > 0 && <span className="muted small tabular">#{head.rank} in usage</span>}
                       </div>
-                      {groupBy(opponent, (i) => i.group).map((set) => {
+                      {groupBy(opponent, setOf).map((set) => {
                         const s = set[0].set;
                         const forme = formeSuffix(s.forme, head.species);
                         return (
-                          <div key={set[0].group} className="report-set">
+                          <div key={setOf(set[0])} className="report-set">
                             <div className="report-set-head">
                               <ItemIcon item={s.icon} />
                               <span className="set-main">

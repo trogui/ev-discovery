@@ -72,13 +72,13 @@ export function App() {
 
   const me = useMemo(() => (mine ? buildMySet(mine) : null), [mine]);
   const { response, pending } = useCalcs(me, calcSettings, pinned, custom);
-  const build = useMemo(() => {
+  const scenario = useMemo(() => {
     const { top: _top, ...rest } = calcSettings;
     return hash(JSON.stringify([me, rest]));
   }, [me, calcSettings]);
   const picker = useMemo<Picker>(() => {
     const ids = new Set(report.map((i) => i.id));
-    const idOf = (group: SetGroup, row: CalcRow) => `${build}.${hash(JSON.stringify(group.sets[0]))}|${row.key}`;
+    const idOf = (group: SetGroup, row: CalcRow) => `${scenario}.${hash(JSON.stringify(group.sets[0]))}|${row.key}`;
     const toggle = (result: PokemonResult, group: SetGroup, row: CalcRow, level: Level) => {
       if (!me) return;
       const id = idOf(group, row);
@@ -87,12 +87,10 @@ export function App() {
       const first = group.sets[0];
       const item: ReportItem = {
         id,
-        build,
         me,
         mode: row.direction,
         species: result.species,
         rank: result.rank,
-        group: `${build}|${group.key}`,
         set: { forme: first.forme, item: label.item, icon: first.item, ability: first.ability, nature: label.nature, sp: label.sp, custom: group.custom },
         row,
         level,
@@ -103,7 +101,7 @@ export function App() {
       setReport((items) => [...items, item]);
     };
     return { active: picking, has: (group, row) => ids.has(idOf(group, row)), toggle };
-  }, [report, build, me, picking, settings.band, calcSettings, setReport]);
+  }, [report, scenario, me, picking, settings.band, calcSettings, setReport]);
   const { watch, rebuild } = useWatchList(response, pending, settings.band, settings.targets, JSON.stringify([settings.band, settings.targets, settings.top, custom.length]));
 
   const togglePin = (species: string) => {

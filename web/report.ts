@@ -15,12 +15,10 @@ export type ReportSet = {
 
 export type ReportItem = {
   id: string;
-  build: string;
   me: MySet;
   mode: Mode;
   species: string;
   rank: number;
-  group: string;
   set: ReportSet;
   row: CalcRow;
   level: Level;
@@ -70,3 +68,7 @@ export function conditionsOf(settings: CalcSettings, row: CalcRow) {
     stage(physical ? defender.boosts.def : defender.boosts.spd, physical ? 'Def' : 'SpD'),
   ].filter((c): c is string => !!c);
 }
+
+export const buildOf = (item: ReportItem) => hash(JSON.stringify(item.me));
+
+export const setOf = (item: ReportItem) => item.row.key.slice(0, item.row.key.lastIndexOf('|'));
