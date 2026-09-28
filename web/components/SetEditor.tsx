@@ -1,7 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { defaultAbility } from '../../src/lib/dex';
 import type { Preset } from '../../src/presets';
 import { SP_MAX, SP_TOTAL, emptyStats, spreadKey, type Stats } from '../../src/lib/spread';
+import { copyText } from '../clipboard';
 import { formatSp } from '../format';
 import { buildMySet, exportPaste, importPaste, type EditableSet } from '../me';
 import { NATURE_OPTIONS, cycleNature, describeNature, rolesOf, type NatureStat } from '../natures';
@@ -103,6 +104,13 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
   const [pasteOpen, setPasteOpen] = useState(false);
   const [pasteText, setPasteText] = useState('');
   const [pasteError, setPasteError] = useState<string | null>(null);
+  const [copied, setCopied] = useState(0);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(0), 1400);
+    return () => clearTimeout(timer);
+  }, [copied]);
 
   const entry = value ? presetsFor(presets, value.species) : undefined;
   const species = useMemo(() => speciesOptions(presets, ranks), [presets, ranks]);
@@ -124,6 +132,12 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
     setPasteText(value ? exportPaste(value) : '');
     setPasteError(null);
   };
+
+  const copyPaste = () =>
+    copyText(pasteText).then(
+      () => setCopied((n) => n + 1),
+      () => setPasteError('Could not copy. Select the text and copy it by hand.'),
+    );
 
   const applyPaste = () => {
     const result = importPaste(pasteText);
@@ -152,8 +166,12 @@ export function SetEditor({ title, value, onChange, ranks, footer, embedded, hea
             <button type="button" className="button primary" onClick={applyPaste}>
               Apply
             </button>
-            <button type="button" className="button" onClick={() => navigator.clipboard.writeText(pasteText)}>
-              Copy
+            <button type="button" className={copied ? 'button copy copied' : 'button copy'} onClick={copyPaste}>
+              {copied > 0 && <span key={copied} className="copy-flash" aria-hidden />}
+              <span className="copy-idle">Copy</span>
+              <span key={`label${copied}`} className="copy-done" aria-hidden={!copied}>
+                Copied
+              </span>
             </button>
           </div>
           {pasteError && <p className="error">{pasteError}</p>}

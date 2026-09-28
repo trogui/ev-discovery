@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { copyText } from '../clipboard';
 import { formatSp } from '../format';
 import { newId, type LibraryEntry } from '../library';
 import { buildMySet, exportPaste, importPaste, type EditableSet } from '../me';
@@ -40,8 +41,10 @@ export function Library({ entries, onChange, ranks, customOnly, onCustomOnlyChan
   };
 
   const copyAll = () => {
-    navigator.clipboard.writeText(entries.map((e) => exportPaste(e.set)).join('\n\n'));
-    setMessage({ error: false, text: `Copied ${entries.length} sets as a paste.` });
+    copyText(entries.map((e) => exportPaste(e.set)).join('\n\n')).then(
+      () => setMessage({ error: false, text: `Copied ${entries.length} sets as a paste.` }),
+      () => setMessage({ error: true, text: 'Could not copy the sets.' }),
+    );
   };
 
   return (

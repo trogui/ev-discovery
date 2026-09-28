@@ -326,6 +326,60 @@ textarea {
   gap: 8px;
 }
 
+.copy {
+  position: relative;
+  display: inline-grid;
+  overflow: hidden;
+}
+
+.copy-idle,
+.copy-done {
+  position: relative;
+  grid-area: 1 / 1;
+  transition: opacity 120ms;
+}
+
+.copy-done,
+.copy.copied .copy-idle {
+  opacity: 0;
+}
+
+.copy.copied {
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.copy.copied .copy-done {
+  opacity: 1;
+  animation: copied-text 700ms ease-out;
+}
+
+.copy-flash {
+  position: absolute;
+  inset: 0;
+  background: var(--good);
+  opacity: 0;
+  animation: copied-flash 700ms ease-out;
+}
+
+@keyframes copied-flash {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes copied-text {
+  from {
+    color: var(--page);
+  }
+  to {
+    color: var(--good);
+  }
+}
+
 .combobox {
   position: relative;
 }
