@@ -147,9 +147,9 @@ export function App() {
     <div className="app">
       <header className="top">
         <h1>EV Discovery</h1>
-        <p className="muted small">
+        <div className="muted small">
           Regulation {meta.regulation} usage, updated <DataStatus meta={meta} />
-        </p>
+        </div>
       </header>
       <aside className="side">
         <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
