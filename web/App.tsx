@@ -3,6 +3,7 @@ import metaJson from '../data/meta.json';
 import type { Meta } from '../src/lib/types';
 import type { CalcRow, CalcSettings, PokemonResult, SetGroup, Settings } from './calc/types';
 import { useCalcs } from './calc/useCalcs';
+import { DataStatus } from './components/DataStatus';
 import { FieldPanel } from './components/FieldPanel';
 import { Report } from './components/Report';
 import { groupLabel, Results, type Customs, type Picker } from './components/Results';
@@ -47,7 +48,6 @@ function migrateTop() {
 
 migrateTop();
 
-const dateFormat = new Intl.DateTimeFormat('en', { day: 'numeric', month: 'short' });
 
 export function App() {
   const [mine, setMine] = usePersistentState<EditableSet | null>('evd:me', INITIAL_SET);
@@ -147,8 +147,8 @@ export function App() {
     <div className="app">
       <header className="top">
         <h1>EV Discovery</h1>
-        <p className="muted small" title={`${meta.sources.limitlessTournaments} Limitless tournaments, ${meta.sources.pasteTeams} team pastes and the in-game ladder`}>
-          Regulation {meta.regulation} usage, updated {dateFormat.format(new Date(meta.generatedAt))}
+        <p className="muted small">
+          Regulation {meta.regulation} usage, updated <DataStatus meta={meta} />
         </p>
       </header>
       <aside className="side">

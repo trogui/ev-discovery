@@ -889,6 +889,42 @@ textarea {
   align-self: center;
 }
 
+.data-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.data-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.data-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.data-state {
+  min-width: 52px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.data-state.applied {
+  color: var(--good);
+}
+
+.data-state.pending {
+  color: var(--warning);
+}
+
 .popover-panel {
   z-index: 40;
   overflow-y: auto;
