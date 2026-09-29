@@ -1414,14 +1414,19 @@ textarea {
 
 .bar-legend {
   display: flex;
-  gap: 14px;
+  gap: 9px;
   align-items: baseline;
+  white-space: nowrap;
+}
+
+.bar-legend > * {
+  flex: none;
 }
 
 .bar-key {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   color: var(--ink-2);
 }
 
@@ -1439,8 +1444,9 @@ textarea {
 .table-actions {
   grid-column: 5 / 7;
   display: flex;
-  gap: 14px;
+  gap: 10px;
   justify-content: flex-end;
+  white-space: nowrap;
 }
 
 .table-actions .link {
