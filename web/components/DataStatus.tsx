@@ -10,15 +10,11 @@ const shortName = (name: string) => name.replace(/^\d{4} (.+?) Pok[eé]mon VGC? 
 export function DataStatus({ meta }: { meta: Meta }) {
   const { sources } = meta;
   const regionals = sources.regionals ?? [];
-  const pasteTeams = regionals.reduce((sum, r) => sum + r.pasteTeams, 0);
 
   return (
     <Popover className="inline" label={day.format(new Date(meta.generatedAt))} width={340} align="right">
       <div className="panel-stack">
         <span className="field-title">Data behind these sets</span>
-        <p className="hint">
-          Ingested {day.format(new Date(meta.generatedAt))}, newest result from {day.format(new Date(sources.newestEvent))}.
-        </p>
         <div className="data-list">
           <span className="field-title">Regionals</span>
           {regionals.length === 0 && <p className="hint">None in Reg {meta.regulation} yet.</p>}
@@ -30,7 +26,6 @@ export function DataStatus({ meta }: { meta: Meta }) {
               <span className={r.applied ? 'data-state applied' : 'data-state pending'}>{r.applied ? 'Applied' : 'Pending'}</span>
             </div>
           ))}
-          {pasteTeams > 0 && <p className="hint">{pasteTeams} regional teams also came with shared EV spreads.</p>}
         </div>
         <div className="data-list">
           <span className="field-title">Everything else</span>
@@ -47,9 +42,6 @@ export function DataStatus({ meta }: { meta: Meta }) {
             <span className="muted tabular">{sources.munchstatsMonth ? month.format(new Date(`${sources.munchstatsMonth}-01`)) : 'latest month'}</span>
           </div>
         </div>
-        <p className="hint">
-          Regionals count {sources.regionalWeight}× per player, and every result loses half its weight each {sources.halfLifeDays} days.
-        </p>
       </div>
     </Popover>
   );
