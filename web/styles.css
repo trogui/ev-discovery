@@ -896,14 +896,22 @@ textarea {
 }
 
 .data-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
-  gap: 10px;
+  column-gap: 12px;
   font-size: 14px;
 }
 
+.data-row.regional {
+  grid-template-columns: minmax(0, 1fr) 46px 84px 56px;
+}
+
+.data-num {
+  text-align: right;
+}
+
 .data-name {
-  flex: 1;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -911,7 +919,6 @@ textarea {
 }
 
 .data-state {
-  min-width: 52px;
   text-align: right;
   font-size: 13px;
   font-weight: 600;

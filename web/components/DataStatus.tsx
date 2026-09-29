@@ -12,17 +12,17 @@ export function DataStatus({ meta }: { meta: Meta }) {
   const regionals = sources.regionals ?? [];
 
   return (
-    <Popover className="inline" label={day.format(new Date(meta.generatedAt))} width={340} align="right">
+    <Popover className="inline" label={day.format(new Date(meta.generatedAt))} width={400} align="right">
       <div className="panel-stack">
         <span className="field-title">Data behind these sets</span>
         <div className="data-list">
           <span className="field-title">Regionals</span>
           {regionals.length === 0 && <p className="hint">None in Reg {meta.regulation} yet.</p>}
           {regionals.map((r) => (
-            <div className="data-row" key={r.id} title={r.name}>
+            <div className="data-row regional" key={r.id} title={r.name}>
               <span className="data-name">{shortName(r.name)}</span>
               <span className="muted tabular">{day.format(new Date(r.date))}</span>
-              <span className="tabular">{count.format(r.lists)} teams</span>
+              <span className="data-num tabular">{count.format(r.lists)} teams</span>
               <span className={r.applied ? 'data-state applied' : 'data-state pending'}>{r.applied ? 'Applied' : 'Pending'}</span>
             </div>
           ))}
@@ -31,15 +31,15 @@ export function DataStatus({ meta }: { meta: Meta }) {
           <span className="field-title">Everything else</span>
           <div className="data-row">
             <span className="data-name">Online tournaments</span>
-            <span className="tabular">{count.format(sources.limitlessTournaments)}</span>
+            <span className="data-num tabular">{count.format(sources.limitlessTournaments)}</span>
           </div>
           <div className="data-row">
             <span className="data-name">Shared team pastes</span>
-            <span className="tabular">{count.format(sources.pasteTeams)}</span>
+            <span className="data-num tabular">{count.format(sources.pasteTeams)}</span>
           </div>
           <div className="data-row">
             <span className="data-name">In-game ladder</span>
-            <span className="muted tabular">{sources.munchstatsMonth ? month.format(new Date(`${sources.munchstatsMonth}-01`)) : 'latest month'}</span>
+            <span className="data-num muted tabular">{sources.munchstatsMonth ? month.format(new Date(`${sources.munchstatsMonth}-01`)) : 'latest month'}</span>
           </div>
         </div>
       </div>
