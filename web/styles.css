@@ -1822,13 +1822,6 @@ textarea {
   text-decoration-color: currentColor;
 }
 
-.footnote {
-  margin-top: 14px;
-  font-size: 13px;
-  color: var(--muted);
-  text-align: right;
-}
-
 .sprite {
   display: inline-grid;
   place-items: center;

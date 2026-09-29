@@ -90,4 +90,4 @@ export type PokemonResult = {
 export type CustomOpponent = { id: string; species: string; set: MetaSet };
 
 export type CalcRequest = { id: number; me: MySet; settings: CalcSettings; extraSpecies: string[]; custom: CustomOpponent[] };
-export type CalcResponse = { id: number; forme: string; results: PokemonResult[]; totalCalcs: number; ms: number };
+export type CalcResponse = { id: number; forme: string; results: PokemonResult[] };

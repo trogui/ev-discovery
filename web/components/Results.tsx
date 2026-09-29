@@ -498,9 +498,6 @@ export function Results(props: Props) {
       {!nonEmpty.length && !q && (
         <div className="empty">{only ? 'Your library is empty. Add opponents from Library.' : 'Nothing lands in this range. Widen it or bring in more opponents.'}</div>
       )}
-      <p className="footnote tabular">
-        {response.totalCalcs} calcs in {Math.round(response.ms)} ms
-      </p>
     </div>
   );
 }
