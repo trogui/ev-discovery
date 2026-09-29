@@ -19,22 +19,40 @@ export const MERGE_RULES = {
   maxSetsPerPokemon: 8,
   ladderNatureShare: 0.1,
   ladderItemShare: 0.25,
+  regionalWeight: 2,
+  halfLifeDays: 30,
 };
+
+const DAY = 86_400_000;
+
+export const totalWeight = (sets: { weight: number }[]) => sets.reduce((sum, s) => sum + s.weight, 0);
+
+export function newestDate(sets: SourceSet[]) {
+  return Math.max(0, ...sets.map((s) => Date.parse(s.date)).filter(Number.isFinite));
+}
+
+export function applyWeights(sets: SourceSet[], anchor: number): SourceSet[] {
+  return sets.map((s) => {
+    const age = Math.max(0, (anchor - Date.parse(s.date)) / DAY) || 0;
+    const tier = s.regional ? MERGE_RULES.regionalWeight : 1;
+    return { ...s, weight: tier * 0.5 ** (age / MERGE_RULES.halfLifeDays) };
+  });
+}
 
 type Archetype = { forme: string; item: string | null; nature: string; share: number; sets: SourceSet[]; confidence?: Confidence };
 
 type SpreadEntry = { sp: Stats; share: number; tournament: number; ladder: number };
 
-function countBy<T>(items: T[], key: (item: T) => string) {
-  const counts = new Map<string, { count: number; items: T[] }>();
+function countBy<T extends { weight: number }>(items: T[], key: (item: T) => string) {
+  const counts = new Map<string, { weight: number; items: T[] }>();
   for (const item of items) {
     const k = key(item);
-    const entry = counts.get(k) ?? { count: 0, items: [] };
-    entry.count++;
+    const entry = counts.get(k) ?? { weight: 0, items: [] };
+    entry.weight += item.weight;
     entry.items.push(item);
     counts.set(k, entry);
   }
-  return [...counts.values()].sort((a, b) => b.count - a.count);
+  return [...counts.values()].sort((a, b) => b.weight - a.weight);
 }
 
 function takeTop<T extends { share: number }>(sorted: T[], share: number, floorShare: number, min: number, max: number) {
@@ -56,12 +74,12 @@ function archetypesFromSets(sets: SourceSet[]): Archetype[] {
     sets.filter((s) => s.nature),
     (s) => `${s.forme}|${s.item ?? ''}|${s.nature}`,
   );
-  const total = groups.reduce((sum, g) => sum + g.count, 0);
+  const total = groups.reduce((sum, g) => sum + g.weight, 0);
   const all = groups.map((g) => ({
     forme: g.items[0].forme,
     item: g.items[0].item,
     nature: g.items[0].nature!,
-    share: g.count / total,
+    share: g.weight / total,
     sets: g.items,
   }));
   return takeTop(all, MERGE_RULES.archetypeShare, MERGE_RULES.archetypeFloorShare, MERGE_RULES.minArchetypes, MERGE_RULES.maxArchetypes);
@@ -91,13 +109,14 @@ function archetypesFromLadder(munch: MunchPokemon): Archetype[] {
 function pickMoves(archetype: Archetype, munch: MunchPokemon) {
   if (archetype.sets.length) {
     const counts = countBy(
-      archetype.sets.flatMap((s) => [...new Set(s.moves)].filter(isDamagingMove)),
-      (m) => m,
+      archetype.sets.flatMap((s) => [...new Set(s.moves)].filter(isDamagingMove).map((move) => ({ move, weight: s.weight }))),
+      (m) => m.move,
     );
+    const total = totalWeight(archetype.sets);
     return counts
-      .filter((c) => c.count / archetype.sets.length >= MERGE_RULES.moveShare)
+      .filter((c) => c.weight / total >= MERGE_RULES.moveShare)
       .slice(0, MERGE_RULES.maxMoves)
-      .map((c) => c.items[0]);
+      .map((c) => c.items[0].move);
   }
   return munch.moves
     .filter((m) => isDamagingMove(m.name) && m.pct >= MERGE_RULES.moveShare)
@@ -115,7 +134,8 @@ function pickAbility(archetype: Archetype, munch: MunchPokemon) {
 }
 
 function tournamentDistribution(pastes: SourceSet[]): SpreadEntry[] {
-  return pastes.map((p) => ({ sp: p.sp!, share: 1 / pastes.length, tournament: 1 / pastes.length, ladder: 0 }));
+  const total = totalWeight(pastes);
+  return pastes.map((p) => ({ sp: p.sp!, share: p.weight / total, tournament: p.weight / total, ladder: 0 }));
 }
 
 function ladderDistribution(archetype: Archetype, munch: MunchPokemon): SpreadEntry[] {

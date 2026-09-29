@@ -9,6 +9,9 @@ export type SourceSet = {
   moves: string[];
   sp: Stats | null;
   origin: string;
+  date: string;
+  regional: boolean;
+  weight: number;
 };
 
 export type MunchEntry = { name: string; pct: number };

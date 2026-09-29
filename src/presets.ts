@@ -1,4 +1,5 @@
 import { clusterSpreads, type Stats } from './lib/spread.js';
+import { totalWeight } from './merge.js';
 import type { SourceSet } from './lib/types.js';
 
 export type Preset = {
@@ -19,12 +20,12 @@ export type PresetsFile = { generatedAt: string; regulation: string; species: Pr
 const MAX_PRESETS = 6;
 const MIN_SHARE = 0.03;
 
-function mode<T>(values: T[], key: (v: T) => string) {
+function mode<T extends { weight: number }>(values: T[], key: (v: T) => string) {
   const counts = new Map<string, { value: T; count: number }>();
   for (const v of values) {
     const k = key(v);
     const entry = counts.get(k) ?? { value: v, count: 0 };
-    entry.count++;
+    entry.count += v.weight;
     counts.set(k, entry);
   }
   return [...counts.values()].sort((a, b) => b.count - a.count)[0]?.value;
@@ -32,7 +33,7 @@ function mode<T>(values: T[], key: (v: T) => string) {
 
 function topMoves(sets: SourceSet[]) {
   const counts = new Map<string, number>();
-  for (const s of sets) for (const m of new Set(s.moves)) counts.set(m, (counts.get(m) ?? 0) + 1);
+  for (const s of sets) for (const m of new Set(s.moves)) counts.set(m, (counts.get(m) ?? 0) + s.weight);
   return [...counts].sort((a, b) => b[1] - a[1]).slice(0, 4).map(([m]) => m);
 }
 
@@ -40,7 +41,7 @@ function presetFrom(group: SourceSet[], share: number, pastes: SourceSet[]): Pre
   const first = group[0];
   const withSp = pastes.length ? pastes : group.filter((s) => s.sp);
   const clusters = clusterSpreads(
-    withSp.map((s) => ({ sp: s.sp!, share: 1 })),
+    withSp.map((s) => ({ sp: s.sp!, share: s.weight })),
     4,
     (into, from) => (into.share += from.share),
   );
@@ -73,7 +74,7 @@ export function buildPresets(regulation: string, tournamentSets: SourceSet[], pa
     const groups = new Map<string, SourceSet[]>();
     for (const s of source.filter((s) => s.nature)) groups.set(key(s), [...(groups.get(key(s)) ?? []), s]);
     const presets = [...groups.values()]
-      .map((group) => ({ group, share: group.length / source.length }))
+      .map((group) => ({ group, share: totalWeight(group) / totalWeight(source) }))
       .filter(({ share }, i) => share >= MIN_SHARE || i === 0)
       .sort((a, b) => b.share - a.share)
       .slice(0, MAX_PRESETS)

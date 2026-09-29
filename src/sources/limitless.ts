@@ -32,7 +32,7 @@ async function listTournaments(format: string) {
     all.push(...batch);
     if (batch.length < 100) break;
   }
-  return all.filter((t) => t.format === format && !GIMMICK_EVENT.test(t.name));
+  return all.filter((t) => t.format === format && !GIMMICK_EVENT.test(t.name) && Date.parse(t.date) <= Date.now());
 }
 
 export async function ingestLimitless(format = 'M-C'): Promise<LimitlessResult> {
@@ -72,6 +72,9 @@ export async function ingestLimitless(format = 'M-C'): Promise<LimitlessResult> 
           moves: moves.filter((m): m is string => !!m),
           sp: null,
           origin: `limitless:${tournament.id}:${standing.player}`,
+          date: tournament.date.slice(0, 10),
+          regional: false,
+          weight: 1,
         });
       }
     }

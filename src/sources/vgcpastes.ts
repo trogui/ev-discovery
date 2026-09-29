@@ -7,8 +7,15 @@ import type { SourceSet } from '../lib/types.js';
 const SHEET_ID = '1axlwmzPA49rYkqXh7zHvAtSP-TKbM0ijGYBPRflLSWw';
 const SHEET_TABS: Record<string, string> = { 'M-C': '2001945654' };
 const HOUR = 3_600_000;
+const REGIONAL_EVENT = /regional|international|world/i;
+const SIDE_EVENT = /challenge|cup|side|local/i;
 
-export type PasteTeam = { teamId: string; url: string; date: string; event: string; rank: string };
+const isoDate = (text: string) => {
+  const time = Date.parse(`${text} UTC`);
+  return Number.isFinite(time) ? new Date(time).toISOString().slice(0, 10) : '';
+};
+
+export type PasteTeam = { teamId: string; url: string; date: string; event: string; rank: string; regional: boolean };
 
 export type VgcPastesResult = {
   teams: PasteTeam[];
@@ -64,9 +71,10 @@ async function listTeams(regulation: string) {
     .map((r) => ({
       teamId: r[id],
       url: r[paste].match(/https?:\/\/pokepast\.es\/[0-9a-f]+/)![0],
-      date: r[date],
+      date: isoDate(r[date]),
       event: r[event],
       rank: r[rank],
+      regional: REGIONAL_EVENT.test(r[event]) && !SIDE_EVENT.test(r[event]),
     }));
 }
 
@@ -114,6 +122,9 @@ export async function ingestVgcPastes(regulation = 'M-C'): Promise<VgcPastesResu
         moves: mon.moves.map((m) => moveName(m)).filter((m): m is string => !!m),
         sp: spread.sp,
         origin: `vgcpastes:${team.teamId}`,
+        date: team.date,
+        regional: team.regional,
+        weight: 1,
       });
     }
   });

@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
-import { mergePokemon } from './merge.js';
+import { applyWeights, mergePokemon, newestDate } from './merge.js';
 import { buildPresets } from './presets.js';
 import type { Meta, SourceSet } from './lib/types.js';
 import { ingestLimitless } from './sources/limitless.js';
@@ -34,13 +34,18 @@ log(`munchstats: fetching top ${top} (crawl delay 10s, cached per day)`);
 const munch = await ingestMunchStats(top);
 log(`munchstats: snapshot ${munch.snapshot}, ${munch.pokemon.length} pokemon, ${munch.unresolved.length} unresolved`);
 
+const anchor = newestDate([...limitless.sets, ...pastes.sets]);
+const limitlessSets = applyWeights(limitless.sets, anchor);
+const pasteSets = applyWeights(pastes.sets, anchor);
+log(`weights anchored at ${new Date(anchor).toISOString().slice(0, 10)}`);
+
 await mkdir(join(DATA_DIR, 'normalized'), { recursive: true });
-await writeJson('normalized/limitless.json', { tournaments: limitless.tournaments, unresolved: limitless.unresolved, sets: limitless.sets });
-await writeJson('normalized/vgcpastes.json', { teams: pastes.teams, rejected: pastes.rejected, unresolved: pastes.unresolved, sets: pastes.sets });
+await writeJson('normalized/limitless.json', { tournaments: limitless.tournaments, unresolved: limitless.unresolved, sets: limitlessSets });
+await writeJson('normalized/vgcpastes.json', { teams: pastes.teams, rejected: pastes.rejected, unresolved: pastes.unresolved, sets: pasteSets });
 await writeJson('normalized/munchstats.json', munch);
 
-const tournamentBySpecies = bySpecies(limitless.sets);
-const pasteBySpecies = bySpecies(pastes.sets);
+const tournamentBySpecies = bySpecies(limitlessSets);
+const pasteBySpecies = bySpecies(pasteSets);
 const meta: Meta = {
   generatedAt: new Date().toISOString(),
   regulation: REGULATION,
@@ -54,7 +59,7 @@ const meta: Meta = {
   pokemon: munch.pokemon.map((p) => mergePokemon(p, tournamentBySpecies.get(p.species) ?? [], pasteBySpecies.get(p.species) ?? [])),
 };
 await writeJson('meta.json', meta);
-const presets = buildPresets(REGULATION, limitless.sets, pastes.sets);
+const presets = buildPresets(REGULATION, limitlessSets, pasteSets);
 await writeFile(join(DATA_DIR, 'presets.json'), JSON.stringify(presets) + '\n');
 
 const confidence = new Map<string, number>();
