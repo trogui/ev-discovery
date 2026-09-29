@@ -70,6 +70,7 @@ export type Meta = {
     pasteTeams: number;
     pasteSets: number;
     munchstatsSnapshot: string;
+    munchstatsMonth: string | null;
     newestEvent: string;
     regionalWeight: number;
     halfLifeDays: number;

@@ -36,7 +36,7 @@ for (const e of pokedata.events) log(`  ${e.date} ${e.name}: ${e.lists}/${e.play
 log(`vgcpastes: ${pastes.teams.length} teams, ${pastes.sets.length} sets, ${pastes.rejected.length} rejected, ${pastes.unresolved.length} unresolved`);
 log(`munchstats: fetching top ${top} (crawl delay 10s, cached per day)`);
 const munch = await ingestMunchStats(top);
-log(`munchstats: snapshot ${munch.snapshot}, ${munch.pokemon.length} pokemon, ${munch.unresolved.length} unresolved`);
+log(`munchstats: snapshot ${munch.snapshot} (stats month ${munch.month}), ${munch.pokemon.length} pokemon, ${munch.unresolved.length} unresolved`);
 
 const anchor = newestDate([...limitless.sets, ...pokedata.sets, ...pastes.sets]);
 const tournamentSets = applyWeights([...limitless.sets, ...pokedata.sets], anchor);
@@ -66,6 +66,7 @@ const meta: Meta = {
     pasteTeams: pastes.teams.length,
     pasteSets: pastes.sets.length,
     munchstatsSnapshot: munch.snapshot,
+    munchstatsMonth: munch.month,
     newestEvent: new Date(anchor).toISOString().slice(0, 10),
     regionalWeight: MERGE_RULES.regionalWeight,
     halfLifeDays: MERGE_RULES.halfLifeDays,

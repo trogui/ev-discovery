@@ -6,7 +6,7 @@ import type { MunchEntry, MunchPokemon } from '../lib/types.js';
 const BASE = 'https://www.munchstats.com/champions/doubles';
 const CRAWL_DELAY_MS = 10_000;
 
-export type MunchResult = { snapshot: string; ranking: { name: string; rank: number }[]; pokemon: MunchPokemon[]; unresolved: string[] };
+export type MunchResult = { snapshot: string; month: string | null; ranking: { name: string; rank: number }[]; pokemon: MunchPokemon[]; unresolved: string[] };
 
 const decode = (s: string) =>
   s.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').trim();
@@ -37,7 +37,9 @@ export async function ingestMunchStats(top = 40): Promise<MunchResult> {
   const page = (name: string) =>
     fetchCached(`munchstats/${snapshot}/${name}.html`, `${BASE}/${encodeURIComponent(name)}`, { minIntervalMs: CRAWL_DELAY_MS });
 
-  const ranking = parseRanking(await page('Rillaboom'));
+  const first = await page('Rillaboom');
+  const month = first.match(/class="month-option active">\s*(\d{4}-\d{2})/)?.[1] ?? null;
+  const ranking = parseRanking(first);
   if (!ranking.length) throw new Error('MunchStats ranking not found; page layout may have changed');
 
   const pokemon: MunchPokemon[] = [];
@@ -70,5 +72,5 @@ export async function ingestMunchStats(top = 40): Promise<MunchResult> {
     });
   }
 
-  return { snapshot, ranking, pokemon, unresolved: [...unresolved].sort() };
+  return { snapshot, month, ranking, pokemon, unresolved: [...unresolved].sort() };
 }
