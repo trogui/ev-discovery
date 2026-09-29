@@ -28,8 +28,11 @@ const BOOSTS: [keyof Boosts, string, Role][] = [
   ['spd', 'SpD', 'defender'],
 ];
 
-const TERRAINS: [Settings['terrain'], string][] = [
-  ['auto', 'Auto'],
+const DIM_TIP = "Doesn't affect this tab.";
+const AUTO_TIP = "Auto takes weather, terrain and Intimidate from each set's ability.";
+
+const TERRAINS: [Settings['terrain'], string, string?][] = [
+  ['auto', 'Auto', AUTO_TIP],
   ['', 'None'],
   ['Electric', 'Electric'],
   ['Grassy', 'Grassy'],
@@ -37,8 +40,8 @@ const TERRAINS: [Settings['terrain'], string][] = [
   ['Psychic', 'Psychic'],
 ];
 
-const WEATHERS: [Settings['weather'], string][] = [
-  ['auto', 'Auto'],
+const WEATHERS: [Settings['weather'], string, string?][] = [
+  ['auto', 'Auto', AUTO_TIP],
   ['', 'None'],
   ['Sun', 'Sun'],
   ['Rain', 'Rain'],
@@ -46,11 +49,11 @@ const WEATHERS: [Settings['weather'], string][] = [
   ['Snow', 'Snow'],
 ];
 
-export function Segmented<T extends string | number>({ value, options, onChange, label, grid }: { value: T; options: [T, string][]; onChange: (v: T) => void; label: string; grid?: boolean }) {
+export function Segmented<T extends string | number>({ value, options, onChange, label, grid }: { value: T; options: [T, string, string?][]; onChange: (v: T) => void; label: string; grid?: boolean }) {
   return (
     <div className={grid ? 'segmented grid' : 'segmented'} role="radiogroup" aria-label={label}>
-      {options.map(([v, text]) => (
-        <button key={String(v)} type="button" role="radio" aria-checked={value === v} className={value === v ? 'on' : undefined} onClick={() => onChange(v)}>
+      {options.map(([v, text, tip]) => (
+        <button key={String(v)} type="button" role="radio" aria-checked={value === v} className={value === v ? 'on' : undefined} title={tip} onClick={() => onChange(v)}>
           {text}
         </button>
       ))}
@@ -88,7 +91,7 @@ export function FieldPanel({ settings, onChange, mode }: { settings: Settings; o
       <tr key={key}>
         <th scope="row">{label}</th>
         {(['mine', 'theirs'] as const).map((who) => (
-          <td key={who} className={roles[who] === role ? undefined : 'dim'}>
+          <td key={who} className={roles[who] === role ? undefined : 'dim'} title={roles[who] === role ? undefined : DIM_TIP}>
             <input type="checkbox" checked={settings[who][key]} onChange={() => flip(who, key)} aria-label={`${label}, ${who === 'mine' ? 'you' : 'opponent'}`} />
           </td>
         ))}
@@ -118,7 +121,6 @@ export function FieldPanel({ settings, onChange, mode }: { settings: Settings; o
         <span className="field-title">Weather</span>
         <Segmented grid label="Weather" value={settings.weather} onChange={(v) => set('weather', v)} options={WEATHERS} />
       </div>
-      <p className="hint">Auto takes weather, terrain and Intimidate from each set's ability.</p>
 
       <div className="checks">
         <label className="check">
@@ -156,7 +158,7 @@ export function FieldPanel({ settings, onChange, mode }: { settings: Settings; o
             <tr key={key}>
               <th scope="row">{label} stage</th>
               {(['mine', 'theirs'] as const).map((who) => (
-                <td key={who} className={roles[who] === role ? undefined : 'dim'}>
+                <td key={who} className={roles[who] === role ? undefined : 'dim'} title={roles[who] === role ? undefined : DIM_TIP}>
                   <Stepper label={`${label}, ${who === 'mine' ? 'you' : 'opponent'}`} value={settings[who].boosts[key]} onChange={(v) => set(who, { ...settings[who], boosts: { ...settings[who].boosts, [key]: v } })} />
                 </td>
               ))}
@@ -164,7 +166,6 @@ export function FieldPanel({ settings, onChange, mode }: { settings: Settings; o
           ))}
         </tbody>
       </table>
-      <p className="hint">Faded options don't affect this tab.</p>
     </section>
   );
 }
