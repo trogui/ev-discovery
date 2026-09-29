@@ -6,7 +6,7 @@ export const gen = Generations.get(0);
 export const STAT_IDS: StatID[] = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'];
 
 export function toID(text: string | null | undefined) {
-  return (text ?? '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  return (text ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
 
 const SPECIES_ALIASES: Record<string, string> = {

@@ -26,7 +26,9 @@ function totalVariation(a: Map<string, number>, b: Map<string, number>) {
 }
 
 const meta = await read<Meta>('meta.json');
-const limitless = await read<{ sets: SourceSet[] }>('normalized/limitless.json');
+const online = await read<{ sets: SourceSet[] }>('normalized/limitless.json');
+const regional = await read<{ sets: SourceSet[] }>('normalized/pokedata.json');
+const limitless = { sets: [...online.sets, ...regional.sets] };
 const pastes = await read<{ sets: SourceSet[] }>('normalized/vgcpastes.json');
 const munch = await read<{ pokemon: MunchPokemon[] }>('normalized/munchstats.json');
 

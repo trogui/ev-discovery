@@ -50,15 +50,30 @@ export type MetaPokemon = {
   sets: MetaSet[];
 };
 
+export type RegionalStatus = {
+  id: string;
+  name: string;
+  date: string;
+  players: number;
+  lists: number;
+  pasteTeams: number;
+  applied: boolean;
+};
+
 export type Meta = {
   generatedAt: string;
   regulation: string;
   sources: {
     limitlessTournaments: number;
     limitlessSets: number;
+    regionalSets: number;
     pasteTeams: number;
     pasteSets: number;
     munchstatsSnapshot: string;
+    newestEvent: string;
+    regionalWeight: number;
+    halfLifeDays: number;
+    regionals: RegionalStatus[];
   };
   pokemon: MetaPokemon[];
 };
