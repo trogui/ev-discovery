@@ -100,7 +100,7 @@ export function Toolbar({ settings, onChange, mode, library, onLibraryChange, cu
             </div>
           </Popover>{' '}
           of the{' '}
-          <Popover className="inline" label={`${targets} line`}>
+          <Popover className="inline" label={targets}>
             <div className="panel-stack">
               <span className="field-title">KO lines</span>
               <div className="toggle-row">

@@ -467,7 +467,7 @@ export function Results(props: Props) {
       <div className="table">
         <div className="table-head">
           <span>#</span>
-          <span>{only ? 'Your sets' : mode === 'in' ? `${counts.in} of the top ${top} close or OHKO you` : `${counts.out} of the top ${top} in range`}</span>
+          <span>{only ? 'Your sets' : 'Pokémon'}</span>
           <span>Move</span>
           <span className="bar-legend">
             <span>Damage range</span>
