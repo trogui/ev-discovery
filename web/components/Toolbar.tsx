@@ -2,7 +2,7 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import type { Settings } from '../calc/types';
 import type { LibraryEntry } from '../library';
 import type { Mode } from '../useStickyList';
-import { Segmented } from './FieldPanel';
+import { FieldPanel, Segmented, countFieldChanges } from './FieldPanel';
 import { Library } from './Library';
 import { Popover } from './Popover';
 
@@ -75,6 +75,7 @@ export function Toolbar({ settings, onChange, mode, library, onLibraryChange, cu
   const [lo, hi] = settings.band;
   const targets = [settings.targets.ohko && 'OHKO', settings.targets.twohko && '2HKO'].filter(Boolean).join(' or ');
   const active = library.filter((e) => e.active).length;
+  const changes = countFieldChanges(settings);
 
   return (
     <div className="toolbar-wrap">
@@ -118,6 +119,11 @@ export function Toolbar({ settings, onChange, mode, library, onLibraryChange, cu
         </div>
         <div className="toolbar-side">
           <SearchBox value={query} onChange={onQueryChange} />
+          <span className="field-button">
+            <Popover label={changes ? `Field ${changes}` : 'Field'} active={changes > 0} width={300} align="right">
+              <FieldPanel settings={settings} onChange={onChange} mode={mode} />
+            </Popover>
+          </span>
           <Popover label={active ? `Library ${active}` : 'Library'} active={customOnly && active > 0} width={380} align="right">
             <Library entries={library} onChange={onLibraryChange} ranks={ranks} customOnly={customOnly} onCustomOnlyChange={onCustomOnlyChange} />
           </Popover>

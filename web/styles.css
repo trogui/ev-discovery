@@ -187,6 +187,10 @@ textarea {
   overflow-y: auto;
 }
 
+.field-button {
+  display: none;
+}
+
 .field-side {
   grid-area: field;
   align-self: start;
@@ -2270,17 +2274,30 @@ textarea {
   border-bottom-color: var(--ink);
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1420px) {
+  .app {
+    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-areas: 'top top' 'side main';
+  }
+  .field-side {
+    display: none;
+  }
+  .field-button {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1150px) {
   .table {
     --cols: 28px minmax(130px, 170px) minmax(100px, 1fr) minmax(150px, 240px) 132px;
   }
 }
 
-@media (max-width: 1240px) {
+@media (max-width: 1040px) {
   .app {
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: none;
-    grid-template-areas: 'top top' 'side main' 'field main';
+    grid-template-areas: 'top' 'side' 'field' 'main';
     height: auto;
     padding-bottom: 64px;
   }
@@ -2291,10 +2308,17 @@ textarea {
     max-height: none;
     overflow: visible;
   }
+  .side {
+    margin-bottom: 32px;
+  }
   .field-side {
+    display: block;
     margin-top: 36px;
     padding-top: 20px;
     border-top: 1px solid var(--line);
+  }
+  .field-button {
+    display: none;
   }
 }
 
@@ -2307,12 +2331,7 @@ textarea {
 
 @media (max-width: 860px) {
   .app {
-    grid-template-columns: 1fr;
-    grid-template-areas: 'top' 'side' 'field' 'main';
     padding: 0 16px 48px;
-  }
-  .side {
-    margin-bottom: 32px;
   }
   .table {
     --cols: 24px 1fr 120px;
