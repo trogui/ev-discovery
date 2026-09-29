@@ -471,8 +471,8 @@ export function Results(props: Props) {
           <span>Move</span>
           <span className="bar-legend">
             <span>Damage range</span>
-            <span className="bar-key">OHKO line</span>
-            {targets.twohko && <span className="bar-key two">2HKO line</span>}
+            <span className="bar-key">OHKO</span>
+            {targets.twohko && <span className="bar-key two">2HKO</span>}
           </span>
           <span className="table-actions">
             <button type="button" className={picker.active ? 'link on' : 'link'} onClick={() => onPickingChange(!picker.active)} aria-pressed={picker.active}>
