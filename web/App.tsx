@@ -14,7 +14,7 @@ import { activeOpponents, fromMeta, newId, type LibraryEntry } from './library';
 import type { Level } from './ko';
 import { buildMySet, importPaste, type EditableSet } from './me';
 import { conditionsOf, hash, type ReportItem } from './report';
-import { DEFAULT_SETTINGS, normalizeSettings } from './settings';
+import { DEFAULT_SETTINGS, NO_BOOSTS, normalizeSettings } from './settings';
 import { usePersistentState } from './usePersistentState';
 import { useWatchList, type Mode } from './useStickyList';
 
@@ -66,6 +66,16 @@ export function App() {
   const [editingCustom, setEditingCustom] = useState<string | null>(null);
 
   const settings = useMemo(() => normalizeSettings(storedSettings), [storedSettings]);
+
+  const changeMine = (next: EditableSet | null) => {
+    if (next && next.species !== mine?.species) {
+      setSettings((s) => {
+        const current = normalizeSettings(s);
+        return { ...current, mine: { ...current.mine, boosts: NO_BOOSTS } };
+      });
+    }
+    setMine(next);
+  };
   const calcSettings = useMemo<CalcSettings>(() => {
     const { band: _band, targets: _targets, ...rest } = settings;
     return rest;
@@ -152,7 +162,7 @@ export function App() {
         </div>
       </header>
       <aside className="side">
-        <SetEditor title="Your Pokémon" value={mine} onChange={setMine} ranks={ranks} />
+        <SetEditor title="Your Pokémon" value={mine} onChange={changeMine} ranks={ranks} />
       </aside>
       {mine && (
         <aside className="field-side">
@@ -166,7 +176,7 @@ export function App() {
             <p>
               Pick your Pokémon on the left. You get every matchup against the common sets of the top {settings.top} in Reg {meta.regulation}, filtered down to the calcs that land near an OHKO or 2HKO.
             </p>
-            <StartPicker species={meta.pokemon.slice(0, 12).map((p) => p.species)} onPick={setMine} />
+            <StartPicker species={meta.pokemon.slice(0, 12).map((p) => p.species)} onPick={changeMine} />
           </div>
         ) : (
           <Results
