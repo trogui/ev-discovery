@@ -1415,7 +1415,7 @@ textarea {
 .bar-legend {
   display: flex;
   gap: 9px;
-  align-items: baseline;
+  align-items: center;
   white-space: nowrap;
 }
 
