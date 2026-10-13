@@ -3,6 +3,7 @@ import { fetchJsonCached, mapLimit } from '../lib/http.js';
 import type { SourceSet } from '../lib/types.js';
 
 const API = 'https://play.limitlesstcg.com/api';
+const REQUEST_INTERVAL_MS = 7_000;
 const HOUR = 3_600_000;
 const DAY = 24 * HOUR;
 const GIMMICK_EVENT = /monotype|gen ?\d+ edition|off[ -]?meta|little ?cup|\blc\b|draft|random|inverse/i;
@@ -22,13 +23,13 @@ type Standing = {
   }[];
 };
 
-export type LimitlessResult = { tournaments: Tournament[]; sets: SourceSet[]; unresolved: string[] };
+export type LimitlessResult = { tournaments: Tournament[]; sets: SourceSet[]; unresolved: string[]; failed: string[] };
 
 async function listTournaments(format: string) {
   const all: Tournament[] = [];
   for (let page = 1; ; page++) {
     const url = `${API}/tournaments?game=VGC&format=${format}&limit=100&page=${page}`;
-    const batch = await fetchJsonCached<Tournament[]>(`limitless/list-${format}-p${page}.json`, url, { maxAgeMs: 6 * HOUR });
+    const batch = await fetchJsonCached<Tournament[]>(`limitless/list-${format}-p${page}.json`, url, { maxAgeMs: 6 * HOUR, minIntervalMs: REQUEST_INTERVAL_MS });
     all.push(...batch);
     if (batch.length < 100) break;
   }
@@ -40,16 +41,25 @@ export async function ingestLimitless(format = 'M-C'): Promise<LimitlessResult> 
   const unresolved = new Set<string>();
   const sets: SourceSet[] = [];
 
-  const standings = await mapLimit(tournaments, 4, (t) => {
+  const failed: string[] = [];
+  const standings = await mapLimit(tournaments, 4, async (t) => {
     const settled = Date.now() - Date.parse(t.date) > 3 * DAY;
-    return fetchJsonCached<Standing[]>(`limitless/standings/${t.id}.json`, `${API}/tournaments/${t.id}/standings`, {
-      maxAgeMs: settled ? undefined : 6 * HOUR,
-      minIntervalMs: 250,
-    });
+    try {
+      return await fetchJsonCached<Standing[]>(`limitless/standings/${t.id}.json`, `${API}/tournaments/${t.id}/standings`, {
+        maxAgeMs: settled ? undefined : 6 * HOUR,
+        minIntervalMs: REQUEST_INTERVAL_MS,
+      });
+    } catch {
+      failed.push(t.id);
+      return null;
+    }
   });
+  if (tournaments.length && standings.every((s) => s === null)) {
+    throw new Error(`Limitless: all ${tournaments.length} standings requests failed`);
+  }
 
   tournaments.forEach((tournament, i) => {
-    for (const standing of standings[i]) {
+    for (const standing of standings[i] ?? []) {
       for (const mon of standing.decklist ?? []) {
         const species = speciesName(mon.id) ?? speciesName(mon.name);
         if (!species) {
@@ -80,5 +90,5 @@ export async function ingestLimitless(format = 'M-C'): Promise<LimitlessResult> 
     }
   });
 
-  return { tournaments, sets, unresolved: [...unresolved].sort() };
+  return { tournaments, sets, unresolved: [...unresolved].sort(), failed: failed.sort() };
 }

@@ -30,7 +30,8 @@ const log = (message: string) => console.log(`[${new Date().toISOString().slice(
 
 log(`ingest ${REGULATION}, top ${top}`);
 const [limitless, pastes, pokedata] = await Promise.all([ingestLimitless(REGULATION), ingestVgcPastes(REGULATION), ingestPokedata(REGULATION_START)]);
-log(`limitless: ${limitless.tournaments.length} tournaments, ${limitless.sets.length} sets, ${limitless.unresolved.length} unresolved`);
+log(`limitless: ${limitless.tournaments.length} tournaments, ${limitless.sets.length} sets, ${limitless.unresolved.length} unresolved, ${limitless.failed.length} failed`);
+if (limitless.failed.length) log(`  failed standings: ${limitless.failed.join(', ')}`);
 log(`pokedata: ${pokedata.events.length} events, ${pokedata.sets.length} sets, ${pokedata.unresolved.length} unresolved`);
 for (const e of pokedata.events) log(`  ${e.date} ${e.name}: ${e.lists}/${e.players} lists, ${e.sets} sets`);
 log(`vgcpastes: ${pastes.teams.length} teams, ${pastes.sets.length} sets, ${pastes.rejected.length} rejected, ${pastes.unresolved.length} unresolved`);
