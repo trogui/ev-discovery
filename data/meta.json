@@ -1,15 +1,15 @@
 {
- "generatedAt": "2026-10-13T09:09:58.562Z",
+ "generatedAt": "2026-10-15T10:49:41.693Z",
  "regulation": "M-C",
  "sources": {
-  "limitlessTournaments": 211,
-  "limitlessSets": 53606,
+  "limitlessTournaments": 225,
+  "limitlessSets": 56738,
   "regionalSets": 21256,
   "pasteTeams": 560,
   "pasteSets": 3354,
-  "munchstatsSnapshot": "2026-10-13",
+  "munchstatsSnapshot": "2026-10-15",
   "munchstatsMonth": "2026-09",
-  "newestEvent": "2026-10-12",
+  "newestEvent": "2026-10-15",
   "regionalWeight": 2,
   "halfLifeDays": 30,
   "regionals": [
@@ -55,14 +55,14 @@
   {
    "species": "Rillaboom",
    "rank": 1,
-   "tournamentSets": 6650,
+   "tournamentSets": 6853,
    "pasteSets": 284,
    "sets": [
     {
-     "weight": 0.7213,
+     "weight": 0.7226,
      "confidence": "ladder",
      "samples": {
-      "archetype": 4662,
+      "archetype": 4809,
       "spread": 180
      },
      "spreadMix": {
@@ -92,10 +92,10 @@
      }
     },
     {
-     "weight": 0.1469,
+     "weight": 0.1472,
      "confidence": "paste",
      "samples": {
-      "archetype": 4662,
+      "archetype": 4809,
       "spread": 180
      },
      "spreadMix": {
@@ -125,10 +125,10 @@
      }
     },
     {
-     "weight": 0.051,
+     "weight": 0.0499,
      "confidence": "ladder",
      "samples": {
-      "archetype": 409,
+      "archetype": 412,
       "spread": 15
      },
      "spreadMix": {
@@ -161,7 +161,7 @@
      "weight": 0.048,
      "confidence": "ladder",
      "samples": {
-      "archetype": 333,
+      "archetype": 343,
       "spread": 21
      },
      "spreadMix": {
@@ -191,10 +191,10 @@
      }
     },
     {
-     "weight": 0.0192,
+     "weight": 0.0187,
      "confidence": "paste",
      "samples": {
-      "archetype": 409,
+      "archetype": 412,
       "spread": 15
      },
      "spreadMix": {
@@ -227,7 +227,7 @@
      "weight": 0.0136,
      "confidence": "paste",
      "samples": {
-      "archetype": 333,
+      "archetype": 343,
       "spread": 21
      },
      "spreadMix": {
@@ -261,14 +261,14 @@
   {
    "species": "Sneasler",
    "rank": 2,
-   "tournamentSets": 4769,
+   "tournamentSets": 4976,
    "pasteSets": 265,
    "sets": [
     {
-     "weight": 0.3225,
+     "weight": 0.3259,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1333,
+      "archetype": 1409,
       "spread": 58
      },
      "spreadMix": {
@@ -294,10 +294,10 @@
      ]
     },
     {
-     "weight": 0.2427,
+     "weight": 0.2358,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1101,
+      "archetype": 1119,
       "spread": 62
      },
      "spreadMix": {
@@ -319,15 +319,15 @@
      "moves": [
       "Close Combat",
       "Dire Claw",
-      "Fake Out",
-      "Rock Slide"
+      "Rock Slide",
+      "Fake Out"
      ]
     },
     {
-     "weight": 0.2131,
+     "weight": 0.2122,
      "confidence": "ladder",
      "samples": {
-      "archetype": 843,
+      "archetype": 878,
       "spread": 61
      },
      "spreadMix": {
@@ -354,10 +354,10 @@
      ]
     },
     {
-     "weight": 0.1399,
+     "weight": 0.1446,
      "confidence": "paste",
      "samples": {
-      "archetype": 509,
+      "archetype": 552,
       "spread": 30
      },
      "spreadMix": {
@@ -384,10 +384,10 @@
      ]
     },
     {
-     "weight": 0.0371,
+     "weight": 0.0375,
      "confidence": "paste",
      "samples": {
-      "archetype": 1333,
+      "archetype": 1409,
       "spread": 58
      },
      "spreadMix": {
@@ -413,10 +413,10 @@
      ]
     },
     {
-     "weight": 0.0304,
+     "weight": 0.0295,
      "confidence": "paste",
      "samples": {
-      "archetype": 1101,
+      "archetype": 1119,
       "spread": 62
      },
      "spreadMix": {
@@ -438,15 +438,15 @@
      "moves": [
       "Close Combat",
       "Dire Claw",
-      "Fake Out",
-      "Rock Slide"
+      "Rock Slide",
+      "Fake Out"
      ]
     },
     {
-     "weight": 0.0099,
+     "weight": 0.0098,
      "confidence": "paste",
      "samples": {
-      "archetype": 843,
+      "archetype": 878,
       "spread": 61
      },
      "spreadMix": {
@@ -473,10 +473,10 @@
      ]
     },
     {
-     "weight": 0.0044,
+     "weight": 0.0046,
      "confidence": "ladder",
      "samples": {
-      "archetype": 509,
+      "archetype": 552,
       "spread": 30
      },
      "spreadMix": {
@@ -507,14 +507,14 @@
   {
    "species": "Incineroar",
    "rank": 3,
-   "tournamentSets": 4396,
+   "tournamentSets": 4599,
    "pasteSets": 194,
    "sets": [
     {
-     "weight": 0.3096,
+     "weight": 0.307,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1169,
+      "archetype": 1210,
       "spread": 51
      },
      "spreadMix": {
@@ -544,10 +544,10 @@
      }
     },
     {
-     "weight": 0.2533,
+     "weight": 0.2552,
      "confidence": "paste",
      "samples": {
-      "archetype": 1356,
+      "archetype": 1423,
       "spread": 52
      },
      "spreadMix": {
@@ -577,10 +577,10 @@
      }
     },
     {
-     "weight": 0.2142,
+     "weight": 0.2158,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1356,
+      "archetype": 1423,
       "spread": 52
      },
      "spreadMix": {
@@ -610,10 +610,10 @@
      }
     },
     {
-     "weight": 0.1085,
+     "weight": 0.1076,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1169,
+      "archetype": 1210,
       "spread": 51
      },
      "spreadMix": {
@@ -646,7 +646,7 @@
      "weight": 0.0781,
      "confidence": "ladder",
      "samples": {
-      "archetype": 315,
+      "archetype": 329,
       "spread": 16
      },
      "spreadMix": {
@@ -679,7 +679,7 @@
      "weight": 0.0362,
      "confidence": "ladder",
      "samples": {
-      "archetype": 315,
+      "archetype": 329,
       "spread": 16
      },
      "spreadMix": {
@@ -713,14 +713,14 @@
   {
    "species": "Salamence",
    "rank": 4,
-   "tournamentSets": 2626,
+   "tournamentSets": 2669,
    "pasteSets": 180,
    "sets": [
     {
-     "weight": 0.7374,
+     "weight": 0.7386,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1820,
+      "archetype": 1852,
       "spread": 96
      },
      "spreadMix": {
@@ -746,10 +746,10 @@
      ]
     },
     {
-     "weight": 0.1581,
+     "weight": 0.158,
      "confidence": "ladder",
      "samples": {
-      "archetype": 379,
+      "archetype": 385,
       "spread": 27
      },
      "spreadMix": {
@@ -775,7 +775,7 @@
      ]
     },
     {
-     "weight": 0.0547,
+     "weight": 0.0538,
      "confidence": "ladder",
      "samples": {
       "archetype": 162,
@@ -804,10 +804,10 @@
      ]
     },
     {
-     "weight": 0.0347,
+     "weight": 0.0348,
      "confidence": "paste",
      "samples": {
-      "archetype": 1820,
+      "archetype": 1852,
       "spread": 96
      },
      "spreadMix": {
@@ -833,7 +833,7 @@
      ]
     },
     {
-     "weight": 0.0078,
+     "weight": 0.0077,
      "confidence": "paste",
      "samples": {
       "archetype": 162,
@@ -865,7 +865,7 @@
      "weight": 0.0072,
      "confidence": "paste",
      "samples": {
-      "archetype": 379,
+      "archetype": 385,
       "spread": 27
      },
      "spreadMix": {
@@ -895,14 +895,14 @@
   {
    "species": "Indeedee-F",
    "rank": 5,
-   "tournamentSets": 1910,
+   "tournamentSets": 1985,
    "pasteSets": 124,
    "sets": [
     {
-     "weight": 0.3542,
+     "weight": 0.3632,
      "confidence": "paste",
      "samples": {
-      "archetype": 374,
+      "archetype": 403,
       "spread": 27
      },
      "spreadMix": {
@@ -929,10 +929,10 @@
      }
     },
     {
-     "weight": 0.354,
+     "weight": 0.351,
      "confidence": "paste",
      "samples": {
-      "archetype": 358,
+      "archetype": 374,
       "spread": 31
      },
      "spreadMix": {
@@ -959,10 +959,10 @@
      }
     },
     {
-     "weight": 0.2151,
+     "weight": 0.2089,
      "confidence": "paste",
      "samples": {
-      "archetype": 237,
+      "archetype": 242,
       "spread": 10
      },
      "spreadMix": {
@@ -989,10 +989,10 @@
      }
     },
     {
-     "weight": 0.0366,
+     "weight": 0.0375,
      "confidence": "ladder",
      "samples": {
-      "archetype": 374,
+      "archetype": 403,
       "spread": 27
      },
      "spreadMix": {
@@ -1019,10 +1019,10 @@
      }
     },
     {
-     "weight": 0.0275,
+     "weight": 0.0273,
      "confidence": "ladder",
      "samples": {
-      "archetype": 358,
+      "archetype": 374,
       "spread": 31
      },
      "spreadMix": {
@@ -1049,10 +1049,10 @@
      }
     },
     {
-     "weight": 0.0126,
+     "weight": 0.0122,
      "confidence": "ladder",
      "samples": {
-      "archetype": 237,
+      "archetype": 242,
       "spread": 10
      },
      "spreadMix": {
@@ -1083,14 +1083,14 @@
   {
    "species": "Garchomp",
    "rank": 6,
-   "tournamentSets": 3222,
+   "tournamentSets": 3422,
    "pasteSets": 104,
    "sets": [
     {
-     "weight": 0.549,
+     "weight": 0.5399,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1669,
+      "archetype": 1736,
       "spread": 49
      },
      "spreadMix": {
@@ -1117,10 +1117,10 @@
      ]
     },
     {
-     "weight": 0.193,
+     "weight": 0.2063,
      "confidence": "ladder",
      "samples": {
-      "archetype": 485,
+      "archetype": 556,
       "spread": 21
      },
      "spreadMix": {
@@ -1147,10 +1147,10 @@
      ]
     },
     {
-     "weight": 0.1359,
+     "weight": 0.1325,
      "confidence": "ladder",
      "samples": {
-      "archetype": 414,
+      "archetype": 429,
       "spread": 10
      },
      "spreadMix": {
@@ -1177,10 +1177,10 @@
      ]
     },
     {
-     "weight": 0.0655,
+     "weight": 0.0644,
      "confidence": "paste",
      "samples": {
-      "archetype": 1669,
+      "archetype": 1736,
       "spread": 49
      },
      "spreadMix": {
@@ -1207,10 +1207,10 @@
      ]
     },
     {
-     "weight": 0.0393,
+     "weight": 0.0383,
      "confidence": "paste",
      "samples": {
-      "archetype": 414,
+      "archetype": 429,
       "spread": 10
      },
      "spreadMix": {
@@ -1237,10 +1237,10 @@
      ]
     },
     {
-     "weight": 0.0174,
+     "weight": 0.0186,
      "confidence": "paste",
      "samples": {
-      "archetype": 485,
+      "archetype": 556,
       "spread": 21
      },
      "spreadMix": {
@@ -1271,14 +1271,14 @@
   {
    "species": "Kingambit",
    "rank": 7,
-   "tournamentSets": 2706,
+   "tournamentSets": 2828,
    "pasteSets": 170,
    "sets": [
     {
-     "weight": 0.2816,
+     "weight": 0.2853,
      "confidence": "ladder",
      "samples": {
-      "archetype": 790,
+      "archetype": 839,
       "spread": 33
      },
      "spreadMix": {
@@ -1304,10 +1304,10 @@
      ]
     },
     {
-     "weight": 0.2569,
+     "weight": 0.2532,
      "confidence": "ladder",
      "samples": {
-      "archetype": 786,
+      "archetype": 811,
       "spread": 64
      },
      "spreadMix": {
@@ -1334,10 +1334,10 @@
      ]
     },
     {
-     "weight": 0.1071,
+     "weight": 0.1077,
      "confidence": "ladder",
      "samples": {
-      "archetype": 345,
+      "archetype": 362,
       "spread": 18
      },
      "spreadMix": {
@@ -1363,10 +1363,10 @@
      ]
     },
     {
-     "weight": 0.1052,
+     "weight": 0.1048,
      "confidence": "paste",
      "samples": {
-      "archetype": 425,
+      "archetype": 443,
       "spread": 38
      },
      "spreadMix": {
@@ -1393,10 +1393,10 @@
      ]
     },
     {
-     "weight": 0.073,
+     "weight": 0.0727,
      "confidence": "ladder",
      "samples": {
-      "archetype": 425,
+      "archetype": 443,
       "spread": 38
      },
      "spreadMix": {
@@ -1423,10 +1423,10 @@
      ]
     },
     {
-     "weight": 0.0725,
+     "weight": 0.0715,
      "confidence": "ladder",
      "samples": {
-      "archetype": 786,
+      "archetype": 811,
       "spread": 64
      },
      "spreadMix": {
@@ -1453,10 +1453,10 @@
      ]
     },
     {
-     "weight": 0.0689,
+     "weight": 0.0698,
      "confidence": "ladder",
      "samples": {
-      "archetype": 790,
+      "archetype": 839,
       "spread": 33
      },
      "spreadMix": {
@@ -1482,10 +1482,10 @@
      ]
     },
     {
-     "weight": 0.0348,
+     "weight": 0.035,
      "confidence": "paste",
      "samples": {
-      "archetype": 345,
+      "archetype": 362,
       "spread": 18
      },
      "spreadMix": {
@@ -1515,14 +1515,14 @@
   {
    "species": "Gholdengo",
    "rank": 8,
-   "tournamentSets": 3377,
+   "tournamentSets": 3472,
    "pasteSets": 115,
    "sets": [
     {
-     "weight": 0.3883,
+     "weight": 0.3897,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1792,
+      "archetype": 1847,
       "spread": 60
      },
      "spreadMix": {
@@ -1542,15 +1542,15 @@
       "spe": 32
      },
      "moves": [
-      "Shadow Ball",
-      "Make It Rain"
+      "Make It Rain",
+      "Shadow Ball"
      ]
     },
     {
-     "weight": 0.1965,
+     "weight": 0.1972,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1792,
+      "archetype": 1847,
       "spread": 60
      },
      "spreadMix": {
@@ -1570,15 +1570,15 @@
       "spe": 32
      },
      "moves": [
-      "Shadow Ball",
-      "Make It Rain"
+      "Make It Rain",
+      "Shadow Ball"
      ]
     },
     {
-     "weight": 0.1779,
+     "weight": 0.1767,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1218,
+      "archetype": 1242,
       "spread": 35
      },
      "spreadMix": {
@@ -1603,10 +1603,10 @@
      ]
     },
     {
-     "weight": 0.106,
+     "weight": 0.1053,
      "confidence": "paste",
      "samples": {
-      "archetype": 1218,
+      "archetype": 1242,
       "spread": 35
      },
      "spreadMix": {
@@ -1631,10 +1631,10 @@
      ]
     },
     {
-     "weight": 0.0946,
+     "weight": 0.094,
      "confidence": "paste",
      "samples": {
-      "archetype": 1218,
+      "archetype": 1242,
       "spread": 35
      },
      "spreadMix": {
@@ -1659,10 +1659,10 @@
      ]
     },
     {
-     "weight": 0.0127,
+     "weight": 0.0128,
      "confidence": "paste",
      "samples": {
-      "archetype": 113,
+      "archetype": 117,
       "spread": 4
      },
      "spreadMix": {
@@ -1687,10 +1687,10 @@
      ]
     },
     {
-     "weight": 0.0121,
+     "weight": 0.0123,
      "confidence": "paste",
      "samples": {
-      "archetype": 113,
+      "archetype": 117,
       "spread": 4
      },
      "spreadMix": {
@@ -1715,10 +1715,10 @@
      ]
     },
     {
-     "weight": 0.0119,
+     "weight": 0.012,
      "confidence": "ladder",
      "samples": {
-      "archetype": 113,
+      "archetype": 117,
       "spread": 4
      },
      "spreadMix": {
@@ -1747,14 +1747,14 @@
   {
    "species": "Basculegion",
    "rank": 9,
-   "tournamentSets": 1648,
+   "tournamentSets": 1732,
    "pasteSets": 118,
    "sets": [
     {
-     "weight": 0.5045,
+     "weight": 0.4996,
      "confidence": "ladder",
      "samples": {
-      "archetype": 643,
+      "archetype": 667,
       "spread": 40
      },
      "spreadMix": {
@@ -1781,10 +1781,10 @@
      ]
     },
     {
-     "weight": 0.2713,
+     "weight": 0.2707,
      "confidence": "ladder",
      "samples": {
-      "archetype": 378,
+      "archetype": 394,
       "spread": 42
      },
      "spreadMix": {
@@ -1810,10 +1810,10 @@
      ]
     },
     {
-     "weight": 0.1005,
+     "weight": 0.1048,
      "confidence": "ladder",
      "samples": {
-      "archetype": 166,
+      "archetype": 181,
       "spread": 7
      },
      "spreadMix": {
@@ -1839,10 +1839,10 @@
      ]
     },
     {
-     "weight": 0.0486,
+     "weight": 0.0482,
      "confidence": "paste",
      "samples": {
-      "archetype": 643,
+      "archetype": 667,
       "spread": 40
      },
      "spreadMix": {
@@ -1869,10 +1869,10 @@
      ]
     },
     {
-     "weight": 0.0404,
+     "weight": 0.0421,
      "confidence": "paste",
      "samples": {
-      "archetype": 166,
+      "archetype": 181,
       "spread": 7
      },
      "spreadMix": {
@@ -1898,10 +1898,10 @@
      ]
     },
     {
-     "weight": 0.0347,
+     "weight": 0.0346,
      "confidence": "paste",
      "samples": {
-      "archetype": 378,
+      "archetype": 394,
       "spread": 42
      },
      "spreadMix": {
@@ -1931,14 +1931,14 @@
   {
    "species": "Golisopod",
    "rank": 10,
-   "tournamentSets": 1461,
+   "tournamentSets": 1526,
    "pasteSets": 83,
    "sets": [
     {
-     "weight": 0.7143,
+     "weight": 0.7142,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1101,
+      "archetype": 1151,
       "spread": 58
      },
      "spreadMix": {
@@ -1965,10 +1965,10 @@
      ]
     },
     {
-     "weight": 0.2055,
+     "weight": 0.2056,
      "confidence": "ladder",
      "samples": {
-      "archetype": 314,
+      "archetype": 328,
       "spread": 23
      },
      "spreadMix": {
@@ -1998,7 +1998,7 @@
      "weight": 0.0682,
      "confidence": "paste",
      "samples": {
-      "archetype": 1101,
+      "archetype": 1151,
       "spread": 58
      },
      "spreadMix": {
@@ -2028,7 +2028,7 @@
      "weight": 0.012,
      "confidence": "paste",
      "samples": {
-      "archetype": 314,
+      "archetype": 328,
       "spread": 23
      },
      "spreadMix": {
@@ -2059,14 +2059,14 @@
   {
    "species": "Archaludon",
    "rank": 11,
-   "tournamentSets": 1929,
+   "tournamentSets": 2034,
    "pasteSets": 80,
    "sets": [
     {
-     "weight": 0.1928,
+     "weight": 0.1936,
      "confidence": "ladder",
      "samples": {
-      "archetype": 628,
+      "archetype": 667,
       "spread": 19
      },
      "spreadMix": {
@@ -2092,10 +2092,10 @@
      ]
     },
     {
-     "weight": 0.178,
+     "weight": 0.1788,
      "confidence": "paste",
      "samples": {
-      "archetype": 628,
+      "archetype": 667,
       "spread": 19
      },
      "spreadMix": {
@@ -2121,10 +2121,10 @@
      ]
     },
     {
-     "weight": 0.1693,
+     "weight": 0.1678,
      "confidence": "paste",
      "samples": {
-      "archetype": 598,
+      "archetype": 624,
       "spread": 30
      },
      "spreadMix": {
@@ -2151,10 +2151,10 @@
      ]
     },
     {
-     "weight": 0.1581,
+     "weight": 0.1588,
      "confidence": "paste",
      "samples": {
-      "archetype": 518,
+      "archetype": 550,
       "spread": 23
      },
      "spreadMix": {
@@ -2181,10 +2181,10 @@
      ]
     },
     {
-     "weight": 0.1546,
+     "weight": 0.1532,
      "confidence": "ladder",
      "samples": {
-      "archetype": 598,
+      "archetype": 624,
       "spread": 30
      },
      "spreadMix": {
@@ -2211,10 +2211,10 @@
      ]
     },
     {
-     "weight": 0.1472,
+     "weight": 0.1478,
      "confidence": "paste",
      "samples": {
-      "archetype": 518,
+      "archetype": 550,
       "spread": 23
      },
      "spreadMix": {
@@ -2245,14 +2245,14 @@
   {
    "species": "Pelipper",
    "rank": 12,
-   "tournamentSets": 1543,
+   "tournamentSets": 1637,
    "pasteSets": 76,
    "sets": [
     {
-     "weight": 0.3134,
+     "weight": 0.3532,
      "confidence": "paste",
      "samples": {
-      "archetype": 435,
+      "archetype": 447,
       "spread": 15
      },
      "spreadMix": {
@@ -2280,10 +2280,10 @@
      }
     },
     {
-     "weight": 0.2116,
+     "weight": 0.2519,
      "confidence": "ladder",
      "samples": {
-      "archetype": 339,
+      "archetype": 370,
       "spread": 10
      },
      "spreadMix": {
@@ -2311,10 +2311,10 @@
      }
     },
     {
-     "weight": 0.1446,
+     "weight": 0.1649,
      "confidence": "ladder",
      "samples": {
-      "archetype": 247,
+      "archetype": 256,
       "spread": 19
      },
      "spreadMix": {
@@ -2342,41 +2342,10 @@
      }
     },
     {
-     "weight": 0.1264,
+     "weight": 0.1166,
      "confidence": "paste",
      "samples": {
-      "archetype": 160,
-      "spread": 12
-     },
-     "spreadMix": {
-      "tournament": 0.577,
-      "ladder": 0.423
-     },
-     "forme": "Pelipper",
-     "item": "Focus Sash",
-     "ability": "Drizzle",
-     "nature": "Timid",
-     "sp": {
-      "hp": 2,
-      "atk": 0,
-      "def": 0,
-      "spa": 32,
-      "spd": 0,
-      "spe": 32
-     },
-     "moves": [
-      "Hurricane",
-      "Weather Ball"
-     ],
-     "autoField": {
-      "weather": "Rain"
-     }
-    },
-    {
-     "weight": 0.0979,
-     "confidence": "paste",
-     "samples": {
-      "archetype": 339,
+      "archetype": 370,
       "spread": 10
      },
      "spreadMix": {
@@ -2404,10 +2373,10 @@
      }
     },
     {
-     "weight": 0.0514,
+     "weight": 0.0579,
      "confidence": "ladder",
      "samples": {
-      "archetype": 435,
+      "archetype": 447,
       "spread": 15
      },
      "spreadMix": {
@@ -2435,10 +2404,10 @@
      }
     },
     {
-     "weight": 0.0487,
+     "weight": 0.0555,
      "confidence": "paste",
      "samples": {
-      "archetype": 247,
+      "archetype": 256,
       "spread": 19
      },
      "spreadMix": {
@@ -2464,51 +2433,20 @@
      "autoField": {
       "weather": "Rain"
      }
-    },
-    {
-     "weight": 0.006,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 160,
-      "spread": 12
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Pelipper",
-     "item": "Focus Sash",
-     "ability": "Drizzle",
-     "nature": "Timid",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 1,
-      "spa": 5,
-      "spd": 17,
-      "spe": 11
-     },
-     "moves": [
-      "Hurricane",
-      "Weather Ball"
-     ],
-     "autoField": {
-      "weather": "Rain"
-     }
     }
    ]
   },
   {
    "species": "Raichu",
    "rank": 13,
-   "tournamentSets": 3325,
+   "tournamentSets": 3460,
    "pasteSets": 79,
    "sets": [
     {
      "weight": 0.5353,
      "confidence": "ladder",
      "samples": {
-      "archetype": 3097,
+      "archetype": 3208,
       "spread": 72
      },
      "spreadMix": {
@@ -2537,7 +2475,7 @@
      "weight": 0.4647,
      "confidence": "paste",
      "samples": {
-      "archetype": 3097,
+      "archetype": 3208,
       "spread": 72
      },
      "spreadMix": {
@@ -2567,14 +2505,14 @@
   {
    "species": "Milotic",
    "rank": 14,
-   "tournamentSets": 1485,
+   "tournamentSets": 1515,
    "pasteSets": 74,
    "sets": [
     {
-     "weight": 0.2154,
+     "weight": 0.2137,
      "confidence": "ladder",
      "samples": {
-      "archetype": 293,
+      "archetype": 297,
       "spread": 21
      },
      "spreadMix": {
@@ -2601,10 +2539,10 @@
      ]
     },
     {
-     "weight": 0.1559,
+     "weight": 0.1554,
      "confidence": "paste",
      "samples": {
-      "archetype": 229,
+      "archetype": 233,
       "spread": 6
      },
      "spreadMix": {
@@ -2630,10 +2568,10 @@
      ]
     },
     {
-     "weight": 0.138,
+     "weight": 0.1388,
      "confidence": "ladder",
      "samples": {
-      "archetype": 202,
+      "archetype": 207,
       "spread": 11
      },
      "spreadMix": {
@@ -2660,10 +2598,10 @@
      ]
     },
     {
-     "weight": 0.1315,
+     "weight": 0.1326,
      "confidence": "paste",
      "samples": {
-      "archetype": 228,
+      "archetype": 235,
       "spread": 7
      },
      "spreadMix": {
@@ -2690,10 +2628,10 @@
      ]
     },
     {
-     "weight": 0.1235,
+     "weight": 0.1245,
      "confidence": "ladder",
      "samples": {
-      "archetype": 228,
+      "archetype": 235,
       "spread": 7
      },
      "spreadMix": {
@@ -2720,10 +2658,10 @@
      ]
     },
     {
-     "weight": 0.0982,
+     "weight": 0.0975,
      "confidence": "paste",
      "samples": {
-      "archetype": 293,
+      "archetype": 297,
       "spread": 21
      },
      "spreadMix": {
@@ -2750,10 +2688,10 @@
      ]
     },
     {
-     "weight": 0.0801,
+     "weight": 0.0798,
      "confidence": "ladder",
      "samples": {
-      "archetype": 229,
+      "archetype": 233,
       "spread": 6
      },
      "spreadMix": {
@@ -2779,10 +2717,10 @@
      ]
     },
     {
-     "weight": 0.0574,
+     "weight": 0.0577,
      "confidence": "paste",
      "samples": {
-      "archetype": 202,
+      "archetype": 207,
       "spread": 11
      },
      "spreadMix": {
@@ -2813,14 +2751,14 @@
   {
    "species": "Charizard",
    "rank": 15,
-   "tournamentSets": 1640,
+   "tournamentSets": 1751,
    "pasteSets": 69,
    "sets": [
     {
-     "weight": 0.4308,
+     "weight": 0.4374,
      "confidence": "ladder",
      "samples": {
-      "archetype": 798,
+      "archetype": 864,
       "spread": 34
      },
      "spreadMix": {
@@ -2850,10 +2788,10 @@
      }
     },
     {
-     "weight": 0.4079,
+     "weight": 0.4017,
      "confidence": "ladder",
      "samples": {
-      "archetype": 754,
+      "archetype": 795,
       "spread": 30
      },
      "spreadMix": {
@@ -2883,10 +2821,10 @@
      }
     },
     {
-     "weight": 0.0928,
+     "weight": 0.0914,
      "confidence": "paste",
      "samples": {
-      "archetype": 754,
+      "archetype": 795,
       "spread": 30
      },
      "spreadMix": {
@@ -2916,10 +2854,10 @@
      }
     },
     {
-     "weight": 0.0685,
+     "weight": 0.0695,
      "confidence": "paste",
      "samples": {
-      "archetype": 798,
+      "archetype": 864,
       "spread": 34
      },
      "spreadMix": {
@@ -2953,14 +2891,14 @@
   {
    "species": "Farigiraf",
    "rank": 16,
-   "tournamentSets": 1757,
+   "tournamentSets": 1832,
    "pasteSets": 69,
    "sets": [
     {
-     "weight": 0.3913,
+     "weight": 0.3905,
      "confidence": "paste",
      "samples": {
-      "archetype": 611,
+      "archetype": 627,
       "spread": 20
      },
      "spreadMix": {
@@ -2985,10 +2923,10 @@
      ]
     },
     {
-     "weight": 0.2696,
+     "weight": 0.2691,
      "confidence": "paste",
      "samples": {
-      "archetype": 611,
+      "archetype": 627,
       "spread": 20
      },
      "spreadMix": {
@@ -3013,10 +2951,10 @@
      ]
     },
     {
-     "weight": 0.1198,
+     "weight": 0.1197,
      "confidence": "paste",
      "samples": {
-      "archetype": 140,
+      "archetype": 144,
       "spread": 6
      },
      "spreadMix": {
@@ -3040,10 +2978,10 @@
      ]
     },
     {
-     "weight": 0.1062,
+     "weight": 0.107,
      "confidence": "paste",
      "samples": {
-      "archetype": 170,
+      "archetype": 176,
       "spread": 10
      },
      "spreadMix": {
@@ -3068,10 +3006,10 @@
      ]
     },
     {
-     "weight": 0.0754,
+     "weight": 0.076,
      "confidence": "ladder",
      "samples": {
-      "archetype": 170,
+      "archetype": 176,
       "spread": 10
      },
      "spreadMix": {
@@ -3099,7 +3037,7 @@
      "weight": 0.0377,
      "confidence": "paste",
      "samples": {
-      "archetype": 140,
+      "archetype": 144,
       "spread": 6
      },
      "spreadMix": {
@@ -3127,14 +3065,14 @@
   {
    "species": "Gardevoir",
    "rank": 17,
-   "tournamentSets": 801,
+   "tournamentSets": 837,
    "pasteSets": 44,
    "sets": [
     {
-     "weight": 0.5084,
+     "weight": 0.5046,
      "confidence": "ladder",
      "samples": {
-      "archetype": 610,
+      "archetype": 632,
       "spread": 37
      },
      "spreadMix": {
@@ -3159,10 +3097,10 @@
      ]
     },
     {
-     "weight": 0.2685,
+     "weight": 0.2666,
      "confidence": "ladder",
      "samples": {
-      "archetype": 610,
+      "archetype": 632,
       "spread": 37
      },
      "spreadMix": {
@@ -3187,10 +3125,10 @@
      ]
     },
     {
-     "weight": 0.1102,
+     "weight": 0.1157,
      "confidence": "ladder",
      "samples": {
-      "archetype": 112,
+      "archetype": 123,
       "spread": 4
      },
      "spreadMix": {
@@ -3215,10 +3153,10 @@
      ]
     },
     {
-     "weight": 0.0418,
+     "weight": 0.044,
      "confidence": "paste",
      "samples": {
-      "archetype": 112,
+      "archetype": 123,
       "spread": 4
      },
      "spreadMix": {
@@ -3243,10 +3181,10 @@
      ]
     },
     {
-     "weight": 0.0358,
+     "weight": 0.0349,
      "confidence": "ladder",
      "samples": {
-      "archetype": 60,
+      "archetype": 61,
       "spread": 3
      },
      "spreadMix": {
@@ -3271,10 +3209,10 @@
      ]
     },
     {
-     "weight": 0.0352,
+     "weight": 0.0343,
      "confidence": "paste",
      "samples": {
-      "archetype": 60,
+      "archetype": 61,
       "spread": 3
      },
      "spreadMix": {
@@ -3303,14 +3241,14 @@
   {
    "species": "Sylveon",
    "rank": 18,
-   "tournamentSets": 1419,
+   "tournamentSets": 1472,
    "pasteSets": 58,
    "sets": [
     {
-     "weight": 0.6513,
+     "weight": 0.6524,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1221,
+      "archetype": 1270,
       "spread": 54
      },
      "spreadMix": {
@@ -3336,10 +3274,10 @@
      ]
     },
     {
-     "weight": 0.2886,
+     "weight": 0.2891,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1221,
+      "archetype": 1270,
       "spread": 54
      },
      "spreadMix": {
@@ -3365,10 +3303,10 @@
      ]
     },
     {
-     "weight": 0.0336,
+     "weight": 0.0327,
      "confidence": "paste",
      "samples": {
-      "archetype": 78,
+      "archetype": 79,
       "spread": 2
      },
      "spreadMix": {
@@ -3394,10 +3332,10 @@
      ]
     },
     {
-     "weight": 0.0152,
+     "weight": 0.0148,
      "confidence": "paste",
      "samples": {
-      "archetype": 78,
+      "archetype": 79,
       "spread": 2
      },
      "spreadMix": {
@@ -3423,10 +3361,10 @@
      ]
     },
     {
-     "weight": 0.0113,
+     "weight": 0.011,
      "confidence": "ladder",
      "samples": {
-      "archetype": 78,
+      "archetype": 79,
       "spread": 2
      },
      "spreadMix": {
@@ -3456,14 +3394,14 @@
   {
    "species": "Tyranitar",
    "rank": 19,
-   "tournamentSets": 1043,
+   "tournamentSets": 1084,
    "pasteSets": 46,
    "sets": [
     {
-     "weight": 0.2571,
+     "weight": 0.2578,
      "confidence": "ladder",
      "samples": {
-      "archetype": 531,
+      "archetype": 555,
       "spread": 16
      },
      "spreadMix": {
@@ -3492,10 +3430,10 @@
      }
     },
     {
-     "weight": 0.2281,
+     "weight": 0.2287,
      "confidence": "paste",
      "samples": {
-      "archetype": 531,
+      "archetype": 555,
       "spread": 16
      },
      "spreadMix": {
@@ -3527,7 +3465,7 @@
      "weight": 0.1779,
      "confidence": "ladder",
      "samples": {
-      "archetype": 331,
+      "archetype": 344,
       "spread": 24
      },
      "spreadMix": {
@@ -3556,10 +3494,10 @@
      }
     },
     {
-     "weight": 0.1752,
+     "weight": 0.1751,
      "confidence": "ladder",
      "samples": {
-      "archetype": 331,
+      "archetype": 344,
       "spread": 24
      },
      "spreadMix": {
@@ -3588,10 +3526,10 @@
      }
     },
     {
-     "weight": 0.1225,
+     "weight": 0.1228,
      "confidence": "paste",
      "samples": {
-      "archetype": 531,
+      "archetype": 555,
       "spread": 16
      },
      "spreadMix": {
@@ -3620,7 +3558,7 @@
      }
     },
     {
-     "weight": 0.0249,
+     "weight": 0.0239,
      "confidence": "ladder",
      "samples": {
       "archetype": 35,
@@ -3652,7 +3590,7 @@
      }
     },
     {
-     "weight": 0.0143,
+     "weight": 0.0137,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 35,
@@ -3688,14 +3626,14 @@
   {
    "species": "Whimsicott",
    "rank": 20,
-   "tournamentSets": 694,
+   "tournamentSets": 728,
    "pasteSets": 22,
    "sets": [
     {
-     "weight": 0.7809,
+     "weight": 0.7818,
      "confidence": "paste",
      "samples": {
-      "archetype": 451,
+      "archetype": 475,
       "spread": 14
      },
      "spreadMix": {
@@ -3719,10 +3657,10 @@
      ]
     },
     {
-     "weight": 0.1193,
+     "weight": 0.1184,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 69,
+      "archetype": 72,
       "spread": 2
      },
      "spreadMix": {
@@ -3746,10 +3684,10 @@
      ]
     },
     {
-     "weight": 0.0648,
+     "weight": 0.0649,
      "confidence": "ladder",
      "samples": {
-      "archetype": 39,
+      "archetype": 41,
       "spread": 19
      },
      "spreadMix": {
@@ -3773,10 +3711,10 @@
      ]
     },
     {
-     "weight": 0.0279,
+     "weight": 0.028,
      "confidence": "ladder",
      "samples": {
-      "archetype": 451,
+      "archetype": 475,
       "spread": 14
      },
      "spreadMix": {
@@ -3803,7 +3741,7 @@
      "weight": 0.004,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 39,
+      "archetype": 41,
       "spread": 19
      },
      "spreadMix": {
@@ -3830,7 +3768,7 @@
      "weight": 0.0031,
      "confidence": "ladder",
      "samples": {
-      "archetype": 69,
+      "archetype": 72,
       "spread": 2
      },
      "spreadMix": {
@@ -3858,14 +3796,14 @@
   {
    "species": "Arcanine-Hisui",
    "rank": 21,
-   "tournamentSets": 1983,
+   "tournamentSets": 2017,
    "pasteSets": 66,
    "sets": [
     {
-     "weight": 0.9138,
+     "weight": 0.9142,
      "confidence": "paste",
      "samples": {
-      "archetype": 1755,
+      "archetype": 1786,
       "spread": 58
      },
      "spreadMix": {
@@ -3891,10 +3829,10 @@
      ]
     },
     {
-     "weight": 0.0813,
+     "weight": 0.0809,
      "confidence": "paste",
      "samples": {
-      "archetype": 167,
+      "archetype": 169,
       "spread": 2
      },
      "spreadMix": {
@@ -3923,7 +3861,7 @@
      "weight": 0.0041,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1755,
+      "archetype": 1786,
       "spread": 58
      },
      "spreadMix": {
@@ -3952,7 +3890,7 @@
      "weight": 0.0007,
      "confidence": "ladder",
      "samples": {
-      "archetype": 167,
+      "archetype": 169,
       "spread": 2
      },
      "spreadMix": {
@@ -3982,14 +3920,14 @@
   {
    "species": "Staraptor",
    "rank": 22,
-   "tournamentSets": 1377,
+   "tournamentSets": 1431,
    "pasteSets": 29,
    "sets": [
     {
-     "weight": 0.2976,
+     "weight": 0.2967,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1153,
+      "archetype": 1195,
       "spread": 27
      },
      "spreadMix": {
@@ -4014,10 +3952,10 @@
      ]
     },
     {
-     "weight": 0.2949,
+     "weight": 0.294,
      "confidence": "paste",
      "samples": {
-      "archetype": 1153,
+      "archetype": 1195,
       "spread": 27
      },
      "spreadMix": {
@@ -4042,10 +3980,10 @@
      ]
     },
     {
-     "weight": 0.2774,
+     "weight": 0.2767,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1153,
+      "archetype": 1195,
       "spread": 27
      },
      "spreadMix": {
@@ -4070,10 +4008,10 @@
      ]
     },
     {
-     "weight": 0.0759,
+     "weight": 0.0773,
      "confidence": "ladder",
      "samples": {
-      "archetype": 173,
+      "archetype": 183,
       "spread": 0
      },
      "spreadMix": {
@@ -4098,10 +4036,10 @@
      ]
     },
     {
-     "weight": 0.0542,
+     "weight": 0.0553,
      "confidence": "ladder",
      "samples": {
-      "archetype": 173,
+      "archetype": 183,
       "spread": 0
      },
      "spreadMix": {
@@ -4130,14 +4068,14 @@
   {
    "species": "Armarouge",
    "rank": 23,
-   "tournamentSets": 586,
+   "tournamentSets": 611,
    "pasteSets": 51,
    "sets": [
     {
-     "weight": 0.2389,
+     "weight": 0.2381,
      "confidence": "paste",
      "samples": {
-      "archetype": 117,
+      "archetype": 121,
       "spread": 16
      },
      "spreadMix": {
@@ -4162,10 +4100,10 @@
      ]
     },
     {
-     "weight": 0.2192,
+     "weight": 0.2216,
      "confidence": "ladder",
      "samples": {
-      "archetype": 154,
+      "archetype": 161,
       "spread": 16
      },
      "spreadMix": {
@@ -4186,14 +4124,15 @@
      },
      "moves": [
       "Expanding Force",
-      "Armor Cannon"
+      "Armor Cannon",
+      "Heat Wave"
      ]
     },
     {
-     "weight": 0.1901,
+     "weight": 0.1922,
      "confidence": "ladder",
      "samples": {
-      "archetype": 154,
+      "archetype": 161,
       "spread": 16
      },
      "spreadMix": {
@@ -4214,14 +4153,15 @@
      },
      "moves": [
       "Expanding Force",
-      "Armor Cannon"
+      "Armor Cannon",
+      "Heat Wave"
      ]
     },
     {
-     "weight": 0.1536,
+     "weight": 0.1515,
      "confidence": "ladder",
      "samples": {
-      "archetype": 107,
+      "archetype": 109,
       "spread": 9
      },
      "spreadMix": {
@@ -4246,10 +4186,10 @@
      ]
     },
     {
-     "weight": 0.1011,
+     "weight": 0.0997,
      "confidence": "paste",
      "samples": {
-      "archetype": 107,
+      "archetype": 109,
       "spread": 9
      },
      "spreadMix": {
@@ -4274,10 +4214,10 @@
      ]
     },
     {
-     "weight": 0.0971,
+     "weight": 0.0968,
      "confidence": "ladder",
      "samples": {
-      "archetype": 117,
+      "archetype": 121,
       "spread": 16
      },
      "spreadMix": {
@@ -4306,14 +4246,14 @@
   {
    "species": "Volcarona",
    "rank": 24,
-   "tournamentSets": 1541,
+   "tournamentSets": 1601,
    "pasteSets": 33,
    "sets": [
     {
-     "weight": 0.2845,
+     "weight": 0.2871,
      "confidence": "paste",
      "samples": {
-      "archetype": 475,
+      "archetype": 499,
       "spread": 2
      },
      "spreadMix": {
@@ -4338,10 +4278,10 @@
      ]
     },
     {
-     "weight": 0.2677,
+     "weight": 0.2662,
      "confidence": "paste",
      "samples": {
-      "archetype": 467,
+      "archetype": 485,
       "spread": 9
      },
      "spreadMix": {
@@ -4361,15 +4301,15 @@
       "spe": 30
      },
      "moves": [
-      "Heat Wave",
-      "Giga Drain"
+      "Giga Drain",
+      "Heat Wave"
      ]
     },
     {
-     "weight": 0.1787,
+     "weight": 0.1777,
      "confidence": "ladder",
      "samples": {
-      "archetype": 467,
+      "archetype": 485,
       "spread": 9
      },
      "spreadMix": {
@@ -4389,15 +4329,15 @@
       "spe": 24
      },
      "moves": [
-      "Heat Wave",
-      "Giga Drain"
+      "Giga Drain",
+      "Heat Wave"
      ]
     },
     {
-     "weight": 0.1483,
+     "weight": 0.1497,
      "confidence": "paste",
      "samples": {
-      "archetype": 475,
+      "archetype": 499,
       "spread": 2
      },
      "spreadMix": {
@@ -4422,10 +4362,10 @@
      ]
     },
     {
-     "weight": 0.0963,
+     "weight": 0.0951,
      "confidence": "paste",
      "samples": {
-      "archetype": 128,
+      "archetype": 132,
       "spread": 10
      },
      "spreadMix": {
@@ -4450,10 +4390,10 @@
      ]
     },
     {
-     "weight": 0.0245,
+     "weight": 0.0242,
      "confidence": "paste",
      "samples": {
-      "archetype": 128,
+      "archetype": 132,
       "spread": 10
      },
      "spreadMix": {
@@ -4482,14 +4422,14 @@
   {
    "species": "Indeedee",
    "rank": 25,
-   "tournamentSets": 838,
+   "tournamentSets": 857,
    "pasteSets": 36,
    "sets": [
     {
-     "weight": 0.5264,
+     "weight": 0.524,
      "confidence": "ladder",
      "samples": {
-      "archetype": 445,
+      "archetype": 453,
       "spread": 9
      },
      "spreadMix": {
@@ -4517,10 +4457,10 @@
      }
     },
     {
-     "weight": 0.2029,
+     "weight": 0.204,
      "confidence": "paste",
      "samples": {
-      "archetype": 142,
+      "archetype": 146,
       "spread": 13
      },
      "spreadMix": {
@@ -4541,17 +4481,18 @@
      },
      "moves": [
       "Expanding Force",
-      "Energy Ball"
+      "Energy Ball",
+      "Hyper Voice"
      ],
      "autoField": {
       "terrain": "Psychic"
      }
     },
     {
-     "weight": 0.1698,
+     "weight": 0.1716,
      "confidence": "paste",
      "samples": {
-      "archetype": 134,
+      "archetype": 138,
       "spread": 8
      },
      "spreadMix": {
@@ -4579,10 +4520,10 @@
      }
     },
     {
-     "weight": 0.096,
+     "weight": 0.0956,
      "confidence": "paste",
      "samples": {
-      "archetype": 445,
+      "archetype": 453,
       "spread": 9
      },
      "spreadMix": {
@@ -4613,7 +4554,7 @@
      "weight": 0.0026,
      "confidence": "ladder",
      "samples": {
-      "archetype": 142,
+      "archetype": 146,
       "spread": 13
      },
      "spreadMix": {
@@ -4634,7 +4575,8 @@
      },
      "moves": [
       "Expanding Force",
-      "Energy Ball"
+      "Energy Ball",
+      "Hyper Voice"
      ],
      "autoField": {
       "terrain": "Psychic"
@@ -4644,7 +4586,7 @@
      "weight": 0.0022,
      "confidence": "ladder",
      "samples": {
-      "archetype": 134,
+      "archetype": 138,
       "spread": 8
      },
      "spreadMix": {
@@ -4676,14 +4618,14 @@
   {
    "species": "Sinistcha",
    "rank": 26,
-   "tournamentSets": 702,
+   "tournamentSets": 746,
    "pasteSets": 25,
    "sets": [
     {
-     "weight": 0.3405,
+     "weight": 0.343,
      "confidence": "paste",
      "samples": {
-      "archetype": 157,
+      "archetype": 170,
       "spread": 7
      },
      "spreadMix": {
@@ -4707,10 +4649,10 @@
      ]
     },
     {
-     "weight": 0.192,
+     "weight": 0.1934,
      "confidence": "ladder",
      "samples": {
-      "archetype": 157,
+      "archetype": 170,
       "spread": 7
      },
      "spreadMix": {
@@ -4734,10 +4676,10 @@
      ]
     },
     {
-     "weight": 0.177,
+     "weight": 0.1765,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 75,
+      "archetype": 81,
       "spread": 14
      },
      "spreadMix": {
@@ -4761,10 +4703,10 @@
      ]
     },
     {
-     "weight": 0.1121,
+     "weight": 0.1102,
      "confidence": "paste",
      "samples": {
-      "archetype": 57,
+      "archetype": 60,
       "spread": 2
      },
      "spreadMix": {
@@ -4788,10 +4730,10 @@
      ]
     },
     {
-     "weight": 0.1062,
+     "weight": 0.1059,
      "confidence": "ladder",
      "samples": {
-      "archetype": 75,
+      "archetype": 81,
       "spread": 14
      },
      "spreadMix": {
@@ -4815,10 +4757,10 @@
      ]
     },
     {
-     "weight": 0.0721,
+     "weight": 0.0709,
      "confidence": "paste",
      "samples": {
-      "archetype": 57,
+      "archetype": 60,
       "spread": 2
      },
      "spreadMix": {
@@ -4846,14 +4788,14 @@
   {
    "species": "Metagross",
    "rank": 27,
-   "tournamentSets": 583,
+   "tournamentSets": 598,
    "pasteSets": 27,
    "sets": [
     {
-     "weight": 0.3372,
+     "weight": 0.335,
      "confidence": "ladder",
      "samples": {
-      "archetype": 312,
+      "archetype": 318,
       "spread": 14
      },
      "spreadMix": {
@@ -4880,10 +4822,10 @@
      ]
     },
     {
-     "weight": 0.2808,
+     "weight": 0.2832,
      "confidence": "ladder",
      "samples": {
-      "archetype": 237,
+      "archetype": 245,
       "spread": 12
      },
      "spreadMix": {
@@ -4910,10 +4852,10 @@
      ]
     },
     {
-     "weight": 0.2288,
+     "weight": 0.2273,
      "confidence": "paste",
      "samples": {
-      "archetype": 312,
+      "archetype": 318,
       "spread": 14
      },
      "spreadMix": {
@@ -4940,10 +4882,10 @@
      ]
     },
     {
-     "weight": 0.1532,
+     "weight": 0.1545,
      "confidence": "paste",
      "samples": {
-      "archetype": 237,
+      "archetype": 245,
       "spread": 12
      },
      "spreadMix": {
@@ -4974,14 +4916,14 @@
   {
    "species": "Torkoal",
    "rank": 28,
-   "tournamentSets": 535,
+   "tournamentSets": 551,
    "pasteSets": 34,
    "sets": [
     {
-     "weight": 0.8684,
+     "weight": 0.8646,
      "confidence": "paste",
      "samples": {
-      "archetype": 449,
+      "archetype": 460,
       "spread": 32
      },
      "spreadMix": {
@@ -5011,10 +4953,10 @@
      }
     },
     {
-     "weight": 0.0791,
+     "weight": 0.0829,
      "confidence": "ladder",
      "samples": {
-      "archetype": 44,
+      "archetype": 47,
       "spread": 0
      },
      "spreadMix": {
@@ -5044,10 +4986,10 @@
      }
     },
     {
-     "weight": 0.0472,
+     "weight": 0.047,
      "confidence": "paste",
      "samples": {
-      "archetype": 449,
+      "archetype": 460,
       "spread": 32
      },
      "spreadMix": {
@@ -5077,10 +5019,10 @@
      }
     },
     {
-     "weight": 0.0053,
+     "weight": 0.0055,
      "confidence": "ladder",
      "samples": {
-      "archetype": 44,
+      "archetype": 47,
       "spread": 0
      },
      "spreadMix": {
@@ -5114,14 +5056,14 @@
   {
    "species": "Excadrill",
    "rank": 29,
-   "tournamentSets": 830,
+   "tournamentSets": 861,
    "pasteSets": 39,
    "sets": [
     {
-     "weight": 0.5285,
+     "weight": 0.5372,
      "confidence": "paste",
      "samples": {
-      "archetype": 427,
+      "archetype": 450,
       "spread": 24
      },
      "spreadMix": {
@@ -5147,10 +5089,10 @@
      ]
     },
     {
-     "weight": 0.4649,
+     "weight": 0.4562,
      "confidence": "paste",
      "samples": {
-      "archetype": 334,
+      "archetype": 342,
       "spread": 9
      },
      "spreadMix": {
@@ -5176,10 +5118,10 @@
      ]
     },
     {
-     "weight": 0.0043,
+     "weight": 0.0044,
      "confidence": "ladder",
      "samples": {
-      "archetype": 427,
+      "archetype": 450,
       "spread": 24
      },
      "spreadMix": {
@@ -5208,7 +5150,7 @@
      "weight": 0.0023,
      "confidence": "ladder",
      "samples": {
-      "archetype": 334,
+      "archetype": 342,
       "spread": 9
      },
      "spreadMix": {
@@ -5238,14 +5180,14 @@
   {
    "species": "Politoed",
    "rank": 30,
-   "tournamentSets": 750,
+   "tournamentSets": 776,
    "pasteSets": 25,
    "sets": [
     {
-     "weight": 0.387,
+     "weight": 0.3881,
      "confidence": "paste",
      "samples": {
-      "archetype": 328,
+      "archetype": 337,
       "spread": 11
      },
      "spreadMix": {
@@ -5272,10 +5214,10 @@
      }
     },
     {
-     "weight": 0.1889,
+     "weight": 0.1883,
      "confidence": "ladder",
      "samples": {
-      "archetype": 189,
+      "archetype": 194,
       "spread": 8
      },
      "spreadMix": {
@@ -5304,10 +5246,10 @@
      }
     },
     {
-     "weight": 0.1883,
+     "weight": 0.1876,
      "confidence": "paste",
      "samples": {
-      "archetype": 189,
+      "archetype": 194,
       "spread": 8
      },
      "spreadMix": {
@@ -5336,10 +5278,10 @@
      }
     },
     {
-     "weight": 0.1617,
+     "weight": 0.1621,
      "confidence": "ladder",
      "samples": {
-      "archetype": 328,
+      "archetype": 337,
       "spread": 11
      },
      "spreadMix": {
@@ -5366,10 +5308,10 @@
      }
     },
     {
-     "weight": 0.0264,
+     "weight": 0.0263,
      "confidence": "paste",
      "samples": {
-      "archetype": 41,
+      "archetype": 42,
       "spread": 2
      },
      "spreadMix": {
@@ -5398,10 +5340,10 @@
      }
     },
     {
-     "weight": 0.0239,
+     "weight": 0.0238,
      "confidence": "ladder",
      "samples": {
-      "archetype": 41,
+      "archetype": 42,
       "spread": 2
      },
      "spreadMix": {
@@ -5430,10 +5372,10 @@
      }
     },
     {
-     "weight": 0.0238,
+     "weight": 0.0237,
      "confidence": "paste",
      "samples": {
-      "archetype": 41,
+      "archetype": 42,
       "spread": 2
      },
      "spreadMix": {
@@ -5466,14 +5408,14 @@
   {
    "species": "Floette-Eternal",
    "rank": 31,
-   "tournamentSets": 1417,
+   "tournamentSets": 1492,
    "pasteSets": 97,
    "sets": [
     {
-     "weight": 0.5737,
+     "weight": 0.5702,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1013,
+      "archetype": 1060,
       "spread": 67
      },
      "spreadMix": {
@@ -5499,10 +5441,10 @@
      ]
     },
     {
-     "weight": 0.1636,
+     "weight": 0.1643,
      "confidence": "ladder",
      "samples": {
-      "archetype": 296,
+      "archetype": 313,
       "spread": 27
      },
      "spreadMix": {
@@ -5529,10 +5471,10 @@
      ]
     },
     {
-     "weight": 0.1466,
+     "weight": 0.1457,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1013,
+      "archetype": 1060,
       "spread": 67
      },
      "spreadMix": {
@@ -5558,10 +5500,10 @@
      ]
     },
     {
-     "weight": 0.0492,
+     "weight": 0.0493,
      "confidence": "paste",
      "samples": {
-      "archetype": 296,
+      "archetype": 313,
       "spread": 27
      },
      "spreadMix": {
@@ -5588,10 +5530,10 @@
      ]
     },
     {
-     "weight": 0.0307,
+     "weight": 0.0324,
      "confidence": "paste",
      "samples": {
-      "archetype": 92,
+      "archetype": 102,
       "spread": 2
      },
      "spreadMix": {
@@ -5617,10 +5559,10 @@
      ]
     },
     {
-     "weight": 0.0211,
+     "weight": 0.0222,
      "confidence": "ladder",
      "samples": {
-      "archetype": 92,
+      "archetype": 102,
       "spread": 2
      },
      "spreadMix": {
@@ -5646,10 +5588,10 @@
      ]
     },
     {
-     "weight": 0.0151,
+     "weight": 0.0159,
      "confidence": "paste",
      "samples": {
-      "archetype": 92,
+      "archetype": 102,
       "spread": 2
      },
      "spreadMix": {
@@ -5679,14 +5621,14 @@
   {
    "species": "Grimmsnarl",
    "rank": 32,
-   "tournamentSets": 801,
+   "tournamentSets": 852,
    "pasteSets": 22,
    "sets": [
     {
-     "weight": 0.3792,
+     "weight": 0.3776,
      "confidence": "paste",
      "samples": {
-      "archetype": 354,
+      "archetype": 377,
       "spread": 7
      },
      "spreadMix": {
@@ -5710,10 +5652,10 @@
      ]
     },
     {
-     "weight": 0.2682,
+     "weight": 0.2656,
      "confidence": "ladder",
      "samples": {
-      "archetype": 277,
+      "archetype": 292,
       "spread": 7
      },
      "spreadMix": {
@@ -5737,10 +5679,10 @@
      ]
     },
     {
-     "weight": 0.1222,
+     "weight": 0.1217,
      "confidence": "paste",
      "samples": {
-      "archetype": 354,
+      "archetype": 377,
       "spread": 7
      },
      "spreadMix": {
@@ -5764,10 +5706,10 @@
      ]
     },
     {
-     "weight": 0.094,
+     "weight": 0.0931,
      "confidence": "paste",
      "samples": {
-      "archetype": 277,
+      "archetype": 292,
       "spread": 7
      },
      "spreadMix": {
@@ -5791,10 +5733,10 @@
      ]
     },
     {
-     "weight": 0.0878,
+     "weight": 0.0914,
      "confidence": "ladder",
      "samples": {
-      "archetype": 102,
+      "archetype": 113,
       "spread": 6
      },
      "spreadMix": {
@@ -5818,10 +5760,10 @@
      ]
     },
     {
-     "weight": 0.0487,
+     "weight": 0.0507,
      "confidence": "paste",
      "samples": {
-      "archetype": 102,
+      "archetype": 113,
       "spread": 6
      },
      "spreadMix": {
@@ -5849,14 +5791,14 @@
   {
    "species": "Swampert",
    "rank": 33,
-   "tournamentSets": 502,
+   "tournamentSets": 523,
    "pasteSets": 22,
    "sets": [
     {
      "weight": 0.7665,
      "confidence": "ladder",
      "samples": {
-      "archetype": 448,
+      "archetype": 466,
       "spread": 22
      },
      "spreadMix": {
@@ -5886,7 +5828,7 @@
      "weight": 0.2335,
      "confidence": "paste",
      "samples": {
-      "archetype": 448,
+      "archetype": 466,
       "spread": 22
      },
      "spreadMix": {
@@ -5917,14 +5859,14 @@
   {
    "species": "Lucario",
    "rank": 34,
-   "tournamentSets": 370,
+   "tournamentSets": 380,
    "pasteSets": 30,
    "sets": [
     {
-     "weight": 0.4207,
+     "weight": 0.4158,
      "confidence": "ladder",
      "samples": {
-      "archetype": 198,
+      "archetype": 200,
       "spread": 11
      },
      "spreadMix": {
@@ -5950,10 +5892,10 @@
      ]
     },
     {
-     "weight": 0.3717,
+     "weight": 0.3777,
      "confidence": "ladder",
      "samples": {
-      "archetype": 151,
+      "archetype": 156,
       "spread": 19
      },
      "spreadMix": {
@@ -5979,10 +5921,10 @@
      ]
     },
     {
-     "weight": 0.1556,
+     "weight": 0.1538,
      "confidence": "paste",
      "samples": {
-      "archetype": 198,
+      "archetype": 200,
       "spread": 11
      },
      "spreadMix": {
@@ -6008,10 +5950,10 @@
      ]
     },
     {
-     "weight": 0.0519,
+     "weight": 0.0527,
      "confidence": "paste",
      "samples": {
-      "archetype": 151,
+      "archetype": 156,
       "spread": 19
      },
      "spreadMix": {
@@ -6041,14 +5983,14 @@
   {
    "species": "Froslass",
    "rank": 35,
-   "tournamentSets": 696,
+   "tournamentSets": 723,
    "pasteSets": 22,
    "sets": [
     {
-     "weight": 0.6807,
+     "weight": 0.6705,
      "confidence": "ladder",
      "samples": {
-      "archetype": 580,
+      "archetype": 594,
       "spread": 20
      },
      "spreadMix": {
@@ -6076,10 +6018,10 @@
      }
     },
     {
-     "weight": 0.1851,
+     "weight": 0.1823,
      "confidence": "paste",
      "samples": {
-      "archetype": 580,
+      "archetype": 594,
       "spread": 20
      },
      "spreadMix": {
@@ -6107,10 +6049,10 @@
      }
     },
     {
-     "weight": 0.1009,
+     "weight": 0.1107,
      "confidence": "paste",
      "samples": {
-      "archetype": 97,
+      "archetype": 109,
       "spread": 2
      },
      "spreadMix": {
@@ -6138,10 +6080,10 @@
      }
     },
     {
-     "weight": 0.0333,
+     "weight": 0.0366,
      "confidence": "paste",
      "samples": {
-      "archetype": 97,
+      "archetype": 109,
       "spread": 2
      },
      "spreadMix": {
@@ -6173,14 +6115,14 @@
   {
    "species": "Gengar",
    "rank": 36,
-   "tournamentSets": 694,
+   "tournamentSets": 725,
    "pasteSets": 27,
    "sets": [
     {
-     "weight": 0.4291,
+     "weight": 0.4287,
      "confidence": "ladder",
      "samples": {
-      "archetype": 435,
+      "archetype": 454,
       "spread": 15
      },
      "spreadMix": {
@@ -6205,10 +6147,10 @@
      ]
     },
     {
-     "weight": 0.2752,
+     "weight": 0.2757,
      "confidence": "ladder",
      "samples": {
-      "archetype": 241,
+      "archetype": 252,
       "spread": 12
      },
      "spreadMix": {
@@ -6233,10 +6175,10 @@
      ]
     },
     {
-     "weight": 0.2165,
+     "weight": 0.2162,
      "confidence": "paste",
      "samples": {
-      "archetype": 435,
+      "archetype": 454,
       "spread": 15
      },
      "spreadMix": {
@@ -6261,10 +6203,10 @@
      ]
     },
     {
-     "weight": 0.0792,
+     "weight": 0.0793,
      "confidence": "paste",
      "samples": {
-      "archetype": 241,
+      "archetype": 252,
       "spread": 12
      },
      "spreadMix": {
@@ -6293,14 +6235,14 @@
   {
    "species": "Dragonite",
    "rank": 37,
-   "tournamentSets": 573,
+   "tournamentSets": 600,
    "pasteSets": 21,
    "sets": [
     {
-     "weight": 0.6064,
+     "weight": 0.6081,
      "confidence": "ladder",
      "samples": {
-      "archetype": 454,
+      "archetype": 477,
       "spread": 14
      },
      "spreadMix": {
@@ -6325,10 +6267,10 @@
      ]
     },
     {
-     "weight": 0.2596,
+     "weight": 0.2603,
      "confidence": "paste",
      "samples": {
-      "archetype": 454,
+      "archetype": 477,
       "spread": 14
      },
      "spreadMix": {
@@ -6353,10 +6295,10 @@
      ]
     },
     {
-     "weight": 0.054,
+     "weight": 0.0531,
      "confidence": "ladder",
      "samples": {
-      "archetype": 33,
+      "archetype": 34,
       "spread": 3
      },
      "spreadMix": {
@@ -6382,10 +6324,10 @@
      ]
     },
     {
-     "weight": 0.0283,
+     "weight": 0.0277,
      "confidence": "paste",
      "samples": {
-      "archetype": 40,
+      "archetype": 41,
       "spread": 4
      },
      "spreadMix": {
@@ -6412,10 +6354,10 @@
      ]
     },
     {
-     "weight": 0.026,
+     "weight": 0.0254,
      "confidence": "paste",
      "samples": {
-      "archetype": 40,
+      "archetype": 41,
       "spread": 4
      },
      "spreadMix": {
@@ -6442,10 +6384,10 @@
      ]
     },
     {
-     "weight": 0.0169,
+     "weight": 0.0166,
      "confidence": "ladder",
      "samples": {
-      "archetype": 40,
+      "archetype": 41,
       "spread": 4
      },
      "spreadMix": {
@@ -6472,10 +6414,10 @@
      ]
     },
     {
-     "weight": 0.0089,
+     "weight": 0.0087,
      "confidence": "paste",
      "samples": {
-      "archetype": 33,
+      "archetype": 34,
       "spread": 3
      },
      "spreadMix": {
@@ -6505,14 +6447,14 @@
   {
    "species": "Ninetales-Alola",
    "rank": 38,
-   "tournamentSets": 252,
+   "tournamentSets": 260,
    "pasteSets": 13,
    "sets": [
     {
-     "weight": 0.2575,
+     "weight": 0.2532,
      "confidence": "ladder",
      "samples": {
-      "archetype": 50,
+      "archetype": 51,
       "spread": 11
      },
      "spreadMix": {
@@ -6542,10 +6484,10 @@
      }
     },
     {
-     "weight": 0.2284,
+     "weight": 0.2257,
      "confidence": "ladder",
      "samples": {
-      "archetype": 98,
+      "archetype": 100,
       "spread": 4
      },
      "spreadMix": {
@@ -6574,10 +6516,10 @@
      }
     },
     {
-     "weight": 0.1806,
+     "weight": 0.191,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 30,
+      "archetype": 33,
       "spread": 2
      },
      "spreadMix": {
@@ -6599,18 +6541,18 @@
      "moves": [
       "Blizzard",
       "Freeze-Dry",
-      "Icy Wind",
-      "Moonblast"
+      "Moonblast",
+      "Icy Wind"
      ],
      "autoField": {
       "weather": "Snow"
      }
     },
     {
-     "weight": 0.16,
+     "weight": 0.1581,
      "confidence": "paste",
      "samples": {
-      "archetype": 98,
+      "archetype": 100,
       "spread": 4
      },
      "spreadMix": {
@@ -6639,10 +6581,10 @@
      }
     },
     {
-     "weight": 0.1171,
+     "weight": 0.1157,
      "confidence": "paste",
      "samples": {
-      "archetype": 98,
+      "archetype": 100,
       "spread": 4
      },
      "spreadMix": {
@@ -6671,10 +6613,10 @@
      }
     },
     {
-     "weight": 0.0453,
+     "weight": 0.0445,
      "confidence": "ladder",
      "samples": {
-      "archetype": 50,
+      "archetype": 51,
       "spread": 11
      },
      "spreadMix": {
@@ -6704,10 +6646,10 @@
      }
     },
     {
-     "weight": 0.0112,
+     "weight": 0.0118,
      "confidence": "ladder",
      "samples": {
-      "archetype": 30,
+      "archetype": 33,
       "spread": 2
      },
      "spreadMix": {
@@ -6729,8 +6671,8 @@
      "moves": [
       "Blizzard",
       "Freeze-Dry",
-      "Icy Wind",
-      "Moonblast"
+      "Moonblast",
+      "Icy Wind"
      ],
      "autoField": {
       "weather": "Snow"
@@ -6741,11 +6683,11 @@
   {
    "species": "Baxcalibur",
    "rank": 39,
-   "tournamentSets": 230,
+   "tournamentSets": 234,
    "pasteSets": 31,
    "sets": [
     {
-     "weight": 0.2763,
+     "weight": 0.2731,
      "confidence": "ladder",
      "samples": {
       "archetype": 155,
@@ -6775,7 +6717,7 @@
      ]
     },
     {
-     "weight": 0.2728,
+     "weight": 0.2696,
      "confidence": "ladder",
      "samples": {
       "archetype": 155,
@@ -6805,7 +6747,7 @@
      ]
     },
     {
-     "weight": 0.2164,
+     "weight": 0.2138,
      "confidence": "paste",
      "samples": {
       "archetype": 155,
@@ -6835,7 +6777,7 @@
      ]
     },
     {
-     "weight": 0.0801,
+     "weight": 0.0791,
      "confidence": "paste",
      "samples": {
       "archetype": 26,
@@ -6865,7 +6807,7 @@
      ]
     },
     {
-     "weight": 0.0538,
+     "weight": 0.0531,
      "confidence": "ladder",
      "samples": {
       "archetype": 26,
@@ -6895,10 +6837,10 @@
      ]
     },
     {
-     "weight": 0.0386,
+     "weight": 0.0427,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 23,
       "spread": 3
      },
      "spreadMix": {
@@ -6925,10 +6867,10 @@
      ]
     },
     {
-     "weight": 0.0322,
+     "weight": 0.0356,
      "confidence": "paste",
      "samples": {
-      "archetype": 21,
+      "archetype": 23,
       "spread": 3
      },
      "spreadMix": {
@@ -6955,10 +6897,10 @@
      ]
     },
     {
-     "weight": 0.0298,
+     "weight": 0.033,
      "confidence": "paste",
      "samples": {
-      "archetype": 21,
+      "archetype": 23,
       "spread": 3
      },
      "spreadMix": {
@@ -6989,14 +6931,14 @@
   {
    "species": "Venusaur",
    "rank": 40,
-   "tournamentSets": 681,
+   "tournamentSets": 755,
    "pasteSets": 22,
    "sets": [
     {
-     "weight": 0.6847,
+     "weight": 0.6836,
      "confidence": "paste",
      "samples": {
-      "archetype": 434,
+      "archetype": 485,
       "spread": 13
      },
      "spreadMix": {
@@ -7022,10 +6964,10 @@
      ]
     },
     {
-     "weight": 0.2055,
+     "weight": 0.2103,
      "confidence": "paste",
      "samples": {
-      "archetype": 129,
+      "archetype": 148,
       "spread": 3
      },
      "spreadMix": {
@@ -7051,10 +6993,39 @@
      ]
     },
     {
-     "weight": 0.0465,
+     "weight": 0.0434,
      "confidence": "ladder",
      "samples": {
-      "archetype": 34,
+      "archetype": 485,
+      "spread": 13
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Venusaur",
+     "item": "Focus Sash",
+     "ability": "Chlorophyll",
+     "nature": "Modest",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 2,
+      "spa": 32,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Sludge Bomb",
+      "Leaf Storm",
+      "Earth Power"
+     ]
+    },
+    {
+     "weight": 0.0429,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 35,
       "spread": 0
      },
      "spreadMix": {
@@ -7080,39 +7051,10 @@
      ]
     },
     {
-     "weight": 0.0435,
+     "weight": 0.0133,
      "confidence": "ladder",
      "samples": {
-      "archetype": 434,
-      "spread": 13
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Venusaur",
-     "item": "Focus Sash",
-     "ability": "Chlorophyll",
-     "nature": "Modest",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 2,
-      "spa": 32,
-      "spd": 0,
-      "spe": 0
-     },
-     "moves": [
-      "Sludge Bomb",
-      "Leaf Storm",
-      "Earth Power"
-     ]
-    },
-    {
-     "weight": 0.013,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 129,
+      "archetype": 148,
       "spread": 3
      },
      "spreadMix": {
@@ -7138,10 +7080,10 @@
      ]
     },
     {
-     "weight": 0.0069,
+     "weight": 0.0063,
      "confidence": "ladder",
      "samples": {
-      "archetype": 34,
+      "archetype": 35,
       "spread": 0
      },
      "spreadMix": {
@@ -7171,14 +7113,14 @@
   {
    "species": "Primarina",
    "rank": 41,
-   "tournamentSets": 606,
+   "tournamentSets": 640,
    "pasteSets": 12,
    "sets": [
     {
-     "weight": 0.3987,
+     "weight": 0.4036,
      "confidence": "ladder",
      "samples": {
-      "archetype": 253,
+      "archetype": 273,
       "spread": 7
      },
      "spreadMix": {
@@ -7203,10 +7145,10 @@
      ]
     },
     {
-     "weight": 0.2008,
+     "weight": 0.2032,
      "confidence": "paste",
      "samples": {
-      "archetype": 253,
+      "archetype": 273,
       "spread": 7
      },
      "spreadMix": {
@@ -7231,10 +7173,10 @@
      ]
     },
     {
-     "weight": 0.1869,
+     "weight": 0.1833,
      "confidence": "ladder",
      "samples": {
-      "archetype": 110,
+      "archetype": 115,
       "spread": 12
      },
      "spreadMix": {
@@ -7260,10 +7202,10 @@
      ]
     },
     {
-     "weight": 0.0727,
+     "weight": 0.0715,
      "confidence": "ladder",
      "samples": {
-      "archetype": 66,
+      "archetype": 69,
       "spread": 3
      },
      "spreadMix": {
@@ -7288,10 +7230,10 @@
      ]
     },
     {
-     "weight": 0.072,
+     "weight": 0.0708,
      "confidence": "paste",
      "samples": {
-      "archetype": 66,
+      "archetype": 69,
       "spread": 3
      },
      "spreadMix": {
@@ -7316,10 +7258,10 @@
      ]
     },
     {
-     "weight": 0.0688,
+     "weight": 0.0675,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 110,
+      "archetype": 115,
       "spread": 12
      },
      "spreadMix": {
@@ -7349,11 +7291,11 @@
   {
    "species": "Sableye",
    "rank": 42,
-   "tournamentSets": 137,
+   "tournamentSets": 142,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.1694,
+     "weight": 0.1656,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -7380,7 +7322,35 @@
      ]
     },
     {
-     "weight": 0.1402,
+     "weight": 0.1437,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 10,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sableye",
+     "item": "Roseli Berry",
+     "ability": "Prankster",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 9,
+      "spa": 0,
+      "spd": 25,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Foul Play"
+     ]
+    },
+    {
+     "weight": 0.137,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -7407,34 +7377,7 @@
      ]
     },
     {
-     "weight": 0.1367,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 14,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Sableye",
-     "item": "Light Clay",
-     "ability": "Prankster",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 9,
-      "spa": 0,
-      "spd": 25,
-      "spe": 0
-     },
-     "moves": [
-      "Fake Out"
-     ]
-    },
-    {
-     "weight": 0.1122,
+     "weight": 0.1097,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -7461,7 +7404,7 @@
      ]
     },
     {
-     "weight": 0.0979,
+     "weight": 0.0957,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -7488,7 +7431,35 @@
      ]
     },
     {
-     "weight": 0.0929,
+     "weight": 0.0952,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 10,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sableye",
+     "item": "Roseli Berry",
+     "ability": "Prankster",
+     "nature": "Careful",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 17,
+      "spa": 0,
+      "spd": 17,
+      "spe": 0
+     },
+     "moves": [
+      "Fake Out",
+      "Foul Play"
+     ]
+    },
+    {
+     "weight": 0.0908,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -7515,10 +7486,10 @@
      ]
     },
     {
-     "weight": 0.0906,
+     "weight": 0.0831,
      "confidence": "ladder",
      "samples": {
-      "archetype": 14,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -7526,34 +7497,7 @@
       "ladder": 1
      },
      "forme": "Sableye",
-     "item": "Light Clay",
-     "ability": "Prankster",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 17,
-      "spa": 0,
-      "spd": 17,
-      "spe": 0
-     },
-     "moves": [
-      "Fake Out"
-     ]
-    },
-    {
-     "weight": 0.0811,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 13,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Sableye",
-     "item": "Light Clay",
+     "item": "Roseli Berry",
      "ability": "Prankster",
      "nature": "Careful",
      "sp": {
@@ -7565,6 +7509,7 @@
       "spe": 0
      },
      "moves": [
+      "Fake Out",
       "Foul Play"
      ]
     }
@@ -7573,14 +7518,14 @@
   {
    "species": "Aerodactyl",
    "rank": 43,
-   "tournamentSets": 312,
+   "tournamentSets": 321,
    "pasteSets": 17,
    "sets": [
     {
-     "weight": 0.5646,
+     "weight": 0.5671,
      "confidence": "ladder",
      "samples": {
-      "archetype": 185,
+      "archetype": 192,
       "spread": 8
      },
      "spreadMix": {
@@ -7605,10 +7550,10 @@
      ]
     },
     {
-     "weight": 0.3142,
+     "weight": 0.3113,
      "confidence": "paste",
      "samples": {
-      "archetype": 97,
+      "archetype": 99,
       "spread": 7
      },
      "spreadMix": {
@@ -7633,10 +7578,10 @@
      ]
     },
     {
-     "weight": 0.1163,
+     "weight": 0.1168,
      "confidence": "paste",
      "samples": {
-      "archetype": 185,
+      "archetype": 192,
       "spread": 8
      },
      "spreadMix": {
@@ -7661,10 +7606,10 @@
      ]
     },
     {
-     "weight": 0.0049,
+     "weight": 0.0048,
      "confidence": "ladder",
      "samples": {
-      "archetype": 97,
+      "archetype": 99,
       "spread": 7
      },
      "spreadMix": {
@@ -7693,14 +7638,14 @@
   {
    "species": "Glimmora",
    "rank": 44,
-   "tournamentSets": 464,
+   "tournamentSets": 479,
    "pasteSets": 28,
    "sets": [
     {
-     "weight": 0.4239,
+     "weight": 0.4227,
      "confidence": "ladder",
      "samples": {
-      "archetype": 198,
+      "archetype": 203,
       "spread": 9
      },
      "spreadMix": {
@@ -7726,10 +7671,10 @@
      ]
     },
     {
-     "weight": 0.2298,
+     "weight": 0.2295,
      "confidence": "ladder",
      "samples": {
-      "archetype": 116,
+      "archetype": 119,
       "spread": 7
      },
      "spreadMix": {
@@ -7755,10 +7700,10 @@
      ]
     },
     {
-     "weight": 0.1532,
+     "weight": 0.1558,
      "confidence": "paste",
      "samples": {
-      "archetype": 68,
+      "archetype": 71,
       "spread": 3
      },
      "spreadMix": {
@@ -7784,10 +7729,10 @@
      ]
     },
     {
-     "weight": 0.1168,
+     "weight": 0.1158,
      "confidence": "paste",
      "samples": {
-      "archetype": 58,
+      "archetype": 59,
       "spread": 5
      },
      "spreadMix": {
@@ -7813,10 +7758,10 @@
      ]
     },
     {
-     "weight": 0.0398,
+     "weight": 0.0396,
      "confidence": "paste",
      "samples": {
-      "archetype": 198,
+      "archetype": 203,
       "spread": 9
      },
      "spreadMix": {
@@ -7845,7 +7790,7 @@
      "weight": 0.0319,
      "confidence": "paste",
      "samples": {
-      "archetype": 116,
+      "archetype": 119,
       "spread": 7
      },
      "spreadMix": {
@@ -7871,10 +7816,10 @@
      ]
     },
     {
-     "weight": 0.0036,
+     "weight": 0.0037,
      "confidence": "ladder",
      "samples": {
-      "archetype": 68,
+      "archetype": 71,
       "spread": 3
      },
      "spreadMix": {
@@ -7903,7 +7848,7 @@
      "weight": 0.0011,
      "confidence": "ladder",
      "samples": {
-      "archetype": 58,
+      "archetype": 59,
       "spread": 5
      },
      "spreadMix": {
@@ -7933,14 +7878,14 @@
   {
    "species": "Corviknight",
    "rank": 45,
-   "tournamentSets": 362,
+   "tournamentSets": 370,
    "pasteSets": 8,
    "sets": [
     {
-     "weight": 0.293,
+     "weight": 0.2915,
      "confidence": "paste",
      "samples": {
-      "archetype": 221,
+      "archetype": 224,
       "spread": 3
      },
      "spreadMix": {
@@ -7965,10 +7910,10 @@
      ]
     },
     {
-     "weight": 0.2761,
+     "weight": 0.2747,
      "confidence": "paste",
      "samples": {
-      "archetype": 221,
+      "archetype": 224,
       "spread": 3
      },
      "spreadMix": {
@@ -7993,10 +7938,10 @@
      ]
     },
     {
-     "weight": 0.2405,
+     "weight": 0.2392,
      "confidence": "ladder",
      "samples": {
-      "archetype": 221,
+      "archetype": 224,
       "spread": 3
      },
      "spreadMix": {
@@ -8021,7 +7966,7 @@
      ]
     },
     {
-     "weight": 0.0565,
+     "weight": 0.0554,
      "confidence": "ladder",
      "samples": {
       "archetype": 27,
@@ -8049,10 +7994,10 @@
      ]
     },
     {
-     "weight": 0.0509,
+     "weight": 0.0538,
      "confidence": "ladder",
      "samples": {
-      "archetype": 27,
+      "archetype": 29,
       "spread": 4
      },
      "spreadMix": {
@@ -8078,10 +8023,10 @@
      ]
     },
     {
-     "weight": 0.0503,
+     "weight": 0.0531,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 27,
+      "archetype": 29,
       "spread": 4
      },
      "spreadMix": {
@@ -8107,7 +8052,7 @@
      ]
     },
     {
-     "weight": 0.0328,
+     "weight": 0.0322,
      "confidence": "ladder",
      "samples": {
       "archetype": 27,
@@ -8139,14 +8084,14 @@
   {
    "species": "Delphox",
    "rank": 46,
-   "tournamentSets": 708,
+   "tournamentSets": 757,
    "pasteSets": 15,
    "sets": [
     {
-     "weight": 0.7156,
+     "weight": 0.7163,
      "confidence": "ladder",
      "samples": {
-      "archetype": 642,
+      "archetype": 688,
       "spread": 12
      },
      "spreadMix": {
@@ -8171,10 +8116,10 @@
      ]
     },
     {
-     "weight": 0.2285,
+     "weight": 0.2287,
      "confidence": "paste",
      "samples": {
-      "archetype": 642,
+      "archetype": 688,
       "spread": 12
      },
      "spreadMix": {
@@ -8199,10 +8144,10 @@
      ]
     },
     {
-     "weight": 0.0524,
+     "weight": 0.0515,
      "confidence": "ladder",
      "samples": {
-      "archetype": 45,
+      "archetype": 47,
       "spread": 0
      },
      "spreadMix": {
@@ -8228,10 +8173,10 @@
      ]
     },
     {
-     "weight": 0.0035,
+     "weight": 0.0034,
      "confidence": "ladder",
      "samples": {
-      "archetype": 45,
+      "archetype": 47,
       "spread": 0
      },
      "spreadMix": {
@@ -8261,14 +8206,14 @@
   {
    "species": "Annihilape",
    "rank": 47,
-   "tournamentSets": 309,
+   "tournamentSets": 323,
    "pasteSets": 13,
    "sets": [
     {
-     "weight": 0.4976,
+     "weight": 0.4927,
      "confidence": "ladder",
      "samples": {
-      "archetype": 120,
+      "archetype": 126,
       "spread": 6
      },
      "spreadMix": {
@@ -8295,10 +8240,10 @@
      ]
     },
     {
-     "weight": 0.2013,
+     "weight": 0.2045,
      "confidence": "ladder",
      "samples": {
-      "archetype": 84,
+      "archetype": 90,
       "spread": 2
      },
      "spreadMix": {
@@ -8325,10 +8270,10 @@
      ]
     },
     {
-     "weight": 0.1635,
+     "weight": 0.166,
      "confidence": "paste",
      "samples": {
-      "archetype": 84,
+      "archetype": 90,
       "spread": 2
      },
      "spreadMix": {
@@ -8355,10 +8300,10 @@
      ]
     },
     {
-     "weight": 0.059,
+     "weight": 0.0588,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 5
      },
      "spreadMix": {
@@ -8383,10 +8328,10 @@
      ]
     },
     {
-     "weight": 0.0556,
+     "weight": 0.055,
      "confidence": "paste",
      "samples": {
-      "archetype": 120,
+      "archetype": 126,
       "spread": 6
      },
      "spreadMix": {
@@ -8413,10 +8358,10 @@
      ]
     },
     {
-     "weight": 0.0231,
+     "weight": 0.023,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 5
      },
      "spreadMix": {
@@ -8445,14 +8390,14 @@
   {
    "species": "Blastoise",
    "rank": 48,
-   "tournamentSets": 242,
+   "tournamentSets": 253,
    "pasteSets": 10,
    "sets": [
     {
-     "weight": 0.312,
+     "weight": 0.301,
      "confidence": "paste",
      "samples": {
-      "archetype": 208,
+      "archetype": 215,
       "spread": 8
      },
      "spreadMix": {
@@ -8478,10 +8423,10 @@
      ]
     },
     {
-     "weight": 0.3085,
+     "weight": 0.2977,
      "confidence": "ladder",
      "samples": {
-      "archetype": 208,
+      "archetype": 215,
       "spread": 8
      },
      "spreadMix": {
@@ -8507,10 +8452,10 @@
      ]
     },
     {
-     "weight": 0.2905,
+     "weight": 0.2803,
      "confidence": "ladder",
      "samples": {
-      "archetype": 208,
+      "archetype": 215,
       "spread": 8
      },
      "spreadMix": {
@@ -8536,10 +8481,10 @@
      ]
     },
     {
-     "weight": 0.0851,
+     "weight": 0.0836,
      "confidence": "ladder",
      "samples": {
-      "archetype": 22,
+      "archetype": 23,
       "spread": 0
      },
      "spreadMix": {
@@ -8566,10 +8511,70 @@
      ]
     },
     {
+     "weight": 0.0265,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 9,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Blastoise-Mega",
+     "item": "Blastoisinite",
+     "ability": "Mega Launcher",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Water Spout",
+      "Terrain Pulse",
+      "Aura Sphere",
+      "Dark Pulse"
+     ]
+    },
+    {
+     "weight": 0.007,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 9,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Blastoise-Mega",
+     "item": "Blastoisinite",
+     "ability": "Mega Launcher",
+     "nature": "Timid",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Water Spout",
+      "Terrain Pulse",
+      "Aura Sphere",
+      "Dark Pulse"
+     ]
+    },
+    {
      "weight": 0.0039,
      "confidence": "ladder",
      "samples": {
-      "archetype": 22,
+      "archetype": 23,
       "spread": 0
      },
      "spreadMix": {
@@ -8600,14 +8605,14 @@
   {
    "species": "Pawmot",
    "rank": 49,
-   "tournamentSets": 223,
+   "tournamentSets": 227,
    "pasteSets": 20,
    "sets": [
     {
-     "weight": 0.7941,
+     "weight": 0.7912,
      "confidence": "ladder",
      "samples": {
-      "archetype": 143,
+      "archetype": 145,
       "spread": 16
      },
      "spreadMix": {
@@ -8633,10 +8638,10 @@
      ]
     },
     {
-     "weight": 0.108,
+     "weight": 0.1107,
      "confidence": "ladder",
      "samples": {
-      "archetype": 24,
+      "archetype": 25,
       "spread": 2
      },
      "spreadMix": {
@@ -8662,7 +8667,36 @@
      ]
     },
     {
-     "weight": 0.0378,
+     "weight": 0.0384,
+     "confidence": "paste-nature",
+     "samples": {
+      "archetype": 25,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.996,
+      "ladder": 0.004
+     },
+     "forme": "Pawmot",
+     "item": "Focus Sash",
+     "ability": "Iron Fist",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 8,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 26
+     },
+     "moves": [
+      "Double Shock",
+      "Close Combat",
+      "Fake Out"
+     ]
+    },
+    {
+     "weight": 0.0371,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -8692,39 +8726,10 @@
      ]
     },
     {
-     "weight": 0.0374,
-     "confidence": "paste-nature",
-     "samples": {
-      "archetype": 24,
-      "spread": 2
-     },
-     "spreadMix": {
-      "tournament": 0.996,
-      "ladder": 0.004
-     },
-     "forme": "Pawmot",
-     "item": "Focus Sash",
-     "ability": "Iron Fist",
-     "nature": "Adamant",
-     "sp": {
-      "hp": 8,
-      "atk": 32,
-      "def": 0,
-      "spa": 0,
-      "spd": 0,
-      "spe": 26
-     },
-     "moves": [
-      "Double Shock",
-      "Close Combat",
-      "Fake Out"
-     ]
-    },
-    {
-     "weight": 0.0217,
+     "weight": 0.0216,
      "confidence": "paste",
      "samples": {
-      "archetype": 143,
+      "archetype": 145,
       "spread": 16
      },
      "spreadMix": {
@@ -8784,14 +8789,14 @@
   {
    "species": "Hatterene",
    "rank": 50,
-   "tournamentSets": 204,
+   "tournamentSets": 214,
    "pasteSets": 13,
    "sets": [
     {
-     "weight": 0.6167,
+     "weight": 0.6212,
      "confidence": "ladder",
      "samples": {
-      "archetype": 155,
+      "archetype": 164,
       "spread": 12
      },
      "spreadMix": {
@@ -8811,15 +8816,15 @@
       "spe": 0
      },
      "moves": [
-      "Expanding Force",
-      "Dazzling Gleam"
+      "Dazzling Gleam",
+      "Expanding Force"
      ]
     },
     {
-     "weight": 0.2636,
+     "weight": 0.2655,
      "confidence": "paste",
      "samples": {
-      "archetype": 155,
+      "archetype": 164,
       "spread": 12
      },
      "spreadMix": {
@@ -8839,12 +8844,12 @@
       "spe": 0
      },
      "moves": [
-      "Expanding Force",
-      "Dazzling Gleam"
+      "Dazzling Gleam",
+      "Expanding Force"
      ]
     },
     {
-     "weight": 0.0528,
+     "weight": 0.05,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -8872,7 +8877,7 @@
      ]
     },
     {
-     "weight": 0.0374,
+     "weight": 0.0354,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -8900,7 +8905,7 @@
      ]
     },
     {
-     "weight": 0.0204,
+     "weight": 0.0193,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 13,
@@ -8928,7 +8933,7 @@
      ]
     },
     {
-     "weight": 0.0091,
+     "weight": 0.0086,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -8960,14 +8965,14 @@
   {
    "species": "Dragapult",
    "rank": 51,
-   "tournamentSets": 329,
+   "tournamentSets": 341,
    "pasteSets": 12,
    "sets": [
     {
-     "weight": 0.5244,
+     "weight": 0.5328,
      "confidence": "paste",
      "samples": {
-      "archetype": 140,
+      "archetype": 146,
       "spread": 2
      },
      "spreadMix": {
@@ -8992,7 +8997,7 @@
      ]
     },
     {
-     "weight": 0.3778,
+     "weight": 0.3676,
      "confidence": "paste",
      "samples": {
       "archetype": 100,
@@ -9020,10 +9025,10 @@
      ]
     },
     {
-     "weight": 0.0715,
+     "weight": 0.0732,
      "confidence": "ladder",
      "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -9048,10 +9053,10 @@
      ]
     },
     {
-     "weight": 0.0124,
+     "weight": 0.0126,
      "confidence": "ladder",
      "samples": {
-      "archetype": 140,
+      "archetype": 146,
       "spread": 2
      },
      "spreadMix": {
@@ -9076,7 +9081,7 @@
      ]
     },
     {
-     "weight": 0.0091,
+     "weight": 0.0088,
      "confidence": "ladder",
      "samples": {
       "archetype": 100,
@@ -9104,10 +9109,10 @@
      ]
     },
     {
-     "weight": 0.0048,
+     "weight": 0.0049,
      "confidence": "ladder",
      "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -9136,14 +9141,14 @@
   {
    "species": "Maushold",
    "rank": 52,
-   "tournamentSets": 136,
+   "tournamentSets": 142,
    "pasteSets": 0,
    "sets": [
     {
-     "weight": 0.3423,
+     "weight": 0.3466,
      "confidence": "ladder",
      "samples": {
-      "archetype": 47,
+      "archetype": 49,
       "spread": 0
      },
      "spreadMix": {
@@ -9168,10 +9173,10 @@
      ]
     },
     {
-     "weight": 0.2789,
+     "weight": 0.2761,
      "confidence": "ladder",
      "samples": {
-      "archetype": 36,
+      "archetype": 37,
       "spread": 0
      },
      "spreadMix": {
@@ -9196,10 +9201,10 @@
      ]
     },
     {
-     "weight": 0.1458,
+     "weight": 0.1477,
      "confidence": "ladder",
      "samples": {
-      "archetype": 47,
+      "archetype": 49,
       "spread": 0
      },
      "spreadMix": {
@@ -9224,10 +9229,10 @@
      ]
     },
     {
-     "weight": 0.1188,
+     "weight": 0.1176,
      "confidence": "ladder",
      "samples": {
-      "archetype": 36,
+      "archetype": 37,
       "spread": 0
      },
      "spreadMix": {
@@ -9252,7 +9257,7 @@
      ]
     },
     {
-     "weight": 0.1074,
+     "weight": 0.0786,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -9265,22 +9270,23 @@
      "forme": "Maushold",
      "item": "Focus Sash",
      "ability": "Friend Guard",
-     "nature": "Timid",
+     "nature": "Jolly",
      "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 2,
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
       "spa": 0,
       "spd": 0,
       "spe": 32
      },
      "moves": [
       "Super Fang",
+      "Feint",
       "Beat Up"
      ]
     },
     {
-     "weight": 0.0067,
+     "weight": 0.0335,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -9293,17 +9299,18 @@
      "forme": "Maushold",
      "item": "Focus Sash",
      "ability": "Friend Guard",
-     "nature": "Timid",
+     "nature": "Jolly",
      "sp": {
       "hp": 32,
       "atk": 0,
-      "def": 20,
+      "def": 2,
       "spa": 0,
-      "spd": 14,
-      "spe": 0
+      "spd": 0,
+      "spe": 32
      },
      "moves": [
       "Super Fang",
+      "Feint",
       "Beat Up"
      ]
     }
@@ -9312,14 +9319,14 @@
   {
    "species": "Kommo-o",
    "rank": 53,
-   "tournamentSets": 539,
+   "tournamentSets": 570,
    "pasteSets": 18,
    "sets": [
     {
-     "weight": 0.24,
+     "weight": 0.2407,
      "confidence": "ladder",
      "samples": {
-      "archetype": 285,
+      "archetype": 300,
       "spread": 11
      },
      "spreadMix": {
@@ -9344,10 +9351,10 @@
      ]
     },
     {
-     "weight": 0.2218,
+     "weight": 0.2224,
      "confidence": "paste",
      "samples": {
-      "archetype": 285,
+      "archetype": 300,
       "spread": 11
      },
      "spreadMix": {
@@ -9372,10 +9379,10 @@
      ]
     },
     {
-     "weight": 0.1398,
+     "weight": 0.1397,
      "confidence": "ladder",
      "samples": {
-      "archetype": 134,
+      "archetype": 141,
       "spread": 13
      },
      "spreadMix": {
@@ -9401,10 +9408,10 @@
      ]
     },
     {
-     "weight": 0.1285,
+     "weight": 0.1289,
      "confidence": "paste",
      "samples": {
-      "archetype": 285,
+      "archetype": 300,
       "spread": 11
      },
      "spreadMix": {
@@ -9429,10 +9436,10 @@
      ]
     },
     {
-     "weight": 0.1006,
+     "weight": 0.1005,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 134,
+      "archetype": 141,
       "spread": 13
      },
      "spreadMix": {
@@ -9458,10 +9465,10 @@
      ]
     },
     {
-     "weight": 0.0597,
+     "weight": 0.0596,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 134,
+      "archetype": 141,
       "spread": 13
      },
      "spreadMix": {
@@ -9487,10 +9494,10 @@
      ]
     },
     {
-     "weight": 0.0597,
+     "weight": 0.059,
      "confidence": "ladder",
      "samples": {
-      "archetype": 50,
+      "archetype": 52,
       "spread": 3
      },
      "spreadMix": {
@@ -9515,10 +9522,10 @@
      ]
     },
     {
-     "weight": 0.0497,
+     "weight": 0.0491,
      "confidence": "paste",
      "samples": {
-      "archetype": 50,
+      "archetype": 52,
       "spread": 3
      },
      "spreadMix": {
@@ -9547,14 +9554,14 @@
   {
    "species": "Absol",
    "rank": 54,
-   "tournamentSets": 158,
+   "tournamentSets": 166,
    "pasteSets": 16,
    "sets": [
     {
-     "weight": 0.5304,
+     "weight": 0.5406,
      "confidence": "ladder",
      "samples": {
-      "archetype": 93,
+      "archetype": 99,
       "spread": 11
      },
      "spreadMix": {
@@ -9581,10 +9588,10 @@
      ]
     },
     {
-     "weight": 0.3348,
+     "weight": 0.3243,
      "confidence": "ladder",
      "samples": {
-      "archetype": 53,
+      "archetype": 54,
       "spread": 5
      },
      "spreadMix": {
@@ -9610,10 +9617,10 @@
      ]
     },
     {
-     "weight": 0.0891,
+     "weight": 0.0908,
      "confidence": "paste",
      "samples": {
-      "archetype": 93,
+      "archetype": 99,
       "spread": 11
      },
      "spreadMix": {
@@ -9640,10 +9647,10 @@
      ]
     },
     {
-     "weight": 0.0458,
+     "weight": 0.0443,
      "confidence": "paste",
      "samples": {
-      "archetype": 53,
+      "archetype": 54,
       "spread": 5
      },
      "spreadMix": {
@@ -9673,14 +9680,14 @@
   {
    "species": "Talonflame",
    "rank": 55,
-   "tournamentSets": 178,
+   "tournamentSets": 182,
    "pasteSets": 12,
    "sets": [
     {
-     "weight": 0.3917,
+     "weight": 0.4045,
      "confidence": "paste",
      "samples": {
-      "archetype": 45,
+      "archetype": 47,
       "spread": 5
      },
      "spreadMix": {
@@ -9706,7 +9713,7 @@
      ]
     },
     {
-     "weight": 0.3049,
+     "weight": 0.2972,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 26,
@@ -9734,7 +9741,7 @@
      ]
     },
     {
-     "weight": 0.2197,
+     "weight": 0.2141,
      "confidence": "paste",
      "samples": {
       "archetype": 16,
@@ -9763,10 +9770,10 @@
      ]
     },
     {
-     "weight": 0.0463,
+     "weight": 0.0478,
      "confidence": "paste",
      "samples": {
-      "archetype": 45,
+      "archetype": 47,
       "spread": 5
      },
      "spreadMix": {
@@ -9792,7 +9799,7 @@
      ]
     },
     {
-     "weight": 0.0283,
+     "weight": 0.0276,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 26,
@@ -9820,7 +9827,7 @@
      ]
     },
     {
-     "weight": 0.009,
+     "weight": 0.0088,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -9853,14 +9860,14 @@
   {
    "species": "Ceruledge",
    "rank": 56,
-   "tournamentSets": 264,
+   "tournamentSets": 272,
    "pasteSets": 7,
    "sets": [
     {
-     "weight": 0.2665,
+     "weight": 0.2681,
      "confidence": "paste",
      "samples": {
-      "archetype": 157,
+      "archetype": 163,
       "spread": 4
      },
      "spreadMix": {
@@ -9885,10 +9892,10 @@
      ]
     },
     {
-     "weight": 0.228,
+     "weight": 0.2295,
      "confidence": "ladder",
      "samples": {
-      "archetype": 157,
+      "archetype": 163,
       "spread": 4
      },
      "spreadMix": {
@@ -9913,10 +9920,10 @@
      ]
     },
     {
-     "weight": 0.2256,
+     "weight": 0.227,
      "confidence": "paste",
      "samples": {
-      "archetype": 157,
+      "archetype": 163,
       "spread": 4
      },
      "spreadMix": {
@@ -9941,7 +9948,7 @@
      ]
     },
     {
-     "weight": 0.0918,
+     "weight": 0.089,
      "confidence": "ladder",
      "samples": {
       "archetype": 47,
@@ -9969,7 +9976,7 @@
      ]
     },
     {
-     "weight": 0.0869,
+     "weight": 0.0842,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 47,
@@ -9997,10 +10004,10 @@
      ]
     },
     {
-     "weight": 0.0774,
+     "weight": 0.0782,
      "confidence": "ladder",
      "samples": {
-      "archetype": 26,
+      "archetype": 27,
       "spread": 0
      },
      "spreadMix": {
@@ -10026,10 +10033,10 @@
      ]
     },
     {
-     "weight": 0.0238,
+     "weight": 0.024,
      "confidence": "ladder",
      "samples": {
-      "archetype": 26,
+      "archetype": 27,
       "spread": 0
      },
      "spreadMix": {
@@ -10059,14 +10066,14 @@
   {
    "species": "Camerupt",
    "rank": 57,
-   "tournamentSets": 241,
+   "tournamentSets": 252,
    "pasteSets": 8,
    "sets": [
     {
-     "weight": 0.9499,
+     "weight": 0.9517,
      "confidence": "paste",
      "samples": {
-      "archetype": 232,
+      "archetype": 243,
       "spread": 8
      },
      "spreadMix": {
@@ -10092,7 +10099,7 @@
      ]
     },
     {
-     "weight": 0.0364,
+     "weight": 0.0347,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -10125,7 +10132,7 @@
      "weight": 0.0127,
      "confidence": "ladder",
      "samples": {
-      "archetype": 232,
+      "archetype": 243,
       "spread": 8
      },
      "spreadMix": {
@@ -10185,14 +10192,14 @@
   {
    "species": "Blaziken",
    "rank": 58,
-   "tournamentSets": 180,
+   "tournamentSets": 188,
    "pasteSets": 10,
    "sets": [
     {
-     "weight": 0.7318,
+     "weight": 0.7326,
      "confidence": "ladder",
      "samples": {
-      "archetype": 119,
+      "archetype": 125,
       "spread": 5
      },
      "spreadMix": {
@@ -10218,10 +10225,10 @@
      ]
     },
     {
-     "weight": 0.1181,
+     "weight": 0.1194,
      "confidence": "ladder",
      "samples": {
-      "archetype": 18,
+      "archetype": 19,
       "spread": 0
      },
      "spreadMix": {
@@ -10246,10 +10253,10 @@
      ]
     },
     {
-     "weight": 0.1033,
+     "weight": 0.1034,
      "confidence": "paste",
      "samples": {
-      "archetype": 119,
+      "archetype": 125,
       "spread": 5
      },
      "spreadMix": {
@@ -10275,7 +10282,7 @@
      ]
     },
     {
-     "weight": 0.0445,
+     "weight": 0.0423,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -10305,7 +10312,7 @@
      ]
     },
     {
-     "weight": 0.0023,
+     "weight": 0.0022,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -10339,14 +10346,14 @@
   {
    "species": "Hydreigon",
    "rank": 59,
-   "tournamentSets": 145,
+   "tournamentSets": 150,
    "pasteSets": 7,
    "sets": [
     {
      "weight": 0.7359,
      "confidence": "paste",
      "samples": {
-      "archetype": 85,
+      "archetype": 88,
       "spread": 5
      },
      "spreadMix": {
@@ -10373,10 +10380,10 @@
      ]
     },
     {
-     "weight": 0.126,
+     "weight": 0.1304,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 16,
+      "archetype": 17,
       "spread": 5
      },
      "spreadMix": {
@@ -10403,7 +10410,7 @@
      ]
     },
     {
-     "weight": 0.1036,
+     "weight": 0.0998,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -10433,7 +10440,7 @@
      ]
     },
     {
-     "weight": 0.0181,
+     "weight": 0.0174,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 13,
@@ -10466,7 +10473,7 @@
      "weight": 0.0141,
      "confidence": "ladder",
      "samples": {
-      "archetype": 85,
+      "archetype": 88,
       "spread": 5
      },
      "spreadMix": {
@@ -10493,10 +10500,10 @@
      ]
     },
     {
-     "weight": 0.0024,
+     "weight": 0.0025,
      "confidence": "ladder",
      "samples": {
-      "archetype": 16,
+      "archetype": 17,
       "spread": 5
      },
      "spreadMix": {
@@ -10527,14 +10534,14 @@
   {
    "species": "Typhlosion-Hisui",
    "rank": 60,
-   "tournamentSets": 107,
+   "tournamentSets": 109,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.5965,
+     "weight": 0.5989,
      "confidence": "ladder",
      "samples": {
-      "archetype": 67,
+      "archetype": 68,
       "spread": 3
      },
      "spreadMix": {
@@ -10561,10 +10568,10 @@
      ]
     },
     {
-     "weight": 0.1652,
+     "weight": 0.1659,
      "confidence": "paste",
      "samples": {
-      "archetype": 67,
+      "archetype": 68,
       "spread": 3
      },
      "spreadMix": {
@@ -10591,7 +10598,7 @@
      ]
     },
     {
-     "weight": 0.1562,
+     "weight": 0.1541,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -10621,7 +10628,7 @@
      ]
     },
     {
-     "weight": 0.0626,
+     "weight": 0.0618,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -10651,7 +10658,7 @@
      ]
     },
     {
-     "weight": 0.0173,
+     "weight": 0.0171,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 7,
@@ -10715,14 +10722,14 @@
   {
    "species": "Mawile",
    "rank": 61,
-   "tournamentSets": 116,
+   "tournamentSets": 121,
    "pasteSets": 8,
    "sets": [
     {
-     "weight": 0.5206,
+     "weight": 0.5136,
      "confidence": "ladder",
      "samples": {
-      "archetype": 64,
+      "archetype": 66,
       "spread": 7
      },
      "spreadMix": {
@@ -10749,10 +10756,10 @@
      ]
     },
     {
-     "weight": 0.4113,
+     "weight": 0.4185,
      "confidence": "ladder",
      "samples": {
-      "archetype": 50,
+      "archetype": 53,
       "spread": 0
      },
      "spreadMix": {
@@ -10778,10 +10785,10 @@
      ]
     },
     {
-     "weight": 0.0423,
+     "weight": 0.0417,
      "confidence": "paste",
      "samples": {
-      "archetype": 64,
+      "archetype": 66,
       "spread": 7
      },
      "spreadMix": {
@@ -10808,10 +10815,10 @@
      ]
     },
     {
-     "weight": 0.0258,
+     "weight": 0.0263,
      "confidence": "ladder",
      "samples": {
-      "archetype": 50,
+      "archetype": 53,
       "spread": 0
      },
      "spreadMix": {
@@ -10841,14 +10848,14 @@
   {
    "species": "Inteleon",
    "rank": 62,
-   "tournamentSets": 51,
+   "tournamentSets": 53,
    "pasteSets": 0,
    "sets": [
     {
-     "weight": 0.6167,
+     "weight": 0.6094,
      "confidence": "ladder",
      "samples": {
-      "archetype": 28,
+      "archetype": 29,
       "spread": 0
      },
      "spreadMix": {
@@ -10875,7 +10882,7 @@
      ]
     },
     {
-     "weight": 0.305,
+     "weight": 0.2879,
      "confidence": "ladder",
      "samples": {
       "archetype": 15,
@@ -10905,10 +10912,10 @@
      ]
     },
     {
-     "weight": 0.0577,
+     "weight": 0.0823,
      "confidence": "ladder",
      "samples": {
-      "archetype": 2,
+      "archetype": 3,
       "spread": 0
      },
      "spreadMix": {
@@ -10928,16 +10935,16 @@
       "spe": 32
      },
      "moves": [
-      "Ice Beam",
       "Snipe Shot",
+      "Ice Beam",
       "Dark Pulse"
      ]
     },
     {
-     "weight": 0.0104,
+     "weight": 0.0103,
      "confidence": "ladder",
      "samples": {
-      "archetype": 28,
+      "archetype": 29,
       "spread": 0
      },
      "spreadMix": {
@@ -10964,7 +10971,7 @@
      ]
     },
     {
-     "weight": 0.0092,
+     "weight": 0.0087,
      "confidence": "ladder",
      "samples": {
       "archetype": 15,
@@ -10994,10 +11001,10 @@
      ]
     },
     {
-     "weight": 0.001,
+     "weight": 0.0014,
      "confidence": "ladder",
      "samples": {
-      "archetype": 2,
+      "archetype": 3,
       "spread": 0
      },
      "spreadMix": {
@@ -11017,8 +11024,8 @@
       "spe": 12
      },
      "moves": [
-      "Ice Beam",
       "Snipe Shot",
+      "Ice Beam",
       "Dark Pulse"
      ]
     }
@@ -11027,14 +11034,14 @@
   {
    "species": "Gallade",
    "rank": 63,
-   "tournamentSets": 89,
+   "tournamentSets": 93,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.3318,
+     "weight": 0.3291,
      "confidence": "ladder",
      "samples": {
-      "archetype": 24,
+      "archetype": 25,
       "spread": 2
      },
      "spreadMix": {
@@ -11060,10 +11067,10 @@
      ]
     },
     {
-     "weight": 0.2375,
+     "weight": 0.2356,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 24,
+      "archetype": 25,
       "spread": 2
      },
      "spreadMix": {
@@ -11089,10 +11096,10 @@
      ]
     },
     {
-     "weight": 0.195,
+     "weight": 0.2125,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 8,
+      "archetype": 9,
       "spread": 2
      },
      "spreadMix": {
@@ -11118,7 +11125,7 @@
      ]
     },
     {
-     "weight": 0.1314,
+     "weight": 0.1233,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -11147,7 +11154,7 @@
      ]
     },
     {
-     "weight": 0.094,
+     "weight": 0.0883,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 7,
@@ -11176,10 +11183,10 @@
      ]
     },
     {
-     "weight": 0.0103,
+     "weight": 0.0113,
      "confidence": "ladder",
      "samples": {
-      "archetype": 8,
+      "archetype": 9,
       "spread": 2
      },
      "spreadMix": {
@@ -11461,14 +11468,14 @@
   {
    "species": "Meowscarada",
    "rank": 66,
-   "tournamentSets": 50,
+   "tournamentSets": 53,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.5947,
+     "weight": 0.5739,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 0
      },
      "spreadMix": {
@@ -11495,10 +11502,10 @@
      ]
     },
     {
-     "weight": 0.2048,
+     "weight": 0.2401,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 7,
+      "archetype": 9,
       "spread": 2
      },
      "spreadMix": {
@@ -11525,7 +11532,7 @@
      ]
     },
     {
-     "weight": 0.1821,
+     "weight": 0.1679,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 7,
@@ -11555,10 +11562,10 @@
      ]
     },
     {
-     "weight": 0.0151,
+     "weight": 0.0145,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 0
      },
      "spreadMix": {
@@ -11585,10 +11592,10 @@
      ]
     },
     {
-     "weight": 0.0017,
+     "weight": 0.002,
      "confidence": "ladder",
      "samples": {
-      "archetype": 7,
+      "archetype": 9,
       "spread": 2
      },
      "spreadMix": {
@@ -11615,7 +11622,7 @@
      ]
     },
     {
-     "weight": 0.0016,
+     "weight": 0.0014,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -11649,14 +11656,14 @@
   {
    "species": "Sirfetch’d",
    "rank": 67,
-   "tournamentSets": 58,
+   "tournamentSets": 62,
    "pasteSets": 6,
    "sets": [
     {
-     "weight": 0.283,
+     "weight": 0.3002,
      "confidence": "ladder",
      "samples": {
-      "archetype": 12,
+      "archetype": 14,
       "spread": 0
      },
      "spreadMix": {
@@ -11676,14 +11683,14 @@
       "spe": 0
      },
      "moves": [
-      "Leaf Blade",
       "Meteor Assault",
+      "Leaf Blade",
       "Close Combat",
       "Night Slash"
      ]
     },
     {
-     "weight": 0.2362,
+     "weight": 0.2133,
      "confidence": "ladder",
      "samples": {
       "archetype": 23,
@@ -11712,7 +11719,37 @@
      ]
     },
     {
-     "weight": 0.1647,
+     "weight": 0.1779,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 10,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Sirfetch’d",
+     "item": "Leek",
+     "ability": "Scrappy",
+     "nature": "Sassy",
+     "sp": {
+      "hp": 32,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Meteor Assault",
+      "Leaf Blade",
+      "Night Slash",
+      "First Impression"
+     ]
+    },
+    {
+     "weight": 0.1488,
      "confidence": "ladder",
      "samples": {
       "archetype": 23,
@@ -11741,37 +11778,7 @@
      ]
     },
     {
-     "weight": 0.1486,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 8,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Sirfetch’d",
-     "item": "Leek",
-     "ability": "Scrappy",
-     "nature": "Sassy",
-     "sp": {
-      "hp": 32,
-      "atk": 32,
-      "def": 0,
-      "spa": 0,
-      "spd": 2,
-      "spe": 0
-     },
-     "moves": [
-      "Meteor Assault",
-      "Leaf Blade",
-      "Night Slash",
-      "First Impression"
-     ]
-    },
-    {
-     "weight": 0.1254,
+     "weight": 0.1133,
      "confidence": "paste",
      "samples": {
       "archetype": 23,
@@ -11800,10 +11807,10 @@
      ]
     },
     {
-     "weight": 0.0276,
+     "weight": 0.0292,
      "confidence": "ladder",
      "samples": {
-      "archetype": 12,
+      "archetype": 14,
       "spread": 0
      },
      "spreadMix": {
@@ -11823,17 +11830,17 @@
       "spe": 0
      },
      "moves": [
-      "Leaf Blade",
       "Meteor Assault",
+      "Leaf Blade",
       "Close Combat",
       "Night Slash"
      ]
     },
     {
-     "weight": 0.0145,
+     "weight": 0.0173,
      "confidence": "ladder",
      "samples": {
-      "archetype": 8,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -12052,7 +12059,7 @@
   {
    "species": "Espathra",
    "rank": 69,
-   "tournamentSets": 98,
+   "tournamentSets": 99,
    "pasteSets": 5,
    "sets": [
     {
@@ -12255,14 +12262,14 @@
   {
    "species": "Rotom-Wash",
    "rank": 70,
-   "tournamentSets": 71,
+   "tournamentSets": 73,
    "pasteSets": 2,
    "sets": [
     {
-     "weight": 0.1826,
+     "weight": 0.1931,
      "confidence": "ladder",
      "samples": {
-      "archetype": 11,
+      "archetype": 12,
       "spread": 0
      },
      "spreadMix": {
@@ -12288,7 +12295,7 @@
      ]
     },
     {
-     "weight": 0.1575,
+     "weight": 0.1532,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -12316,7 +12323,36 @@
      ]
     },
     {
-     "weight": 0.1422,
+     "weight": 0.1472,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 12,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Rotom-Wash",
+     "item": "Sitrus Berry",
+     "ability": "Levitate",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 2
+     },
+     "moves": [
+      "Thunderbolt",
+      "Hydro Pump",
+      "Electroweb"
+     ]
+    },
+    {
+     "weight": 0.1383,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -12346,36 +12382,7 @@
      ]
     },
     {
-     "weight": 0.1392,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 11,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Rotom-Wash",
-     "item": "Sitrus Berry",
-     "ability": "Levitate",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 0,
-      "spa": 32,
-      "spd": 0,
-      "spe": 2
-     },
-     "moves": [
-      "Thunderbolt",
-      "Hydro Pump",
-      "Electroweb"
-     ]
-    },
-    {
-     "weight": 0.12,
+     "weight": 0.1168,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -12403,7 +12410,7 @@
      ]
     },
     {
-     "weight": 0.0756,
+     "weight": 0.0735,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 8,
@@ -12432,7 +12439,7 @@
      ]
     },
     {
-     "weight": 0.0739,
+     "weight": 0.0719,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 8,
@@ -12461,7 +12468,7 @@
      ]
     },
     {
-     "weight": 0.058,
+     "weight": 0.0564,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -12680,11 +12687,11 @@
   {
    "species": "Kleavor",
    "rank": 72,
-   "tournamentSets": 87,
+   "tournamentSets": 90,
    "pasteSets": 0,
    "sets": [
     {
-     "weight": 0.4056,
+     "weight": 0.3926,
      "confidence": "ladder",
      "samples": {
       "archetype": 26,
@@ -12713,10 +12720,10 @@
      ]
     },
     {
-     "weight": 0.2909,
+     "weight": 0.2972,
      "confidence": "ladder",
      "samples": {
-      "archetype": 17,
+      "archetype": 18,
       "spread": 0
      },
      "spreadMix": {
@@ -12743,10 +12750,10 @@
      ]
     },
     {
-     "weight": 0.2638,
+     "weight": 0.271,
      "confidence": "ladder",
      "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -12766,12 +12773,12 @@
       "spe": 32
      },
      "moves": [
-      "X-Scissor",
-      "Stone Axe"
+      "Stone Axe",
+      "X-Scissor"
      ]
     },
     {
-     "weight": 0.0252,
+     "weight": 0.0244,
      "confidence": "ladder",
      "samples": {
       "archetype": 26,
@@ -12800,10 +12807,10 @@
      ]
     },
     {
-     "weight": 0.0076,
+     "weight": 0.0078,
      "confidence": "ladder",
      "samples": {
-      "archetype": 17,
+      "archetype": 18,
       "spread": 0
      },
      "spreadMix": {
@@ -12830,10 +12837,10 @@
      ]
     },
     {
-     "weight": 0.0069,
+     "weight": 0.0071,
      "confidence": "ladder",
      "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -12853,8 +12860,8 @@
       "spe": 2
      },
      "moves": [
-      "X-Scissor",
-      "Stone Axe"
+      "Stone Axe",
+      "X-Scissor"
      ]
     }
    ]
@@ -12862,7 +12869,7 @@
   {
    "species": "Mimikyu",
    "rank": 73,
-   "tournamentSets": 51,
+   "tournamentSets": 52,
    "pasteSets": 4,
    "sets": [
     {
@@ -13048,14 +13055,14 @@
   {
    "species": "Basculegion-F",
    "rank": 74,
-   "tournamentSets": 122,
+   "tournamentSets": 139,
    "pasteSets": 13,
    "sets": [
     {
-     "weight": 0.7468,
+     "weight": 0.7629,
      "confidence": "paste",
      "samples": {
-      "archetype": 82,
+      "archetype": 97,
       "spread": 7
      },
      "spreadMix": {
@@ -13081,10 +13088,10 @@
      ]
     },
     {
-     "weight": 0.1,
+     "weight": 0.0932,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 3
      },
      "spreadMix": {
@@ -13111,10 +13118,10 @@
      ]
     },
     {
-     "weight": 0.0606,
+     "weight": 0.0564,
      "confidence": "paste",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 3
      },
      "spreadMix": {
@@ -13141,7 +13148,7 @@
      ]
     },
     {
-     "weight": 0.0474,
+     "weight": 0.0421,
      "confidence": "ladder",
      "samples": {
       "archetype": 6,
@@ -13171,10 +13178,10 @@
      ]
     },
     {
-     "weight": 0.0396,
+     "weight": 0.0404,
      "confidence": "ladder",
      "samples": {
-      "archetype": 82,
+      "archetype": 97,
       "spread": 7
      },
      "spreadMix": {
@@ -13200,7 +13207,7 @@
      ]
     },
     {
-     "weight": 0.0056,
+     "weight": 0.005,
      "confidence": "ladder",
      "samples": {
       "archetype": 6,
@@ -13418,14 +13425,14 @@
   {
    "species": "Weavile",
    "rank": 76,
-   "tournamentSets": 47,
+   "tournamentSets": 48,
    "pasteSets": 1,
    "sets": [
     {
-     "weight": 0.7733,
+     "weight": 0.7791,
      "confidence": "ladder",
      "samples": {
-      "archetype": 33,
+      "archetype": 34,
       "spread": 0
      },
      "spreadMix": {
@@ -13452,7 +13459,7 @@
      ]
     },
     {
-     "weight": 0.1031,
+     "weight": 0.1001,
      "confidence": "ladder",
      "samples": {
       "archetype": 3,
@@ -13482,7 +13489,7 @@
      ]
     },
     {
-     "weight": 0.0968,
+     "weight": 0.094,
      "confidence": "ladder",
      "samples": {
       "archetype": 3,
@@ -13512,10 +13519,10 @@
      ]
     },
     {
-     "weight": 0.0213,
+     "weight": 0.0215,
      "confidence": "ladder",
      "samples": {
-      "archetype": 33,
+      "archetype": 34,
       "spread": 0
      },
      "spreadMix": {
@@ -13572,7 +13579,7 @@
      ]
     },
     {
-     "weight": 0.0027,
+     "weight": 0.0026,
      "confidence": "ladder",
      "samples": {
       "archetype": 3,
@@ -13821,14 +13828,14 @@
   {
    "species": "Grapploct",
    "rank": 78,
-   "tournamentSets": 53,
+   "tournamentSets": 55,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.4344,
+     "weight": 0.4625,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 19,
+      "archetype": 21,
       "spread": 2
      },
      "spreadMix": {
@@ -13855,7 +13862,7 @@
      ]
     },
     {
-     "weight": 0.344,
+     "weight": 0.3264,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 13,
@@ -13885,7 +13892,7 @@
      ]
     },
     {
-     "weight": 0.1996,
+     "weight": 0.1894,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -13915,10 +13922,10 @@
      ]
     },
     {
-     "weight": 0.0079,
+     "weight": 0.0084,
      "confidence": "ladder",
      "samples": {
-      "archetype": 19,
+      "archetype": 21,
       "spread": 2
      },
      "spreadMix": {
@@ -13945,7 +13952,7 @@
      ]
     },
     {
-     "weight": 0.0079,
+     "weight": 0.0075,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -13975,7 +13982,7 @@
      ]
     },
     {
-     "weight": 0.0062,
+     "weight": 0.0059,
      "confidence": "ladder",
      "samples": {
       "archetype": 13,
@@ -14009,11 +14016,11 @@
   {
    "species": "Chandelure",
    "rank": 79,
-   "tournamentSets": 49,
+   "tournamentSets": 50,
    "pasteSets": 1,
    "sets": [
     {
-     "weight": 0.429,
+     "weight": 0.4192,
      "confidence": "ladder",
      "samples": {
       "archetype": 22,
@@ -14043,7 +14050,7 @@
      ]
     },
     {
-     "weight": 0.3074,
+     "weight": 0.3004,
      "confidence": "ladder",
      "samples": {
       "archetype": 22,
@@ -14073,7 +14080,7 @@
      ]
     },
     {
-     "weight": 0.1174,
+     "weight": 0.1195,
      "confidence": "ladder",
      "samples": {
       "archetype": 4,
@@ -14086,24 +14093,24 @@
      "forme": "Chandelure-Mega",
      "item": "Chandelurite",
      "ability": "Infiltrator",
-     "nature": "Quiet",
+     "nature": "Timid",
      "sp": {
-      "hp": 32,
+      "hp": 2,
       "atk": 0,
-      "def": 1,
+      "def": 0,
       "spa": 32,
-      "spd": 1,
-      "spe": 0
+      "spd": 0,
+      "spe": 32
      },
      "moves": [
-      "Heat Wave",
       "Shadow Ball",
+      "Heat Wave",
       "Energy Ball",
-      "Mystical Fire"
+      "Flamethrower"
      ]
     },
     {
-     "weight": 0.0823,
+     "weight": 0.0805,
      "confidence": "ladder",
      "samples": {
       "archetype": 5,
@@ -14131,7 +14138,7 @@
      ]
     },
     {
-     "weight": 0.059,
+     "weight": 0.0577,
      "confidence": "ladder",
      "samples": {
       "archetype": 5,
@@ -14159,7 +14166,7 @@
      ]
     },
     {
-     "weight": 0.0049,
+     "weight": 0.0228,
      "confidence": "ladder",
      "samples": {
       "archetype": 4,
@@ -14172,20 +14179,20 @@
      "forme": "Chandelure-Mega",
      "item": "Chandelurite",
      "ability": "Infiltrator",
-     "nature": "Quiet",
+     "nature": "Timid",
      "sp": {
-      "hp": 2,
+      "hp": 32,
       "atk": 0,
-      "def": 32,
+      "def": 0,
       "spa": 32,
       "spd": 0,
-      "spe": 0
+      "spe": 2
      },
      "moves": [
-      "Heat Wave",
       "Shadow Ball",
+      "Heat Wave",
       "Energy Ball",
-      "Mystical Fire"
+      "Flamethrower"
      ]
     }
    ]
@@ -14193,14 +14200,14 @@
   {
    "species": "Scovillain",
    "rank": 80,
-   "tournamentSets": 91,
+   "tournamentSets": 95,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.3262,
+     "weight": 0.3214,
      "confidence": "paste",
      "samples": {
-      "archetype": 59,
+      "archetype": 61,
       "spread": 3
      },
      "spreadMix": {
@@ -14225,10 +14232,10 @@
      ]
     },
     {
-     "weight": 0.1945,
+     "weight": 0.1916,
      "confidence": "ladder",
      "samples": {
-      "archetype": 59,
+      "archetype": 61,
       "spread": 3
      },
      "spreadMix": {
@@ -14253,10 +14260,10 @@
      ]
     },
     {
-     "weight": 0.1877,
+     "weight": 0.1872,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 0
      },
      "spreadMix": {
@@ -14282,10 +14289,10 @@
      ]
     },
     {
-     "weight": 0.1838,
+     "weight": 0.1811,
      "confidence": "paste",
      "samples": {
-      "archetype": 59,
+      "archetype": 61,
       "spread": 3
      },
      "spreadMix": {
@@ -14310,10 +14317,10 @@
      ]
     },
     {
-     "weight": 0.0678,
+     "weight": 0.0676,
      "confidence": "ladder",
      "samples": {
-      "archetype": 21,
+      "archetype": 22,
       "spread": 0
      },
      "spreadMix": {
@@ -14339,10 +14346,10 @@
      ]
     },
     {
-     "weight": 0.0222,
+     "weight": 0.0283,
      "confidence": "ladder",
      "samples": {
-      "archetype": 3,
+      "archetype": 4,
       "spread": 0
      },
      "spreadMix": {
@@ -14362,16 +14369,16 @@
       "spe": 0
      },
      "moves": [
-      "Flamethrower",
       "Giga Drain",
+      "Flamethrower",
       "Overheat"
      ]
     },
     {
-     "weight": 0.0178,
+     "weight": 0.0227,
      "confidence": "ladder",
      "samples": {
-      "archetype": 3,
+      "archetype": 4,
       "spread": 0
      },
      "spreadMix": {
@@ -14391,8 +14398,8 @@
       "spe": 0
      },
      "moves": [
-      "Flamethrower",
       "Giga Drain",
+      "Flamethrower",
       "Overheat"
      ]
     }
@@ -14581,7 +14588,7 @@
   {
    "species": "Pincurchin",
    "rank": 82,
-   "tournamentSets": 26,
+   "tournamentSets": 27,
    "pasteSets": 3,
    "sets": [
     {
@@ -14785,14 +14792,14 @@
   {
    "species": "Aegislash-Shield",
    "rank": 83,
-   "tournamentSets": 76,
+   "tournamentSets": 78,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.2495,
+     "weight": 0.2611,
      "confidence": "paste",
      "samples": {
-      "archetype": 16,
+      "archetype": 17,
       "spread": 2
      },
      "spreadMix": {
@@ -14819,7 +14826,7 @@
      ]
     },
     {
-     "weight": 0.1848,
+     "weight": 0.1805,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -14849,7 +14856,7 @@
      ]
     },
     {
-     "weight": 0.1774,
+     "weight": 0.1732,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 12,
@@ -14878,7 +14885,7 @@
      ]
     },
     {
-     "weight": 0.1666,
+     "weight": 0.1627,
      "confidence": "paste-nature",
      "samples": {
       "archetype": 12,
@@ -14908,10 +14915,10 @@
      ]
     },
     {
-     "weight": 0.0848,
+     "weight": 0.0887,
      "confidence": "ladder",
      "samples": {
-      "archetype": 16,
+      "archetype": 17,
       "spread": 2
      },
      "spreadMix": {
@@ -14938,7 +14945,7 @@
      ]
     },
     {
-     "weight": 0.0602,
+     "weight": 0.0588,
      "confidence": "ladder",
      "samples": {
       "archetype": 12,
@@ -14967,7 +14974,7 @@
      ]
     },
     {
-     "weight": 0.0566,
+     "weight": 0.0553,
      "confidence": "ladder",
      "samples": {
       "archetype": 12,
@@ -14997,7 +15004,7 @@
      ]
     },
     {
-     "weight": 0.0201,
+     "weight": 0.0197,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -15031,14 +15038,14 @@
   {
    "species": "Clefable",
    "rank": 84,
-   "tournamentSets": 88,
+   "tournamentSets": 93,
    "pasteSets": 1,
    "sets": [
     {
-     "weight": 0.3393,
+     "weight": 0.3453,
      "confidence": "ladder",
      "samples": {
-      "archetype": 23,
+      "archetype": 25,
       "spread": 0
      },
      "spreadMix": {
@@ -15062,7 +15069,7 @@
      ]
     },
     {
-     "weight": 0.2348,
+     "weight": 0.2148,
      "confidence": "ladder",
      "samples": {
       "archetype": 14,
@@ -15090,10 +15097,10 @@
      ]
     },
     {
-     "weight": 0.1468,
+     "weight": 0.1494,
      "confidence": "ladder",
      "samples": {
-      "archetype": 23,
+      "archetype": 25,
       "spread": 0
      },
      "spreadMix": {
@@ -15117,7 +15124,34 @@
      ]
     },
     {
-     "weight": 0.1016,
+     "weight": 0.1379,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 8,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Clefable",
+     "item": "Leftovers",
+     "ability": "Unaware",
+     "nature": "Calm",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Moonblast"
+     ]
+    },
+    {
+     "weight": 0.093,
      "confidence": "ladder",
      "samples": {
       "archetype": 14,
@@ -15145,7 +15179,7 @@
      ]
     },
     {
-     "weight": 0.0937,
+     "weight": 0.0597,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -15156,42 +15190,15 @@
       "ladder": 1
      },
      "forme": "Clefable",
-     "item": "Grassy Seed",
+     "item": "Leftovers",
      "ability": "Unaware",
-     "nature": "Modest",
+     "nature": "Calm",
      "sp": {
       "hp": 32,
       "atk": 0,
-      "def": 2,
-      "spa": 32,
-      "spd": 0,
-      "spe": 0
-     },
-     "moves": [
-      "Moonblast"
-     ]
-    },
-    {
-     "weight": 0.0838,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 8,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Clefable",
-     "item": "Grassy Seed",
-     "ability": "Unaware",
-     "nature": "Modest",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 32,
+      "def": 20,
       "spa": 0,
-      "spd": 2,
+      "spd": 14,
       "spe": 0
      },
      "moves": [
@@ -15203,14 +15210,14 @@
   {
    "species": "Kangaskhan",
    "rank": 85,
-   "tournamentSets": 81,
+   "tournamentSets": 84,
    "pasteSets": 1,
    "sets": [
     {
-     "weight": 0.3702,
+     "weight": 0.3646,
      "confidence": "ladder",
      "samples": {
-      "archetype": 32,
+      "archetype": 33,
       "spread": 0
      },
      "spreadMix": {
@@ -15233,14 +15240,14 @@
       "Fake Out",
       "Double-Edge",
       "Ice Punch",
-      "Low Kick"
+      "Hammer Arm"
      ]
     },
     {
-     "weight": 0.2263,
+     "weight": 0.2309,
      "confidence": "ladder",
      "samples": {
-      "archetype": 15,
+      "archetype": 16,
       "spread": 0
      },
      "spreadMix": {
@@ -15265,7 +15272,7 @@
      ]
     },
     {
-     "weight": 0.1481,
+     "weight": 0.1405,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -15295,10 +15302,10 @@
      ]
     },
     {
-     "weight": 0.1041,
+     "weight": 0.1121,
      "confidence": "ladder",
      "samples": {
-      "archetype": 9,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -15325,10 +15332,10 @@
      ]
     },
     {
-     "weight": 0.1026,
+     "weight": 0.101,
      "confidence": "ladder",
      "samples": {
-      "archetype": 32,
+      "archetype": 33,
       "spread": 0
      },
      "spreadMix": {
@@ -15351,14 +15358,14 @@
       "Fake Out",
       "Double-Edge",
       "Ice Punch",
-      "Low Kick"
+      "Hammer Arm"
      ]
     },
     {
-     "weight": 0.0288,
+     "weight": 0.0311,
      "confidence": "ladder",
      "samples": {
-      "archetype": 9,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -15385,10 +15392,10 @@
      ]
     },
     {
-     "weight": 0.012,
+     "weight": 0.0123,
      "confidence": "ladder",
      "samples": {
-      "archetype": 15,
+      "archetype": 16,
       "spread": 0
      },
      "spreadMix": {
@@ -15413,7 +15420,7 @@
      ]
     },
     {
-     "weight": 0.0079,
+     "weight": 0.0075,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -15447,14 +15454,14 @@
   {
    "species": "Toxapex",
    "rank": 86,
-   "tournamentSets": 132,
+   "tournamentSets": 146,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.3643,
+     "weight": 0.377,
      "confidence": "ladder",
      "samples": {
-      "archetype": 52,
+      "archetype": 61,
       "spread": 0
      },
      "spreadMix": {
@@ -15478,64 +15485,10 @@
      ]
     },
     {
-     "weight": 0.2037,
-     "confidence": "paste",
-     "samples": {
-      "archetype": 47,
-      "spread": 2
-     },
-     "spreadMix": {
-      "tournament": 0.532,
-      "ladder": 0.468
-     },
-     "forme": "Toxapex",
-     "item": "Leftovers",
-     "ability": "Regenerator",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 18,
-      "spa": 0,
-      "spd": 16,
-      "spe": 0
-     },
-     "moves": [
-      "Infestation"
-     ]
-    },
-    {
-     "weight": 0.1875,
-     "confidence": "paste",
-     "samples": {
-      "archetype": 47,
-      "spread": 2
-     },
-     "spreadMix": {
-      "tournament": 0.897,
-      "ladder": 0.103
-     },
-     "forme": "Toxapex",
-     "item": "Leftovers",
-     "ability": "Regenerator",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 8,
-      "spa": 0,
-      "spd": 26,
-      "spe": 0
-     },
-     "moves": [
-      "Infestation"
-     ]
-    },
-    {
-     "weight": 0.1842,
+     "weight": 0.1906,
      "confidence": "ladder",
      "samples": {
-      "archetype": 52,
+      "archetype": 61,
       "spread": 0
      },
      "spreadMix": {
@@ -15559,10 +15512,64 @@
      ]
     },
     {
-     "weight": 0.04,
+     "weight": 0.1884,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 48,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.532,
+      "ladder": 0.468
+     },
+     "forme": "Toxapex",
+     "item": "Leftovers",
+     "ability": "Regenerator",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 18,
+      "spa": 0,
+      "spd": 16,
+      "spe": 0
+     },
+     "moves": [
+      "Infestation"
+     ]
+    },
+    {
+     "weight": 0.1734,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 48,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.897,
+      "ladder": 0.103
+     },
+     "forme": "Toxapex",
+     "item": "Leftovers",
+     "ability": "Regenerator",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 8,
+      "spa": 0,
+      "spd": 26,
+      "spe": 0
+     },
+     "moves": [
+      "Infestation"
+     ]
+    },
+    {
+     "weight": 0.0469,
      "confidence": "ladder",
      "samples": {
-      "archetype": 8,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -15586,10 +15593,10 @@
      ]
     },
     {
-     "weight": 0.0202,
+     "weight": 0.0237,
      "confidence": "ladder",
      "samples": {
-      "archetype": 8,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -15617,44 +15624,14 @@
   {
    "species": "Cinderace",
    "rank": 87,
-   "tournamentSets": 26,
+   "tournamentSets": 28,
    "pasteSets": 2,
    "sets": [
     {
-     "weight": 0.3744,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 6,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Cinderace",
-     "item": "Life Orb",
-     "ability": "Libero",
-     "nature": "Jolly",
-     "sp": {
-      "hp": 2,
-      "atk": 32,
-      "def": 0,
-      "spa": 0,
-      "spd": 0,
-      "spe": 32
-     },
-     "moves": [
-      "Pyro Ball",
-      "U-turn",
-      "High Jump Kick",
-      "Zen Headbutt"
-     ]
-    },
-    {
-     "weight": 0.3264,
+     "weight": 0.347,
      "confidence": "paste-nature",
      "samples": {
-      "archetype": 6,
+      "archetype": 7,
       "spread": 2
      },
      "spreadMix": {
@@ -15681,10 +15658,40 @@
      ]
     },
     {
-     "weight": 0.2764,
+     "weight": 0.3275,
      "confidence": "ladder",
      "samples": {
-      "archetype": 5,
+      "archetype": 6,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Cinderace",
+     "item": "Life Orb",
+     "ability": "Libero",
+     "nature": "Jolly",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Pyro Ball",
+      "U-turn",
+      "High Jump Kick",
+      "Zen Headbutt"
+     ]
+    },
+    {
+     "weight": 0.3028,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 6,
       "spread": 0
      },
      "spreadMix": {
@@ -15706,12 +15713,12 @@
      "moves": [
       "Pyro Ball",
       "Feint",
-      "Sucker Punch",
-      "High Jump Kick"
+      "Low Kick",
+      "Sucker Punch"
      ]
     },
     {
-     "weight": 0.0096,
+     "weight": 0.0084,
      "confidence": "ladder",
      "samples": {
       "archetype": 6,
@@ -15741,10 +15748,10 @@
      ]
     },
     {
-     "weight": 0.0071,
+     "weight": 0.0078,
      "confidence": "ladder",
      "samples": {
-      "archetype": 5,
+      "archetype": 6,
       "spread": 0
      },
      "spreadMix": {
@@ -15766,15 +15773,15 @@
      "moves": [
       "Pyro Ball",
       "Feint",
-      "Sucker Punch",
-      "High Jump Kick"
+      "Low Kick",
+      "Sucker Punch"
      ]
     },
     {
-     "weight": 0.0062,
+     "weight": 0.0066,
      "confidence": "ladder",
      "samples": {
-      "archetype": 6,
+      "archetype": 7,
       "spread": 2
      },
      "spreadMix": {
@@ -15987,14 +15994,14 @@
   {
    "species": "Meganium",
    "rank": 90,
-   "tournamentSets": 87,
+   "tournamentSets": 89,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.2845,
+     "weight": 0.2819,
      "confidence": "paste",
      "samples": {
-      "archetype": 68,
+      "archetype": 69,
       "spread": 3
      },
      "spreadMix": {
@@ -16020,10 +16027,10 @@
      ]
     },
     {
-     "weight": 0.2831,
+     "weight": 0.2805,
      "confidence": "ladder",
      "samples": {
-      "archetype": 68,
+      "archetype": 69,
       "spread": 3
      },
      "spreadMix": {
@@ -16049,10 +16056,10 @@
      ]
     },
     {
-     "weight": 0.2417,
+     "weight": 0.2395,
      "confidence": "paste",
      "samples": {
-      "archetype": 68,
+      "archetype": 69,
       "spread": 3
      },
      "spreadMix": {
@@ -16078,7 +16085,7 @@
      ]
     },
     {
-     "weight": 0.1143,
+     "weight": 0.1115,
      "confidence": "ladder",
      "samples": {
       "archetype": 11,
@@ -16107,10 +16114,10 @@
      ]
     },
     {
-     "weight": 0.0488,
+     "weight": 0.0559,
      "confidence": "ladder",
      "samples": {
-      "archetype": 6,
+      "archetype": 7,
       "spread": 0
      },
      "spreadMix": {
@@ -16130,17 +16137,17 @@
       "spe": 2
      },
      "moves": [
-      "Weather Ball",
       "Solar Beam",
+      "Weather Ball",
       "Dazzling Gleam",
       "Earth Power"
      ]
     },
     {
-     "weight": 0.0225,
+     "weight": 0.0257,
      "confidence": "ladder",
      "samples": {
-      "archetype": 6,
+      "archetype": 7,
       "spread": 0
      },
      "spreadMix": {
@@ -16160,14 +16167,14 @@
       "spe": 32
      },
      "moves": [
-      "Weather Ball",
       "Solar Beam",
+      "Weather Ball",
       "Dazzling Gleam",
       "Earth Power"
      ]
     },
     {
-     "weight": 0.0051,
+     "weight": 0.005,
      "confidence": "ladder",
      "samples": {
       "archetype": 11,
@@ -16200,14 +16207,14 @@
   {
    "species": "Greninja",
    "rank": 91,
-   "tournamentSets": 36,
+   "tournamentSets": 38,
    "pasteSets": 0,
    "sets": [
     {
-     "weight": 0.7378,
+     "weight": 0.7124,
      "confidence": "ladder",
      "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -16227,14 +16234,44 @@
       "spe": 32
      },
      "moves": [
-      "Dark Pulse",
       "Ice Beam",
+      "Dark Pulse",
       "Extrasensory",
       "Hydro Pump"
      ]
     },
     {
-     "weight": 0.1239,
+     "weight": 0.1298,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 2,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Greninja",
+     "item": "Life Orb",
+     "ability": "Torrent",
+     "nature": "Timid",
+     "sp": {
+      "hp": 2,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 32
+     },
+     "moves": [
+      "Dark Pulse",
+      "Ice Beam",
+      "Water Pulse",
+      "Icy Wind"
+     ]
+    },
+    {
+     "weight": 0.1121,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16264,40 +16301,10 @@
      ]
     },
     {
-     "weight": 0.0926,
+     "weight": 0.0341,
      "confidence": "ladder",
      "samples": {
-      "archetype": 1,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Greninja-Mega",
-     "item": "Greninjite",
-     "ability": "Protean",
-     "nature": "Mild",
-     "sp": {
-      "hp": 2,
-      "atk": 0,
-      "def": 0,
-      "spa": 32,
-      "spd": 0,
-      "spe": 32
-     },
-     "moves": [
-      "Dark Pulse",
-      "Rock Slide",
-      "Gunk Shot",
-      "Ice Beam"
-     ]
-    },
-    {
-     "weight": 0.0353,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 20,
+      "archetype": 21,
       "spread": 0
      },
      "spreadMix": {
@@ -16317,14 +16324,44 @@
       "spe": 26
      },
      "moves": [
-      "Dark Pulse",
       "Ice Beam",
+      "Dark Pulse",
       "Extrasensory",
       "Hydro Pump"
      ]
     },
     {
-     "weight": 0.0059,
+     "weight": 0.0062,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 2,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Greninja",
+     "item": "Life Orb",
+     "ability": "Torrent",
+     "nature": "Timid",
+     "sp": {
+      "hp": 8,
+      "atk": 0,
+      "def": 0,
+      "spa": 32,
+      "spd": 0,
+      "spe": 26
+     },
+     "moves": [
+      "Dark Pulse",
+      "Ice Beam",
+      "Water Pulse",
+      "Icy Wind"
+     ]
+    },
+    {
+     "weight": 0.0054,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16351,36 +16388,6 @@
       "Weather Ball",
       "Ice Beam",
       "Water Shuriken"
-     ]
-    },
-    {
-     "weight": 0.0044,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 1,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Greninja-Mega",
-     "item": "Greninjite",
-     "ability": "Protean",
-     "nature": "Mild",
-     "sp": {
-      "hp": 8,
-      "atk": 0,
-      "def": 0,
-      "spa": 32,
-      "spd": 0,
-      "spe": 26
-     },
-     "moves": [
-      "Dark Pulse",
-      "Rock Slide",
-      "Gunk Shot",
-      "Ice Beam"
      ]
     }
    ]
@@ -16388,11 +16395,39 @@
   {
    "species": "Oranguru",
    "rank": 92,
-   "tournamentSets": 15,
+   "tournamentSets": 16,
    "pasteSets": 0,
    "sets": [
     {
-     "weight": 0.1927,
+     "weight": 0.2493,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 4,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Oranguru",
+     "item": "Mental Herb",
+     "ability": "Inner Focus",
+     "nature": "Bold",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Psychic",
+      "Psychic Noise"
+     ]
+    },
+    {
+     "weight": 0.198,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16420,34 +16455,7 @@
      ]
     },
     {
-     "weight": 0.1663,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 3,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Oranguru",
-     "item": "Mental Herb",
-     "ability": "Inner Focus",
-     "nature": "Bold",
-     "sp": {
-      "hp": 32,
-      "atk": 0,
-      "def": 32,
-      "spa": 0,
-      "spd": 2,
-      "spe": 0
-     },
-     "moves": [
-      "Psychic"
-     ]
-    },
-    {
-     "weight": 0.1335,
+     "weight": 0.1372,
      "confidence": "ladder",
      "samples": {
       "archetype": 3,
@@ -16472,7 +16480,7 @@
      "moves": []
     },
     {
-     "weight": 0.1243,
+     "weight": 0.1278,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16499,7 +16507,7 @@
      ]
     },
     {
-     "weight": 0.103,
+     "weight": 0.1059,
      "confidence": "ladder",
      "samples": {
       "archetype": 1,
@@ -16526,10 +16534,10 @@
      ]
     },
     {
-     "weight": 0.0984,
+     "weight": 0.0554,
      "confidence": "ladder",
      "samples": {
-      "archetype": 2,
+      "archetype": 4,
       "spread": 0
      },
      "spreadMix": {
@@ -16537,23 +16545,24 @@
       "ladder": 1
      },
      "forme": "Oranguru",
-     "item": "Twisted Spoon",
+     "item": "Mental Herb",
      "ability": "Inner Focus",
      "nature": "Bold",
      "sp": {
-      "hp": 32,
+      "hp": 2,
       "atk": 0,
       "def": 32,
       "spa": 0,
-      "spd": 2,
+      "spd": 32,
       "spe": 0
      },
      "moves": [
-      "Expanding Force"
+      "Psychic",
+      "Psychic Noise"
      ]
     },
     {
-     "weight": 0.0428,
+     "weight": 0.044,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16581,7 +16590,7 @@
      ]
     },
     {
-     "weight": 0.037,
+     "weight": 0.0305,
      "confidence": "ladder",
      "samples": {
       "archetype": 3,
@@ -16592,7 +16601,7 @@
       "ladder": 1
      },
      "forme": "Oranguru",
-     "item": "Mental Herb",
+     "item": "Colbur Berry",
      "ability": "Inner Focus",
      "nature": "Bold",
      "sp": {
@@ -16603,20 +16612,18 @@
       "spd": 32,
       "spe": 0
      },
-     "moves": [
-      "Psychic"
-     ]
+     "moves": []
     }
    ]
   },
   {
    "species": "Gyarados",
    "rank": 93,
-   "tournamentSets": 32,
+   "tournamentSets": 33,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.547,
+     "weight": 0.52,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -16645,10 +16652,10 @@
      ]
     },
     {
-     "weight": 0.1971,
+     "weight": 0.2321,
      "confidence": "ladder",
      "samples": {
-      "archetype": 5,
+      "archetype": 6,
       "spread": 0
      },
      "spreadMix": {
@@ -16674,7 +16681,7 @@
      ]
     },
     {
-     "weight": 0.157,
+     "weight": 0.1492,
      "confidence": "ladder",
      "samples": {
       "archetype": 16,
@@ -16703,7 +16710,7 @@
      ]
     },
     {
-     "weight": 0.061,
+     "weight": 0.058,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16736,10 +16743,10 @@
      }
     },
     {
-     "weight": 0.0204,
+     "weight": 0.024,
      "confidence": "ladder",
      "samples": {
-      "archetype": 5,
+      "archetype": 6,
       "spread": 0
      },
      "spreadMix": {
@@ -16765,7 +16772,7 @@
      ]
     },
     {
-     "weight": 0.0175,
+     "weight": 0.0167,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -16802,14 +16809,14 @@
   {
    "species": "Snorlax",
    "rank": 94,
-   "tournamentSets": 62,
+   "tournamentSets": 71,
    "pasteSets": 3,
    "sets": [
     {
-     "weight": 0.5189,
+     "weight": 0.5184,
      "confidence": "paste",
      "samples": {
-      "archetype": 46,
+      "archetype": 52,
       "spread": 2
      },
      "spreadMix": {
@@ -16834,10 +16841,10 @@
      ]
     },
     {
-     "weight": 0.3439,
+     "weight": 0.3436,
      "confidence": "paste",
      "samples": {
-      "archetype": 46,
+      "archetype": 52,
       "spread": 2
      },
      "spreadMix": {
@@ -16862,38 +16869,10 @@
      ]
     },
     {
-     "weight": 0.0373,
+     "weight": 0.0396,
      "confidence": "ladder",
      "samples": {
-      "archetype": 4,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Snorlax",
-     "item": "Sitrus Berry",
-     "ability": "Thick Fat",
-     "nature": "Adamant",
-     "sp": {
-      "hp": 2,
-      "atk": 32,
-      "def": 32,
-      "spa": 0,
-      "spd": 0,
-      "spe": 0
-     },
-     "moves": [
-      "Facade",
-      "High Horsepower"
-     ]
-    },
-    {
-     "weight": 0.0339,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 4,
+      "archetype": 5,
       "spread": 0
      },
      "spreadMix": {
@@ -16913,14 +16892,42 @@
       "spe": 0
      },
      "moves": [
+      "Double-Edge",
+      "High Horsepower",
       "Fissure",
-      "Smack Down",
-      "Body Press",
-      "Double-Edge"
+      "Smack Down"
      ]
     },
     {
-     "weight": 0.0337,
+     "weight": 0.032,
+     "confidence": "ladder",
+     "samples": {
+      "archetype": 4,
+      "spread": 0
+     },
+     "spreadMix": {
+      "tournament": 0,
+      "ladder": 1
+     },
+     "forme": "Snorlax",
+     "item": "Sitrus Berry",
+     "ability": "Thick Fat",
+     "nature": "Adamant",
+     "sp": {
+      "hp": 2,
+      "atk": 32,
+      "def": 32,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "moves": [
+      "Facade",
+      "High Horsepower"
+     ]
+    },
+    {
+     "weight": 0.0289,
      "confidence": "ladder",
      "samples": {
       "archetype": 4,
@@ -16948,10 +16955,10 @@
      ]
     },
     {
-     "weight": 0.017,
+     "weight": 0.0198,
      "confidence": "ladder",
      "samples": {
-      "archetype": 4,
+      "archetype": 5,
       "spread": 0
      },
      "spreadMix": {
@@ -16971,17 +16978,17 @@
       "spe": 0
      },
      "moves": [
+      "Double-Edge",
+      "High Horsepower",
       "Fissure",
-      "Smack Down",
-      "Body Press",
-      "Double-Edge"
+      "Smack Down"
      ]
     },
     {
-     "weight": 0.0153,
+     "weight": 0.0179,
      "confidence": "ladder",
      "samples": {
-      "archetype": 4,
+      "archetype": 5,
       "spread": 0
      },
      "spreadMix": {
@@ -17001,10 +17008,10 @@
       "spe": 0
      },
      "moves": [
+      "Double-Edge",
+      "High Horsepower",
       "Fissure",
-      "Smack Down",
-      "Body Press",
-      "Double-Edge"
+      "Smack Down"
      ]
     }
    ]
@@ -17138,11 +17145,11 @@
   {
    "species": "Overqwil",
    "rank": 96,
-   "tournamentSets": 31,
+   "tournamentSets": 32,
    "pasteSets": 2,
    "sets": [
     {
-     "weight": 0.3591,
+     "weight": 0.3449,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -17172,10 +17179,10 @@
      ]
     },
     {
-     "weight": 0.2168,
+     "weight": 0.234,
      "confidence": "paste",
      "samples": {
-      "archetype": 10,
+      "archetype": 11,
       "spread": 2
      },
      "spreadMix": {
@@ -17203,7 +17210,7 @@
      }
     },
     {
-     "weight": 0.1766,
+     "weight": 0.1697,
      "confidence": "ladder",
      "samples": {
       "archetype": 10,
@@ -17233,10 +17240,10 @@
      ]
     },
     {
-     "weight": 0.1152,
+     "weight": 0.1244,
      "confidence": "paste",
      "samples": {
-      "archetype": 10,
+      "archetype": 11,
       "spread": 2
      },
      "spreadMix": {
@@ -17264,7 +17271,7 @@
      }
     },
     {
-     "weight": 0.0887,
+     "weight": 0.0852,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -17294,7 +17301,7 @@
      ]
     },
     {
-     "weight": 0.0436,
+     "weight": 0.0419,
      "confidence": "ladder",
      "samples": {
       "archetype": 2,
@@ -17328,7 +17335,7 @@
   {
    "species": "Samurott-Hisui",
    "rank": 97,
-   "tournamentSets": 33,
+   "tournamentSets": 34,
    "pasteSets": 0,
    "sets": [
     {
@@ -17574,14 +17581,14 @@
   {
    "species": "Mamoswine",
    "rank": 98,
-   "tournamentSets": 52,
+   "tournamentSets": 54,
    "pasteSets": 1,
    "sets": [
     {
-     "weight": 0.4214,
+     "weight": 0.4208,
      "confidence": "ladder",
      "samples": {
-      "archetype": 22,
+      "archetype": 23,
       "spread": 0
      },
      "spreadMix": {
@@ -17602,15 +17609,16 @@
      },
      "moves": [
       "Ice Shard",
+      "High Horsepower",
       "Icicle Crash",
-      "High Horsepower"
+      "Earthquake"
      ]
     },
     {
-     "weight": 0.2812,
+     "weight": 0.2903,
      "confidence": "ladder",
      "samples": {
-      "archetype": 10,
+      "archetype": 11,
       "spread": 0
      },
      "spreadMix": {
@@ -17637,7 +17645,7 @@
      ]
     },
     {
-     "weight": 0.1609,
+     "weight": 0.1526,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -17667,10 +17675,10 @@
      ]
     },
     {
-     "weight": 0.1004,
+     "weight": 0.1002,
      "confidence": "ladder",
      "samples": {
-      "archetype": 22,
+      "archetype": 23,
       "spread": 0
      },
      "spreadMix": {
@@ -17691,15 +17699,16 @@
      },
      "moves": [
       "Ice Shard",
+      "High Horsepower",
       "Icicle Crash",
-      "High Horsepower"
+      "Earthquake"
      ]
     },
     {
-     "weight": 0.0229,
+     "weight": 0.0236,
      "confidence": "ladder",
      "samples": {
-      "archetype": 10,
+      "archetype": 11,
       "spread": 0
      },
      "spreadMix": {
@@ -17726,7 +17735,7 @@
      ]
     },
     {
-     "weight": 0.0131,
+     "weight": 0.0124,
      "confidence": "ladder",
      "samples": {
       "archetype": 8,
@@ -17936,11 +17945,11 @@
   {
    "species": "Altaria",
    "rank": 100,
-   "tournamentSets": 63,
+   "tournamentSets": 66,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.6381,
+     "weight": 0.6255,
      "confidence": "paste",
      "samples": {
       "archetype": 32,
@@ -17967,7 +17976,7 @@
      ]
     },
     {
-     "weight": 0.1181,
+     "weight": 0.1158,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -17995,10 +18004,10 @@
      ]
     },
     {
-     "weight": 0.0837,
+     "weight": 0.0913,
      "confidence": "ladder",
      "samples": {
-      "archetype": 9,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -18020,15 +18029,14 @@
      "moves": [
       "Hyper Voice",
       "Draco Meteor",
-      "Flamethrower",
-      "Fire Blast"
+      "Flamethrower"
      ]
     },
     {
-     "weight": 0.0505,
+     "weight": 0.0551,
      "confidence": "ladder",
      "samples": {
-      "archetype": 9,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -18050,15 +18058,14 @@
      "moves": [
       "Hyper Voice",
       "Draco Meteor",
-      "Flamethrower",
-      "Fire Blast"
+      "Flamethrower"
      ]
     },
     {
-     "weight": 0.0449,
+     "weight": 0.049,
      "confidence": "ladder",
      "samples": {
-      "archetype": 9,
+      "archetype": 10,
       "spread": 0
      },
      "spreadMix": {
@@ -18080,12 +18087,11 @@
      "moves": [
       "Hyper Voice",
       "Draco Meteor",
-      "Flamethrower",
-      "Fire Blast"
+      "Flamethrower"
      ]
     },
     {
-     "weight": 0.0353,
+     "weight": 0.0346,
      "confidence": "ladder",
      "samples": {
       "archetype": 32,
@@ -18112,7 +18118,7 @@
      ]
     },
     {
-     "weight": 0.0294,
+     "weight": 0.0288,
      "confidence": "ladder",
      "samples": {
       "archetype": 7,
@@ -18144,14 +18150,14 @@
   {
    "species": "Scrafty",
    "rank": 101,
-   "tournamentSets": 45,
+   "tournamentSets": 48,
    "pasteSets": 4,
    "sets": [
     {
-     "weight": 0.4572,
+     "weight": 0.4627,
      "confidence": "ladder",
      "samples": {
-      "archetype": 17,
+      "archetype": 18,
       "spread": 0
      },
      "spreadMix": {
@@ -18181,7 +18187,7 @@
      }
     },
     {
-     "weight": 0.3559,
+     "weight": 0.3347,
      "confidence": "ladder",
      "samples": {
       "archetype": 12,
@@ -18214,20 +18220,20 @@
      }
     },
     {
-     "weight": 0.1046,
+     "weight": 0.0504,
      "confidence": "ladder",
      "samples": {
       "archetype": 5,
-      "spread": 0
+      "spread": 2
      },
      "spreadMix": {
       "tournament": 0,
       "ladder": 1
      },
      "forme": "Scrafty",
-     "item": "Life Orb",
+     "item": "Focus Sash",
      "ability": "Intimidate",
-     "nature": "Adamant",
+     "nature": "Impish",
      "sp": {
       "hp": 32,
       "atk": 32,
@@ -18237,19 +18243,19 @@
       "spe": 0
      },
      "moves": [
-      "Fake Out",
+      "Close Combat",
       "Knock Off",
-      "Drain Punch"
+      "Fake Out"
      ],
      "autoField": {
       "intimidate": true
      }
     },
     {
-     "weight": 0.041,
+     "weight": 0.0415,
      "confidence": "ladder",
      "samples": {
-      "archetype": 17,
+      "archetype": 18,
       "spread": 0
      },
      "spreadMix": {
@@ -18279,7 +18285,71 @@
      }
     },
     {
-     "weight": 0.0319,
+     "weight": 0.0414,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 5,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.944,
+      "ladder": 0.056
+     },
+     "forme": "Scrafty",
+     "item": "Focus Sash",
+     "ability": "Intimidate",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 4,
+      "spa": 0,
+      "spd": 4,
+      "spe": 26
+     },
+     "moves": [
+      "Close Combat",
+      "Knock Off",
+      "Fake Out"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.0393,
+     "confidence": "paste",
+     "samples": {
+      "archetype": 5,
+      "spread": 2
+     },
+     "spreadMix": {
+      "tournament": 0.971,
+      "ladder": 0.029
+     },
+     "forme": "Scrafty",
+     "item": "Focus Sash",
+     "ability": "Intimidate",
+     "nature": "Impish",
+     "sp": {
+      "hp": 32,
+      "atk": 0,
+      "def": 32,
+      "spa": 0,
+      "spd": 2,
+      "spe": 0
+     },
+     "moves": [
+      "Close Combat",
+      "Knock Off",
+      "Fake Out"
+     ],
+     "autoField": {
+      "intimidate": true
+     }
+    },
+    {
+     "weight": 0.03,
      "confidence": "ladder",
      "samples": {
       "archetype": 12,
@@ -18305,38 +18375,6 @@
       "Knock Off",
       "Fake Out",
       "Close Combat",
-      "Drain Punch"
-     ],
-     "autoField": {
-      "intimidate": true
-     }
-    },
-    {
-     "weight": 0.0094,
-     "confidence": "ladder",
-     "samples": {
-      "archetype": 5,
-      "spread": 0
-     },
-     "spreadMix": {
-      "tournament": 0,
-      "ladder": 1
-     },
-     "forme": "Scrafty",
-     "item": "Life Orb",
-     "ability": "Intimidate",
-     "nature": "Adamant",
-     "sp": {
-      "hp": 2,
-      "atk": 32,
-      "def": 0,
-      "spa": 0,
-      "spd": 32,
-      "spe": 0
-     },
-     "moves": [
-      "Fake Out",
-      "Knock Off",
       "Drain Punch"
      ],
      "autoField": {
